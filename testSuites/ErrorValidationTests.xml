@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+    <groups>
+        <run>
+            <include name="Purchase"></include>
+            <exclude name="ErrHandling"></exclude>
+        </run>
+    </groups>
+    <test thread-count="2" name="Submit Order Test">
+        <!--        <packages> &lt;!&ndash; Chạy tất cả class trong package demo &ndash;&gt;-->
+        <!--            <package name="demo"/>-->
+        <!--        </packages>-->
+        <classes>
+            <class name="demo.PageObjectModel"></class>
+        </classes>
+    </test>
+    <test thread-count="2" name="Error Validation Test">
+        <classes>
+            <class name="demo.ErrValidation"></class>
+        </classes>
+    </test>
+</suite>

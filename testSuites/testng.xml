@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Loan Department">
+    <listeners>
+        <listener class-name="demo.Listeners"></listener>
+    </listeners>
+    <!--    <test verbose="2" preserve-order="true" name="Personal Loan">-->
+    <!--        <classes>-->
+    <!--            <class name="demo.lesson16.TestNG">-->
+    <!--                <methods>-->
+    <!--                    <include name="setup"/>-->
+    <!--                    <include name="secondTestCase"/>-->
+    <!--                    <exclude name="teardown"/>-->
+    <!--                </methods>-->
+    <!--            </class>-->
+    <!--            <class name="demo.lesson16.Day1">-->
+    <!--                <methods>-->
+    <!--                    <exclude name="teardown"/>-->
+    <!--                </methods>-->
+    <!--            </class>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <!--    <test verbose="2" preserve-order="true" name="Car Loan">-->
+    <!--        <classes>-->
+    <!--            <class name="demo.lesson16.Day2">-->
+
+    <!--            </class>-->
+    <!--            <class name="demo.lesson16.Day3">-->
+    <!--                <methods>-->
+    <!--                    <exclude name="API.*"/>-->
+    <!--                </methods>-->
+    <!--            </class>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <test thread-count="4" name="Submit Order Test">
+        <!--        <packages> &lt;!&ndash; Chạy tất cả class trong package demo &ndash;&gt;-->
+        <!--            <package name="demo"/>-->
+        <!--        </packages>-->
+        <classes>
+            <class name="demo.PageObjectModel"></class>
+        </classes>
+    </test>
+    <test thread-count="4" name="Error Validation Test">
+        <classes>
+            <class name="demo.ErrValidation"></class>
+        </classes>
+    </test>
+</suite>
