@@ -1,0 +1,16 @@
+Các ví dụ phổ biến với ExpectedConditions trong Selenium WebDriver
+
+| ExpectedCondition                          | Ví dụ cụ thể                                                                 | Giải thích                                                                 |
+|--------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| elementToBeClickable                       | WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(By.id("loginBtn"))); | Chờ cho phần tử có thể click được (visible + enabled).                      |
+| visibilityOfElementLocated                 | WebElement userBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username"))); | Chờ cho phần tử xuất hiện và hiển thị trên trang.                           |
+| presenceOfElementLocated                   | WebElement elem = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='content']"))); | Chờ phần tử xuất hiện trong DOM (có thể chưa hiển thị).                     |
+| textToBePresentInElement                   | wait.until(ExpectedConditions.textToBePresentInElement(By.id("status"), "Success")); | Chờ cho text cụ thể xuất hiện trong phần tử.                                |
+| textToBePresentInElementValue              | wait.until(ExpectedConditions.textToBePresentInElementValue(By.id("username"), "Ton")); | Chờ cho value của input chứa text mong muốn.                                |
+| alertIsPresent                             | wait.until(ExpectedConditions.alertIsPresent());                             | Chờ cho alert popup xuất hiện.                                              |
+| frameToBeAvailableAndSwitchToIt            | wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("frameName")); | Chờ cho frame xuất hiện rồi tự động switch vào frame đó.                    |
+| invisibilityOfElementLocated               | wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading"))); | Chờ cho phần tử biến mất khỏi trang (ví dụ: spinner loading).               |
+| elementToBeSelected                        | wait.until(ExpectedConditions.elementToBeSelected(By.id("checkbox")));       | Chờ cho checkbox hoặc radio button được chọn.                               |
+| numberOfElementsToBe                       | wait.until(ExpectedConditions.numberOfElementsToBe(By.tagName("li"), 5));    | Chờ cho số lượng phần tử khớp bằng đúng giá trị mong muốn.                  |
+| numberOfElementsToBeMoreThan               | wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.tagName("li"), 3)); | Chờ cho số lượng phần tử khớp lớn hơn giá trị mong muốn.                    |
+| stalenessOf                                | wait.until(ExpectedConditions.stalenessOf(oldElement));                      | Chờ cho phần tử cũ không còn tồn tại trong DOM (thường dùng sau refresh).   |

@@ -1,0 +1,163 @@
+🔎 Khái niệm Locators
+Locators = Bộ định vị phần tử web.
+Dùng để “chỉ” cho Selenium biết phần tử nào trên DOM (Document Object Model) cần thao tác.
+Được sử dụng cùng với các hàm findElement() hoặc findElements() của WebDriver.
+Ví dụ: driver.findElement(By.id("username")).sendKeys("Ton");
+
+Locators trong Selenium WebDriver là cách để xác định và tìm ra phần tử (element) trên trang web như nút bấm,
+ô nhập liệu, checkbox, link… để tự động hóa thao tác. Nếu không có locator chính xác, Selenium không thể tương
+tác với phần tử đó.
+
+Các loại locators phổ biến trong Selenium WebDriver:
+
+| Locator             | Cú pháp (Java)                  | Mô tả                                      | Ví dụ                                         |
+|---------------------|---------------------------------|--------------------------------------------|-----------------------------------------------|
+| ID                  | By.id("idValue")                | Tìm phần tử theo thuộc tính id             | driver.findElement(By.id("loginBtn"));        |
+| Name                | By.name("nameValue")            | Tìm phần tử theo thuộc tính name           | driver.findElement(By.name("email"));         |
+| Class Name          | By.className("classValue")      | Tìm phần tử theo tên class CSS             | driver.findElement(By.className("btn-primary")); |
+| Tag Name            | By.tagName("tagValue")          | Tìm phần tử theo thẻ HTML                  | driver.findElement(By.tagName("input"));      |
+| Link Text           | By.linkText("text")             | Tìm link theo nội dung text chính xác      | driver.findElement(By.linkText("Forgot Password")); |
+| Partial Link Text   | By.partialLinkText("text")      | Tìm link theo một phần text                | driver.findElement(By.partialLinkText("Forgot")); |
+| CSS Selector        | By.cssSelector("cssQuery")      | Dùng cú pháp CSS để tìm phần tử            | driver.findElement(By.cssSelector("input[type='text']")); |
+| XPath               | By.xpath("xpathQuery")          | Dùng cú pháp XPath để tìm phần tử trong DOM| driver.findElement(By.xpath("//input[@id='username']")); |
+
+Ưu nhược điểm:
+- ID: Nhanh, ổn định, nhưng không phải lúc nào cũng có.
+- Name: Dễ dùng, nhưng có thể trùng lặp.
+- Class Name: Tốt cho nhóm phần tử, nhưng dễ thay đổi khi CSS đổi.
+- Tag Name: Ít dùng riêng lẻ, thường kết hợp với findElements().
+- Link Text/Partial Link Text: Dễ đọc, nhưng phụ thuộc vào nội dung text.
+- CSS Selector: Linh hoạt, mạnh mẽ, dễ viết ngắn gọn.
+- XPath: Rất mạnh, có thể duyệt toàn bộ DOM, nhưng cú pháp dài và dễ phức tạp.
+
+Kinh nghiệm chọn locator:
+- Ưu tiên ID nếu có, vì nhanh và ổn định nhất.
+- Nếu không có ID, dùng Name hoặc CSS Selector.
+- XPath chỉ dùng khi không còn lựa chọn khác, hoặc cần tìm phần tử phức tạp.
+- Luôn kiểm tra locator bằng công cụ Inspect/DevTools của trình duyệt trước khi viết code.
+
+CSS Selector và XPath trong Selenium WebDriver
+
+| Kỹ thuật chọn | CSS Selector ví dụ                           | XPath ví dụ                                               | Mô tả                                                                 |
+|---------------|-----------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------------|
+| Theo ID       | #username                                     | //*[@id='username']                                       | Chọn phần tử có id cụ thể.                                             |
+| Theo Class    | .btn-login                                    | //*[@class='btn-login']                                   | Chọn phần tử theo class CSS.                                           |
+| Theo Tag      | input                                         | //input                                                   | Chọn phần tử theo tên thẻ HTML.                                        |
+| Theo Attribute| input[type='text']                            | //input[@type='text']                                     | Chọn phần tử theo thuộc tính.                                          |
+| Kết hợp nhiều | div.content input[type='password']            | //div[@class='content']//input[@type='password']          | Chọn phần tử theo nhiều điều kiện.                                     |
+| Quan hệ cha-con| div > span                                   | //div/span                                                | Chọn phần tử con trực tiếp của cha.                                    |
+| Quan hệ bất kỳ| div span                                      | //div//span                                               | Chọn phần tử con ở bất kỳ cấp nào.                                     |
+| Theo vị trí   | div:nth-child(2)                              | (//div)[2]                                                | Chọn phần tử theo vị trí/thứ tự.                                       |
+| Bắt đầu bằng  | input[name^='user']                           | //input[starts-with(@name,'user')]                        | Chọn phần tử có attribute bắt đầu bằng giá trị.                        |
+| Kết thúc bằng | input[name$='name']                           | //input[substring(@name,string-length(@name)-3)='name']   | Chọn phần tử có attribute kết thúc bằng giá trị.                       |
+| Chứa          | input[name*='mail']                           | //input[contains(@name,'mail')]                           | Chọn phần tử có attribute chứa giá trị.                                |
+| Theo text     | N/A                                           | //button[text()='Login']                                  | Chọn phần tử theo nội dung text hiển thị.                              |
+| Chứa text     | N/A                                           | //button[contains(text(),'Log')]                          | Chọn phần tử có text chứa chuỗi con.                                   |
+| Theo nhiều điều kiện| input[type='text'][name='email']        | //input[@type='text' and @name='email']                   | Chọn phần tử thỏa nhiều điều kiện cùng lúc.                            |
+| Theo ancestor | N/A                                           | //div[@class='form']//input[@id='password']               | Chọn phần tử dựa vào cha/ancestor.                                     |
+| Theo sibling  | label + input                                 | //label[@for='user']/following-sibling::input             | Chọn phần tử dựa vào anh/chị/em (sibling).                             |
+| Theo last     | div:last-child                                | (//div)[last()]                                           | Chọn phần tử cuối cùng trong danh sách.                                |
+
+So sánh CSS Selector vs XPath trong Selenium WebDriver
+
+| Tiêu chí              | CSS Selector                                      | XPath                                                   |
+|-----------------------|---------------------------------------------------|---------------------------------------------------------|
+| Độ dài cú pháp        | Ngắn gọn, dễ viết                                 | Thường dài hơn, phức tạp hơn                            |
+| Hiệu năng             | Nhanh hơn trên hầu hết trình duyệt                | Chậm hơn một chút do duyệt toàn bộ DOM                  |
+| Hỗ trợ text           | Không hỗ trợ chọn theo text nội dung              | Hỗ trợ chọn theo text (//button[text()='Login'])        |
+| Quan hệ cha-con       | Hỗ trợ tốt (div > span, div span)                 | Hỗ trợ tốt (//div/span, //div//span)                    |
+| Quan hệ sibling       | Hỗ trợ (label + input)                            | Hỗ trợ mạnh mẽ (following-sibling, preceding-sibling)   |
+| Điều kiện phức tạp    | Hạn chế, chỉ chọn theo attribute, class, id       | Rất mạnh, hỗ trợ nhiều điều kiện logic (and, or, contains) |
+| Tính ổn định          | Ít bị ảnh hưởng khi DOM thay đổi nhỏ              | Dễ bị ảnh hưởng nếu cấu trúc DOM thay đổi               |
+| Tính phổ biến         | Được dùng nhiều trong automation hiện đại         | Dùng khi cần chọn phần tử phức tạp hoặc theo text       |
+| Hỗ trợ trình duyệt    | Tốt trên tất cả trình duyệt hiện đại              | Tốt, nhưng một số trình duyệt cũ có thể kém tối ưu      |
+
+Kinh nghiệm sử dụng:
+- Ưu tiên CSS Selector cho phần tử đơn giản, dễ xác định.
+- Dùng XPath khi cần chọn theo text hoặc điều kiện phức tạp.
+- Kết hợp cả hai trong dự án để linh hoạt và tối ưu.
+
+Best practice về Wait trong Selenium:
+
+1. Implicit Wait:
+   - Đặt một giá trị nhỏ (ví dụ 3–5 giây).
+   - Mục đích: xử lý chung cho toàn bộ test, tránh lỗi "NoSuchElementException" khi DOM tải hơi chậm.
+   - Giống như một lớp “đệm” mặc định.
+
+2. Explicit Wait:
+   - Dùng cho các tình huống đặc biệt, cần kiểm soát chính xác.
+   - Ví dụ: chờ popup xuất hiện, chờ nút có thể click, chờ text thay đổi.
+   - Áp dụng riêng cho từng element hoặc điều kiện.
+
+3. Không nên:
+   - Đặt implicit wait quá dài (ví dụ 30 giây) → làm chậm toàn bộ test.
+   - Lạm dụng explicit wait cho mọi element → code rối và khó bảo trì.
+   - Dùng cả hai với giá trị lớn cùng lúc → dễ gây xung đột thời gian chờ.
+
+4. Kết hợp hợp lý:
+   - Implicit wait ngắn để xử lý chung.
+   - Explicit wait cho các tình huống động, AJAX, animation.
+   - Như vậy vừa gọn code, vừa đảm bảo test ổn định.
+
+Quan hệ trong CSS Selector và XPath
+
+| Quan hệ        | CSS Selector ví dụ            | XPath ví dụ                                      | Khi nên dùng                                                                 |
+|----------------|-------------------------------|--------------------------------------------------|-------------------------------------------------------------------------------|
+| Cha–con trực tiếp | div > span                 | //div/span                                       | Khi phần tử con nằm ngay bên trong cha, không qua cấp trung gian. Ví dụ: <div><span>...</span></div> |
+| Cha–con bất kỳ | div span                      | //div//span                                      | Khi phần tử con có thể nằm sâu nhiều cấp bên trong cha. Ví dụ: <div><p><span>...</span></p></div> |
+| Siblings (anh/chị/em) | label + input          | //label[@for='user']/following-sibling::input    | Khi muốn chọn phần tử nằm ngay sau hoặc trước một phần tử khác. Ví dụ: <label>...</label><input> |
+| Ancestor (tổ tiên) | N/A                       | //div[@class='form']//input[@id='password']      | Khi phần tử cần chọn nằm trong một khối cha lớn (form, container). Dùng để định vị theo ngữ cảnh. |
+| Preceding/Following | N/A                      | //h2/following::p                                | Khi muốn chọn phần tử xuất hiện sau hoặc trước một phần tử khác trong DOM. |
+
+📌 Khi nào nên dùng
+Cha–con trực tiếp (> hoặc /)
+→ Khi cấu trúc HTML rõ ràng, phần tử con luôn nằm ngay trong cha. Giúp locator ngắn gọn và chính xác.
+
+Cha–con bất kỳ ( hoặc //)
+→ Khi phần tử con có thể nằm sâu nhiều cấp, không biết chính xác cấp độ. Dùng để tránh viết locator quá dài.
+
+Siblings (anh/chị/em)
+→ Khi phần tử không có ID/class riêng, nhưng luôn nằm cạnh một phần tử khác dễ xác định. Ví dụ: input luôn nằm ngay sau label.
+
+Ancestor (tổ tiên)
+→ Khi muốn định vị phần tử dựa vào khối cha lớn (form, div, section). Rất hữu ích khi nhiều phần tử giống nhau nhưng nằm
+trong các container khác nhau.
+
+Preceding/Following
+→ Khi cần chọn phần tử dựa vào vị trí trước/sau một phần tử khác. Dùng nhiều trong XPath khi DOM phức tạp.
+
+👉 Tóm lại:
+
+Cha–con: dùng khi phần tử nằm trong container rõ ràng.
+Siblings: dùng khi phần tử nằm cạnh nhau, không có ID/class riêng.
+Ancestor: dùng khi cần định vị theo ngữ cảnh container.
+Preceding/Following: dùng khi muốn chọn theo vị trí tương đối trong DOM.
+
+Ví dụ HTML mẫu (form login):
+
+<div class="login-form">
+    <label for="username">Username:</label>
+    <input id="username" type="text" name="user">
+
+    <label for="password">Password:</label>
+    <input id="password" type="password" name="pass">
+
+    <button id="loginBtn">Login</button>
+</div>
+
+Cách chọn phần tử bằng quan hệ:
+
+| Quan hệ        | CSS Selector ví dụ                   | XPath ví dụ                                               | Giải thích                                                                 |
+|----------------|--------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------------------|
+| Cha–con trực tiếp | .login-form > button               | //div[@class='login-form']/button                         | Chọn nút Login nằm trực tiếp trong div cha.                                 |
+| Cha–con bất kỳ | .login-form input                     | //div[@class='login-form']//input                         | Chọn tất cả input nằm trong div login-form, bất kể cấp độ.                   |
+| Siblings       | label[for='username'] + input         | //label[@for='username']/following-sibling::input         | Chọn input ngay sau label Username.                                         |
+| Ancestor       | div.login-form input#password         | //div[@class='login-form']//input[@id='password']         | Chọn input password dựa vào ancestor div.login-form.                        |
+| Preceding      | N/A                                   | //input[@id='password']/preceding-sibling::label          | Chọn label nằm trước input password.                                        |
+| Following      | N/A                                   | //label[@for='username']/following::input[@id='password'] | Chọn input password xuất hiện sau label Username trong DOM.                  |
+
+📌 Ý nghĩa thực tế
+Cha–con: dùng khi phần tử nằm trong container rõ ràng (form, div).
+Siblings: hữu ích khi input không có ID/class nhưng luôn nằm cạnh label.
+Ancestor: dùng khi nhiều form giống nhau, cần định vị theo ngữ cảnh container.
+Preceding/Following: dùng khi muốn chọn phần tử dựa vào vị trí trước/sau trong DOM.

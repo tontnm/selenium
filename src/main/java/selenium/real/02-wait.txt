@@ -1,0 +1,19 @@
+So sánh Implicit Wait và Explicit Wait trong Selenium WebDriver
+
+| Tiêu chí              | Implicit Wait                                   | Explicit Wait                                                |
+|-----------------------|------------------------------------------------|--------------------------------------------------------------|
+| Phạm vi áp dụng       | Toàn bộ session, tất cả phần tử                 | Chỉ áp dụng cho phần tử/điều kiện cụ thể                     |
+| Cách sử dụng          | Đặt một lần, áp dụng toàn cục                   | Đặt riêng cho từng tình huống                                |
+| Độ linh hoạt          | Thấp, chỉ chờ phần tử xuất hiện                 | Cao, có thể chờ nhiều điều kiện (visible, clickable, text…)  |
+| Nguy cơ               | Có thể gây chậm toàn bộ test nếu set quá cao    | Có thể làm code phức tạp nếu lạm dụng nhiều điều kiện        |
+| Khi nào nên dùng      | Khi muốn chờ mặc định cho tất cả phần tử        | Khi cần kiểm soát chính xác, ví dụ chờ popup, AJAX, animation|
+
+Chi tiết:
+- Implicit Wait: Selenium sẽ chờ tối đa thời gian đã đặt cho tất cả lệnh findElement(). Nếu phần tử xuất hiện sớm hơn,
+lệnh tiếp tục ngay.
+- Explicit Wait: Cho phép chờ đến khi điều kiện cụ thể được thỏa mãn, ví dụ phần tử hiển thị, có thể click, hoặc text xuất hiện.
+
+Lưu ý:
+- Không nên kết hợp implicit và explicit wait cùng lúc vì dễ gây xung đột và tăng thời gian chờ không mong muốn.
+- Best practice: đặt implicit wait ngắn (ví dụ 5 giây) để xử lý chung, dùng explicit wait cho các tình huống đặc biệt
+cần kiểm soát chính xác.

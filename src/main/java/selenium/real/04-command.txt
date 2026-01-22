@@ -1,0 +1,44 @@
+Các câu lệnh cơ bản trong Selenium WebDriver
+
+| Lệnh        | Cách sử dụng                                                                 | Ví dụ cụ thể                                                                 | Giải thích                                                                 |
+|-------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| sendKeys    | Gửi chuỗi ký tự vào một ô nhập liệu (textbox, input).                         | driver.findElement(By.id("username")).sendKeys("Ton");                        | Dùng để nhập dữ liệu vào form.                                              |
+| click       | Thực hiện thao tác click chuột lên phần tử (button, link, checkbox…).         | driver.findElement(By.id("loginBtn")).click();                                | Dùng để nhấn nút, chọn checkbox, mở link.                                   |
+| clear       | Xóa nội dung trong ô nhập liệu.                                               | driver.findElement(By.name("email")).clear();                                 | Dùng khi cần xóa text trước khi nhập mới.                                   |
+| getText     | Lấy nội dung text hiển thị của phần tử.                                       | String text = driver.findElement(By.className("welcome")).getText();          | Dùng để kiểm tra nội dung hiển thị.                                         |
+| getAttribute| Lấy giá trị thuộc tính của phần tử (ví dụ: value, href, src).                 | String val = driver.findElement(By.id("username")).getAttribute("value");     | Dùng để kiểm tra giá trị thuộc tính.                                        |
+| navigate().to | Điều hướng đến một URL cụ thể.                                              | driver.navigate().to("https://example.com");                                  | Giống driver.get(), nhưng linh hoạt hơn.                                   |
+| navigate().back | Quay lại trang trước đó.                                                  | driver.navigate().back();                                                     | Dùng để mô phỏng nút Back của trình duyệt.                                  |
+| navigate().forward | Tiến tới trang kế tiếp (sau khi back).                                | driver.navigate().forward();                                                  | Dùng để mô phỏng nút Forward của trình duyệt.                               |
+| navigate().refresh | Tải lại trang hiện tại.                                               | driver.navigate().refresh();                                                  | Dùng để refresh trang.                                                      |
+| submit      | Gửi form (thường dùng với form element).                                      | driver.findElement(By.id("loginForm")).submit();                              | Dùng để submit form mà không cần click nút.                                 |
+
+Ví dụ findElement và findElements trong Selenium WebDriver
+
+| Lệnh          | Cú pháp (Java)                                                                 | Ví dụ cụ thể                                                                 | Giải thích                                                                 |
+|---------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| findElement   | WebElement element = driver.findElement(By.locator);                            | WebElement userBox = driver.findElement(By.id("username"));                   | Tìm và trả về phần tử đầu tiên khớp với locator. Nếu không tìm thấy sẽ báo lỗi NoSuchElementException. |
+| findElements  | List<WebElement> elements = driver.findElements(By.locator);                    | List<WebElement> links = driver.findElements(By.tagName("a"));                | Tìm và trả về danh sách tất cả phần tử khớp với locator. Nếu không tìm thấy sẽ trả về danh sách rỗng. |
+
+Ví dụ chi tiết:
+
+1. findElement:
+   WebElement loginButton = driver.findElement(By.id("loginBtn"));
+   loginButton.click();
+   -> Tìm nút có id="loginBtn" và click.
+
+2. findElements:
+   List<WebElement> allInputs = driver.findElements(By.tagName("input"));
+   System.out.println("Số lượng input: " + allInputs.size());
+   -> Tìm tất cả thẻ <input> trên trang và in ra số lượng.
+
+3. Kết hợp findElements với vòng lặp:
+   List<WebElement> menuItems = driver.findElements(By.className("menu-item"));
+   for(WebElement item : menuItems) {
+       System.out.println(item.getText());
+   }
+   -> Lấy tất cả phần tử có class="menu-item" và in ra text của từng phần tử.
+
+4. Trường hợp không tìm thấy:
+   - findElement: sẽ ném lỗi NoSuchElementException.
+   - findElements: sẽ trả về danh sách rỗng (size = 0).

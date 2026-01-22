@@ -1,0 +1,45 @@
+Interception Error trong Selenium WebDriver
+
+Khái niệm:
+- Interception Error (ElementClickInterceptedException) xảy ra khi Selenium gọi click() lên một phần tử nhưng thao tác
+bị chặn bởi một phần tử khác nằm đè lên nó.
+- Nguyên nhân thường gặp: popup, overlay, banner quảng cáo, animation hoặc DOM chưa ổn định.
+
+Nguyên nhân chính:
+- Phần tử bị che phủ: overlay, modal, quảng cáo.
+- Animation hoặc AJAX chưa hoàn tất: phần tử chưa sẵn sàng để click.
+- Scroll chưa đúng vị trí: phần tử nằm ngoài vùng nhìn thấy (viewport).
+- Timing issue: Selenium click quá sớm trước khi phần tử hiển thị đầy đủ.
+
+Bảng nguyên nhân và cách xử lý:
+
+| Nguyên nhân                  | Ví dụ tình huống                              | Cách tránh                                                                 |
+|-------------------------------|-----------------------------------------------|----------------------------------------------------------------------------|
+| Overlay/Popup che phủ         | Banner cookie hoặc modal đăng nhập đè lên nút | Đóng popup trước, hoặc chờ overlay biến mất bằng explicit wait.             |
+| Animation chưa xong           | Nút xuất hiện sau hiệu ứng fade-in            | Dùng WebDriverWait với ExpectedConditions.elementToBeClickable().           |
+| Scroll chưa đúng              | Nút nằm dưới cùng trang                       | Dùng Actions.moveToElement() hoặc JavascriptExecutor.scrollIntoView().      |
+| AJAX/DOM chưa ổn định         | Nút chỉ render sau khi dữ liệu load           | Dùng explicit wait cho điều kiện visibilityOfElementLocated().              |
+
+Cách tránh hiệu quả:
+1. Explicit Wait:
+   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+   WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(By.id("loginBtn")));
+   btn.click();
+
+2. Scroll đến phần tử:
+   WebElement element = driver.findElement(By.id("loginBtn"));
+   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+   element.click();
+
+3. Đóng overlay trước khi click:
+   - Xác định và đóng popup/modal bằng locator.
+   - Chỉ click khi phần tử mục tiêu không bị che phủ.
+
+4. Dùng Actions class:
+   Actions actions = new Actions(driver);
+   actions.moveToElement(element).click().perform();
+
+Lưu ý:
+- Không nên rely vào implicit wait cho lỗi này, vì implicit chỉ chờ phần tử xuất hiện, không đảm bảo nó có thể click.
+- Explicit wait với điều kiện "clickable" là cách an toàn nhất.
+- Luôn kiểm tra bằng DevTools (F12) xem có phần tử nào che phủ trước khi viết locator.
