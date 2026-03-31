@@ -1,0 +1,132 @@
+<suite name="Ecommerce Suite" parallel="tests" thread-count="5">
+    <parameter name="env" value="staging"/>
+
+    <test name="Login Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="demo.LoginTests"/>
+        </classes>
+    </test>
+
+    <test name="Product Catalogue Tests">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="demo.ProductTests"/>
+        </classes>
+    </test>
+
+    <test name="Cart & Checkout Tests">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="demo.CartTests"/>
+        </classes>
+    </test>
+
+    <test name="Order History Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="demo.OrderTests"/>
+        </classes>
+    </test>
+
+    <test name="Error Validation Tests">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="demo.ErrorTests"/>
+        </classes>
+    </test>
+</suite>
+
+
+
+        <!--
+
+        🔹 Nguyên tắc chung khi chạy parallel
+Chia nhỏ test case thành nhiều suite/test block để dễ quản lý.
+Thread-count vừa phải (4–8) để tận dụng CPU nhưng không quá tải.
+Đảm bảo test độc lập: mỗi test case không phụ thuộc dữ liệu của test khác.
+Quản lý dữ liệu: tránh dùng chung account, file, hoặc database record.
+Driver thread-safe: mỗi thread có instance WebDriver riêng (dùng ThreadLocal hoặc tạo mới driver trong @BeforeMethod).
+
+🔹 Chiến lược chia 100 test case
+Giả sử bạn có 100 test case Selenium UI:
+
+1. Chia theo chức năng
+Login & Authentication: 10 test
+Product Catalogue: 20 test
+Cart & Checkout: 30 test
+Order History & Profile: 20 test
+Error Validation & Edge Cases: 20 test
+👉 Mỗi nhóm thành một <test> block trong XML.
+
+3. Tránh conflict dữ liệu
+Account: tạo nhiều user account test, mỗi thread dùng account riêng.
+Database: nếu ghi dữ liệu, dùng record riêng hoặc reset sau mỗi test.
+File upload/download: đặt tên file theo thread ID để tránh ghi đè.
+
+4. Quản lý WebDriver
+Trong BaseTest, dùng ThreadLocal<WebDriver> để mỗi thread có driver riêng:
+
+✅ Kết quả
+100 test case được chia thành 5 nhóm chạy song song.
+Tổng thời gian giảm đáng kể (ví dụ từ 100 phút xuống còn ~20 phút).
+Không conflict dữ liệu vì mỗi thread có driver và account riêng.
+Báo cáo ExtentReports vẫn tổng hợp đầy đủ kết quả từng nhóm.
+
+Trong TestNG, một file testng.xml có thể chứa một hoặc nhiều <suite>, tùy cách bạn muốn tổ chức test.
+
+🔹 Thông thường
+Một file XML = một suite → đây là cách phổ biến nhất.
+Dễ quản lý, dễ đọc.
+Mỗi suite gom nhóm nhiều <test> bên trong.
+👉 Một suite, bên trong có nhiều test block.
+
+🔹 Trường hợp có nhiều suite trong một file
+Vẫn hợp lệ, nhưng ít dùng hơn.
+Khi bạn muốn gom nhiều suite khác nhau vào cùng một file để chạy một lần.
+
+🔹 Thực tế nên dùng thế nào?
+Best practice: mỗi file XML thường chỉ có 1 suite, bên trong có nhiều <test>.
+Lý do: dễ quản lý, dễ cấu hình parallel, dễ đọc báo cáo.
+Nếu bạn có nhiều suite khác nhau (ví dụ: Smoke Suite, Regression Suite, Sanity Suite), thì thường tạo nhiều file XML, mỗi file một suite.
+
+✅ Tóm lại:
+Một file XML có thể chứa nhiều suite, nhưng thường chỉ có 1 suite để dễ quản lý.
+Nhiều suite thì nên tách thành nhiều file XML riêng, thay vì dồn hết vào một file.
+
+🔹 1 Suite duy nhất
+Ưu điểm:
+Dễ quản lý: tất cả test case nằm trong một file XML.
+Báo cáo gọn: kết quả tập trung vào một suite.
+Thích hợp cho regression test toàn bộ hệ thống.
+
+Nhược điểm:
+Nếu chạy song song, suite quá lớn có thể khó kiểm soát.
+Khó tách biệt khi bạn chỉ muốn chạy một nhóm test nhỏ (ví dụ Smoke test).
+👉 Thường dùng khi bạn muốn chạy toàn bộ 100 test case cùng lúc như một regression suite.
+
+🔹 Nhiều suite
+Ưu điểm:
+Chia nhỏ theo chức năng (Login Suite, Checkout Suite, Error Suite…).
+Dễ chọn lọc chạy một phần (ví dụ chỉ chạy Smoke Suite trước khi release).
+Dễ cấu hình parallel: mỗi suite có thể chạy trên browser khác nhau hoặc môi trường khác nhau.
+
+Nhược điểm:
+Nhiều file XML hơn, cần quản lý cẩn thận.
+Báo cáo phân tán (mỗi suite có báo cáo riêng, trừ khi bạn merge).
+
+👉 Thường dùng khi bạn có nhiều loại test (Smoke, Sanity, Regression) hoặc muốn chia theo module để dễ bảo trì.
+
+🔹 Thực tế áp dụng cho 100 test case Selenium
+Nếu 100 test case là regression toàn hệ thống → 1 suite với nhiều <test> block bên trong, chia theo module.
+Nếu bạn muốn linh hoạt (chạy Smoke nhanh, Regression đầy đủ, Sanity nhỏ) → nhiều suite, mỗi suite là một file XML riêng.
+
+Ví dụ tổ chức:
+smoke.xml → 20 test quan trọng nhất.
+regression.xml → toàn bộ 100 test.
+sanity.xml → 10 test cơ bản để check build.
+
+✅ Kết luận:
+1 suite nếu bạn chỉ cần gom toàn bộ 100 test case để chạy regression.
+Nhiều suite nếu bạn muốn chia nhỏ theo mục đích (Smoke, Regression, Sanity) hoặc module để dễ quản lý và chạy song song.
+        -->

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="E-Commerce Suite" parallel="tests" thread-count="5">
+    <!-- Khai báo group để gom test -->
+    <groups>
+        <run>
+            <include name="smoke"/>
+            <include name="regression"/>
+            <exclude name="slow"/>
+        </run>
+    </groups>
+
+    <!-- Khai báo parameter dùng chung cho toàn bộ suite -->
+    <parameter name="env" value="staging"/>
+    <parameter name="browser" value="chrome"/>
+
+    <!-- Khai báo Listener để log kết quả, chụp screenshot khi fail -->
+    <listeners>
+        <listener class-name="framework.utils.TestListener"/>
+        <listener class-name="framework.utils.ExtentReportListener"/>
+    </listeners>
+
+
+    <!-- Test nhóm cho chức năng Login -->
+    <test name="Login Tests" preserve-order="true" verbose="2">
+        <!-- Khai báo parameter dùng chung cho toàn bộ suite -->
+        <parameter name="env" value="dev"/>
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="validLogin"/>
+                    <include name="invalidLogin"/>
+                    <exclude name="skipThisMethod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Test nhóm cho chức năng Product Search -->
+    <test name="Search Tests" thread-count="3">
+        <classes>
+            <class name="tests.SearchTest"/>
+        </classes>
+    </test>
+
+    <!-- Test nhóm cho chức năng Checkout -->
+    <test name="Checkout Tests" thread-count="3">
+        <classes>
+            <class name="tests.CartTest"/>
+            <class name="tests.CheckoutTest">
+                <methods>
+                    <exclude name="testPaymentGateway.*"/> <!-- bỏ qua toàn bộ test liên quan đến Payment Gateway -->
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Test nhóm cho chức năng API -->
+    <test name="API Tests" parallel="classes" thread-count="4">
+        <packages>
+            <package name="tests.api"/> <!-- chạy toàn bộ class trong package tests.api -->
+        </packages>
+    </test>
+
+</suite>
+
+
+        <!--
+
+        📌 Giải thích các phần phổ biến
+        suite: gom toàn bộ test lại thành một bộ (ở đây là E-Commerce Suite).
+        parallel + thread-count: cho phép chạy song song nhiều test để tiết kiệm thời gian.
+        listeners: gắn các listener để log, báo cáo, chụp screenshot khi fail.
+        test: nhóm test theo chức năng (Login, Search, Checkout, API).
+        classes: chỉ định class nào sẽ chạy.
+        methods: chọn lọc method nào chạy (include) hoặc bỏ qua (exclude).
+        packages: chạy toàn bộ test trong một package.
+        preserve-order: đảm bảo chạy theo thứ tự định nghĩa.
+        verbose: mức độ log chi tiết khi chạy test.
+
+
+        Suite (E-Commerce Suite)
+        │
+        ├── Test: Login Tests
+        │   │
+        │   └── Class: tests.LoginTest
+        │       │
+        │       ├── Method: validLogin()
+        │       ├── Method: invalidLogin()
+        │       └── Method: skipThisMethod() [excluded]
+        │
+        ├── Test: Search Tests
+        │   │
+        │   └── Class: tests.SearchTest
+        │       │
+        │       ├── Method: searchByKeyword()
+        │       └── Method: searchByCategory()
+        │
+        ├── Test: Checkout Tests
+        │   │
+        │   ├── Class: tests.CartTest
+        │   │   ├── Method: addItemToCart()
+        │   │   └── Method: removeItemFromCart()
+        │   │
+        │   └── Class: tests.CheckoutTest
+        │       ├── Method: testAddressValidation()
+        │       ├── Method: testOrderSummary()
+        │       └── Method: testPaymentGateway() [excluded]
+        │
+        └── Test: API Tests
+            │
+            └── Package: tests.api
+                ├── Class: tests.api.UserAPI
+                │   ├── Method: testGetUser()
+                │   └── Method: testCreateUser()
+                │
+                └── Class: tests.api.ProductAPI
+                    ├── Method: testGetProduct()
+                    └── Method: testUpdateProduct()
+
+        -->

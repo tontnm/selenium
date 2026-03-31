@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--suite: cấp cao nhất, gom nhóm tất cả các test.
+parallel="tests": cho phép chạy song song nhiều <test> cùng lúc.
+name="Loan Department": tên của suite, chỉ để hiển thị.-->
 <suite parallel="tests" name="Loan Department">
+    <!--Khai báo listener (ví dụ: để log kết quả, chụp screenshot khi fail, báo cáo HTML…).
+        demo.Listeners là class Java bạn viết để lắng nghe sự kiện trong quá trình chạy test.-->
+    <!---->
+    <!-- Khai báo parameter dùng chung cho toàn bộ suite -->
+    <parameter name="env" value="staging"/>
+    <parameter name="browser1" value="chrome"/>
+    <parameter name="browser2" value="edge"/>
     <listeners>
         <listener class-name="demo.Listeners"></listener>
     </listeners>
@@ -32,15 +42,23 @@
     <!--            </class>-->
     <!--        </classes>-->
     <!--    </test>-->
+    <!--thread-count="4": cho phép chạy tối đa 4 thread song song.
+        Chạy toàn bộ test trong class demo.PageObjectModel.-->
     <test thread-count="4" name="Submit Order Test">
+<!--        <parameter name="env" value="staging"/>-->
+<!--        <parameter name="browser1" value="chrome"/>-->
+<!--        <parameter name="browser2" value="edge"/>-->
         <!--        <packages> &lt;!&ndash; Chạy tất cả class trong package demo &ndash;&gt;-->
         <!--            <package name="demo"/>-->
         <!--        </packages>-->
+        <!---->
         <classes>
             <class name="demo.PageObjectModel"></class>
         </classes>
     </test>
+    <!---->
     <test thread-count="4" name="Error Validation Test">
+        <!---->
         <classes>
             <class name="demo.ErrValidation"></class>
         </classes>

@@ -26,6 +26,10 @@ public class Search {
         List<WebElement> veg = driver.findElements(By.xpath("//td[1]"));
         List<WebElement> filteredList = veg.stream().filter(v -> v.getText().contains("Rice")).collect(Collectors.toList());
 
+        //Giả sử search bị sai → UI trả về 5 kết quả, nhưng chỉ có 1 kết quả thực sự chứa "Rice".
+        //Bạn lấy toàn bộ kết quả hiển thị (veg) rồi dùng Stream filter để lọc ra những phần tử có chứa "Rice".
+        //Nếu số lượng sau khi lọc (filteredList.size()) khác với số lượng ban đầu (veg.size()), thì chứng tỏ chức năng
+        // search không đúng.
         Assert.assertEquals(veg.size(), filteredList.size());
     }
 }

@@ -20,6 +20,12 @@ public class WebSort {
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
         driver.manage().window().maximize();
 
+        //sort list data
+        //1.click nút sort trên web
+        //2.lấy hết web element của column mình muốn kiểm tra về
+        //3.lấy hết text của web element -> tạo list
+        //4.sort cái list đó rồi tạo cái list đã sort
+        //5.compare list gốc và list đã sort, nếu giống nhau, thì là trên web đã sort đúng
         driver.findElement(By.cssSelector("th:nth-child(1)")).click();
         List<WebElement> elementList = driver.findElements(By.xpath("//td[1]"));
         List<String> originalList = elementList.stream().map(s -> s.getText()).collect(Collectors.toList());
@@ -27,22 +33,27 @@ public class WebSort {
 
         Assert.assertTrue(originalList.equals(sortedList));
 
-        List<String> price;
+        //tìm trong table, thấy  Rice thì qua cột kế bên lấy price của nó
+        //1.tạo priceList rỗng
+        //2.lấy hết web element của cột đầu tiên chứa name
+        //3.loop qua từng dòng, dùng stream api, dùng filter kiếm name Rice, dùng map để lấy giá trị price của Rice
+        //4.nếu ko thấy thì nhấn nút next rồi bắt đầu lại từ đầu
+        List<String> priceList;
         do {
             elementList = driver.findElements(By.xpath("//td[1]"));
-            price = elementList.stream().filter(s -> s.getText().contains("Rice")).
-                    map(s -> getPriceVeg(s)).collect(Collectors.toList());
+            priceList = elementList.stream().filter(s -> s.getText().contains("Rice")).
+                    map(e -> getPriceVeg(e)).collect(Collectors.toList());
 
-            price.forEach(s -> System.out.println(s));
+            priceList.forEach(s -> System.out.println(s));
 
-            if (price.size() < 1) {
+            if (priceList.size() < 1) {
                 driver.findElement(By.cssSelector("a[aria-label='Next']")).click();
             }
-        } while (price.size() < 1);
+        } while (priceList.size() < 1);
     }
 
-    private static String getPriceVeg(WebElement s) {
-        String price = s.findElement(By.xpath("following-sibling::td[1]")).getText();
+    private static String getPriceVeg(WebElement e) {
+        String price = e.findElement(By.xpath("following-sibling::td[1]")).getText();
         return price;
     }
 }
