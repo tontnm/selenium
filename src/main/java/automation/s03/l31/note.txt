@@ -1,0 +1,396 @@
+Hôm nay chúng ta sẽ xem cách xử lý các loại cửa sổ cảnh báo (alert) khác nhau.
+Đầu tiên, chúng ta sẽ thấy các loại alert khác nhau: có thể là alert bình thường, alert xác nhận (confirmation), hoặc alert thông tin.
+
+Trong ứng dụng web, đôi khi ta gặp nhiều loại cửa sổ cảnh báo khác nhau.
+Chúng ta cần xử lý chúng theo cách riêng, vì alert không phải là web element.
+Cho dù bạn thấy nút OK hay Cancel trong alert, bạn sẽ không thể tìm thấy hay kiểm tra các phần tử đó như web element.
+
+Alert là một loại phần tử đặc biệt, thực chất không phải web element.
+Vì vậy ta phải xử lý theo cách khác. Selenium WebDriver cung cấp một số phương thức đặc biệt để làm việc với alert.
+
+Các loại alert thường gặp
+Trên trang web ví dụ, có ba nút:
+
+JS Alert → mở alert bình thường, chỉ có một nút OK.
+JS Confirm → mở hộp thoại xác nhận, có hai nút: OK và Cancel.
+JS Prompt → mở hộp thoại nhập liệu, cho phép nhập văn bản rồi chọn OK hoặc Cancel.
+Ngoài ra còn có loại alert xác thực (authentication alert), thường xuất hiện khi cần đăng nhập.
+
+Cách xử lý alert trong Selenium
+Chúng ta sẽ bắt đầu với alert bình thường.
+Trước tiên, cần tạo WebDriver instance, khởi chạy ứng dụng và phóng to cửa sổ.
+
+WebDriver driver = new ChromeDriver();
+driver.get("URL của ứng dụng");
+driver.manage().window().maximize();
+
+Alert bình thường
+Khi click nút “JS Alert”, một alert với nút OK sẽ xuất hiện.
+Alert này không phải là phần tử của trang, nên không thể inspect bằng chuột phải.
+Để xử lý, ta cần chuyển hướng (switch) từ trang sang alert.
+
+driver.findElement(By.xpath("//button[text()='Click for JS Alert']")).click();
+
+// Chuyển sang alert
+Alert myAlert = driver.switchTo().alert();
+
+// Đóng alert bằng cách accept
+myAlert.accept();
+
+driver.switchTo().alert().accept();
+Để quan sát rõ hơn, có thể thêm Thread.sleep(5000); trước khi đóng alert, tránh việc alert mở ra rồi đóng quá nhanh.
+
+👉 Tóm lại:
+
+Alert không phải web element, nên không thể thao tác trực tiếp bằng locator.
+Phải dùng driver.switchTo().alert() để lấy đối tượng alert.
+Sau đó có thể dùng các phương thức như .accept() (OK), .dismiss() (Cancel), hoặc .sendKeys("text") (nhập dữ liệu cho prompt).
+
+Đã đóng rồi.
+Được rồi, vậy đây là một cảnh báo bình thường, chỉ cần một câu lệnh.
+Hoặc nếu bạn muốn lưu cảnh báo vào biến, bạn có thể lưu rồi gọi accept.
+
+Thông thường khi bạn chạy test case, có thể xuất hiện một số cửa sổ cảnh báo hoặc popup.
+Bạn cần đóng chúng lại.
+Chúng ta không cần thao tác gì thêm với popup, nhưng có thể thực hiện một số xác minh (validation), ví dụ: sau khi click một nút, kiểm tra xem popup có xuất hiện không.
+Nếu có, bạn đóng nó lại, vì alert sẽ chặn luồng làm việc.
+Bạn không thể tiếp tục bước tiếp theo nếu chưa đóng alert.
+
+Ví dụ: bạn điền form và nhấn Submit, ứng dụng hiển thị popup “Chi tiết đã được gửi”.
+Bạn phải tự động đóng nó, nếu không sẽ làm gián đoạn luồng công việc.
+
+Alert xác nhận (Confirmation Alert)
+Đây là loại alert có hai nút: OK và Cancel.
+Bạn có thể chọn một trong hai.
+
+Nếu muốn đóng bằng nút OK → dùng phương thức .accept().
+
+Nếu muốn đóng bằng nút Cancel → dùng phương thức .dismiss().
+
+driver.findElement(By.xpath("//button[text()='Click for JS Confirm']")).click();
+
+// Đóng bằng OK
+driver.switchTo().alert().accept();
+
+// Đóng bằng Cancel
+driver.switchTo().alert().dismiss();
+
+Bạn chỉ dùng một trong hai, không thể dùng cả hai cùng lúc.
+
+Sau khi đóng alert, ứng dụng thường hiển thị thông báo xác nhận.
+Ví dụ: nếu bạn chọn Cancel, sẽ hiện chữ “Cancel”.
+Nếu chọn OK, sẽ hiện chữ “OK”.
+Bạn có thể xác minh thông báo này để kiểm tra kết quả.
+
+Alert nhập liệu (Prompt Alert)
+Loại này cho phép nhập văn bản.
+Bạn có thể dùng .sendKeys("nội dung") để nhập, sau đó .accept() hoặc .dismiss() để đóng.
+
+driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
+
+Alert promptAlert = driver.switchTo().alert();
+promptAlert.sendKeys("Xin chào");
+promptAlert.accept();
+
+Ứng dụng có thể hiển thị thông báo phản hồi sau khi bạn nhập và nhấn OK/Cancel.
+Nếu có, bạn có thể xác minh nội dung đó.
+
+👉 Tóm lại:
+
+Alert bình thường: chỉ có OK → dùng .accept().
+Confirmation Alert: có OK và Cancel → dùng .accept() hoặc .dismiss().
+Prompt Alert: cho phép nhập văn bản → dùng .sendKeys() rồi .accept() hoặc .dismiss().
+
+Sau đó bạn sẽ thấy ở đây có chữ Cancel.
+Khi tôi nhấn OK, thì sẽ hiện chữ OK.
+Nếu ứng dụng có cung cấp thông báo, bạn có thể xác minh các thông điệp này.
+Nếu ứng dụng không cung cấp, thì bạn không thể xác minh, chỉ có thể dùng accept hoặc dismiss để đóng.
+
+Đôi khi loại alert này cho phép bạn xác minh thêm:
+
+Nội dung thông báo hiển thị trong alert.
+
+Tiêu đề của alert.
+Giá trị nhập trong ô input.
+Đây là loại alert thứ ba: Prompt Alert (cảnh báo nhập liệu).
+Nó yêu cầu bạn nhập một giá trị.
+
+Cách xử lý Prompt Alert
+Trước tiên, click nút để mở alert.
+Sau đó dùng driver.switchTo().alert() để chuyển sang alert.
+Lần này ta lưu alert vào biến kiểu Alert, vì muốn thực hiện nhiều thao tác trên cùng một alert.
+
+Alert myAlert = driver.switchTo().alert();
+
+Xác minh nội dung hiển thị
+Dùng getText() để lấy nội dung thông báo trong alert.
+
+So sánh với giá trị mong đợi để kiểm tra test case.
+String alertText = myAlert.getText();
+System.out.println(alertText);
+
+Nhập dữ liệu vào ô input
+Dùng sendKeys("John") để nhập văn bản.
+
+Sau đó dùng .accept() để nhấn OK hoặc .dismiss() để nhấn Cancel.
+
+myAlert.sendKeys("John");
+myAlert.accept();
+
+Nếu bạn nhấn OK, ứng dụng sẽ hiển thị thông báo chứa giá trị vừa nhập.
+Nếu nhấn Cancel, thường sẽ trả về null.
+
+Xác minh kết quả
+Sau khi đóng alert, bạn có thể kiểm tra thông báo hiển thị trên trang:
+
+String result = driver.findElement(By.id("result")).getText();
+if (result.contains("John")) {
+    System.out.println("Test Passed");
+} else {
+    System.out.println("Test Failed");
+}
+
+👉 Tóm lại:
+
+getText() → lấy nội dung trong alert.
+sendKeys() → nhập dữ liệu vào ô input của alert.
+accept() → nhấn OK.
+dismiss() → nhấn Cancel.
+Sau khi đóng alert, xác minh thông báo hiển thị trên trang để kiểm tra kết quả.
+
+Vậy bạn có thể đơn giản xác minh.
+Nhưng thường loại xác minh này chúng ta không thực hiện trên alert box.
+Chúng ta chỉ cần nhập một giá trị rồi tiếp tục, vì trong test case sẽ có nhiều bước.
+Một số bước là xử lý alert box.
+Theo từng bước, nếu cần đóng alert thì đóng rồi tiếp tục.
+Giả sử bạn muốn truyền giá trị vào ô input trong alert, bạn có thể truyền rồi tiếp tục.
+Thông thường chúng ta không làm xác minh đặc biệt trên alert box.
+Nếu muốn, bạn có thể xác minh thông điệp hiển thị, hoặc giá trị nhập trong ô input.
+Đó là xác minh đơn giản: giá trị truyền vào phải xuất hiện trong kết quả.
+Nếu khớp, thì test pass.
+Ví dụ: tôi nhập “John”, sau đó thấy “John” xuất hiện → test pass.
+
+Ba loại alert chính
+Alert bình thường: chỉ có nút OK.
+Confirmation Alert: có nút OK và Cancel.
+Prompt Alert: có ô input để nhập dữ liệu.
+Thông thường prompt chỉ có một ô input, hiếm khi có nhiều.
+Đôi khi có hai ô input (username và password) trong alert → đó là Authentication Alert (cảnh báo xác thực).
+
+Authentication Alert
+Đây là loại alert đặc biệt, hiển thị hai ô input (username và password) cùng với nút OK/Cancel.
+Ứng dụng có thể yêu cầu đăng nhập qua alert thay vì form.
+Để xử lý loại này, ta cần truyền dữ liệu vào cả hai ô input.
+
+Kiểm tra sự tồn tại của alert
+Thông thường ta chỉ xác minh alert có xuất hiện hay không.
+Không có phương thức trực tiếp để kiểm tra alert, chỉ có thể dùng Explicit Wait (chờ tường minh).
+
+Ví dụ:
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+Alert myAlert = wait.until(ExpectedConditions.alertIsPresent());
+
+alertIsPresent() là điều kiện kiểm tra alert có xuất hiện.
+Nếu alert xuất hiện, nó sẽ được trả về và lưu vào biến myAlert.
+Sau đó bạn có thể dùng .accept(), .dismiss(), .getText(), .sendKeys() để thao tác.
+
+Tóm lại
+Trong Selenium, với alert ta có 4 phương thức chính:
+
+.accept() → đóng bằng OK.
+.dismiss() → đóng bằng Cancel.
+.getText() → lấy nội dung text trong alert.
+.sendKeys() → nhập dữ liệu vào ô input trong alert.
+Ngoài ra, có thể dùng Explicit Wait để kiểm tra alert có xuất hiện hay không trước khi thao tác.
+
+Tóm tắt các cách xử lý Alert trong Selenium
+Dùng switchTo()
+driver.switchTo().alert().accept();   // OK
+driver.switchTo().alert().dismiss();  // Cancel
+driver.switchTo().alert().getText();  // Lấy nội dung
+driver.switchTo().alert().sendKeys("text"); // Nhập dữ liệu
+
+Dùng Explicit Wait (không cần switchTo trực tiếp)
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+Alert myAlert = wait.until(ExpectedConditions.alertIsPresent());
+myAlert.accept();
+
+🔐 Authentication Alert (yêu cầu Username/Password)
+Đây là loại alert đặc biệt, thường xuất hiện khi mở một URL và trình duyệt ngay lập tức yêu cầu nhập username + password. Vì đây không phải web element, ta không thể sendKeys trực tiếp.
+👉 Cách xử lý là truyền username và password ngay trong URL theo cú pháp:
+http://username:password@domain.com
+driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth");
+
+admin là username
+admin là password
+Sau khi truyền đúng, alert sẽ được bypass và trang sẽ mở bình thường.
+
+📌 Phân biệt Alert và Popup
+Alert: do JavaScript tạo ra, không inspect được, chỉ xử lý bằng switchTo().alert().
+Popup/Cookie window: thường là HTML element, có thể inspect và thao tác bằng locator như bình thường.
+
+👉 Tóm lại:
+
+Có 4 phương thức chính với alert: .accept(), .dismiss(), .getText(), .sendKeys().
+Có thể dùng Explicit Wait để bắt alert mà không cần switchTo().
+Với Authentication Alert, phải truyền username/password trong URL.
+Phân biệt rõ alert (JS) và popup (HTML).
+
+→ Tôi muốn hiển thị trang cụ thể này trên một trang web khác.
+Sau đó chúng ta có thể nhúng nó vào trang web này.
+Đây gọi là iframe.
+
+Vậy frame chỉ là một phần của trang, một khu vực chứa một số phần tử.
+Còn iframe cho phép hiển thị một trang web khác bên trong trang hiện tại.
+
+Cách xử lý frame/iframe trong Selenium
+Có lệnh:
+driver.switchTo().frame();
+
+Đây là lệnh chuyển vào frame.
+
+Nếu frame có id hoặc name, ta có thể truyền trực tiếp id hoặc name.
+Nếu không có id/name, ta có thể dùng locator để lấy frame như một WebElement rồi truyền vào.
+Ngoài ra có thể dùng index (0,1,2…) nhưng khó xác định nếu có nhiều frame.
+
+Ví dụ nhận diện frame
+Khi kiểm tra HTML, nếu thấy thẻ <frame> hoặc <iframe>, tức là phần tử nằm trong frame.
+Muốn thao tác với phần tử bên trong, phải switch vào frame trước.
+
+WebElement frame1 = driver.findElement(By.xpath("//frame[@src='frame1.html']"));
+driver.switchTo().frame(frame1);
+driver.findElement(By.xpath("//input[@id='username']")).sendKeys("Welcome");
+
+Nếu không switch vào frame, Selenium sẽ báo lỗi NoSuchElementException vì driver chưa “vào” bên trong frame.
+Các cách switch vào frame
+Theo id/name:
+driver.switchTo().frame("frameName");
+
+Theo WebElement:
+WebElement frameElement = driver.findElement(By.xpath("//iframe[@src='frame2.html']"));
+driver.switchTo().frame(frameElement);
+
+Theo index:
+driver.switchTo().frame(0);
+
+👉 Tóm lại:
+Frame: một phần của trang, chứa các phần tử.
+iFrame: nhúng một trang khác vào trang hiện tại.
+Muốn thao tác với phần tử bên trong frame/iframe, phải dùng driver.switchTo().frame(...).
+Có thể truyền id, name, WebElement hoặc index.
+
+Tình huống với nhiều frame (khung) trong trang web
+Ví dụ: có phần tử nằm trong frame 1 và phần tử khác nằm trong frame 2.
+Khi bạn đã switch vào frame 1 và thao tác xong, nếu muốn sang frame 2 thì không thể nhảy trực tiếp từ frame 1 sang frame 2.
+Selenium vẫn đang “tập trung” trong frame 1, nên nếu bạn gọi phần tử trong frame 2 sẽ báo lỗi NoSuchElementException.
+
+Cách xử lý đúng
+Switch vào frame 1 → thao tác với phần tử.
+Quay lại main page (default content) bằng lệnh:
+driver.switchTo().defaultContent();
+
+Switch sang frame 2 → thao tác với phần tử.
+Nếu muốn sang frame 3, lại phải quay về main page rồi mới switch sang frame 3.
+👉 Quy tắc: Frame → DefaultContent → Frame khác. Không thể đi thẳng từ frame này sang frame kia.
+
+// Switch vào frame 1
+WebElement frame1 = driver.findElement(By.xpath("//frame[@src='frame1.html']"));
+driver.switchTo().frame(frame1);
+driver.findElement(By.xpath("//input[@id='input1']")).sendKeys("Welcome");
+
+// Quay lại main page
+driver.switchTo().defaultContent();
+
+// Switch vào frame 2
+WebElement frame2 = driver.findElement(By.xpath("//frame[@src='frame2.html']"));
+driver.switchTo().frame(frame2);
+driver.findElement(By.xpath("//input[@id='input2']")).sendKeys("Automation");
+
+// Quay lại main page
+driver.switchTo().defaultContent();
+
+// Switch vào frame 3
+WebElement frame3 = driver.findElement(By.xpath("//frame[@src='frame3.html']"));
+driver.switchTo().frame(frame3);
+driver.findElement(By.xpath("//input[@id='input3']")).sendKeys("Programming");
+
+Nội dung về nested frame (iframe lồng nhau)
+Nếu frame 2 nằm bên trong frame 1 (nested frame), thì bạn có thể switch trực tiếp từ frame 1 sang frame 2 mà không cần quay lại main page.
+
+Ví dụ:
+driver.switchTo().frame("frame1");
+driver.switchTo().frame("frame2"); // frame2 nằm trong frame1
+Sau khi xong, dùng driver.switchTo().defaultContent() để quay lại main page.
+
+👉 Tóm lại:
+Với frame độc lập: phải quay về main page trước khi sang frame khác.
+Với nested frame: có thể switch trực tiếp từ frame cha sang frame con.
+
+Trong thực tế, khi làm việc với nested frame (khung lồng nhau), quy tắc chuyển đổi có chút khác biệt:
+
+Giả sử có một trang web, trong đó có frame F1.
+
+Bên trong F1 lại chứa frame F2, và trong F2 có phần tử bạn muốn thao tác.
+
+👉 Quy trình:
+Trước tiên switch vào F1.
+Sau đó switch tiếp vào F2 (vì F2 nằm bên trong F1).
+Thao tác với phần tử trong F2.
+Nếu bạn dùng driver.switchTo().defaultContent(), thì sẽ quay về main page chứ không quay về F1.
+Điều này nghĩa là: từ F2 không thể quay ngược lại F1 trực tiếp.
+Muốn thao tác lại với F1, bạn phải quay về main page rồi switch lại vào F1.
+
+Nội frame (inner frame / iframe)
+Ví dụ: trong frame 3 lại có một iframe nhúng từ trang ngoài.
+Đây gọi là nested frame hoặc iframe bên trong frame.
+Để thao tác, bạn cần switch tiếp vào iframe đó.
+Nếu iframe không có thuộc tính id/name, bạn có thể dùng index:
+driver.switchTo().frame(0); // vì chỉ có một iframe bên trong
+Sau khi switch vào iframe, bạn có thể tìm phần tử (radio button, checkbox…) và thao tác:
+driver.findElement(By.xpath("//input[@type='radio']")).click();
+
+Lưu ý khi định vị phần tử trong iframe
+Nhiều khi iframe không có thuộc tính duy nhất (id, name), chỉ có class.
+Nếu dùng class, có thể trả về nhiều phần tử giống nhau.
+Khi đó cần kết hợp thêm thuộc tính cha (parent) hoặc locator khác để xác định chính xác.
+
+Phân biệt Frame và iFrame
+Frame: là một phần của trang, thuộc về chính trang đó.
+iFrame: là một trang web bên ngoài được nhúng vào trang hiện tại.
+Cả hai đều dùng chung lệnh driver.switchTo().frame(...) để xử lý.
+
+👉 Tóm lại:
+Với frame độc lập: phải quay về main page trước khi sang frame khác.
+Với nested frame: có thể switch trực tiếp từ frame cha sang frame con.
+Với iframe: thường dùng index vì ít khi có id/name.
+Muốn quay lại main page: dùng driver.switchTo().defaultContent().
+
+Nhưng với iframe, chúng ta không thể lấy nó như một WebElement, vì đó là một trang bên ngoài được hiển thị trong trang hiện tại.
+✔ Đúng, iframe không thể coi như WebElement.
+Còn với frame bình thường, bạn có thể dùng name, id, hoặc WebElement hay index để xử lý.
+
+👉 Đây chính là khái niệm:
+Frame: khung nội bộ của trang, có thể thao tác bằng id/name/WebElement/index.
+iFrame: trang bên ngoài được nhúng vào trang hiện tại, thường chỉ xử lý bằng index vì ít khi có id/name.
+
+Tóm tắt buổi học hôm nay
+Cách xử lý alert (cảnh báo).
+Cách xử lý frame và nested frame (khung lồng nhau).
+
+Bài tập về nhà
+Alert
+Mở một trang có form đăng nhập (email, password, captcha).
+Không nhập gì, chỉ nhấn nút Login → sẽ hiện alert.
+Thử xử lý alert này bằng .accept() để tự động đóng.
+Sau đó nhập email nhưng không nhập password, nhấn Login → lại hiện alert.
+Thử xử lý nhiều alert liên tiếp.
+
+Frame / iFrame
+Trên cùng trang, chuyển vào frame số 5 (màu xanh da trời).
+Trong frame này có một link, hãy click vào.
+Sau vài giây sẽ mở thêm một iframe bên trong frame 5.
+Switch vào iframe này và kiểm tra xem logo có tồn tại không.
+
+👉 Đây là bài tập để luyện tập:
+Với alert: thử đóng bằng accept/dismiss.
+Với frame: thử switch vào frame 5, click link, rồi switch tiếp vào iframe bên trong để xác minh logo.

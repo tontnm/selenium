@@ -1,0 +1,3871 @@
+So in the previous class, uh, we have seen some of the commands or methods from selenium WebDriver
+
+like get methods, conditional methods, browser methods, and so on.
+
+And today we'll see, uh, most important weight methods.
+
+Or we can say wait commands.
+
+Okay, so first of all, uh, why do we need these weight commands and why selenium is provided?
+
+And what are the different weighting mechanisms are there in selenium.
+
+So we'll discuss them in detail.
+
+So before that we need to understand something called.
+
+Synchronization.
+
+Synchronization.
+
+So this is, uh, something, uh, most familiar word for automation.
+
+Word synchronization means what?
+
+So synchronization is something called it is a problem uh, in automation most of the times.
+
+So if for for for every automation tool is having same kind of a problem.
+
+And what is synchronization?
+
+Synchronization means sometimes when you run your automation script, your script execution is very
+
+faster than your application response.
+
+Okay, suppose in your automation test script, you are launching some web page and trying to do some
+
+action on the web page.
+
+But when you're trying to do some action on the web page, by the time your web page is not yet loaded
+
+or not yet ready, not only web page, sometimes the elements are not yet completely loaded or elements
+
+are not available.
+
+Then your script will throw some exception and that exception.
+
+Most of the times it is no such element exception it will throw.
+
+So that is because of synchronization problem.
+
+So your application and your automation script both are not in the sync.
+
+And if both are going parallelly exact equal equally, then now there is no problem.
+
+But sometimes your application response will be very very slow when you compare with your automation
+
+execution.
+
+So in those cases you will get a exception and that you can solve by putting weight statements.
+
+Okay.
+
+That is called synchronization problem.
+
+Okay.
+
+So in the synchronization problem application speed we have to consider and automation test script in
+
+these which one we can control.
+
+But speed of the application is depends on multiple factors.
+
+Sometimes your network is slow and uh then your speed of application is automatically your performance
+
+of your application automatically reduced or reduced.
+
+If your network is very slow and that is not in our control.
+
+The second thing is, suppose even though your network is good, sometimes many people are accessing
+
+that application, so obviously the performance will be reduced if number of people are increasing to
+
+access the application.
+
+So that is not in our control.
+
+So the performance or speed of the application is not in our control.
+
+It's always varies.
+
+But your script and script execution you can control okay.
+
+So by putting weight statements in your automation test script we can control the speed of your automation
+
+script.
+
+And then we can sync with our application speed.
+
+So in that way we can solve synchronization problem okay.
+
+So this problem is there for all all my every automation tool.
+
+So every automation is having their own mechanisms to handle the synchronization problem.
+
+And especially in selenium, there are three different ways or three different mechanisms are provided.
+
+To solve the synchronization problem and by keeping implicit weight.
+
+And then we have explicit weight, then we have a fluent weight.
+
+So fluent weight is another flavor of explicit weight.
+
+Actually both are almost the same.
+
+But fluent weight is another flavor of explicit weight.
+
+So mainly these are the weight statements are provided from selenium.
+
+And there is another thing called thread dot sleep.
+
+So that is not belongs to selenium.
+
+Actually that comes from Java itself.
+
+So what thread dot sleep will do is thread dot sleep command will pass your code for some time.
+
+So let's say you have executed few lines of code.
+
+And if you put thread dot sleep, that will pass your code and after completing the time and then it
+
+will continue the rest of the code.
+
+So thread dot sleep don't deal any with application.
+
+Actually it don't know whether application is running or application is slow or fast.
+
+The thread dot sleep doesn't know that.
+
+But threadsleep just pass your code for some time, then continue execution.
+
+But waiting statements are not like that.
+
+Waiting statements will know exactly about application.
+
+So it works based on it reacts based on the application response.
+
+Okay, so thread dot sleep is another option which is available, but as a beginner we can use it.
+
+But uh, exactly an automation.
+
+Uh, we don't prefer thread or sleep most of the times because there are some limitations.
+
+Okay, I will I will explain what is the problem with red dot sleep.
+
+Okay.
+
+Basically these are the weight statements.
+
+I have three dot sleep which will come from Java implicit weight, explicit weight, and fluent weight.
+
+So these are the three weights comes from selenium.
+
+So if anybody asks during interview how many weights are supported in selenium.
+
+Do not tell thread dot sleep okay.
+
+Thread dot sleep is not belongs to selenium.
+
+That is from Java itself.
+
+Only implicit weight, explicit weight and fluent weight.
+
+And that fluent weight is just another flavor of explicit weight.
+
+Actually, it's not a different type of weight.
+
+And the two is available only in Java Jar selenium Java combination.
+
+But if you go with Python or any other language, fluent weight is not available, only implicit weight
+
+and then explicit weight.
+
+Okay, so now we'll see one by one.
+
+Uh, we understood what is synchronization problem then how we can solve the synchronization problem.
+
+By putting weight statements in our code or script we can solve the synchronization problem.
+
+So in one program you can use multiple weight statements.
+
+Two statements?
+
+No problem.
+
+But it doesn't make any sense.
+
+Actually, I will tell you, if I use one statement, then what happens if I have two statements?
+
+What happens or two different weights if I use what will happen?
+
+Uh, suppose in the same program, if you put implicit and explicit weight, then what is the problem.
+
+So we will see that okay.
+
+Yeah.
+
+First let us start with the.
+
+Thread dot sleep because this is most of the people normally use as a beginner, and this is actually
+
+a method.
+
+Sleep is a method which is related to thread class and which is static method directly available in
+
+thread class.
+
+Thread is a predefined class in Java, and this particular method we have to pass time in milliseconds.
+
+So time in milliseconds.
+
+And, uh, wherever you want to wait in your automation script, you can put this command or method,
+
+and this will pass your code for some time.
+
+How much time it will pass depends on the how much time is specified.
+
+So most of the times we specify time in milliseconds.
+
+So 1000 milliseconds equal to one second okay.
+
+Accordingly you can calculate and then specify.
+
+Okay, first of all, if you have any synchronization problem okay, because of synchronization you
+
+are getting some kind of exception.
+
+Then how we can identify that.
+
+And how we will know whether that issue is exactly related to synchronization.
+
+So there are two popular exceptions we have in selenium.
+
+One is no such element exception, not element not found exception.
+
+No, no such element.
+
+Exception when you will get.
+
+If the element is not present on the web page, you will get this exception.
+
+99% of the times this exception is related to the synchronization problem, so no such element exception
+
+will.
+
+You will get whenever you have a synchronization problem.
+
+Element not found.
+
+Exception you will get whenever you write some incorrect locator element is there in the web page,
+
+but the locator, whatever you have written, that locator is not correct or not enough to identify
+
+the element.
+
+Then you will see element not found exception most of the times.
+
+Okay.
+
+And based on this you can identify no such element in the sense there may be some synchronization problem
+
+you can identify.
+
+Okay.
+
+Now.
+
+Sometimes in winter.
+
+You also people may ask, what is the difference between these two exceptions and when you will get
+
+no such element exception.
+
+When you will get element not found exception.
+
+Okay, you should able to explain this very carefully.
+
+All right.
+
+So first we will see the thread dot sleep command.
+
+So very simple.
+
+The dot sleep is a one single command red dot sleep and we wait some time and it will solve the synchronization
+
+problem.
+
+First we will see one example and then we'll come back and discuss advantages and disadvantages.
+
+Every sleep statement is having their own uh plus and minus.
+
+So we will try to understand them.
+
+Let's go.
+
+And at the end of the session, I will show you which, uh, type of weight statement is preferable
+
+most of the times in our automation and which one is most effective way more how exactly it will work.
+
+I'll show you.
+
+Okay, so let's create a new package.
+
+Today, day 27.
+
+New glass.
+
+Okay, so this is slip command.
+
+Look.
+
+So first of all, let me write some piece of code and then I'll show you the problem.
+
+Let's say I don't have this sleep.
+
+So this is small piece of code I have written.
+
+So I think this issue we already aware the last classes when you're working with orange.
+
+Hmm.
+
+Application.
+
+So there may be some uh synchronization problem.
+
+So after launching page is fine.
+
+That will work properly.
+
+But to immediately whenever trying to interact with any of these element when you're trying to put some
+
+value in the username box, or when you're trying to put some value in the password or click on the
+
+login.
+
+So whenever you want to try, whenever you try to do some action on this page as soon as it is loaded,
+
+uh, there is a some exception we are getting.
+
+So let me show you.
+
+So what I have done in this, I created a WebDriver instance.
+
+Drive driver driver equal to new chrome driver and launching the page and maximizing the page.
+
+And after that I'm locating user name element which is an input box.
+
+And in that I'm passing the value.
+
+So one single statement I have written.
+
+So this is simple code I have written.
+
+And uh, we'll see how it is going to work.
+
+And I haven't put any weight or anything, just a normal script.
+
+Okay, so it is trying to launch a page and also it is maximized.
+
+But you can see it is still not able to pass the value in the input box.
+
+And if I go back and see you will see no such element exception.
+
+And not only reading the exception, you will just see on which element is not able to.
+
+Uh, locate.
+
+So it will also show you the which element.
+
+It is the locator part.
+
+It will show you.
+
+And based on this, you can easily understand or which statement it is trying to throw an exception.
+
+Right.
+
+So currently it is throwing an exception uh, on this particular line, this particular locator.
+
+Okay.
+
+But here we have written here we have used that locator.
+
+But it doesn't mean like this statement is thrown exception okay.
+
+So this launching the page maximizing the page.
+
+But at the time of opening application and maximizing the page.
+
+Our script executed this code, and by the time this script is executed, this statement, this element
+
+is not fully loaded on the web page or not available on the web page by the time this statement is got
+
+executed.
+
+So that is the reason it is throwing no such element exception and that we need to identify.
+
+So where exactly it is failing and why it is failing and because of which statement it is got failure.
+
+So once you identified.
+
+So now what we need to do.
+
+After maximizing or opening the page.
+
+Here you can put thread dot sleep.
+
+Thread dot.
+
+Sleep.
+
+And we can specify some time five seconds, normal time.
+
+Most of the times we specify.
+
+And this will throw some exception at the runtime.
+
+So you can just add this.
+
+All right.
+
+So what exactly we are doing it here is before interacting with this element.
+
+We are asking to wait for five seconds.
+
+We are not asking to the application application and there is no connection so this won't do anything
+
+with application.
+
+Application is loading or application is already loaded or application is going to load.
+
+It doesn't know anything, it is just blindly wait five seconds.
+
+That's it.
+
+Whether application is fully loaded or not loaded, it doesn't matter.
+
+So as soon as you put thread dot sleep or five five seconds, it will just wait for five seconds.
+
+After that it will continue executing the next step.
+
+So meanwhile what happens is.
+
+After launching the page and maximizing the page, it will still loading the page, right?
+
+By the time we are waiting for five seconds, and within five seconds the page will be fully loaded,
+
+then the next statement will be executed successfully.
+
+So this is the way we can solve.
+
+Synchronization problem.
+
+This is one of the way we can solve synchronization problem.
+
+So now we can see launching the page.
+
+Now it is waiting for five seconds.
+
+And after five seconds within this five seconds what happens that application elements everything is
+
+fully loaded.
+
+And then it is trying to pass the value.
+
+So this is a one approach which we have to solve the synchronization problem.
+
+Thread dot sleep is okay.
+
+And then we will understand what is the advantage and what is the disadvantages and why we should not
+
+use this thread.
+
+Why we don't recommend this to use in our automation.
+
+So the problem with the thread dot sleep is there are only one advantage which is very easy to use.
+
+Single statement, no logic, nothing.
+
+And wherever you want to pass your script you can simply put one thread dot sleep.
+
+So n number of places you can put.
+
+So not only one time.
+
+Wherever you find a synchronization problem, you can keep the statement multiple times.
+
+Suppose you have written 1000 lines of code and ten places you are facing synchronization problem.
+
+So ten times you can include the dot sleep.
+
+So it is very very easy to use.
+
+That's the main advantage.
+
+So one single step and easy to use.
+
+But what is the disadvantage of this?
+
+Why we should not use.
+
+There are three disadvantages out there with red dots.
+
+The first three.
+
+Advantage one advantage.
+
+Whatever time we specified.
+
+Right.
+
+So this this is our expected time.
+
+So we just specify some time here five seconds.
+
+Because we specified the time here.
+
+There are two problems.
+
+One is.
+
+Suppose if this element is available within two seconds, let us say after launching the page, this
+
+element is available within the two seconds.
+
+But still we are waiting another three seconds extra right.
+
+So application element is available within two seconds.
+
+But even though it is available our thread will not continue execution.
+
+Still it will wait for another three seconds.
+
+Once the time is over then only it will go to next statement.
+
+Because of that, what happens?
+
+It will cause the poor performance.
+
+Your execution of your script will become slow.
+
+Let's say you have put this thread dot sleep five times in five places.
+
+You put five times in every time.
+
+Let's say element is loaded early.
+
+There's a five seconds maximum timeout.
+
+You put two seconds element is loaded, or sometimes three seconds.
+
+It will be loaded.
+
+Sometimes it won't take much time.
+
+In those cases, what happens is even though the element is available, still it will not immediately
+
+continue the execution.
+
+After completing the exact timeout.
+
+Whatever is specified, then only it will go to the next statement.
+
+So because of that, it will cause the poor performance, your execution speed or your automation script
+
+performance will be automatically reduced because of that issue.
+
+So that is one problem.
+
+Another problem is suppose we don't know exactly how much time this element will take.
+
+Time.
+
+Suppose if it does take more than five seconds, let's say sometimes it takes 6 seconds or 7 seconds
+
+or 10s.
+
+So then this cannot handle the synchronization problem.
+
+So it will just wait only five seconds.
+
+After five seconds it will go and execute the next statement.
+
+Why it is happening?
+
+Because the thread dot sleep doesn't know about the elements or doesn't know about the application.
+
+Nothing.
+
+It is not aware related to application or elements.
+
+He said just five.
+
+Wait for five seconds, then go further.
+
+Whether, uh, whether the element is already available or not or whether element is still not loaded
+
+or not, it doesn't care anything about it.
+
+It will just wait seconds and go further.
+
+So in both the ways we have a problem with this, if the element is loaded quickly, then the time will
+
+be wasted.
+
+Rest of the time will be wasted if the element is not loaded on time also, or if it is exceeded more
+
+than five seconds, then also there is a problem with red dot sleep.
+
+Okay.
+
+Why?
+
+Because we cannot predict.
+
+Right?
+
+Within five seconds element will be loaded, so no guarantee.
+
+Sometimes it may take more seconds.
+
+Sometimes it will take less seconds.
+
+So that is the reason thread dot sleep is not dynamic, it is just a static time.
+
+So that is the reason.
+
+If the time is not sufficient, whatever time is specified, if it is not sufficient, then definitely
+
+will get an exception.
+
+Again, you will get a no such element exception.
+
+Second problem, it will wait for maximum timeout.
+
+So that will cause the performance issues.
+
+So why?
+
+Because I say five seconds.
+
+I specified element is loaded within two seconds, then another three seconds will be wasted.
+
+So even though the element is loaded quickly, still there is a problem with the thread, so it will
+
+wait for maximum timeout.
+
+So then this will reduce the performance of your automation script.
+
+The second problem.
+
+Third problem is.
+
+We have to put this multiple places.
+
+Let's say you have written 100 lines of code.
+
+You are identifying synchronization problem in 3 to 4 places.
+
+In all 3 to 4 times.
+
+You have to include this red box multiple times you have to include in thread dot sleep.
+
+So that is another problem.
+
+So these are the three disadvantages which we have with the thread dot sleep.
+
+But initial level that is still fine.
+
+You can solve synchronization problem, but once you're writing advanced automation script, or once
+
+you are in developing some kind of a automation framework, don't prefer to use thread or sleep.
+
+Try to go with either implicit weight or explicit weight.
+
+Okay, so this is all about thread dot sleep.
+
+So thread dot sleep at the beginning level.
+
+That's fine.
+
+Still use it.
+
+But later on we don't recommend to use red dot sleep because as soon as you are trying to increase a
+
+number of automation test scripts, the performance is most important.
+
+Okay, suppose you have written automation script.
+
+If it is taking more time to execute, no use, right?
+
+So as soon as early as possible the automation script should be executed and produce the results.
+
+So third Lord sleep commands.
+
+Will park will cause the reducing the performance of your automation test script.
+
+So that is a major problem with the three dots.
+
+Right.
+
+So now let us move on to the actual weight statements provided by selenium.
+
+One is implicit weight.
+
+One is explicit weight.
+
+So the next one.
+
+So during interview you will get so many kinds of questions related to this topic.
+
+So listen each and every point, whatever I'm discussing here.
+
+Okay.
+
+Next one implicit weight.
+
+This is very popular with most of the people will use and prefer, and also it is very easy to use.
+
+And to use this implicit weight command, we now need to predict the synchronization problem.
+
+Even if you don't have a synchronization problem, still we can put this implicit weight.
+
+Okay.
+
+This will not impact any performance or anything.
+
+It's very easy and very simple.
+
+So I'll show you how we can use this.
+
+So.
+
+So in selenium the implicit weight how we can add implicit weight.
+
+So implicit.
+
+Wait, we can put only one single time.
+
+We no need to write multiple statements.
+
+And also we no need to predict the synchronization problem.
+
+Let's say you are doing some multiple flows in your application through automation, and there is somewhere
+
+in some flow may fail because of synchronization problem.
+
+So even though you are not aware of that particular, uh, synchronization problem, condition or scenario
+
+or page, still you can use implicit.
+
+Wait, just like a safe side.
+
+Okay.
+
+So how we can put implicit wait.
+
+Let me close this.
+
+Shall create another example taking duplicate copy.
+
+And here I'll say.
+
+Embrace it.
+
+Wait command.
+
+All right, so now I'm just removing this thread.
+
+Dot sleep.
+
+Okay, now I remove the thread dot sleep.
+
+So this will throw no such element exception because there is a synchronization problem.
+
+So how we can use implicit.
+
+Wait.
+
+So the first point.
+
+So whenever you want to use implicit weight you know need to predict the synchronization.
+
+So whether you are getting synchronization problem or not it doesn't matter.
+
+Simply you can put one more command here.
+
+After creating the driver instance you can use something called driver dot.
+
+There is a method called manage driver dot manage dot.
+
+There is another method we have to call called timeouts.
+
+In this we have something called implicit wait method.
+
+So first we need to call manage method that will return options object.
+
+From that.
+
+Again we are calling timeouts method that will return timeouts object.
+
+From the timeouts, we are calling one more method called implicit.
+
+Wait, so that will return also timeouts.
+
+Okay.
+
+So in this we have to pass the time.
+
+We have to specify some time implicit.
+
+Wait.
+
+Okay, so how we can specify the time in the implicit wait to specify the time in implicit wait, we
+
+cannot directly specify the number like in three if we put five 5000 milliseconds right.
+
+It is not like that.
+
+So we have to use some special class called duration class.
+
+In this we have a method called duration dot.
+
+Off.
+
+When I say OIF, it will show you multiple methods.
+
+You can specify time in seconds, milliseconds, minutes, hours, days.
+
+Also you can specify.
+
+See there are multiple methods out there.
+
+So you normally we take seconds or milliseconds.
+
+So let's take seconds.
+
+How seconds I'm taking.
+
+And here you have to specify the time in seconds.
+
+So let's say maximum 10s I'm switching these are standard time and then say semicolon.
+
+This is called implicit weight.
+
+One single statement which includes multiple things actually.
+
+So driver we have to first create by using only driver instance.
+
+We can put this implicit weight statement only one time the two after completing the web driver instance.
+
+So driver dot manage dot timeouts dot implicitly wait.
+
+And this will say time duration dot off.
+
+Second, the off seconds is a static method which is available inside the duration class which is also
+
+predefined class.
+
+This will take one parameter that is your time in seconds.
+
+And if you want to pass milliseconds, then you have to take another method of milliseconds or off uh
+
+off minutes of seconds.
+
+So multiple methods are there.
+
+You can take one of this method.
+
+Okay, let me finish the topic.
+
+Okay.
+
+Still not not executed.
+
+So this is one single statement we can put after finishing the driver instance.
+
+Okay.
+
+Now how exactly it will work.
+
+So we will understand that.
+
+So first of all we will see whether it will solve the synchronization problem or not.
+
+I'm just running as a Java application.
+
+Yes.
+
+So it is trying to pass the value.
+
+So implicit weight is properly working.
+
+I'll answer all your questions.
+
+So probably in my explanation, all your answers will be clarified.
+
+I think you are curious to know about this.
+
+Just wait for some time.
+
+All right.
+
+So let's understand how exactly this will work.
+
+And advantages and disadvantages.
+
+And remember a few important points about implicit.
+
+The first point.
+
+Whenever you want to use implicit weight, that should be keep after creating the driver.
+
+Okay at the beginning of the automation script.
+
+So why we have to keep in the beginning of the automation script?
+
+Because.
+
+Whether this implicit weight command, whatever statement we put.
+
+On what basis we are keeping this by using driver instance, right?
+
+And this driver object is alive.
+
+Till you close the driver.
+
+Suppose at the end of the code you use something called driver dot close or driver dot quit right till
+
+that particular time this driver is alive.
+
+Yes or no.
+
+We can use this driver instance to perform multiple type of operations.
+
+But when this driver will be closed at the time of calling close method or quit method, the driver
+
+will be killed.
+
+The driver will be automatically quit till the time the driver is alive.
+
+Okay, now we are putting this implicit weight command by using driver instance.
+
+What does that mean?
+
+This implicit weight is applicable till the driver is alive.
+
+That means this implicit weight is available throughout your automation script.
+
+For every statement this implicit weight is applicable.
+
+So with whichever statement you are referring driver instance everywhere this implicit weight is applicable.
+
+That means almost in every statement this implicit weight is applied on every statement is implicit
+
+weight is applied.
+
+It doesn't mean every statement will wait for 10s.
+
+So what I'm saying is this implicit weight is applicable for every statement.
+
+If I've written 100 lines of code.
+
+Every line is applicable.
+
+Implicit weight is applied on every line.
+
+But we will get another doubt.
+
+We put 10s here, but implicit wait will wait for 10s for every statement to execute.
+
+Just like a thread dot sleep.
+
+No it will not wait for 10s for every statement.
+
+But why?
+
+We specify the 10s and how we can handle this synchronization problem is.
+
+Suppose.
+
+We are trying to do some operation here.
+
+Let's say here we are launching the browser, maximizing the page, finding the element.
+
+We are doing multiple operations.
+
+Suppose if this operation is completed immediately, without having any problem, without having any
+
+synchronization issue, then it will go and execute the next statement as usual.
+
+Suppose if this.
+
+If this element is loaded immediately, just within 1 seconds or 2 seconds, it will go and continue.
+
+So it will not consider this time.
+
+But suppose if there is any statement which is taking more time to load or more time to interact, then
+
+it will wait.
+
+Maximum 10s.
+
+That's how implicit weight will work.
+
+Implicit weight is applicable for every element in your automation, but it will not wait 10s for every
+
+time.
+
+But when it will wait 10s.
+
+If any of the statement you have written five statements or ten statements in ten statements, at least
+
+1 or 2 statements will take more time, right?
+
+In those times only it will consider 10s.
+
+It will wait maximum 10s for the element.
+
+Suppose if the element is loaded within 5 seconds or 2 seconds or three seconds, then it will continue
+
+execution it.
+
+It will not waste the time unnecessarily.
+
+But in thread dot sleep the time will be wasted and say five seconds.
+
+Within three seconds element is loaded, two seconds will be wasted in thread dot sleep.
+
+But here it's not like that.
+
+Suppose if the element or page is loaded within 2 seconds or 3 seconds, and rest of the time it will
+
+not consider it will directly go to the next statement and then it will execute.
+
+But when it will execute maximum 10s if the element is still not loaded.
+
+Okay, it is still waiting or it is still loading, then it can wait.
+
+Maximum 10s.
+
+So that's how implicit wait work.
+
+So when you compare with all other, uh, where's implicit wait.
+
+Seems very, very simple and very use, only one single statement can handle all kinds of synchronization
+
+problem throughout your automation.
+
+One single implicit wait is enough.
+
+Okay.
+
+And that why we put in the beginning?
+
+Because we want to apply this for all the elements.
+
+Suppose if we put this weight statement okay here, then what happens.
+
+This implicit weight start working from this particular statement and before statement it will not consider.
+
+So that is the reason we put this implicit weight statement at the beginning itself.
+
+As soon as we created the driver instance.
+
+So then onwards it will start applying this implicit weight for every statement in your automation script.
+
+So now if I look at advantages and disadvantages of this implicit weight.
+
+Only one disadvantage.
+
+I'm sorry.
+
+It is.
+
+This is syntax to use.
+
+Okay.
+
+So advantages.
+
+Only one disadvantage is there but more advantages are there.
+
+So what are the advantages we'll discuss first single time or one time single statement.
+
+So we no need to write multiple times.
+
+Even thread dot sleep.
+
+We have to put multiple times.
+
+And moreover we have to predict the synchronization problem.
+
+But here we no need to predict any synchronization problem.
+
+So we don't know where we will get a synchronization problem.
+
+So in that case you can use single time.
+
+And one single statement will solve the synchronization problem.
+
+Only one single time you have to use.
+
+And the second is it will not wait till maximum time if the element is available.
+
+So because of data there is no performance issues.
+
+But in script in Thread.sleep it is waiting for maximum timeout every time.
+
+So that is the reason there is a performance error.
+
+But this time we don't need we don't have any kind of performance issues.
+
+Why?
+
+Because implicit wait will not wait for every element here.
+
+Suppose if this tie.
+
+If this element is taking time to load, then maximum 10s it will wait.
+
+Or suppose if the element is loaded within five seconds, then it will continue executing the next code.
+
+But unnecessarily it will not wait rest of the five seconds.
+
+So there is no problem with the performance issue, so it will not wait till maximum time if the element
+
+is available.
+
+So applicable for all the elements.
+
+One single statement applicable for all the elements throughout the order.
+
+Automation and very easy to use because a single statement.
+
+But what is the disadvantage?
+
+Only one disadvantage that also there in thread.sleep.
+
+One disadvantage is suppose if the element is still not loaded within 10s, it will wait maximum 10s
+
+if there is any synchronization problem.
+
+But if the element is still not loaded within 10s, still there is a chance of getting no such element
+
+exception.
+
+Okay.
+
+That is again problem is there?
+
+So no such element exception you will get.
+
+But most of the times how to handle this ten is a standard time.
+
+So even though if you have a very worst performance of your application, the elements should be loaded
+
+or pages should be loaded within 10s that is a standard.
+
+Actually, there's a benchmark.
+
+But still your application is taking more than 10s.
+
+Or if the elements are loading very, very slowly, that also taking more than 10s.
+
+You can happily report the performance issues on your application.
+
+Okay, but normally as per the performance benchmarks.
+
+10s is a time okay, it should not exceed the 10s and then if we exceed the more than 10s, we will
+
+consider that as a very poor performance of our application.
+
+So the developer has to fix the performance issues of the application.
+
+Remember that.
+
+So when you use implicit weight but still there is a chance of getting an exception.
+
+So we will handle by using try catch block.
+
+So you can just put this statement in the try block.
+
+And inside the catch block write no such element exception and then exit from the code.
+
+So like that we can simply handle.
+
+So this is implicit weight.
+
+And what is an advantage is again if the time is not enough.
+
+Still there is a chance of getting a exception.
+
+If the time is not sufficient then you will get an exception.
+
+So when you compare with thread dot sleep.
+
+Do we have any advantages or not?
+
+When you compare with red dot sleep.
+
+Especially performance wise.
+
+Implicit weight is a best option when you compare with the thread.
+
+So thread dot sleep is a worst actually, so it will cause a lot of performance.
+
+But if you have a small script you don't find much difference.
+
+But in the real time you will have so many automation test script.
+
+So while executing automation test script thread dot sleep will play most important role.
+
+It will try to reduce the performance of your automation script.
+
+But the implicit weight we don't have such problem because it will not wait for every time, every element.
+
+As soon as element is available, it will immediately go and execute.
+
+If the element is still not loaded, it will wait for that element.
+
+If the element is loaded then it will go up.
+
+Okay, so this is all about.
+
+Implicit weight.
+
+Advantages and disadvantages.
+
+Understood everyone.
+
+So this is all about implicit.
+
+Wait, how exactly it will work?
+
+So what is the default time of implicit weight interrogation?
+
+So what is a default time of implicit weight?
+
+We put some time here 10s or five or 20s, whatever you want.
+
+But what is the default time?
+
+How much time?
+
+It will wait by default?
+
+In zero seconds.
+
+And zero is a default.
+
+Timeout means what?
+
+That's the reason it is not waiting for every element when it will wait.
+
+If if there is any synchronization problem then it will wait for the 10s.
+
+Otherwise zero seconds.
+
+If the element is available then immediately it will.
+
+It will perform the action.
+
+It will go to the next statement.
+
+It will not wait actually.
+
+But if the element is not available then it will wait for 10s.
+
+So the default timeout of implicit wait is zero seconds.
+
+Okay, now let's move on to the.
+
+Explicit weight.
+
+Explicit wait is another.
+
+An implicit and explicit wait is purely belongs to selenium.
+
+Thread dot sleep is not belongs to selenium.
+
+It is comes from Java itself.
+
+Yeah.
+
+Okay.
+
+Now explicit.
+
+Wait.
+
+So when you compare with implicit end thread dot sleep, explicit weight works, uh, more efficiently.
+
+Yes.
+
+If you're if you put implicit weight, the dot is not necessarily needed.
+
+No need of that.
+
+Okay.
+
+Implicit weight will solve all kinds of synchronization problems.
+
+So that dot sleep is not at all needed.
+
+One implicit weight is enough.
+
+All right.
+
+So now explicit weight.
+
+Explicit weight.
+
+When you compare with implicit weight, explicit weight is little complex.
+
+But it is more efficient than implicit weight.
+
+Right.
+
+So what is the major difference between implicit weight and explicit weight?
+
+Implicit weight.
+
+Mainly consider the time we specified, so whatever time we specified here.
+
+Implicit weight works based on the time specified.
+
+That is a hard coded value.
+
+We cannot pass this time dynamically, because we don't know how much time it will take to load the
+
+page or load the element.
+
+We don't know, but we are just assuming something and we are specifying some.
+
+Maximum timeout is ten.
+
+Okay, but in explicit.
+
+Works based on the condition, not based on the type.
+
+Okay.
+
+In implicit wait, it will consider only the time is matter, but in explicit it will take two considerations.
+
+One is time and another one is condition.
+
+Based on the condition and time, it will take two options and works implicit wait.
+
+Consider only the time it don't have any conditions.
+
+We haven't specify any conditions here.
+
+Okay, so explicit weight works based on the time and the condition.
+
+So time we already know.
+
+Time means every way.
+
+Every way.
+
+Statement.
+
+We have to specify some time so we will know the time.
+
+But what about the condition?
+
+This is the extra thing which we added only in the explicit way, which is not there in implicit weight.
+
+Based on time and condition.
+
+Okay, at the time of creating explicit weight, anyway, we specify the time, but what is the condition?
+
+So in explicit way, there are two things we need to consider.
+
+It is not a single statement, so there are two parts.
+
+While adding explicit weight, one is called.
+
+We have to first declare the explicit weight, then we have to use it.
+
+Declaration of explicit weight.
+
+Is different.
+
+And once you declare it, then we can use it in multiple places.
+
+Explicit wait.
+
+Also, we have to use in multiple places.
+
+It is not a one single time.
+
+It's not like a implicit wait implicit wait in one single statement.
+
+But explicit is not like the declaration is one part that is only one time job.
+
+Once you declare explicit wait, we can use it in multiple places wherever you will get a synchronization
+
+problem.
+
+Okay.
+
+Two parts.
+
+So now I'll show you practically.
+
+Then we will try to understand more.
+
+Let me close this.
+
+So this is.
+
+Explicit weight command.
+
+All right.
+
+Now I just removing this implicit weight.
+
+All right.
+
+So how to use explicit weight.
+
+The first thing is we have to declare explicit weight in our automation declaration and usage.
+
+There are two parts in ECS explicit weight.
+
+So where we have to declare as soon as you create the driver instance immediately you can create explicit
+
+weight object.
+
+So in selenium there is a special class called WebDriver weight.
+
+WebDriver weight is a special class.
+
+For that we will create one object called as say my weight equal to.
+
+My weight equal to.
+
+A new web driver.
+
+Wait.
+
+So the web driver wait is a predefined class which is already there in selenium.
+
+So we have to take the help of this web driver.
+
+Wait class object.
+
+So this web driver wait we have to import from org dot OpenGL dot selenium dot support dot ui.
+
+So this is the import package.
+
+Now when you creating the object new WebDriver.
+
+Wait.
+
+We have to pass two parameters here.
+
+In the constructor of WebDriver wait class we have to pass two parameters.
+
+One is the driver parameter.
+
+Whatever we created that we have to pass.
+
+Second parameter is the time we specify.
+
+So whenever you want to specify the time in implicit wait and explicit wait or fluent wait, we use
+
+something called duration class.
+
+And duration dot of seconds and maximum 10s I put here.
+
+So this is called explicit weight declaration not usage.
+
+So this is called.
+
+Explicit weight.
+
+Declaration.
+
+Just redeclare the explicit wait by using WebDriver wait class.
+
+Okay, now this is not enough.
+
+So we have to use this web driver.
+
+Wait in multiple places.
+
+Wherever the synchronization problem occurs, we have to use this explicit weight.
+
+Okay, so how to use it?
+
+Suppose after launching my page here.
+
+So this element is throwing an exception.
+
+So for what?
+
+I should wait here.
+
+After launching the page, I should wait for this particular element.
+
+Right.
+
+That is my condition, actually.
+
+So after launching my page for what?
+
+I will wait.
+
+What is the purpose of waiting?
+
+Because I want to get that element.
+
+So I should get this element on the web page.
+
+So after launching the page I should wait for this element.
+
+For more.
+
+You are waiting.
+
+That is God condition.
+
+So I am waiting for this element to be displayed on the page.
+
+Or I'm waiting for this element to be available on the page.
+
+Or I'm waiting for some element that should be clickable.
+
+Or I'm waiting for the element that should be selected.
+
+There are multiple conditions out there.
+
+So based on the conditions.
+
+We have to apply explicit weight.
+
+So here in explicit weight condition will play more very very important role.
+
+Okay so now I know I'm wait I should wait for this element.
+
+After launching the page I should wait for this element.
+
+That is a condition.
+
+So how we can apply that.
+
+Here we have to say something called whatever object we created.
+
+My weight.
+
+Take this object.
+
+Dot my way to dot.
+
+There is a method called until.
+
+So this method we have to use to put the condition my weight dot until that means what we are waiting
+
+for.
+
+This particular element.
+
+Right.
+
+So that you have to specify my weight or until inside the bracket there is another class called expected
+
+conditions.
+
+Expected conditions.
+
+In this we can find all the conditions.
+
+So we don't know which condition right.
+
+You can find one of the condition.
+
+You can choose one of the condition here.
+
+There are so many conditions are there.
+
+So element related conditions.
+
+So you can see element state to be element to be clickable okay.
+
+Element to be selected.
+
+So there are different type of conditions.
+
+Are there presence of element located number of elements to be.
+
+There are so many conditions are there are visibility of elements.
+
+So whichever condition is appropriate to that particular statement, we can use it.
+
+So here what is my condition is I want to wait here till this element is available.
+
+Or you can say what is the expected condition to be.
+
+So this element should be available on the page.
+
+That's my condition.
+
+So I am waiting for what this element to be available on the page, or this element to be visible on
+
+the page.
+
+That's the condition.
+
+So here I'm taking one condition.
+
+Expected conditions dot.
+
+Visibility of element.
+
+Visibility of element located.
+
+I'm taking this method.
+
+Visibility of element located.
+
+And which element we have to tell which element.
+
+You have to specify the locator part.
+
+So by dot XPath which element you are waiting for this particular element so that you can specify in
+
+the XPath here.
+
+Okay.
+
+And then put the semicolon.
+
+This is the complete statement.
+
+And one more important thing.
+
+So let us try to understand this.
+
+This is called usage of explicit weight.
+
+This is a usage of.
+
+Explicit weight.
+
+Right.
+
+So let's try to understand this.
+
+So what is my weight here.
+
+My weight is a explicit weight class WebDriver weight class object dot until expected conditions is
+
+what visibility of element located.
+
+This is my condition, the element whatever element I'm passing here that should be located on the web
+
+page and that should be visible which element through the locator.
+
+We have to specify now what this statement will do actually is.
+
+As soon as you're loading this page.
+
+This until is right.
+
+So what this until until will return and web element until is a method which will return a web element.
+
+You put the cursor here, it will show you web element type.
+
+So when it will return the web element if this condition becomes true.
+
+Then only it will return the web element.
+
+But when this will return true.
+
+Internally expected conditions.
+
+Dot visibility of element located.
+
+So when this will return true.
+
+If you find any element on the page.
+
+With this locator.
+
+If you find any element on the web page with this locator, then only this expected conditions will
+
+become true.
+
+Whenever it becomes true, then until is a method which will return that web element.
+
+Whichever element we are trying to wait here, the web element it will return.
+
+So what is that web element is let's say txt username input box.
+
+And this variable type is also web element.
+
+Okay, now we need to import this web element.
+
+So this is how we can use explicit weight.
+
+Okay.
+
+Now you will get one question.
+
+We are not using find element here or find elements.
+
+But how come it is returning the web element?
+
+So when I working with the explicit weight.
+
+Finding the element or identifying the element is inclusive.
+
+You can see we are specifying the locator right in explicit weight.
+
+We are specifying the locator.
+
+So by using this locator it is trying to find the element.
+
+First it is waiting for the element.
+
+As soon as the element is available or visible capture that web element and returned by until method.
+
+That's the reason we are storing that element in a variable.
+
+So when I use explicit weight.
+
+You.
+
+No need to use find element.
+
+Why?
+
+Because identifying the element is inclusive in explicit wait.
+
+So that is the reason you can simply remove this part and take this element.
+
+Okay.
+
+And then use Sendkeys method.
+
+That's it.
+
+Okay, so my weight is an object of WebDriver weight until we specify the condition for the element.
+
+If the condition is satisfied, then return the element and then we perform the action.
+
+So explicit.
+
+Wait is element specific.
+
+So this explicit wait works only for this this particular element.
+
+So if you want to wait for some other element again you have to repeat the same thing.
+
+Suppose I want to wait for password element.
+
+So then you can write another one.
+
+And here you have to specify the password locator.
+
+So in this page if I look at the password.
+
+Inspect.
+
+So the explicit weight is a element specific.
+
+Remember this and multiple places.
+
+We have to keep whichever element we're throwing.
+
+Some exception we can put like this.
+
+So this is a XPath of the password element.
+
+So this is I'm saying txt pwt.
+
+So now take this element and send the keys.
+
+You can pass the password as admin 123.
+
+Like this.
+
+So I put explicit weight for the username I put explicit weight for the password also but not mandatory.
+
+But if you face any synchronization problem then you can put.
+
+So this is called explicit weight declaration.
+
+And here we have used explicit weight here and this condition.
+
+Will be changed different based on different situations.
+
+Okay.
+
+For example, uh, I want to wait for this login button.
+
+Okay, so now why my condition can be different.
+
+Suppose the visibility of the element located.
+
+I can still use the visibility of the element located.
+
+I can specify the login button XPath.
+
+That is still fine, but sometimes what happens is even though the element is available or element is
+
+visible, it will take few seconds to allow us to click on the login button immediately.
+
+We cannot click as soon as your page is loaded immediately we cannot click on this.
+
+It may take few seconds of time.
+
+Uh, to allow us to click.
+
+In that case, we can change the condition.
+
+So not only visibility, it should be clickable.
+
+So we have to wait till this element to be clickable.
+
+So in that case we can change the condition also.
+
+So for example let's say.
+
+I'm taking one more, let's say my weight.
+
+Dot until my way to dot.
+
+Until.
+
+Expected conditions.
+
+Dot.
+
+Here we have one more method called element.
+
+To be clickable.
+
+Element to be clickable.
+
+And here we can specify the locator of the element.
+
+So if I go back and see login button, I'm inspecting.
+
+So this is a locator of the login button so that you can specify.
+
+So now this time what happens is if this element is clickable.
+
+So we need to say by dot XPath.
+
+By XPath and then we can specify the locator.
+
+So this time what happens is.
+
+This will wait.
+
+For what?
+
+This element to be clickable.
+
+Then only it will return the element so that I'm going to store.
+
+In a variable login button.
+
+And it is web element.
+
+So what is the next step once we get a web element?
+
+We have to perform the click action.
+
+So before clicking before directly clicking on this element, we are waiting for the element.
+
+And once it is returned then we are performing the action.
+
+Same thing.
+
+We are repeating every step.
+
+So before performing the action we are waiting for the element.
+
+Once it is available, return the web element and then we perform the action here also we are waiting
+
+for the element.
+
+Once it is returned, then we are performing the action.
+
+So you have to notice one thing.
+
+Basically, we are waiting for the element.
+
+Condition.
+
+We are not considering the time here.
+
+We are waiting for the element here also.
+
+We are waiting for the element here also.
+
+We are waiting for the element if the element is available, if the element is clickable or if the element
+
+is visible, then it will return the element.
+
+Then only we are performing the action.
+
+That means explicit wait is conditional based.
+
+First, it will consider the condition what type of condition we put.
+
+Okay.
+
+And if the condition is satisfied, return the element and then we will continue performing the operation.
+
+Okay.
+
+That's fine.
+
+So here we put some condition based on the condition it is waiting for the element.
+
+That is fine.
+
+But why?
+
+We specify the time here.
+
+If you are considering the condition.
+
+Right.
+
+But why?
+
+Time is required.
+
+Why we time is required here.
+
+So at the time of executing your automation code.
+
+Right.
+
+You will know the synchronization problem issues.
+
+You will face a lot of problems in synchronization problem.
+
+So you don't need to predict that.
+
+Actually it is not like an exception.
+
+Exception.
+
+We have to predict because based on the user mistake you will get an exception.
+
+But here synchronization problem we cannot predict actually.
+
+But once you executing your automation code okay based on the exception you will get, you will assume
+
+there is a synchronization problem okay.
+
+So in explicit way we are mainly considering the condition first based on the condition it is returning
+
+the element.
+
+And then we are performing the action.
+
+But what is the time here.
+
+So.
+
+Explicit wait.
+
+Consider condition and then time both it will consider, but the first priority will be given to the
+
+condition.
+
+I suppose if the condition is not satisfied.
+
+Suppose this condition is not satisfied within 10s, then it will throw an exception, otherwise not.
+
+Okay.
+
+So first it will consider the condition.
+
+If the condition is satisfied, immediately return the element and continue the execution.
+
+But suppose if the time if the condition is not satisfied, how much time it should wait?
+
+How much damage should we have to specify that?
+
+Okay.
+
+If the condition is not satisfied, just wait for this much of time and then exit from it.
+
+We have to tell that so that you can specify in the beginning, at the time of creating the explicit
+
+wait object, we have to specify the time.
+
+But initially at the time of execution, it will consider the condition.
+
+If the condition is not satisfied, then only it will check the timeout and will meet maximum timeout
+
+10s and then it will exit.
+
+So if you want to understand this better, I will give you one more example.
+
+With an example we can understand if the condition is specified again why the timeout is required.
+
+We have to specify some maximum timeout if you look at here.
+
+Let us say there are two friends want to meet in some place exactly 5 p.m..
+
+Let's say 5 p.m. is the time they have decided.
+
+And those two friends should come from the different places.
+
+And they wanted to meet exactly 5 p.m. in one single place.
+
+Now the first friend exactly arrived here at the 5 p.m..
+
+And he is waiting for what?
+
+Another friend to come.
+
+But this friend has committed to come here exactly in the 5 p.m..
+
+But he's not at come at 5 p.m..
+
+So how much time he should wait?
+
+Actually, what is the condition in this scenario?
+
+The friend is waiting for another friend.
+
+His friend is waiting for another friend.
+
+That is the condition.
+
+How much time he should wait?
+
+Maximum 10 minutes or 15 minutes.
+
+Not more than that.
+
+Right.
+
+If the friend is not came within this time, definitely there is some problem happen here.
+
+So here he is waiting for his friend.
+
+But he cannot wait for one hour, two hours, three hours.
+
+Right?
+
+So we have to specify some cutoff time.
+
+10 minutes or 15 minutes.
+
+Some cut off time should be there so he can wait till that time.
+
+And if is not comes then he can go back.
+
+So same scenario will happen in an explicit way.
+
+We specify the time.
+
+But this time is applicable if the condition is not satisfied.
+
+So we are waiting for the condition to be true.
+
+If the condition is true, it will return the web element.
+
+But when the condition becomes true, if the element is available or clickable, then element is, then
+
+the condition becomes true.
+
+If the condition is true, return the web element and still, if the element is not matching or not
+
+loaded, then maximum 10s it will wait.
+
+After 10s it will throw the exception.
+
+So this is more efficient than implicit.
+
+Wait.
+
+But in one context is element specific.
+
+Element specific.
+
+So we have to.
+
+Predict that actually.
+
+So synchronization problem.
+
+Once it comes then you can apply this.
+
+So this is not applicable for all the elements.
+
+So whichever element is having synchronization problem we can apply this explicit weight for the individual
+
+elements.
+
+Individual elements.
+
+So this is how explicit void works.
+
+Let me execute.
+
+So launching my page, entering username password, then clicking on the continue button.
+
+So successfully done.
+
+So this is another way to handle the exception.
+
+So now we will try to understand about explicit weight.
+
+Advantages and then disadvantages.
+
+Just.
+
+So few points.
+
+We need to remember again the same kind of advantage disadvantage.
+
+Is it because if the condition is not matching again, it will go and consider the time, right?
+
+If even the time is not sufficient, still there is a chance of getting an exception.
+
+Yes, if the condition is not satisfied then it will return no such element exception that is still
+
+there.
+
+So few points we need to remember.
+
+Explicit weight is what?
+
+Conditional based?
+
+So according to along with the time, we also additionally adding some conditions so it will work more
+
+effectively.
+
+And the second point is finding the element is inclusive.
+
+Okay.
+
+Finding the element is inclusive.
+
+We no need to write a find element or find element separately.
+
+Okay, but there are some scenarios.
+
+Are there for some conditions.
+
+Uh, we don't need to write find element or we no need to write.
+
+Locator must and should can remove this point.
+
+So finding element is inclusive means when I use explicit wait command.
+
+So we no need to write additional find element or find element separately.
+
+So explicit wait itself will find the elements and return the element if the condition is true.
+
+The second one.
+
+Next point.
+
+It will wait for condition to be true, then only it will consider the time.
+
+So it will wait for the element, right?
+
+That is the condition.
+
+The condition should be satisfied.
+
+And within 10s we specify.
+
+Right?
+
+So within 10s it will try to find the element by using the condition.
+
+And if the condition is false, it will wait for maximum seconds to condition to be true and within
+
+10s.
+
+If the condition not become true, that means element is not matching or element is not available,
+
+then it will throw no such element exception.
+
+And one problem with this is we need to write a multiple statements for multiple elements.
+
+So wherever the synchronization problem occurs in all the places we have to write, explicit weight
+
+and declaration will happen only one time.
+
+We no need to declare multiple times.
+
+So once you declare this explicit weight, we can use this weight object in multiple places.
+
+Here I have used here, I have used here also.
+
+I have used so multiple places you can use this object.
+
+So this is another way to solve the synchronization problem using explicit weight.
+
+And people will feel some difficulty in this.
+
+So most of the people will prefer to use implicit weight most of the times.
+
+But efficiency wise explicit weight works more efficiently than implicit weight.
+
+But the usage wise implicit is more, uh, flexible than explicit weight.
+
+User point of view, but efficiency.
+
+Point of view.
+
+Performance.
+
+Point of view.
+
+Execution point of view.
+
+Explicit weight works more efficiently than implicit weight and user point of view or easiness point
+
+of view.
+
+Implicit weight works more efficiently.
+
+Okay.
+
+So this is all about.
+
+Explicit.
+
+Wait, so there are multiple conditions, are there in expected conditions?
+
+Whatever.
+
+We are calling this predefined method class in this there are so many conditions.
+
+Ah.
+
+So these conditions we will prefer to use in different conditions or different situations.
+
+Suppose let is present element selection state to be element to be clickable, element to be selected
+
+okay and different title on title.
+
+Also title is title contains a visibility of visibility of all elements, multiple elements.
+
+Sometimes you want to.
+
+You are waiting for group of elements to be loaded.
+
+Then you can use this method.
+
+Visibility of all elements.
+
+Visibility of all elements located by.
+
+So this will return group of web elements multiple web elements because we have find element find elements
+
+right here.
+
+Also visibility of element located visibility of all elements located.
+
+So multiple methods are there.
+
+So these are the different conditional methods we will use in the different scenarios okay.
+
+All right.
+
+So this is all about explicit.
+
+Wait.
+
+So is it clear so far everyone.
+
+Can we generalize that if web page has many objects?
+
+Better to use explicit weight just to ensure all the objects.
+
+So normally what happens is.
+
+In the web page.
+
+If you write explicit weight for one element, that is enough.
+
+If you are working at same page, okay?
+
+Because if one element is loaded, the rest of the elements also loaded.
+
+Obviously it will not take much time.
+
+So if you write explicit, wait for one element.
+
+Suppose in this example I have written explicit wait for three elements actually.
+
+So it is not necessary.
+
+If you apply explicit wait for one element, that is enough.
+
+If this element is loaded, that means the rest of the elements also loaded.
+
+No problem.
+
+But if you are navigating between multiple pages, then in the first page you can put apply.
+
+You can apply weight statement for one element.
+
+In the next page.
+
+You can apply weight statement for one element.
+
+In the third page you can apply weight statement for some element.
+
+So at least take one element from one page and apply weight for that element.
+
+That is enough.
+
+You don't need to put explicit weight for every element.
+
+You have ten elements in the form.
+
+Let's say you have an application form.
+
+You have ten input boxes, three buttons, multiple check boxes.
+
+So it is tedious task to put explicit weight for every element, right?
+
+So it's not recommended.
+
+It's not at all needed.
+
+Also, just 1 or 2 elements.
+
+You can put explicit weight.
+
+That is enough.
+
+But when you're changing the page.
+
+Then you can put another weight statement in another page.
+
+Okay.
+
+That is a recommended option.
+
+So even in explicit weight.
+
+Also, if this condition is false, the time is got reached, then no such element exception will come
+
+and that we can handle again using try catch block.
+
+All right, so now we'll see.
+
+Fluent.
+
+Wait.
+
+That is more advanced than explicit.
+
+Wait.
+
+On top of explicit wait.
+
+Fluent wait is got created.
+
+So that is very complex than explicit wait.
+
+But we need to understand which is most important in injury perspective at least.
+
+Even though if you're not using it in your automation.
+
+But still it is most important to use I mean, important to know, uh, interior perspective.
+
+But some people will still use fluent.
+
+Wait.
+
+If you are familiar with the fluent wait, you can still use, but I will tell you which one is more
+
+preferable and which one is more efficient.
+
+We'll compare all the wait statement later, right?
+
+So now let me show you how we can work with the fluent.
+
+Wait.
+
+Next one.
+
+So fluent.
+
+Waiter again.
+
+Fluent.
+
+Wait.
+
+Also there is a declaration.
+
+There is a usage.
+
+Two parts are there.
+
+So to declare the plane.
+
+Uh, I will give you one syntax here.
+
+We'll follow the same syntax.
+
+Sede disadvantage is always there for every investment because if the timeout is got exceeded, no such
+
+element you will get.
+
+That's a disadvantage and little complex when you compare with implicit wait.
+
+Explicit wait is a little complex okay.
+
+Yeah.
+
+So now let me show you about fluent wait.
+
+So just like a explicit weight, fluent weight is also having declaration part and usage part.
+
+So this is called declaration.
+
+See how much it is.
+
+This is called declaration.
+
+This is called usage.
+
+This is called usage.
+
+This is called declaration of fluent weight.
+
+Okay.
+
+So this is syntax the provided in selenium website.
+
+So if you directly go and search.
+
+But selenium fluent waiter and directly checking their official website.
+
+So this is syntax.
+
+They have given same syntax I have copied.
+
+So this is the declaration.
+
+This is the usage right.
+
+So we will try to understand what exactly it is.
+
+So I will explain these options later.
+
+And this is the actual usage.
+
+First of all, let us try to use it in our automation.
+
+Then I'll come and explain it what exactly it is.
+
+The syntax is a little complex.
+
+Yes.
+
+It is designed in, uh, JavaScript actually.
+
+So this part, whatever you can see, this is actually JavaScript part which is embedded in Java method.
+
+So wait, uh, dot until till here.
+
+This is Java method.
+
+But inside this whatever they have created this part is called JavaScript.
+
+They have executing JavaScript here internally.
+
+Okay.
+
+We will try to understand this whole thing.
+
+So first of all let's go to eclipse and we'll create another example.
+
+So I'm taking the same copy.
+
+I'll call it as a don't give fluent weight as a name of the class, because fluent weight itself is
+
+a predefined class.
+
+So just add some demo something like this.
+
+Or example something like this.
+
+Implicit weight.
+
+Explicit weight.
+
+These are all predefined classes so you need to carefully use it.
+
+So fluent weight.
+
+Okay, I'm just trying to remove this.
+
+So this is a plain code.
+
+I have not added any weight statements here.
+
+Just I'm launching the page maximizing and then I'm trying to interact with the element.
+
+Okay.
+
+Now how to use explicit weight.
+
+First part is what?
+
+Declaration?
+
+Declaration.
+
+So the declare the explicit waited.
+
+This is a syntax provided by selenium guys.
+
+So just copy paste from their website.
+
+This is syntax.
+
+So what we need to do is this wait is a predefined class which we need to import org dot open dot selenium
+
+dot support dot ui.
+
+This wait is an object.
+
+Actually you can just change it if you want.
+
+My wait.
+
+And fluent.
+
+Wait, just we need to import from org OpenCV selenium support dot ui.
+
+And no such element exception.
+
+Also we need to import.
+
+And here the time they said right in the syntax.
+
+So we need to specify this using duration class duration dot of seconds.
+
+I can put some 10s and duration dot.
+
+Duration dot.
+
+Of seconds.
+
+Of seconds, I can say.
+
+Uh, two seconds.
+
+Let me put I'll tell you what is this time at the end?
+
+Everything okay?
+
+So this is syntax.
+
+Okay.
+
+Still, it is giving an error.
+
+So what it is saying is.
+
+Fluent debater.
+
+The input value to pass to the evaluated conditions is saying some parameters are incorrect.
+
+Okay.
+
+So we need to import the package correctly.
+
+So otherwise it will give you an error.
+
+Okay, so let me remove this for now.
+
+Sorry guys, I have returned double times actually.
+
+So duration lot of seconds.
+
+It is just a ten.
+
+Two times I have written.
+
+Durations of off second.
+
+This is to.
+
+Okay, now import everything.
+
+Client.
+
+What imported weight is also imported?
+
+Event duration.
+
+Also, Java dot timer is also imported.
+
+So this is called declaration.
+
+I'll explain later.
+
+So first let me show you how exactly it will work.
+
+So this is called declaration.
+
+So my weight is an object.
+
+For what fluent weight.
+
+My weight is an object of fluid weight.
+
+So for that we need to use this one weight of WebDriver.
+
+Of my weight equal to new fluent weight.
+
+So what does this mean?
+
+Fluent.
+
+Wait is a class which is implemented wait.
+
+Interface.
+
+Wait is an interface.
+
+Actually, it's not a class.
+
+So wait is an interface.
+
+The interface variable can hold the object of fluent.
+
+Wait, so that's the reason they are created like this.
+
+And we should not change this.
+
+This is a syntax they have recommended.
+
+Along with this they have put some more options.
+
+We'll come to that part.
+
+All right.
+
+So this is a declaration but how to use it.
+
+So I want to use this effluent weight for this element.
+
+This is also specific to element.
+
+Just like a explicit weight.
+
+You have to keep this.
+
+We have to apply this point weight for different type of elements.
+
+Okay.
+
+Now let us try to apply this for the element.
+
+So for the application this is the syntax we have to use.
+
+Okay, so I'll put this here.
+
+So in this syntax this is actually a web element okay.
+
+So let's say txt username I'm changing.
+
+And this weight is what object of the weight.
+
+So that I'm replacing.
+
+Yeah, rest of them are fine.
+
+So we need to import required things.
+
+So web element we have to import.
+
+And also the function.
+
+Also we need to import from this.
+
+See when I try to import the options, you need to choose the right one, otherwise you will end up
+
+with the issues.
+
+So the function class we have to import from com dot, google.com and dot base, which is also available
+
+in Java.util dot function.
+
+But we should not use this.
+
+We should use this one com.google.com and dot base.
+
+Right.
+
+So here we have to specify the locator of the element.
+
+So they have used by.id.
+
+But here I can use XPath.
+
+The locator can be anything.
+
+So this is a XPath for the element.
+
+And just I'm passing it.
+
+You can remove this.
+
+So even.
+
+A finding the element is inclusive in fluent weight, just like explicit weight.
+
+So this is the usage.
+
+So this will finally return the web element here.
+
+And once we get a web element and use the web element and perform the action send keys of.
+
+Pass the username.
+
+This is how we can use fluent weight.
+
+Okay.
+
+Let me execute first.
+
+We'll see.
+
+She.
+
+This.
+
+Yeah.
+
+So now I've got some exception.
+
+No such element.
+
+Exception.
+
+Unable to locate an element.
+
+Placeholder username.
+
+And we call this method.
+
+So my wait until new function web element WebDriver return driver dot find element.
+
+Let me put something here.
+
+Return driver dot find element by dot XPath input holder okay.
+
+Let me try to execute one more time.
+
+To.
+
+Okay.
+
+Somehow it is not working.
+
+Just a moment.
+
+Some.
+
+Okay, so we'll try now.
+
+On motion.
+
+There may be some syntax error.
+
+My weight.
+
+Dot until new function WebDriver web element.
+
+The element apply WebDriver driver.
+
+Return this element.
+
+Okay.
+
+Let me create a variable here.
+
+Text.
+
+User name.
+
+So I'm just identified this element here and put here and then returning.
+
+So find element is a part of this uh fluent.
+
+Wait.
+
+So here it is able to find this element.
+
+Or you can put explicit wait directly.
+
+So here you can put explicit wait.
+
+But again.
+
+It will become two weights in fluent and explicit weights, so you can directly put this data.
+
+I don't see any change.
+
+Okay, you guys can try this.
+
+Let's see.
+
+There is some problem.
+
+Uh, maybe it will work for you.
+
+You can just try this.
+
+Or if it is not working, you can just try another type of uh, wait statement.
+
+Okay, sometimes fluent wait will not work in that way.
+
+So whatever we expected so you guys can try if it is working still, that is fine.
+
+Otherwise you can try to use some other wait.
+
+But this is the way of using the explicit, uh, fluent wait.
+
+Okay, so let me explain what exactly it is and what are the things we have to specify.
+
+And when you compare with explicit weight, what are the differences?
+
+So in the fluent weight this is a declaration part.
+
+In this we use something called fluent weight class.
+
+And, uh, in the constructor, we're passing the driver.
+
+Additionally, we pass some options here with the timeout polling and polling every and ignoring.
+
+So don't try to understand the syntax because this is a little bit different and a little complex.
+
+So no need to understand what exactly it is.
+
+But we need to understand what are those options exactly how exactly these options works.
+
+And also we need to understand something about this one.
+
+So this is actually JavaScript method.
+
+But internally they used a normal Java method.
+
+Okay.
+
+First let us try to understand this how exactly the mechanism of fluent.
+
+Wait how exactly the fluent wait works?
+
+Let me show you here.
+
+Let us say, uh, I'm waiting for some element on the web page.
+
+Okay.
+
+Right?
+
+Okay.
+
+Look at this.
+
+Let's say I'm waiting for some element on the web page.
+
+It can be input box or button or link, whatever.
+
+This is my element.
+
+So what is this?
+
+10s.
+
+Is this is the maximum timeout?
+
+Suppose if this element is, this particular thing is not returning web element.
+
+How much time we should wait?
+
+Maximum 10s we have to wait.
+
+Maximum 10s.
+
+Now, what is this time?
+
+Polling every five seconds or polling every two seconds.
+
+For example, I say two here.
+
+What is this time?
+
+Fluent weight will pull for this element for every two seconds.
+
+That means maximum timeout is 10s.
+
+That is fine.
+
+But how exactly it will work is first it will hit the element.
+
+First, it will hit the element.
+
+If it is find, return the element.
+
+If it is not find then next to two seconds it will again.
+
+One more time it will hit.
+
+If it is fine, return the element.
+
+If it is not fine, then after two seconds again it will hit.
+
+So for every two seconds of intervals it will keep hitting the element it is.
+
+Keep trying to find the element within every two seconds interval up to 10s.
+
+So if you take 10s is a maximum, how many times we can split this ten into two five times?
+
+That means if it hit the element every two seconds intervals, how many times it will hit within 10s.
+
+Five times.
+
+It will hit okay.
+
+Five times.
+
+That's called polling time.
+
+So polling time in the sense when I say 10s, it will not wait for 10s for every two seconds it will
+
+hit the element it is trying to find the element, find that element, and as soon as it finds the element,
+
+return it.
+
+If it is not fine, then another two seconds it will hit, but it will not wait.
+
+Maximum 10s.
+
+If the element is not able to find then it will wait maximum 10s otherwise suppose in between.
+
+If you find any element in between, then it will exit from the fluent.
+
+Wait, so that's how it will work actually.
+
+So that is called polling every two seconds or polling every five seconds.
+
+So the entire time will be split into multiple parts or multiple intervals.
+
+And in those intervals it will go and hit the element.
+
+So that's how the fluent wait is designed.
+
+Now the next one is ignore no such element exception.
+
+Ignore no such element exception.
+
+Sometimes when you're trying to hit the element within these intervals, two intervals every two intervals.
+
+Suppose if the element is not available in first two interval.
+
+Then it will throw some exception.
+
+No such element.
+
+Exception.
+
+If it throws exception, no such element exception, it will not go to the next interval.
+
+Right.
+
+So to handle this problem, they have added one more option called ignoring no such element exception
+
+dot class.
+
+So what this will do is in every interval it will hit the element right.
+
+Let's say 10s maximum timeout we have given.
+
+Every two seconds intervals it will go and hit the element, but in the first second interval it will
+
+hit.
+
+The element is not found.
+
+It will throw exception.
+
+So this will automatically handle this exception and go and hit the second interval.
+
+Again it throw exception.
+
+Handle this again.
+
+It will go to the next round and hit the exception like this.
+
+It will do five times.
+
+Suppose in five times five intervals.
+
+Within 10s it is not able to find the element.
+
+Then it will return the exception called no such element exception even in the fluent weight.
+
+Also, there is a chance of getting no such element exception.
+
+But what about this one?
+
+Ignoring no such element is applicable within the intervals, but after 10s, if the no element is identified,
+
+then only it will return the no such element exception for us.
+
+But if the any interval it is got failed, then it will not throw any exception.
+
+Even though it is throw exception, this will automatically handle that exception.
+
+So these are the three options are provided in build one is maximum timeouts.
+
+This is the interval timeout.
+
+This is the exception which will automatically ignore during the intervals.
+
+So these are three options are provided in the declaration part.
+
+Now when you come to the execution part.
+
+Here.
+
+So when I say five means only two intervals, two times it will hit right?
+
+Now come to this part.
+
+So what exactly it will do my weight dot until until method is always return the web element when it
+
+will return the web element.
+
+If internal stuff is successfully executed, this part is executed.
+
+Then it will return the web element.
+
+If this internal stuff is not properly executed then it will return the exception.
+
+No such element exception.
+
+So once we get a web element, we can perform the action like this.
+
+So in this again.
+
+I can look at here.
+
+So only this part is a Java method.
+
+This part.
+
+Public web element is a return type.
+
+Name of the method is apply.
+
+It will take driver as a parameter, and by using this driver instance, it is trying to find the element,
+
+store the web element or return or return web element directly, or storing the web element in a variable
+
+and returning the web element because we are returning the web element.
+
+So the holding variable should be web element.
+
+So this will try to find the web element and return the web element.
+
+If the web element is available then we can perform the action.
+
+Okay.
+
+Sometimes the fluent weight will not give guarantee to identify the element.
+
+Okay, so in that case you can directly go with the explicit weight.
+
+So when you compare with explicit and fluent weight actually both are almost the same.
+
+The only the difference is.
+
+In the fluent wait, some additional options are added, like a timeout polling time ignoring exception.
+
+So these things are additionally added in the fluent wait.
+
+That's another difference.
+
+And in explicit wait we put some conditions actually.
+
+But in the fluent wait, we haven't put any condition just based on the timeout it will go and execute.
+
+Okay, but sometimes it may not work after.
+
+Sometimes if you try, it may work.
+
+It may not work.
+
+You can try multiple times.
+
+So this will able to handle the.
+
+Synchronization problem.
+
+So this is a way of using explicit wait.
+
+Again if you want to use this explicit uh, if you want to use this plane to wait for multiple web elements,
+
+it is again, tedious task because you need to write this much of thing for every web element, for
+
+one single element.
+
+We have written like this.
+
+And if you want to apply this synchronization for another element, you have to write the same thing.
+
+You have to copy the same stuff and just change the element.
+
+Okay so txt username.
+
+My wait is a fluent wait object.
+
+So here we created this.
+
+Be fine.
+
+So remember the syntax.
+
+But among these weight statements implicit weight, explicit weight, fluent weight and thread dot sleep
+
+for in this for most most popularly used one is implicit weight because that's more easier one time.
+
+And there is one common problem in every type of weight statement.
+
+What is the common problem?
+
+What is the common problem in every weight statement?
+
+One common problem is there.
+
+Yes.
+
+So this time is still.
+
+Our assumption 10s is a maximum timeout.
+
+That's a standard time.
+
+So if the element is taking more than 10s, definitely that will throw an exception so that we should
+
+handle through exception handling.
+
+We need to put this entire stuff in the try block and continually write the catch block.
+
+So all kinds of weird statements.
+
+Whichever weight statement you have used, we should always use try catch block.
+
+Exception handling must be there.
+
+Okay.
+
+And this is not this is only for intervals.
+
+This, uh, this exception will ignore only during the intervals.
+
+But finally, once all intervals are completed.
+
+Element not found still.
+
+Then this also will return the no such element exception.
+
+Okay now.
+
+Next one.
+
+So duration of seconds.
+
+The default duration of seconds.
+
+The default value is always zero.
+
+We need to put some time here and here.
+
+Okay, so among these wait statement implicit wait is more preferable and next level is explicit wait
+
+is also preferable because explicit wait.
+
+Uh, works based on condition also right along with the time.
+
+It is also works based on the condition.
+
+So that will work more efficiently than implicit.
+
+Wait fluent wait.
+
+Also, you can use it, but it will increase the number of lines.
+
+Code okay number of lines in the code it will increase just for one single statement.
+
+You have written almost one function here.
+
+So this is the entire function.
+
+But some people what they will do, they will create one user defined method which include this entire
+
+fluent.
+
+Wait.
+
+So whenever you want to find the element, whenever you want to put something synchronization problem,
+
+they will call that method actually.
+
+So that way they can try to reduce the code.
+
+But still this is compared to other implicit weight or set dot sleep or any other weights.
+
+Explicit weight.
+
+This is a little complex than them.
+
+Okay, so I recommend to use implicit weight at this point of time.
+
+Once you're familiar with explicit and fluent point, then you can start using it.
+
+And you don't need to understand much about the syntax because they have created exact the same way,
+
+and they recommended to us to use the same syntax.
+
+This is designed by own their own syntax.
+
+Okay.
+
+The implicit weight is always one.
+
+So wherever you created a driver, if you put implicit weight there that is applicable for the entire
+
+project, even if you created 100 test cases in every test case, you don't need to put implicit weight
+
+because all the test cases will be driven from a single place.
+
+That's called driver code.
+
+Wherever your driver is got created, same driver will be used for all 100 test cases.
+
+So if you keep implicit weight for the driver code one time, that is applicable for all the automation
+
+test scripts.
+
+So that is another benefit.
+
+So for every test case we no need to do like this.
+
+You will see that in the framework concept.
+
+How we can, uh, achieve the reusability concept by using inheritance, how we can try to reduce the
+
+code and code optimization part so that we will see in the framework concept.
+
+Okay, so these are all comes under the weight commands or weight methods.
+
+So.
+
+Yes.
+
+So this yeah this is element specific.
+
+Right.
+
+So if the element is specific that means you need to copy the same syntax for other elements and just
+
+change the locator of that element.
+
+Yes, you have to do it multiple times.
+
+You need to copy it multiple times.
+
+Okay, so now if I use two weight statements, two different type of weight statements in single code,
+
+then what will happen?
+
+Is there any advantage or not?
+
+So we'll try to understand this.
+
+Most many people will ask this question normally.
+
+See, I have written some automation code.
+
+And I put implicit weight here.
+
+And I put maximum timeout in 10s.
+
+And this implicit weight is applicable for every statement.
+
+Okay.
+
+Now here particular element is throwing an exception.
+
+I put some another weight statement.
+
+Okay.
+
+For example I put explicit weight statement here.
+
+Explicit statement is applicable for specific element, right?
+
+Not for all elements.
+
+Now which one will be considered and is there an advantage or is there any disadvantage of this?
+
+When I use two different way statement in single code.
+
+Syntactically there is no problem.
+
+Syntactically you don't find any issues.
+
+The script will execute as usual, no problem.
+
+So you can still keep two way statement in single script, but there is no advantage of it.
+
+Let me tell you what is a problem in this.
+
+So implicit wait 10s maximum timeout is applicable for every element.
+
+So if you come to this particular element, how many times it will wait according to the implicit wait,
+
+how much of time it will wait according to the implicit wait 10s maximum 10s.
+
+Now I also put explicit wait here.
+
+I also put explicit wait according to the explicit wait.
+
+Also, I just put 10s maximum timeout.
+
+Let us say 10s maximum timeout for explicit wait.
+
+Now, according to the implicit wait, it will wait for 10s so it will parallelly create one thread.
+
+It will count one, two, three, four.
+
+Like 10s, it will count parallelly because implicitly wait is applied on this.
+
+Parallelly explicit wait is also applied on this 10s.
+
+It will also count 12345 parallelly.
+
+So these two threads will go parallelly.
+
+Ultimately how many seconds it will wait here.
+
+10s only.
+
+Not 20s.
+
+10s only.
+
+I said parallelly, not serially.
+
+So one two, three, four will counted from implicit weight one side, another side.
+
+Explicit weight is also count one two, three, four, five another side.
+
+Parallelly parallel threads.
+
+So ultimately should not count to ten plus ten.
+
+Ultimately you will get only 10s within 10s.
+
+This thread will be completed within 10s only.
+
+This will also completed.
+
+But even though you apply two weight statements, ultimately you are waiting only 10s here.
+
+In that case, there is no point of adding another weight statement.
+
+You got the point.
+
+Understood the point.
+
+Suppose after counting the implicit wait time, then if explicit time will start, then it will become
+
+20s right after completion of these 10s.
+
+Then if it is started 10s then it will become 20s, but it will not do like that.
+
+So implicit wait by default is applied.
+
+It is started counting from 1 to 3.
+
+Parallelly explicit.
+
+Also you applied on the same statement.
+
+So it is also parallelly counted 1 to 3.
+
+So explicit wait also counted implicit wait is also counted.
+
+Both are doing the their job parallelly.
+
+Ultimately we will get only 10s only.
+
+So that's the reason one wait statement is enough.
+
+Okay.
+
+That can be explicit or implicit.
+
+It.
+
+You understood my point?
+
+Yes.
+
+If the maximum time is not same, what would happen?
+
+Okay, we will see that scenarios.
+
+If the maximum time is not same, then what will happen?
+
+See this written multiple statement again.
+
+Same scenario.
+
+Implicit.
+
+Wait, let us say 10s.
+
+Explicit wait is five seconds only.
+
+Okay, implicit wait is 10s.
+
+Explicit wait is five seconds.
+
+Now there is a difference observed.
+
+This is the statement which will throw exception causing the synchronization problem.
+
+So as soon as it's reached here implicit wait 10s will applicable.
+
+Right.
+
+It will count from 1234 parallelly same time explicit wait is apply explicit for five seconds is applied.
+
+It is also counted parallelly 12345.
+
+Both are doing parallelly.
+
+But the explicit wait will stop at five.
+
+But implicit wait will still continue ten.
+
+In that case also it will take maximum timeout 10s it will not add ten plus 515.
+
+No, ultimately will get only 10s, but at the five seconds explicit wait is stopped here, but still
+
+implicit wait is there right.
+
+That will continue rest of the five.
+
+So ultimately five seconds 10s it will take.
+
+So this is why it will work.
+
+Yes.
+
+If the element is not found, obviously you need to put no such element exception.
+
+But one try block is enough actually.
+
+So one try block is enough.
+
+Try catch block is enough because both are returning.
+
+Same kind of exception.
+
+Right?
+
+No such element exception.
+
+So it can be any type of.
+
+Wait statement.
+
+You should handle with the try catch block.
+
+Okay.
+
+So these are all very important scenarios, guys.
+
+Uh, very good question.
+
+So during interviews, people may ask you like this.
+
+If I put multiple statement then what happens?
+
+So you should able to answer.
+
+I hope everybody is clear now.
+
+So if you put multiple way statement, do we have any additional advantage?
+
+No.
+
+Unnecessarily the memory will be wasted internally.
+
+Otherwise no advantage.
+
+So one single weight statement is more than enough.
+
+Okay, and which one is preferable is implicit.
+
+Wait during interview, if anybody asks you, you can simply say implicit wait.
+
+Most of the times will prefer or explicit wait.
+
+Great white also works better, but it is not consistent.
+
+Actually, it is not much stable.
+
+So that's the problem.
+
+All right.
+
+So do this one round of practice and get familiar with this.
+
+And tomorrow session we will discuss uh, some more commands.
+
+Okay, so this is another scenario.
+
+Suppose if the implicit wait time is lesser than explicit wait then what happens?
+
+See third scenario.
+
+Let's say implicit weight is just only five seconds, but explicit weight I put 10s.
+
+Then what happens?
+
+Anyone can.
+
+Guess what will happen?
+
+Okay.
+
+So implicit weight is applicable on this five seconds.
+
+It will count 1234.
+
+It is 10s explicit wait is 10s.
+
+It is also started 12345.
+
+So as soon as it reached five, implicit wait will stop, but explicit wait is still continue up to
+
+10s.
+
+So ultimately we will get only 10s, whichever is maximum, it will consider that.
+
+Okay.
+
+If the implicit is implicit weight is higher number.
+
+So implicit weight will consider at the end.
+
+If the explicit weight is higher then explicit weight weight will consider.
+
+Right.
+
+Implicit way doesn't work.
+
+Who said?
+
+Implicit weight also will work.
+
+Main method here if you want put implicit way, you can also put.
+
+But there is no use.
+
+That's the reason I'm saying.
+
+Implicit weight.
+
+If you want to keep here along with this fluent weight or explicit weight.
+
+Syntactically, nothing is wrong.
+
+You can still put it.
+
+It will also work, but the time prospective it will consider whichever is higher time out that will
+
+be considered.
+
+So without a duration class, we cannot specify the time directly because they have created syntax like
+
+this even in implicit wait.
+
+Also.
+
+Uh, if you just come back to the implicit wait.
+
+Okay, so in implicit wait.
+
+Or in explicit waiter fluent.
+
+Wait.
+
+Wherever you specify the time you have to use duration class, you cannot directly specify the time.
+
+Just like in thread dot sleep, we specify time, right?
+
+No, because the implicit wait is expecting some parameter.
+
+Expecting the prior parameter duration class.
+
+You can see this is how the designed this method.
+
+So accordingly we have to follow.
+
+A simple logic if any method is got created by somebody else, if that method is expecting two parameters,
+
+we have to pass two parameters.
+
+If the method is expecting one parameter, then we have to pass one parameter.
+
+If the method is expecting integer value, then we have to pass integer value only, right?
+
+Similarly, this implicit weight method is expecting duration of method of seconds method.
+
+So that's the reason we are passing the time along with this method.
+
+Actually, this method internally calling another method, we are basically calling this half seconds
+
+method that is taking one parameter and this will return duration class object.
+
+So that object is accepted by implicit weight method.
+
+So that's the overall meaning of this entire statement.
+
+Yes, there is no meaning of writing two different type of statements.
+
+Not at all.
+
+You already seen that example, right?
+
+So by understanding that there is no use of putting multiple types of statements, just follow throughout
+
+the entire project.
+
+Follow one approach.
+
+Right.
+
+So just do one round of practice on this.
+
+And tomorrow session, uh, we will see.
+
+Uh, and one more thing is, guess I forgot to tell.
+
+Uh, one more page timeout.
+
+So suppose I don't want to use all this because, uh, flint weight is element specific.
+
+And, uh, explicit weight is also element specific.
+
+We need we need to put some condition on elements.
+
+And implicit weight is fine because this is taking care of, uh, loading the pages and also taking
+
+care of the elements both.
+
+So there is another option, is there.
+
+And uh, this is the driver dot manager timeouts page load time.
+
+Here we can specify the time actually.
+
+So this is a old syntax.
+
+Let me show you.
+
+So this we can use it actually.
+
+Okay, so for example.
+
+And this is applicable only for page loading.
+
+Not specific to element okay.
+
+Let me give you another example.
+
+Small example.
+
+Page load time demo.
+
+And just like a, uh, implicit weight immediately you can instead of implicit weight, you can use
+
+this as an alternative.
+
+Okay.
+
+Uh, let me copy the code.
+
+Right.
+
+So I just remove this implicit weight.
+
+Okay, so instead of that, you can say.
+
+Driver dot.
+
+Manage dot.
+
+Timeouts.
+
+Dot.
+
+Here we have a page load timeout.
+
+Page load timeout.
+
+Here we can specify the timeout using again duration class duration dot.
+
+Of seconds.
+
+You can just put five seconds.
+
+So this will also solve.
+
+And this is only for page loading.
+
+Okay.
+
+But suppose element is taking some time to load.
+
+Then again it will become problem.
+
+So this is only for page loading.
+
+It will wait till the page is loaded completely but indirectly.
+
+Pages.
+
+When we will say page is loaded completely.
+
+As soon as all elements are loaded, then only we can say page is loaded completely, right?
+
+So this is another option which we have.
+
+Let's execute and see.
+
+Still it is not working.
+
+Probably this is element specific, not related to page loading.
+
+Element specific.
+
+Right.
+
+So it is also throwing no such element exception.
+
+So.
+
+But some pages it will work.
+
+Some pages may not work, so this is also optional.
+
+Available here.
+
+So this will wait till the page is loaded.
+
+But even though the pages got loaded, still we are getting an exception.
+
+Let's try to increase the timeout and see.
+
+So five seconds.
+
+Yeah.
+
+Now we can see it is working now.
+
+Let me save it.
+
+See even multiple times.
+
+You need to run guys, then it will work properly.
+
+Let me run one more time.
+
+No, this time it won't work.
+
+Yeah.
+
+So sometimes it's working.
+
+Sometimes it is not working.
+
+Let me close all the browsers.
+
+So this is also you can try.
+
+Uh, it's basically page load option.
+
+I'll try one more time.
+
+Five seconds.
+
+Let me put 10s.
+
+I'm not working.
+
+You guys can try.
+
+So sometimes it works, sometimes it may not work.
+
+So that's the reason we don't, uh, stay with only one option.
+
+So that's the reason selenium most of the times provided multiple options.
+
+Even the locators part also.
+
+So whichever is applicable, whichever is properly working, you can try to use it and solve the problem.
+
+So these are the different ways to solve the synchronization problem especially in selenium.
+
+Right.
+
+So this is also other option which is available.
+
+So better to keep this regularly along with uh maximizing the page rate.
+
+At the same time you can also try to put this.
+
+And suppose if some times if it is taking more time to load pages.
+
+So this will work.
+
+But in this case this is required element specific implicit weight.
+
+Anyway, it is working, but element specific is also required.
+
+Right.
+
+So I'll stop here for today's session.
+
+And tomorrow's session.
+
+We will continue.

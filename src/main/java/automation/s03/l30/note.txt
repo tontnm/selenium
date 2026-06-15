@@ -1,0 +1,1233 @@
+All right.
+So from today we are going to see how we can interact with the different type of elements.
+Like we will see checkboxes or radio buttons or drop downs, alert windows frames for different type
+of web elements we can find on the web pages.
+So we'll see how we can interact with them and different type of actions we can perform on those elements.
+So first let us start with how to handle the checkboxes.
+So listen carefully.
+Most important topic.
+So how to handle checkboxes?
+Most of the times when you see the checkbox.
+So what is a basic operation we can do is selecting or unselecting.
+Right.
+Let's say have a multiple checkboxes.
+We can select multiple checkboxes also.
+So what is the difference between radio buttons and checkboxes is in the radio buttons group we can
+select only one radio button at a time, whereas in checkboxes in the group we can select multiple checkboxes.
+So most of the times we can do only two actions.
+One is selecting the checkbox or checking the checkbox, or unchecking or unselecting the checkbox.
+But apart from this, we can also do some more actions.
+So we'll see what are those actions.
+So how to handle the checkboxes.
+So let me show you uh a sample checkbox option in the web page.
+Right.
+So let's go to the page.
+All right.
+So here I have few checkboxes.
+Let's say Sunday Monday Tuesday Wednesday Thursday Friday and Saturday.
+So there are some weeks uh multiple check boxes are there.
+And uh, we can select check boxes like this.
+We can select one check box or we can select multiple check boxes.
+So whichever check box you want you can select from this check box list okay.
+So we'll see.
+Uh what are the actions we can perform on these check boxes one by one.
+And let's go to eclipse.
+And I create a new package for today.
+The 29.
+Okay.
+New class, I'll say handle.
+Checkboxes.
+Okay, so first thing, uh, before handling the checkbox, let us create WebDriver instance driver
+equal to new.
+Go, driver.
+And then we launch application.
+I say driver dot.
+Get.
+Okay.
+And this is a.
+URL of the application.
+Just a second.
+Right.
+And then I'll try to maximize driver dot manage dot.
+Window dot maximize.
+So this will maximize the page.
+And also I'll try to put implicit weight say driver dot.
+Manage dot.
+Timeouts.
+Dot implicitly.
+Wait.
+Duration dot of seconds is a 10s max.
+Okay.
+So now let's see how to handle the checkbox.
+So the first operation is how to select the checkbox.
+Select or check checkbox.
+How to select a checkbox.
+So by default the checkbox is empty.
+So we can select the checkbox.
+So how we can select the checkbox.
+Simply we need to locate an element.
+Let's say I want to select some checkbox like this.
+So we need to inspect this element.
+Let's say I want to select Sunday if I inspect that element.
+Okay, I'll put this in the bottom of the page.
+Okay.
+So if I look at this XPath this is the XPath which is given.
+Input is a tag of that element.
+So this is the element, actual input is a tag and id is available directly.
+So it is taken ID as a locator.
+And there are other locators also there.
+If you want to take value you can also take but the type you cannot take because there are other check
+boxes which are also having same type called checkbox.
+So we need to take the unique property of the element.
+So this is the XPath which is locating that element.
+And use this locator selector dot.
+Driver dot.
+Find element by dot x path.
+And dot, we use a click.
+So for button link checkbox and radio button.
+So these four elements are having same method which is called click.
+So if you want to select the checkbox we need to say click even for Unselecting.
+Also we need to perform the click.
+Suppose the checkbox is already selected like this.
+Now I want to unselect this same thing again.
+Locate the element and then click on it.
+This will unselect.
+So the same method we use for selecting and Unselecting.
+So this will select the checkbox.
+Let's execute and see.
+And also last class.
+I have told you one more method.
+Suppose if the checkbox is enabled or not.
+Or if the checkbox is selected or not.
+How we can check.
+What is the method we have?
+Conditional method.
+Is selected.
+Okay.
+So that is a method we can use.
+So now we can see Sunday is got selected.
+So we can also apply the conditional method.
+So before selecting we can apply some conditional method.
+For example let's say it's a same element.
+And, uh, before clicking, I can say.
+Dot or first let us get that into a web element variable because I want to perform multiple operations.
+Web element checkbox.
+And this web element.
+Import.
+Now I want to perform multiple operations on this.
+The first operation is what I want to first select.
+Is it enabled or not?
+Check box dot is selected.
+Dot is a selector, so this is selected or not I want to check and then I can print here.
+Or I can put one condition.
+Let's say if it is unselected.
+If it is selected, I don't select.
+If it is not selected, then only cancel it.
+You can also put the condition if you want.
+I can say system dot.
+Out dot println and then say.
+Checkbox.
+He selected.
+And this will print yes or no or Boolean value.
+True or false.
+Okay.
+And then I can click on this select box.
+And after clicking again I'm just going to print checkbox is selected.
+I can print.
+So this is before selection.
+So before selection.
+And this is after selection.
+After selection.
+Okay, so now let's see how it is going to work.
+So before selection I'm just printing the status.
+And after selection means it will select the checkbox.
+And after selection again I'm printing the status one more time.
+So initially these are not selected.
+So it is giving false.
+And once it's selected then it will give the true.
+Okay.
+Now it is selected as a Sunday.
+Yeah.
+Now initially it is false.
+Next it is becomes true.
+So this particular command will able to select checkbox.
+Okay.
+This is the first example.
+So how to select the specific checkbox single checkbox.
+Now my second operation is.
+I want to find.
+How many checkboxes are there?
+Okay.
+So let's say how multiple checkboxes are there in my page, especially in that particular section.
+So I want to check how many check boxes are here.
+So Sunday, Monday Tuesday three four, seven check boxes are there.
+I want to count how many check boxes are here.
+So how we can do it?
+We need to write an XPath which is pointing to all the checkboxes elements, right?
+We need to write one common XPath, or we need to write a common locator which is locating all these
+checkboxes okay.
+So now we'll see how we can do it.
+So we need to write one common XPath for that.
+If I look at this one of the checkbox.
+And first checkbox I have located.
+Now you can see class item is their form, check input and ID type is there and let us take another
+checkbox.
+And this is also having form check input.
+Same type of a class ID is got changed and type is again same.
+And let us check another check box.
+And this is also having same form check input.
+But IDs got changed and type is same.
+If I look at multiple checkboxes, attributes, class and type.
+So these two are similar right?
+It is same.
+So by taking these two properties we can create our own XPath which will able to locate all the checkboxes.
+Let us first use only class item and we'll see.
+So I say input at the rate class.
+At the rate class equal to and class is form hyphen check.
+Hyphen input.
+Okay, now I have used only class, so nine elements are matching.
+See.
+Is this correct?
+Locator nine elements are matching, but it is also locating check boxes if you can see here.
+Apart from this seven these two are also counting.
+So only class is not enough.
+Only one attribute is not enough to locate all the check boxes.
+It is also locating other elements in the same page.
+Right?
+So now we need to add one more attribute to filter it.
+So if you look at here there is another type type attribute is there.
+So check box for the radio button.
+The type will be different and check box type will be different.
+So let us take type also.
+So how we can specify another attribute here by using end operator okay.
+And at the rate type equal to.
+Checkbox.
+Okay, now I have applied one more filter.
+Now exactly.
+It is pointing seven elements.
+So this is sometimes we can create our own XPath.
+So these type of XPath selector hub cannot generate.
+So we can create our own XPath depends on our requirement.
+So now I'm going to use this XPath which is exactly pointing seven checkboxes or seven web elements.
+Now.
+Capturing all the checkboxes.
+Okay.
+Now, because we are finding the multiple web elements, multiple checkboxes, we have to use something
+called find elements.
+Find elements.
+And here I say by dot XPath.
+And this is the XPath.
+And, uh, I want to capture them into variable.
+I don't want to perform direct action, so I want to capture all the checkboxes in a variable.
+So I'm going to create some variable here.
+Checkboxes equal to.
+Now the type of this variable is what?
+List of list of what web element.
+Right.
+So we are getting the multiple web elements into a single variable.
+Now the variable type is what a list of web element.
+Right.
+So once you get all the elements into this particular list collection can we find how many are there?
+Yes.
+So to find it, what we can do.
+We can simply say System.out.println.
+All right.
+So here I can say number of.
+Checkboxes.
+Simply insert checkboxes.
+Dot size, so this will give you exactly how many checkboxes are there.
+So first we have collected all the checkboxes into variable.
+And then we printed how many checkboxes are there in this particular group.
+So this is one more requirement.
+So capturing all the check boxes and finding the size.
+Yeah, totally.
+Seven checkboxes are there.
+Expert we have created, we haven't get it, okay.
+We have created our own expert.
+First.
+I have used only class attribute, but because of only you class attribute, it is also matching some
+other elements other than this checkboxes.
+It is also matching some other elements called check radio buttons.
+So after that what I have done, I have taken another attribute which is also commonly there for every
+checkbox which is type attribute.
+Okay.
+So then I have applied another attribute called type by using end operator.
+So this XPath is exactly pointing same seven checkboxes here.
+But if I don't use this type attribute initially I have taken only one attribute called class because
+the class attribute is exactly same for other elements.
+So when I use only class attribute nine, elements are matching only.
+Apart from the checkboxes, it is also matching to radio buttons.
+But I don't need these two radio buttons now I need exactly these seven elements checkboxes and that
+is the reason I have added one more attribute which is called type attribute okay and the type equal
+to checkbox.
+So then what happens is it is finding the class attribute.
+And type attribute both.
+So by using this XPath I'm able to find exactly seven elements.
+So like this we can also use multiple attributes.
+I already told you in the last class how to use multiple attributes in the XPath using end operator.
+Okay, so you can just look at this.
+Everybody understood about XPath.
+Expert.
+Okay.
+It is not that much complex.
+First, I have used only one attribute, which is commonly most of the times we use class, right?
+To identify the elements multiple elements class we will use.
+So I have used class, but by using class it is also identifying other locators other elements.
+So just for filtering purpose I have added one more attribute which is also commonly there for checkboxes.
+Okay, so that's the reason I have captured.
+Multiple checkboxes using this XPath.
+How to create an XPath, not checkbox in somewhere else.
+Also are not clear with soccer.
+What is your question?
+So see whatever checkboxes you have.
+You can you can select a specific checkboxes or you can select all the checkboxes.
+Depends upon your requirement.
+Everything is depends on the XPath.
+So by writing an XPath you can select all checkboxes or specific checkboxes.
+So whatever you want.
+So here we already shown you how to select a specific checkbox.
+So we have written one XPath for that earlier.
+So this XPath I have written this is for specific checkbox.
+And in this it is used only ID property which is unique for uh this is a different uh attribute we have
+for multiple web elements.
+But here I have used one common XPath which is pointing multiple checkboxes.
+This is not a new thing.
+Actually, I don't know why you have not understood.
+This is not a new thing.
+We already seen this multiple times.
+How to write XPath by taking help of multiple attributes.
+Where I'm getting the warning.
+This is the one.
+So this is related to WebDriver version.
+It is just a warning.
+It is not an error.
+You can ignore it.
+Okay.
+Sometimes if the browser version or even the WebDriver version is not much compatible, so you will
+see this kind of a warnings.
+It is just a warning.
+It will not stop your execution or.
+How to create XPath in the name box.
+Where is the name box?
+Please ask the relevant questions.
+Guys, I don't know.
+What you are talking about.
+See.
+Let me cover all the scenarios, then ask the questions.
+Okay, we are something middle of something, so it's still not finished with this topic.
+So I want to show you multiple things actually on the checkbox itself.
+So let me finish all the scenarios on checkboxes.
+Then if anything is left then ask the questions okay.
+All right.
+So first thing uh, I have captured all the checkboxes.
+And if I use only class attribute.
+I'm not exactly getting the seven elements because I want to get only these seven elements.
+So when I use class attribute, I'm also getting other elements, so that's the reason to filter it.
+I have already used some other attribute.
+So this is exactly filter those elements.
+And exactly I am getting seven elements.
+So this XPath I have used and getting all the checkboxes and then finding the size.
+So this is exactly given seven elements okay.
+This is one requirement.
+Now suppose I want to select all the checkboxes.
+Let's say Sunday Monday, Tuesday every checkbox I want to select like this.
+How we can do it.
+Suppose we want to go with the first approach.
+Let's say if I use this particular approach there are multiple statements.
+I have root right.
+So I have to write XPath for each and every checkbox.
+And let's say seven checkboxes are there and seven statements I have to write to select each and every
+checkbox.
+Suppose if you have a ten checkboxes or if you have a 20 checkboxes.
+So it is difficult to write multiple statements, right?
+So instead of writing multiple statements you can simply write a one looping statement.
+So my requirement is I want to select all the checkboxes in this group.
+So that is the next requirement.
+Selecting all the.
+Checkboxes.
+Selecting all the checkboxes.
+How we can do it.
+So we already captured all the checkboxes here.
+Now we need to get each and every individual checkbox.
+And then we perform the click action.
+So this we can do by using normal for loop and by using enhanced for loop.
+Anything is fine.
+So let me show you in the normal for loop first.
+So in the checkboxes we have to keep reading each and every checkbox.
+Because this is a list a collection index will work.
+So I'm using normal for loop.
+And index will always start from zero.
+So I'm taking int I equal to zero.
+And then I less than.
+Okay.
+Now how we can find number of checkboxes.
+This will give you number of checkboxes size.
+Right.
+So I less than why I'm using less than here because index will start from zero.
+We should show only less than we should not use less than or equal to.
+And then I mean incrementing index value I plus plus.
+Now by using this index number I want to capture each and every individual checkbox one by one.
+How to get it.
+So from the checkboxes dot get is a method right.
+And I say get off.
+One first checkbox will be returned.
+When I say two, second checkbox will be returned.
+When I say three, third checkbox will be returned.
+When I say zero zero checkbox will be returned.
+So I is representing the index.
+So I'm passing I here.
+So this will return the checkbox.
+Now what is the action we want to perform?
+We want to click on the check box so I can say dot click.
+That's it.
+So now we are extracting the checkbox by using get method by passing index number.
+And once you get the checkbox and we are performing the click action.
+So first time it will return the first checkbox.
+Second round.
+Second checkbox.
+Third round.
+Third checkbox fourth round fourth checkbox.
+Like this.
+It will repeat seven times.
+Okay, so we are extracting the checkbox and then we are clicking on the checkbox.
+So this will select all the checkboxes.
+Now I comment this one for now.
+All right, now execute and see.
+So by using normal for loop, we can repeat all the checkboxes and we can select all of them.
+Yes.
+Now we can see all the checkbox have been selected.
+So this is a one way.
+Can we put click on top of line number 29?
+Yeah, you can do it.
+Because he already clicked, right?
+If I already selected here.
+But in this it will unselect.
+So that is the problem.
+That's the reason I'm commented.
+So if I click here means it is already selected, right?
+But when you're reading when you're trying to click on Sunday here it will unselect.
+So that's the problem.
+That's the reason I commented this.
+And line number 29 here we collected all the checkboxes.
+So on this we cannot perform click action okay.
+No this is a list collection which is a list collection.
+There are multiple checkboxes are there.
+We cannot click all checkboxes at once.
+We cannot do like that.
+We need to extract one by one each and every checkbox.
+And then we perform the click action.
+So we cannot perform click action on all the checkboxes at once.
+No it is not possible.
+Okay.
+No gettext won't work here.
+getText is again different.
+We need to extract the checkbox.
+Okay.
+Text is another element.
+There's a label basically okay.
+This is a label element on the label.
+You cannot perform any action only on the checkbox you can perform.
+We can select or unselect, but on the label you cannot because both are two different elements.
+If I look at here.
+They let me inspect this checkbox.
+For example, I'm inspecting the checkbox called input here.
+This is input element and below this label element.
+So label is what Saturday.
+So on this label you cannot perform anything.
+You can get the text value.
+But based on the text you cannot do anything because we want to perform on the checkbox input element
+not on the label okay.
+If you want to capture the text value, then you can use XPath for label element.
+You need to write XPath for this element label if you want to capture the text, but if you want to
+perform the action, you need to take the input element, not the label element.
+Say this is very basic question, guys.
+I don't know why you have not understood.
+See, I told you many times in arrays concept we discussed in the list collection we discussed.
+When I start index from zero, we should not say less than or equal to.
+We should say less than.
+If I start index from one, then you should say less.
+Less than or equal to because as per the index, index is always start from zero.
+You should say only less than if you still want to use less than or equal to, then you should say minus
+one.
+Here I have repeated this many times.
+I think you forgot it.
+Yes or no.
+So if we want to use less than or equal to because we need to say minus one here.
+Do you want me explain this one more time?
+This is very basic question I repeated many times.
+Say get is a method which will take the element.
+So why get off I place of checkbox does checkbox dot click.
+We cannot directly do because let me tell you see this is our collection list collection okay.
+In the list collection what it contains as of now.
+So here we have taken all the checkboxes as a web elements and put in the list collection.
+So this is our list collection.
+In the list this is one checkbox.
+This is another checkbox.
+This is another checkbox.
+This is another checkbox okay.
+So this is a web element.
+It is not a string or it is not a primitive data.
+This is a web element.
+Web element.
+It is a kind of an object.
+So we can extract that element first.
+And once they extracted that element, then we need to apply the click method.
+So how to extract this first element.
+This a zero element.
+First element.
+Second third element.
+So how to extract this zero element from the list.
+What is the method we have to use.
+How to extract it.
+Get a method right.
+So by using get only we can extract.
+So by using get off and passing zero as an index.
+And this will return the first checkbox.
+Once it is returned here then I'm applying the click method.
+Okay, so this will return.
+The Web element checkbox is a web element dot.
+Click in the next round.
+The second checkbox will be returned.
+Get off one and then I'm applying the click method.
+Next round another checkbox will be returned from the list collection.
+Then I'm pressing the click so you cannot directly click on the checkbox.
+Okay, first we need to get the checkbox from the collection and then we perform the click action.
+So that's the reason from all the checkboxes I'm getting one checkbox and then performing the click
+action.
+So this is the complete statement.
+Again I'm repeating.
+So here I'm checkboxes means what checkboxes is contains multiple checkboxes.
+This is the variable here.
+So this contains all the checkboxes from all the checkboxes.
+I'm picking one checkbox and then performing the click action.
+Three things are included in this.
+Everybody's understood this statement.
+It is not much complex, actually.
+It's very simple.
+So did I explain anything about enhanced for loops?
+Now that's the next thing.
+Why you are asking now just what am I am explaining?
+Just stick to that.
+Don't go beyond that.
+Enhance it for loop.
+Yes, we can use it.
+There's the next thing I'm going to tell you.
+So first let me know whether this is understand or not.
+Don't go beyond this.
+Everybody's understood this statement or not.
+So we cannot directly perform click action on the checkboxes.
+We need to extract each and every checkbox one by one.
+And then only we have to perform the click action.
+This is a sequential actions we need to perform.
+This is very simple, very basic logic.
+If you are not understood only this much, you cannot understand the other things.
+Very, very complex things we are going to discuss.
+This is very basic stuff actually.
+Okay.
+So everybody's understood this.
+So we have collected all the checkbox into one variable.
+And then we are extracting one by one.
+And then we are performing the click action.
+That's it.
+Rashmi, what is the use of get method in the collection?
+Have you listened the session?
+Ivan Alexander.
+Collections.
+Class in the Java.
+Yes.
+And then you should know this.
+What is a Get method?
+What is the use of get method in the list?
+What is the use of get method?
+Can anyone tell me the answer?
+What is the use of get method?
+In the list collection.
+You have not listened session properly.
+That's why you are not understanding this.
+I cannot do if you're not listening the session.
+Please go through the previous sessions.
+You will understand this.
+What is the use of Get method?
+I have written many times not only 1 or 2 times.
+Almost in every session we are using these options.
+What is the use of get method in the list collection?
+It will return the item from the list.
+Just now I have explained just now, just one minute back.
+So what is the use of get method in the collection?
+In the list collection?
+There are multiple items.
+Are there?
+If you extract one by one each and every item, we use a Get method.
+Bypassing index number.
+Index is 0123.
+So by passing index number in the get method, this will extract the element from the list collection.
+Once you extracted, then I apply the click method.
+What is there in this?
+What is the complexity in this?
+I don't know whether you are understood or not.
+Please go through the previous session collection's concept.
+You will understand this.
+Okay.
+Now let us move on to the next one.
+So this is a full loop through which we can extract each and every individual element from the collection.
+Then we perform the click action.
+This is one way we can do it.
+By using enhanced for loop.
+Also, we can do it by using enhanced for loop.
+You don't need to do any indexing concept without using index.
+We can do it.
+So let me show you using enhanced for loop.
+Okay, so here we are getting each and every checkbox into a variable.
+I'm taking checkboxes colon and checkbox.
+I'm taking one variable called checkbox.
+Now tell me from the checkboxes.
+I'm returning each and every checkbox into a variable.
+I'm just going to store each and every checkbox one by one into this variable.
+Now what is the type of this variable?
+If this collection contains a strings, this variable should be string type.
+If this collection contains a numbers, this variable should be integer.
+If this collection contains a different data types and this variable should be object.
+Now this collection contains the checkboxes.
+All are web elements.
+Now what is the type of this variable?
+This variable should be web element.
+Okay.
+Now by taking this checkbox web element, I can directly perform the click action.
+Very simple.
+It is more simpler than normal follow because here we don't have any index.
+So how it is going to execute.
+Now?
+Don't ask about enhanced for loop again, because enhanced for loop.
+We have seen multiple times how it is going to work.
+So in the check boxes let's say I have seven check boxes.
+The first check box will go here.
+And now we are clicking here.
+Second round.
+Second check box will assign to this variable.
+Now again it will click third check box.
+Fourth check box fifth sixth seventh.
+So in every iteration, one by one each check box will be stored into this variable.
+So that's the reason this variable should be web element.
+Check box is nothing but a web element.
+So this variable should be web element.
+And then we are performing the click action.
+Okay, this is more simpler than the first one.
+Now let us execute and see.
+So by using enhanced for loop we can also select all the checkboxes.
+Yes.
+Now it is selected all the checkboxes.
+So in every iteration it will take one checkbox into this variable.
+Then we are clicking the checkbox.
+So this is more simpler than this one okay.
+Now.
+So we have selected all the checkboxes.
+This is one requirement.
+Now.
+Another requirement.
+So in interview some people will ask you like this.
+Let us say I have multiple checkboxes.
+Let's say I have multiple checkboxes here.
+Seven checkboxes are there.
+Now I want to select last three checkboxes or I want to select last two checkboxes.
+How it is possible.
+Okay, let's say I have ten checkbox.
+I will tell you the simple logic.
+Just remember interior perspective.
+It is very very important.
+Let us say multiple checkboxes here.
+12345, six, seven, eight nine and ten checkboxes are there.
+Ten checkboxes are there.
+Now I want to select from the end I want to select first last two or last three or last four or last
+five checkboxes from the end.
+How we can select them.
+This is my question.
+How we can select them.
+The.
+How to select the last few checkboxes.
+So in this we can apply one logic.
+I'll tell you what is that logic.
+It is very simple to do it.
+It's very very simple.
+Let us say 1234567 checkboxes are there.
+Okay.
+Indexes start from one okay.
+So to select the last three checkboxes what you can do is first of all uh we need to count total number
+of checkboxes.
+So total number of checkboxes.
+How many are there.
+Seven checkboxes are there.
+Okay and how many checkboxes I want to select from the end.
+Three checkboxes I want to select as a minus three.
+So seven minus three is what.
+Four.
+Okay, now we need to start for loop.
+From the four itself.
+Four is what?
+One, two?
+Three zero?
+In other words, we need to count 012, three, four four is here.
+This is the starting index.
+Starting index is what four.
+Now from here, this one, this one and this one.
+These three we will collect.
+Okay, let me repeat once again.
+Listen carefully.
+And this time let's say for checkboxes, I want to select, let's say from the last, let's say I have
+1234567.
+So now I want to select a last four checkboxes.
+From the end I want select last four checkboxes.
+Now what is the first thing expression.
+What is the formula.
+Total number of checkboxes minus last four checkboxes I want to select four minus four seven minus four
+is what three.
+So three is a starting index.
+We need to take three as a starting index means this is 0123.
+So here from here we need to start reading the checkboxes.
+So this is the formula okay.
+This is the formula.
+So by using this formula we can select some number of checkboxes from the end.
+Now remember this very easy.
+And I can say.
+The next requirement.
+How to select.
+Fourth one.
+Select last three checkboxes.
+Last three checkboxes.
+So what is a formula is total number of checkboxes.
+Total number of.
+Checkboxes minus.
+How many checkboxes you want to select.
+How many checkboxes do you want to select equal to what you will get?
+Starting index.
+Starting index value you will get.
+So this is the formula you want to apply okay.
+Now.
+So total number of checkboxes.
+How many checkboxes are there.
+How we will know that.
+Checkboxes dot size.
+So we already counted here.
+So this will give you total number of checkboxes minus how many checkboxes you want to select.
+Three checkboxes equal to starting index.
+So now I'm writing the for loop observe carefully.
+So int I starting point is what how we will get the starting point according to the formula.
+So total number of checkboxes are seven minus how many checkboxes I want to select.
+Three equal to four is a starting index four is a starting index.
+Now I should be four.
+Starting index is four right I should be four.
+How we will get it.
+You can directly specify four.
+Okay.
+And I less than.
+How many times we have to repeat depends upon the total number of checkboxes.
+Right.
+So I can just specify it.
+Total number of checkboxes.
+Dot size and how many times we can increment I plus plus.
+So this is how we can get I equal to four I less than or equal checkboxes dot size I plus plus.
+So now same thing from the checkboxes.
+From the checkboxes.
+Extract the checkbox by using get method by passing index dot click so this will perform the action.
+Very simple.
+Okay.
+So if you know the starting index that's it.
+So how we will get the starting index, total number of checkboxes, minus how many checkboxes you want
+to select from the end.
+That will give you starting index and from where you can start.
+Let's run it.
+So this will select last three checkboxes from the list.
+Okay, now you can see last three checkboxes Thursday, Friday and Saturday is got selected.
+Now suppose I want to select the first three checkboxes.
+I want to select the first three checkboxes.
+Next one.
+Select.
+Slash the three checkboxes.
+Yes.
+So enhanced for loop is not possible here.
+Okay, so if you want to achieve this requirement, enhanced for loop is not possible because we are
+selecting specific checkboxes, right.
+In that case enhancer for loop will not work.
+Enhanced for loop is applicable only if you want to work with all the elements.
+Not specific elements.
+Okay.
+So in this case enhanced for loop is not supported.
+Now select the first three checkboxes.
+How we can select the first three checkboxes.
+There is no formula is the direct approach.
+So first three checkboxes means what index is starting from what zero?
+First three means.
+What is the condition I less than.
+I less than.
+012.
+Write three checkboxes.
+Then I plus, plus.
+We want to select first three checkboxes.
+What is the condition I starting from zero.
+So zero element I want first element and also second element.
+Also I need so I less than or equal to zero two.
+We need to specify or I can say three.
+So first three elements means zero element, first element, second element altogether three element.
+Because index start from zero.
+So both are correct.
+And then.
+Uh, I can get from the checkboxes.
+From the checkboxes I can get first checkbox and then I'm going to click.
+So this will click on first three checkboxes just based on the condition it will check.
+And this is also possible only with the normal for loop.
+In these two particular cases, enhanced for loop is not supported because we are working with a specific
+web elements.
+Run it.
+Okay.
+Now first three checkboxes are got selected.
+Suppose I have selected all the checkboxes now I want to unselect.
+Possible to select tick boxes by its value.
+Tick box by its value.
+Yes you can, it is possible, but you need to take the two x paths because you need to collect the
+X path for this label and get the text from it.
+If the text is equal to Sunday, and then get this particular checkbox and then select.
+So this is again becomes indirect process.
+That is possible, but it is.
+We need to write a two different text paths.
+Okay, fine.
+In the next example I will show you that.
+So for example, let's say I have already selected some check boxes three check boxes I have selected.
+So I want to unselect the checkbox.
+So whatever checkboxes are already selected I want to unselect them.
+And whatever checkboxes are already not selected, then I want to select them.
+See the requirement.
+Understand this very clearly.
+So I have seven checkboxes 34567 checkboxes.
+So by using this looping statement first three got selected.
+Now my requirement is after selecting three my requirement is whatever checkboxes are already selected
+I want to unselect.
+Whatever.
+Checkboxes are unselected, not selected.
+I want to select reverse way.
+Okay.
+By using this looping statement, I already selected three checkboxes.
+Now I want to unselect them and whatever checkboxes are unselected, I want to select them reverse way.
+Okay.
+So what we should do now.
+We need to apply a condition.
+If checkbox is already selected, then do unselect.
+If the checkbox is not selected, then select it.
+So we need to apply one condition.
+Okay.
+We need to first check the checkbox is selected or not.
+If it is already selected then we need to unselect.
+If it is not selected then we need to select reverse.
+Okay, we'll see how we can do it.
+So I will give this loop as it is because this will select first three elements.
+Now the second one.
+Select.
+Or unselect.
+Checkboxes.
+Now, if you just observe when I write a for loop, I'm taking from the beginning index.
+Or you can write enhancement for loop here.
+Why?
+Because we are going to work with all the checkboxes, not only specific checkbox we can enhance.
+You can use enhanced for loop okay.
+Let me use enhanced for loop.
+So I'm taking all the checkboxes and take the checkbox into one variable.
+And kickbox.
+And this is a web element.
+And now when I say k box dot click then what happens?
+This will do our job.
+So whatever.
+Checkboxes.
+Suppose if the checkbox is already selected when I apply, click method that will unselect.
+When I suppose if the checkbox is not selected when I apply click method, it will select the checkbox
+is already selected.
+When I apply click method it will unselect, so this will do the job.
+Run as Java application.
+So what I will do is I will put some weight here because it will go very faster.
+We cannot see the.
+Operation.
+I can say this is not because of synchronization problem.
+I just I want to pass my code for some time here 5000 milliseconds.
+Okay.
+Okay.
+First three checkboxes have selected.
+Using first for loop.
+Now we can see first three checkboxes are unselected.
+Now rest of them are selected.
+So this will work fine, but it is not the best way to do it.
+So we will check the condition first okay.
+If the checkbox is already selected then uncheck it.
+If the checkbox is not selected, then select it.
+How we can apply the condition here.
+If.
+This checkbox dot is selected.
+If it is true.
+If it is selected, true.
+Then what we should do.
+Checkbox dot click.
+Is selected is true.
+If it is, returns true.
+Click method.
+So both the ways it will work actually.
+Okay, so you can say easy selected method when it will return true if the select box is already selected.
+Then when I apply click method, then what happens here?
+It will perform unselect.
+Okay.
+Here it will perform.
+Unselect.
+Else.
+So, for example, he selected his return.
+False.
+Even it is a false.
+We do the same thing.
+So in this case here it will select.
+Same command here.
+It will unselect the checkbox.
+Here it will select the checkbox same command, but here before Unselecting it will check it is already
+selected or not.
+If it is selected then it will unselect if it is not selected.
+Then it will select.
+So same command will work for selecting and also unselecting.
+So it doesn't matter.
+Even if you don't put looping a conditional statement, still it is fine.
+Okay.
+So now what I will do is I will comment this loop statement earlier one.
+Now observe.
+So by default all the checkboxes are unselected.
+So this will return false.
+So this will execute.
+So by default none of the checkboxes are selected.
+So that loop statement will select all the checkboxes.
+See all checkboxes are selected.
+Okay.
+Now, what I will do is.
+I will write another looping statement.
+Same loop.
+Okay.
+Here this loop is selected all the checkboxes.
+Now this loop will remove all the checkboxes.
+I will put this here.
+So this loop will select all the checkboxes.
+This will unselect all the checkboxes.
+Okay.
+First it is selected all the checkboxes.
+Now the second for loop will unselect all the checkboxes.
+The same command we have to use to select or unselecting the checkboxes.
+Okay.
+So these are the operations we can do on the checkboxes.
+So we can select specific checkbox.
+We can capture all the checkboxes.
+We can count how many are there.
+We can select specific checkboxes.
+We can select checkboxes.
+From the end.
+We can select checkboxes from the beginning.
+And we can select or unselect.
+So these are the different operations we can use.
+Is there any way we can select any of the checkboxes?
+You need to write a specific xpaths.
+Okay.
+For example, you want to select a random checkboxes.
+Let's say, uh, I have multiple checkboxes like this randomly.
+You want to select, let's say this is A1234567.
+I want to select this one and this one.
+Or I want to select first one and last one.
+So if you want to do this you need to write a specific XPath for them.
+And you need to write a multiple statements okay.
+Multiple statements you have to write.
+So with the loop is not possible with the loop.
+What is possible is if there is an a sequence then with the loop we can do it okay.
+For example 1234567 are there.
+Now I want to select this a zero index 123456.
+Like this.
+Now if you want to select these three or these two or last three in this there is a sequence.
+So you know starting index ending index.
+Then you can use a looping statement.
+But if you want to select a specific like this one and this one or randomly this one or this one and
+this is not possible using a looping statement, you have to write a specific XPath for those elements
+and you need to select.
+Yes, that is also correct.
+So if you specify equal to two condition, only the second checkbox will be selected.
+The second checkbox will be selected.
+Yeah.
+In that way, you can handle.
+Okay.
+Suppose, uh, in this particular loop, I just remove this.
+Okay.
+So randomly if you want to select for example.
+So here you can specify in the enhanced for loop it is not possible but only in the normal for loop
+it is possible.
+And let me show you this.
+Select specific checkboxes.
+Randomly.
+So normal for loop only possible enhanced for loop.
+Not possible.
+So here I can say I equal to zero.
+I less than I.
+Less than checkboxes dot size.
+Checkboxes dot size I plus plus.
+So here you need to put if condition.
+So what are the checkboxes.
+You want to select among seven checkboxes that you can put.
+So I equal to first checkbox I want to select or I equal to third checkbox I want to select or I equal
+to seventh checkbox I want to select.
+First checkbox.
+Okay.
+Third checkbox and then seventh checkbox I want to select.
+So 137I put.
+Then you can write here.
+So checkboxes.
+So this is the way we can do.
+If you want to use looping statement, it's a get off I and dot click.
+Okay, so you can do like this.
+If you want to select a specific checkboxes randomly, you can put condition like this.
+Expectancy.
+So I said one, three and seven.
+Okay, now we can see.
+I think seventh one is not there.
+0123456 is the last one because index start from zero six is the last one, so seventh is not there.
+So you should say 16.
+Okay.
+So this is a way we can select if you still want to use a looping statement.
+Fine.
+So everybody's clear on this checkboxes concept.
+So these are the different type of operations we can do on the checkboxes.
+Yes, you can use still XPath.
+You have to write a XPath for first element, third element, sixth element.
+Three different statements you have to write if you don't want to use a looping statement.
+Okay.
+So suppose here there's a checkbox and there's a label right.
+So based on the label if you want to select the checkbox you need to write a logic for that.
+Okay, let me show you that.
+But I don't recommend this directly.
+Go with the element, not the label.
+So if you still want to do it, you can do like this.
+Suppose.
+Uh, based on the value I want.
+Select the checkbox.
+Okay.
+So for example, let's say I'm taking one string variable string wake name equal to I'm taking uh,
+some value let's say here Sunday Monday.
+All capitals are there.
+So here I'm taking Sunday.
+This is my input value.
+So whatever input value I'm providing here, based on that I want to select the checkbox.
+Okay.
+So if I say Sunday only Sunday checkbox should be selected.
+If I give Friday Friday select checkbox should be selected okay.
+So how we can do it.
+So if the week name equal to whatever it is we need to select.
+So we need to put one condition if.
+Week name equal to, or you can write a switch case statement also for all the elements.
+Let's write it okay.
+So switch case statement will be very easy to do it.
+So let me take.
+Switcher.
+Weak name.
+Switch week name I'm taking as a parameter.
+And here we need to write a multiple cases.
+Okay.
+Now what is the first case is the first case is the value is let's say Sunday.
+So now we need to select the Sunday checkbox.
+So it is send a checkbox.
+Here it is.
+Now we need to write an XPath for this Sunday checkbox.
+So this is the one.
+Take this.
+So if it is Sunday, then take this value.
+Then here what we can do.
+Driver dot find element by dot XPath.
+Specify the Sunday dot click and after that we say break.
+Like this.
+Okay.
+So like this you can put multiple conditions.
+So based on the value we can select whichever checkbox you want.
+4567.
+So this is another scenario.
+So the value you can pass and accordingly this will go and select the value here Sunday.
+Here it is a Monday.
+Tuesday.
+Regret.
+Don't stay.
+Okay and XPath will change here.
+Sunday.
+It should be Monday.
+And these are all case sensitive values you need to carefully write.
+Okay, so I did it.
+So based on the value which we have passed as an input, if it is Sunday, then it will go and select
+the Sunday which is a Monday.
+Then it will go and select the Monday.
+And according to do that.
+So Friday.
+And here you can say default here case is not needed.
+So by default I'm taking Saturday.
+And here break is not needed.
+Or else what you can do is Saturday.
+You can put but other case you can write.
+Yes.
+Default.
+And here you can print.
+Invalid.
+A weak name.
+Invalid weakness.
+Okay.
+So this is how we can write another logic.
+So take the input value and based on the input it will go and select.
+So I'm taking Sunday here.
+And let's execute and see.
+Okay, now Sunday's got selected.
+Let us pass Saturday.
+Okay.
+Saturday score selected.
+So this is another way we can do it.
+So by writing multiple conditions.
+So if you want to select the checkbox based on the value you can take that value as a input.
+Okay.
+And then compare with all the checkboxes values.
+And then you can select whichever checkbox you want.
+So this is a another logic.
+Select checkbox based on the value.
+This is another requirement.
+Fine.
+So this is all about checkboxes.
+Okay.
+So actually we have to discuss some other concept called, uh, alerts.
+So will that postpone to the next class?
+So next class we will continue.
+I'll stop here.
+I will quickly show you radio buttons also, and then we'll finish it off.
+So in the radio buttons we don't have these many choices actually.
+Okay.
+So in the radio buttons, because we can select only one value at a time, we cannot select multiple
+values.
+So this is only one option we can select.
+So let's see how we can handle the radio buttons.
+New class.
+Handle.
+Radio buttons.
+Again.
+I'm taking the same page.
+And, uh, now I can select only one valid item.
+You can find.
+How many radio buttons are there here?
+Suppose there are only two radio buttons, so no need to find if you still want to.
+Suppose you have 5 or 10 radio buttons anyway, you you won't see like that actually.
+Have you seen anywhere five radio buttons or ten radio buttons?
+No.
+If you have more than two options, most of the times you can see checkboxes.
+If they want to put more than two options, definitely they will use checkboxes.
+Okay, so radio buttons group always will see only two radio buttons not more than two.
+Okay, so obviously the radio buttons count should be only two.
+Now, if you want to select one of them, you can directly select the checkbox.
+You can see this is a checkbox.
+And uh the name is available and uh ID is also available.
+So let me write one XPath for this.
+So I have written this XPath.
+This is pointing to male radio button and if I change id female then it is point to female radio button
+male and a female radio button.
+I can use this XPath.
+It's very straightforward.
+Driver dot find element by dot XPath.
+Dot.
+Click the same method again.
+So this will return.
+And if you want to check selected or not again you can say driver dot find element by dot XPath.
+And get this element in a variable, I can say.
+Male underscore radio button.
+This is a web element.
+And also I capture female radio button just by changing the XPath.
+Right.
+So now if you want to verify the status.
+So before clicking I want to verify the status.
+Take this major button dot is selected.
+So this will return true or false.
+We can check the status of the radio button.
+Organ say status of or.
+Select status of the.
+Male radio button.
+So you can select like this.
+Select the status of the mail radio button and same thing I can find.
+Select the status of the.
+Female radio button.
+Okay, but at any time we can select only one.
+So after that I will select a mail order button dot click.
+So this will select.
+And then after selection again I'm printing the status of both the radio button.
+Select status of the mail order button.
+And select the status of the female reader button.
+So here we already selected.
+This is before selection.
+I can write one more statement.
+So this is before selection.
+And after clicking it is after.
+Selecting.
+Male radio button.
+Okay.
+Now execute.
+Okay, so one radio button is got selected.
+So before selection.
+Both are false because none of them are selected.
+But after selecting May later button, it becomes true and other one is becomes false.
+So here looping statements.
+All those things won't work like checkboxes, because we have only two radio buttons that two we can
+select only one radio button at a time.
+Okay, so what other options are possible in checkboxes.
+They won't possible in radio buttons because in the radio buttons only two we have the two.
+We can select only one radio button at a time.
+That's the reason it's not possible.
+But the method is same.
+Whatever method we use for check boxes, same method we can use for radio buttons also that is click
+method.
+Okay.
+So same thing for input box we already seen many times.
+You can just inspect that element by using send keys.
+We can pass the data and we can also verify the display status enabled status.
+Display status enabled or not displayed or not, we can select.
+Then we can pass the value by using send keys method input box we already discussed many times.
+Okay, so this is all about checkboxes and radio buttons.
+So in the next class we will continue the rest of them.
+And in this particular page there are multiple radio buttons here.
+These are these are all elements which are there inside the form.
+Actually this is a frame.
+So we need to handle this in the different way.
+We will discuss that in the next session.
+And don't try to handle them now okay.
+So if you want to do like this it cannot work directly because these elements are inside the frame.
+Right.
+So I'll give you some assignment.
+You guys can try this.
+Just a second.
+The radio buttons.
+Right?
+Okay.
+So this is assignment.
+The first assignment.
+This is the link.
+So what you need to do is.
+Okay.
+Once you open the link you will see the radio buttons.
+Different type of radio buttons here so you can select blue red.
+See there are multiple radio buttons are there.
+But still you are able to select only one radio button.
+Okay.
+And here also there are three radio buttons, but at a time we can select only one radio button.
+You can try to practice this.
+Okay.
+This is one assignment for radio buttons.
+This is for.
+Radio buttons.
+So first one and the second one.
+Just a second.
+Tick boxes.
+So this is another link.
+So you can see two.
+Only two checkboxes are there.
+You can just select unselect.
+So whatever operations we have done same operations you can do on these two checkboxes.
+So you guys can try this another x okay.
+Write these two first practice my class examples.
+And after that you can try these two checkboxes and radio buttons.
+In the next class we will discuss with different kind of elements like how to handle alerts, how to
+handle the frames, and how to handle the multiple browser windows we already seen in the last class.
+So alerts and frames we will try to cover in the next class.
+Checkboxes and radio buttons.
+Okay, so that's all for today's session.
+I'll stop here and we will continue tomorrow.
+Our next class.

@@ -1,0 +1,2437 @@
+So in the previous class we have started learning WebDriver commands or WebDriver methods and we have
+
+seen get methods, conditional commands or conditional methods, then browser commands.
+
+And then we have seen wait commands.
+
+And the last one is navigational commands.
+
+So there are four types of navigational commands are there.
+
+And these commands or the methods we can access through navigate method.
+
+So in the driver we have something called navigator.
+
+This is a method which is available.
+
+And from this method we can call another method called two.
+
+And there are a few more methods.
+
+Navigate.
+
+Dot to navigate.
+
+Dot back.
+
+And navigate dot.
+
+Forward and navigate dot refresh.
+
+So these are the four methods are there.
+
+And again these navigate method we can call from the driver.
+
+So the overall the command is driver dot navigate dot to driver dot navigate dot to back driver dot
+
+navigate dot forward driver dot navigate dot refresh.
+
+So the first we need to call the navigate method and which will return a navigation object.
+
+From that we are calling another method called two back forward and refresh.
+
+Okay let's see what is the use of this commands.
+
+So sometimes uh if you want to navigate between multiple pages and normally we use this methods.
+
+So let me show you some page here.
+
+Let's say, uh.
+
+Uh, I try to open this page.
+
+So as of now, this is the current page I have opened.
+
+Right.
+
+So on the same browser, this is a first page I opened on the same browser.
+
+Suppose I want to open some other application, let's say.
+
+I have opened another application like this.
+
+Okay.
+
+As soon as you open another application, the previous application is gone.
+
+But still, if you want to go to that particular page, we can use these options, right.
+
+This is the arrow key.
+
+It will go back and it will show you the previous application.
+
+Okay.
+
+And again, if you want to get another page you can say forward.
+
+So these two options we can use to move forward and backward.
+
+So normally through pages we can do like this.
+
+And same thing we can do through commands navigator to back navigator to forward navigator to navigator
+
+refresh.
+
+So the third option is a refreshing.
+
+So this is basically reloading the page.
+
+So refresh command will try to reload the page.
+
+So these three operations we can do through automation through these methods navigational methods to
+
+back forward and refresh back forward refresh and navigator two is a method which will take a URL as
+
+a parameter, and this will open the URL on the browser.
+
+It is exactly same as a get command, so we use normally driver, dot, get and URL that will open the
+
+application URL in the browser, right.
+
+Same thing navigator two and it will take URL as a parameter.
+
+This will also do the same thing.
+
+Okay these are the four commands.
+
+So let me show you how we can use them.
+
+So let's go to eclipse and create new package.
+
+28.
+
+So say.
+
+Navigational.
+
+Commands.
+
+Okay, so first time, uh, I will try to launch some application.
+
+It can, you can take any application and say I'm taking some other application.
+
+This is demo.nopcommerce.com.
+
+So normally how to launch our webpage.
+
+You can say driver dot get.
+
+And before that we need to create a WebDriver instance.
+
+Right.
+
+So WebDriver.
+
+And driver equal to new.
+
+Drove driver.
+
+And we need to import the package.
+
+And we can say driver dot get.
+
+And this is the URL.
+
+So normally this is the command which we normally use driver dot get URL.
+
+The same thing we can do by using another command called driver dot navigate dot two.
+
+And here you can put the URL.
+
+So driver dot navigate dot two.
+
+So the functional device both are exactly the same.
+
+No difference.
+
+But internally the implementation is different.
+
+Get is a implementation is different.
+
+Navigate dot two implementation is different.
+
+So I'll tell you what is the difference between these two commands.
+
+Driver dot get and the URL or driver dot navigate dot to or URL.
+
+So this will also do the same thing.
+
+Whatever get command is doing this navigate dot two command also doing the same thing.
+
+So let me run this.
+
+Yeah.
+
+Now we can see the same URL is got opened on the browser.
+
+Okay, so now let us try to understand, uh, the difference between these two.
+
+So most of the very popular integration also they ask what is the difference between get and navigate
+
+dot two.
+
+So functionality wise there is no difference okay.
+
+Whatever this get command is doing.
+
+So navigate dot two method also doing the same thing.
+
+But there are few differences are there between these two methods.
+
+Okay.
+
+So let's try to understand the what are the differences between Get and navigator two method.
+
+Just a second.
+
+Yeah.
+
+So let's try to understand this.
+
+So normally when I use get method okay.
+
+So we'll pass the URL in the string format.
+
+Right.
+
+We are passing the URL in the string format, and internally they have written some piece of code by
+
+taking the string URL, they have written some logic and this will actually open this URL.
+
+Other browser.
+
+So this is a get method implementation.
+
+It will take only URL in the string format.
+
+It is allows only in string format URL.
+
+We can pass only in the string format, whereas in navigator two method.
+
+Here also we are passing string format, right?
+
+So the navigator two method.
+
+How it is got implemented is like this.
+
+Navigator two method.
+
+Actually the two is actual method.
+
+Navigate is another method.
+
+Okay, inside this two method.
+
+Also internally it is calling get method only.
+
+Internally it is calling get method.
+
+It will take URL as a parameter.
+
+And if you look at these two implementations.
+
+So when I call get method directly we pass the string as a parameter okay.
+
+That will launch the browser and open this URL when you call navigate two method.
+
+This is also internally calling get method because a method can call another method right, a method
+
+can call another method.
+
+So when you call two method internally this is also calling same get method only.
+
+So that means when I call get method or when you call navigator to both are exactly the same because
+
+even navigator two method also internally call in same method get method only.
+
+So functionality is exactly same.
+
+But what is the difference is in the get method we can just pass only string parameter that url.
+
+We have to pass only string parameter, whereas in a navigator two method we can pass this URL in the
+
+form of string, and we can also pass the URL in the form of URL object in the form of url object.
+
+So what does it mean?
+
+So let me show you.
+
+So two formats are allowed.
+
+Navigator two method string format is allowed in the URL format also allowed.
+
+So let me show you the difference.
+
+So we already know driver dot get yeah url object I'll tell you that.
+
+So driver dot get here we pass the URL only in the string format.
+
+Accepts URL only in the string format.
+
+Only in string format.
+
+In get method, URL will be accepted only in the string format, but here.
+
+Navigate the two method accepts the URL in the string format.
+
+This is the one thing.
+
+The other thing is it is also accept the URL in the URL format means URL object format.
+
+For example, there is a predefined class URL for that I can create or object my URL equal to new URL
+
+of.
+
+Here, I can pass this URL.
+
+Okay.
+
+And this is a basically a URL object.
+
+So this URL we have to import from Java dot.
+
+Net package.
+
+And this will throw some exception.
+
+Just add this right now.
+
+If I look at this particular statement URL my URL equal to new URL.
+
+So what I have done is I have just created an object of URL class.
+
+And in the constructor I'm passing the URL.
+
+Now this URL is in the format of URL object okay, now the URL is not in string format.
+
+We are passing the string format again.
+
+It becomes an object URL type of object.
+
+Now this object you can pass in the driver dot navigate.
+
+Driver.
+
+Dot navigate dot two.
+
+Navigate dot two.
+
+And here you can pass my URL.
+
+This is a way we can do it.
+
+So when I use navigate dot two method we can pass URL directly as a string.
+
+Or we can pass this URL as an object.
+
+We can pass an URL as an object.
+
+So both the formats are accepted.
+
+In navigator two method, whereas in get method URL will be accepted only in the string format.
+
+So this is a major difference between Get and navigator two, but functionality wise there is no difference.
+
+So even if you execute this, it will do the same thing and passing URL as a URL object.
+
+So when you run this, it will also launch the application on the browser.
+
+You do the same thing okay.
+
+So driver dot get method accept URL only in the string format, whereas navigator two method accept
+
+URL in both the formats instinct format and in URL object format.
+
+Remember this so driver dot get method.
+
+Accepts URL in string format only.
+
+Whereas driver dot navigate dot two.
+
+Except Earl.
+
+In the string format and your URL.
+
+Objective format.
+
+Okay.
+
+So sometimes development will use this kind of a concept.
+
+They pass the URL in the object format.
+
+So that's the reason they have already created.
+
+Because actually this command is optionally created by selenium.
+
+This is not needed actually okay because we already have driver dot get method.
+
+Most of the times we pass URL in the string format only okay, because we never convert that into again
+
+URL object and we never pass it.
+
+There's not a use case most of the times we never do it, but because they already provided some navigational
+
+commands related to the browser.
+
+So that's the reason this command additionally provided to us to provide the URL to the application.
+
+So in case if the URL in the uh, URL format or in object format, then you can pass.
+
+So sometimes what happens is in the real time use case.
+
+Let's say you have some input.
+
+Uh, URL is an URL object format.
+
+Let's say this object is captured from somewhere else.
+
+Now, by using this object, I want to launch my application.
+
+So let's say you got a URL object from application or somewhere else in the form of URL object.
+
+Now by using this object I want to launch my web page.
+
+So then you can go with this approach.
+
+Navigate dot two.
+
+And you can pass this URL in the form of object.
+
+But we won't create this object normally.
+
+So this object come from some different type of application or some different type of process.
+
+In that scenario we can use navigate dot two of object.
+
+But normally whenever you want to launch your application through URL, you can use this one by passing
+
+your URL in the string format.
+
+Most 99% of the times we use string format.
+
+Okay, we never use any object, but this is a indirect way.
+
+So if you get the URL object from different application or some third party application, then normally
+
+what happens is uh, let's say you already open the URL in the browser URL is already open.
+
+So if you want to capture the URL that will be written in the URL object type.
+
+So there are certain methods out there.
+
+So those methods will return the URL only in the object type.
+
+So in by using that object if you want to launch your application this method will be useful.
+
+But that is again very very very rare case okay.
+
+Because I have never seen that kind of scenario anywhere.
+
+Most of the times we use only string URL.
+
+Okay.
+
+So now.
+
+We understood the difference between get get accepts URL only in the string format, whereas navigate
+
+to method accepts URL in the string format as well as URL format.
+
+So how we can pass URL in the URL object type.
+
+I already shown you here.
+
+So first we need to create a URL type of object where we have to pass URL.
+
+Then this object we have to pass URL.
+
+Okay.
+
+This is a way okay I told you one more thing.
+
+So navigate dot two method.
+
+Also internally calling the get method only write navigate dot two method is also internally calling
+
+get method only.
+
+It is not having any specific implementation.
+
+Navigator two method.
+
+Also internally calling get method.
+
+In that case how the get method is accept the URL in the URL object because we are passing URL object
+
+here, right?
+
+But get method accept only string.
+
+But if navigator two method is internally calling get method.
+
+Get method should accept object url object right, but it doesn't have accept it.
+
+But how come it will work?
+
+How it is.
+
+Validate.
+
+So let us see how it is going to validate.
+
+So what I said in the first point is navigate to method.
+
+This is very important in interview prospective.
+
+Listen carefully.
+
+So navigate to method internally calling again get method only.
+
+Suppose if we are passing here a string url the same URL it will pass same URL it will pass.
+
+So get method implementation will be called.
+
+So if it is a string format, no problem.
+
+If you are passing a string even in navigator to method get method accept a string format so it will
+
+perform well.
+
+But if you pass URL in object format.
+
+Okay if you pass this URL in the object format, but internally, how come the get method take this
+
+object and perform the operation?
+
+So the thing is, before calling this get method in the navigator two method, after getting this URL,
+
+it can be string format or object format, whichever, uh, whichever format it is.
+
+First it will check whether this URL is in string format or this URL in the object format.
+
+It will cross check because it will do some kind of a simple validation before calling get method.
+
+So once you get URL, whether it is string format or object format, if it is a string format, then
+
+directly it will call get method.
+
+If it is an object format, then it will convert the object into string format.
+
+It will convert the object into string format and then it will pass into get method.
+
+So that's how the navigate dot two method works.
+
+So as soon as you pass some URL the navigate dot two method.
+
+First it will cross check whether it is a string format or object format.
+
+If it is a string format, it will directly pass it to the get method.
+
+If it is an object format, then it will convert into string format and then it will pass it to the
+
+get method.
+
+Ultimately, get method only executed internally in the navigator two method.
+
+Okay, so this is how we need to understand this.
+
+So ultimately both are doing the same job.
+
+No, there is no such functional device.
+
+There is no difference.
+
+Both are doing the same job.
+
+But parameters wise there is a difference.
+
+Both will accept a string format of URL, but in navigator method.
+
+Additionally, we can pass URL in the URL format.
+
+So is this clear to everyone.
+
+So very very important entry question.
+
+And also lot of people cannot answer this because they are having some confusion on this.
+
+And even if you search in internet, many people will say both are exactly the same and some people
+
+will say both are totally different.
+
+So they are not totally different actually.
+
+Why?
+
+Because the navigator two method internally calling the same get method same implementation.
+
+Then how can we they how can they different know right?
+
+If they are executing the same code?
+
+There is no difference, only the parameter wise.
+
+Driver two method allow us to store allow us to pass URL object.
+
+That is the only difference.
+
+Otherwise both are same.
+
+Okay, so now let us move on to the next one.
+
+Yes, Get method is a different implementation that is called from the navigator two method.
+
+And the last class says we already learned we can call one method.
+
+Let's say you have some method called M1 implemented.
+
+Now can we call this M1 method from M2?
+
+Let's say m one method when you call like this.
+
+Yes, this m two method will execute this.
+
+So one method will call another method similar way.
+
+Driver dot two method.
+
+Navigator two method.
+
+Internally calling get method.
+
+So get is having another implementation.
+
+Get method is different.
+
+So when I call driver dot get this get method directly called.
+
+When I say driver dot navigator two.
+
+Then first two method will be called and internally get method is invoked.
+
+So that's how they have done implementation.
+
+LA.
+
+Now let us see how we can use other commands.
+
+So now I have open, uh, demo application like this.
+
+Let me comment this okay.
+
+Let's use this okay.
+
+Driver dot navigate dot two demo.nopcommerce.com.
+
+It's.
+
+So we never use object type of URL first thing okay.
+
+Because this is just a.
+
+Additionally something is got provided.
+
+But normally in automation we never use URL type of object, but development point of view they use
+
+it.
+
+They create all the URLs in the URL format.
+
+URL is a class which is not from selenium.
+
+Actually, if you look at here this URL is from Java dot.
+
+Net package.
+
+This is from Java itself, not related to selenium.
+
+It is not related to selenium.
+
+It is a Java itself.
+
+So normally the development team developers will use this kind of a classes and objects to work with
+
+the URLs.
+
+But automation point of view, we never do it.
+
+We don't convert this into URL or we never do it directly.
+
+We can pass string URL, but this is alternative.
+
+Okay?
+
+If you want to still pass URL as an object format, yes, you can still pass it.
+
+All right.
+
+So now I have opened one application here immediately.
+
+What I will do is I say driver dot navigate dot two I'll try to open another application.
+
+Let's say.
+
+Yeah, I'll open this application.
+
+So now what will happen when I run these two commands.
+
+You can use get method also.
+
+No problem.
+
+So when I use these two commands then what happens.
+
+Two URLs I'm launching.
+
+So first it will open the envelope e-commerce application on the same browser.
+
+It will open another application.
+
+So when I execute this.
+
+See, the old application will just disappear if I look at this.
+
+See?
+
+First time Nopcommerce is open.
+
+Second time Opencart application is open.
+
+Orange.
+
+Hmm.
+
+Now again, if you go back to the previous application.
+
+Right.
+
+If you want to go back to the previous application, normally how we will do manually, we click on
+
+this arrow mark.
+
+Right.
+
+Same thing we can do through automation.
+
+Suppose I want to go to the Nopcommerce.
+
+Simply what you can do is you can say driver dot navigate dot back.
+
+Driver dot navigate back.
+
+So after going back let us try to find uh the URL of application how to capture the URL.
+
+You are in love.
+
+Application.
+
+How to capture what is the command?
+
+How to capture the URL of application.
+
+Yes.
+
+Driver.
+
+Dot.
+
+Get a current URL.
+
+Okay, so after going back I'm getting the current URL.
+
+So which URL expecting here.
+
+The first one.
+
+No e-commerce URL you are expecting.
+
+And after that, again, I want to move forward to.
+
+Orange rim, then I can say driver dot navigate dot dot forward.
+
+And here I can print again another URL driver dot.
+
+And get the current.
+
+So back forward.
+
+So let's try to do it.
+
+Initially I'm opening the two URLs and then I'm navigating back and forward.
+
+So excellent match.
+
+Okay, so now open range cherm.
+
+Now you can see forward and backward it is navigated.
+
+Now you can see this is the URL which is returned by this command initially.
+
+And this is the URL which is written by the next command okay.
+
+So this is the way we can simply navigate forward and backward using this commands.
+
+But what is a prerequisite to use this command is first we need to open the URLs manually like this.
+
+So by using get command or navigator two method, any method you can use.
+
+First we need to launch two applications and then you can go back and forward.
+
+Okay.
+
+Now, if you want to reload the application, sometimes as soon as you're launching the page, we do
+
+refreshment here, right?
+
+We can do refresh like this.
+
+So if you want to refresh the page you have another command driver dot.
+
+Navigate dot.
+
+Refresh.
+
+Navigator dot refresh.
+
+So this command will refresh the page.
+
+Or reload the page.
+
+Okay.
+
+It is just to refresh the web page.
+
+So very basic commands.
+
+Simple commands.
+
+Driver dot two driver navigate dot back navigate dot forward refresh.
+
+So if you look at these commands first of all we are calling the navigate method.
+
+So this navigate method return type is what navigation type of object.
+
+So from this navigation class we are calling the other methods refresh forward.
+
+Back to.
+
+These methods are available in the navigation class.
+
+Okay.
+
+This method will return the navigation object.
+
+Okay.
+
+So remember this very basic commands.
+
+Just if you want to move forward backward you know need to provide a URL multiple times okay.
+
+So once you provided URLs then you can navigate back and forward every time.
+
+You no need to launch applications.
+
+Every time you no need to forward and backward.
+
+Once you open these two applications, by using back forward you can go forward and backward.
+
+So these are all navigational commands for commands and driver dot get driver dot navigator two is a
+
+alternative method.
+
+So driver dot get method accept a string format.
+
+Navigator two method accept string as well as URL object format.
+
+LA.
+
+So now.
+
+So refresh is just reloading the page.
+
+So normally if you want to refresh the page we can use this option.
+
+Right.
+
+This is the button reload this page.
+
+You can see there are three buttons are there in the top corner backward forward and reload.
+
+For these three operations, three methods are provided.
+
+These are.
+
+The three methods are provided for three different operations.
+
+Three methods are provided.
+
+That's it.
+
+Equivalent methods.
+
+So instead of doing this manually like this right.
+
+So we use those methods and navigational methods.
+
+All right.
+
+So now let's move on to the next topic.
+
+In the last class.
+
+Uh, we learn about.
+
+Bro.
+
+We learn about get handle.
+
+Uh, get to window handle, get window handles.
+
+Do you guys remember those two methods?
+
+Get a window handle.
+
+Get window handles.
+
+And get the window handle.
+
+Get window handles.
+
+Right.
+
+So we'll discuss more about this method.
+
+Actual use case where we use get window handle.
+
+So we already know get window handle returns the ID of current browser window whereas get window handles
+
+returns the IDs of multiple browser windows.
+
+So can we use the refresh command for single URL?
+
+Yeah, whenever you want you can refresh the page.
+
+Yeah single URL also fine.
+
+Okay.
+
+The refresh command you can also use with single browser.
+
+No problem.
+
+So how often do you open multiple URLs on the same window?
+
+Suppose if you want to perform parallel operations right.
+
+Suppose I have open one application.
+
+Okay.
+
+And I'll do something and that I will go to another application.
+
+I have done something again.
+
+I can go back.
+
+For example, let's say.
+
+Even if you don't have it two URLs.
+
+Still, you can use this commands okay, even if you don't have a two URLs, still you can use this
+
+commands.
+
+I'll give you a simple example.
+
+Let's say you already open this application.
+
+Let's say this is the application I open this a single URL.
+
+I'm not using any other application, single URL.
+
+Okay.
+
+In this I already I click on something.
+
+Let's say I click on some electronics.
+
+So it is navigated to another page.
+
+Now again, if you go back to the previous page how we can go back.
+
+Simply navigate to two back.
+
+So that will go to previous page.
+
+So with single URL.
+
+Also you can apply all these methods single URL.
+
+Suppose I click on this MacBook.
+
+Now I enter in another page.
+
+Now I want to go back.
+
+So then you can use back pod.
+
+And again I want to move forward MacBook page.
+
+Then you can do forward.
+
+Okay, so with single application also you can work with the navigational methods.
+
+So both the URLs are not mandatory.
+
+One single URL is also fine.
+
+Okay, so I hope everybody is clear on this.
+
+Now move on to the next one.
+
+Get a window handle.
+
+Get window handles.
+
+We already know.
+
+Get a window handle.
+
+Command will return an ID of the single browser window.
+
+Get window handles.
+
+Returns the IDs of multiple browser windows right.
+
+But where we will use this actually, what is the use of this ID, where we will use that ID or where
+
+we will use multiple IDs.
+
+So let us see with an example.
+
+And also we will learn how to switch between multiple browser windows.
+
+Okay, so by using that ID we can switch to one browser window to another browser window.
+
+So I already told you one scenario in the last classes.
+
+And let us say I have two browser windows.
+
+Let's say this is one browser window.
+
+And I have another browser window.
+
+When I click on something it is open another browser window to open.
+
+Browser windows are there, but driver is still focused on the first browser window.
+
+But I want to perform some activity on the second browser window.
+
+We cannot directly go there.
+
+We need to switch.
+
+Actually, we have to use something called switching commands.
+
+So by using switching commands we can go to the next page.
+
+And then we can perform the operation.
+
+Again if you want to go back to the previous page again we have to switch to the previous page.
+
+Then we can perform the actions.
+
+So the wind get window handle get window handles.
+
+Both will return IDs right.
+
+And these IDs we have to use along with the switching commands to switch between multiple pages.
+
+So why we need to switch?
+
+Because our driver is focused only on the one browser window at a time.
+
+It cannot focus on multiple browser windows.
+
+Okay.
+
+So let's see the use case how exactly we use in our automation.
+
+Get the window handles.
+
+Get the window handle.
+
+So let's create.
+
+Another example, I'll show you multiple examples and we'll see the use case.
+
+Handle.
+
+Browser.
+
+Windows.
+
+Okay, so I'm writing some piece of code here.
+
+Come for shift to.
+
+I put some implicit weight also as soon as I launch my driver.
+
+This is called implicit.
+
+Make a habit of keeping weight statements from now onwards.
+
+Whatever new script you are creating, just try to put implicit weight.
+
+And this is the URL of application I'm opening.
+
+And then maximizing this window.
+
+Right.
+
+So if you look at this application.
+
+Right.
+
+So this is a URL.
+
+In this I want to click on this link.
+
+So let me open fresh page.
+
+Okay, so as soon as you launch my web page, I try to click on this link and I click on this link.
+
+It will open another browser window.
+
+So now currently I have two browser windows.
+
+This is my parent window.
+
+This is my child window right.
+
+So let us try to open the another browser window and capture the IDs of both the browser window.
+
+By using those IDs we can switch to one browser window to another browser window okay, so for that
+
+what I have done is I just created the driver and then maximize the page.
+
+Now I want to click on the link.
+
+Inspect this element.
+
+So this is.
+
+Okay.
+
+So this is a link here.
+
+I'm saying driver dot.
+
+You find element.
+
+By dot x path.
+
+You can also use link text no problem.
+
+And I'm just performing click action.
+
+So once you perform click action then it will open another browser window.
+
+So once it is open another browser window now I want to capture.
+
+IDs of both the browser windows parent and the child, we can, let's call it as a parent.
+
+This is called as a child.
+
+So I want to capture the IDs of both the browser windows.
+
+So how we can do it.
+
+Driver dot.
+
+Get window handles.
+
+So this will return IDs in the set format set collection.
+
+So I'm storing them in a variable I'll say window.
+
+IDs.
+
+Window IDs.
+
+And what is the type of this variable?
+
+It should be set of string.
+
+So we already seen in the last class.
+
+So we captured multiple browser windows IDs and storing them in a variable.
+
+Now this variable contains a parent window ID and also child window ID both are having.
+
+So now what I should do is by taking the window id I can switch to the particular browser window.
+
+Okay.
+
+So for example I want to capture the ID of the parent window.
+
+I want to capture the idea of the child window.
+
+But both are available in the set collection.
+
+How can we get it individually?
+
+Individual IDs.
+
+From the city collection.
+
+How can we extract individual ID's parent window ID, child window ID currently, which is having both
+
+the two, right.
+
+Yeah.
+
+One one option is there looping statement.
+
+By using loop looping statement you can iterate it.
+
+The other option is what.
+
+We can convert this into list, then we can extract.
+
+Right.
+
+So let's say the first approach approach one.
+
+Because if you have just a two IDs necessarily loop is wasted, right?
+
+So if you have a more number of IDs, let's say 510 IDs, then loop will be preferred most of the times.
+
+But if you have just two IDs.
+
+Better to convert into list collection.
+
+I'll say approach one.
+
+What I'll do is I will convert this set collection into list collection.
+
+We already seen this concept in Java sessions.
+
+We can convert a set into list right array list how we can convert.
+
+You can create an array list variable or a list variable.
+
+So let's stop for string.
+
+Okay.
+
+Window list.
+
+Window list equal to new array list.
+
+New ArrayList of.
+
+On window ID.
+
+All right.
+
+Now import this ArrayList.
+
+Also import this list.
+
+So what this statement will do.
+
+This statement will convert the set collection into list collection converted.
+
+So once you convert it into the list collection can we extract IDs individually?
+
+Yes.
+
+How can we extract.
+
+Window list dot get is a method get.
+
+So when I say get of zero which it will return parent browser id the first id so that I'm going to store
+
+in a variable so I can create one variable called string parent id.
+
+Similarly.
+
+How to extract the second window list dot get off one.
+
+So this will return.
+
+Hailed ID.
+
+Okay, now I know parent ID and child ID so what we have done in first we converted the set collection
+
+into list collection.
+
+Then we have extracted the parent ID child ID into different variables.
+
+Now I have a parent id, I also have a child id.
+
+Okay, now by using these IDs I can switch to one browser window.
+
+To another browser window.
+
+Suppose as soon as you launch your web page.
+
+Why is it should be connected to list?
+
+Can anyone answer this question?
+
+Why we have converted set into list collection?
+
+What is the necessity?
+
+Can anyone answer this question?
+
+We already covered this in the last sessions.
+
+Why?
+
+We have converted set into list collection.
+
+Yes.
+
+So if you have in set collection, we cannot extract individual items because we don't have a Get method
+
+in set collection.
+
+Okay.
+
+If you have a multiple items in this window IDs, if you want to extract one by one individually, I
+
+cannot extract or I cannot access it because set collection don't have a Get method to access individual
+
+items.
+
+So that is the reason we converted the set into list collection, so that in the list collection we
+
+can extract individual items by using get method, I can extract zero item and first item and so on.
+
+But in the set collection it will not follow indexing concept first of all.
+
+So that's the reason we don't have a Get method.
+
+We cannot extract the specific item from the set collection because it will not follow index.
+
+So that is the reason we converted the set collection into list collection type.
+
+And then we have extracted parent ID child id differently.
+
+Okay now.
+
+What is the use of these IDs now?
+
+By using this parent ID child id, I can easily switch to one page.
+
+To another page.
+
+So as as soon as you launch this particular page.
+
+Our driver is focused on the first browser window.
+
+Okay.
+
+So as soon as we launch the application, our driver is focused on the parent window.
+
+Even if you open the child window, still our driver is focused on the parent window.
+
+Our driver is focused on the parent window.
+
+But how we will know that.
+
+Let us see.
+
+I'm trying to print.
+
+Driver dot.
+
+Uh, you can say title.
+
+I'm getting here.
+
+Driver dot title get title I'm using.
+
+See.
+
+I already opened this application.
+
+Then I click on that link that will open another browser window which is child window.
+
+Okay, now I'm getting the title.
+
+So if you're getting the title, if it is, return the parent return parent window title or child window
+
+title, which one it will return.
+
+Forget about these things.
+
+Okay.
+
+Just I open this application and then click on the link.
+
+It will open another link.
+
+Right.
+
+So even though if it is open another browser window, when I'm getting the title, it will return the
+
+parent browser window title.
+
+Why?
+
+Because the driver is still focused on the parent window only.
+
+Right?
+
+So if you execute it, it will still return the parent window title.
+
+It will not return the title of the child window.
+
+Why?
+
+Because our driver is still focused on the parent window.
+
+So it is open child window.
+
+Now I have a parent window.
+
+Child window.
+
+But if you look at the title it is still retaining the parent window title.
+
+Okay, so now I want to switch to the child window.
+
+I want to switch to the child window.
+
+Then I want to extract the title of the child window.
+
+Then how we can do this.
+
+So here I will try to switch to a child window.
+
+How to switch driver dot.
+
+There is a method called.
+
+Switch to driver.
+
+Dot switch to dot driver dot switch to dot window.
+
+In this we have to pass ID.
+
+Whichever browser window you want to switch, you need to pass the ID of that particular browser window.
+
+Now I'm passing the child ID here.
+
+Okay after switching, then I'm executing this command driver dot get title.
+
+Now observe.
+
+So the switching command will able to switch to child browser window.
+
+And after that it will get the title from the child browser window.
+
+Now this is my parent browser window.
+
+Right now it is open another child browser window, parent and child.
+
+Now if I look at the title, you will get the title of the second browser window.
+
+Previously we got only orange term.
+
+That's the parent browser window title.
+
+Now we got the title from the child browser window.
+
+Okay, now we switch to the child browser and we got the title of the child browser window.
+
+Again I want to go back to my parent window again.
+
+I want to switch to the parent window.
+
+Then how can we do it?
+
+Switch to.
+
+Parent window again, I want to switch back to the parent window.
+
+Simply what you can do.
+
+Driver dot switch to dot window.
+
+And here the window command will take the browser ID.
+
+So here we need to pass parent ID.
+
+Okay.
+
+Now again, if you capture the title, this will give the title of the parent browser window.
+
+So by using switching command we can switch to one browser window to another browser window.
+
+Here the navigation commands won't work okay, because navigational command is only for navigating between
+
+the multiple pages forward and backward, but it is not for switching our driver.
+
+Still, switch on the parent browser.
+
+Okay.
+
+So if I look at here now, you got the title for the parent child browser window.
+
+And this will give the parent browser this.
+
+This is the title of the parent browser window.
+
+Okay.
+
+So what is the use of capturing window IDs.
+
+So now you guys are understood why we need to capture IDs of browser windows.
+
+This is the use case.
+
+If you capture the IDs of browser windows, we can easily switch from one browser window to another
+
+browser window.
+
+Otherwise we cannot perform any other operations.
+
+Suppose you open this parent window and you navigated to the child window.
+
+Now we want to do some validations here.
+
+I want to click on some button or I want to, uh, find something on this page, or I want to do some
+
+automation related validations here.
+
+So how it is possible directly, it is not possible.
+
+We need to switch to the browser window.
+
+Then it is possible.
+
+So like that we can use a switching command.
+
+So what is the command which we have used is driver dot switch to.
+
+A driver object dot switch to.
+
+Dot window.
+
+And here we have to pass window ID.
+
+So this is the overall command.
+
+So get window handle get window handles whatever IDs we are getting by using those.
+
+IDs we can switch to multiple browser windows.
+
+That is a use case.
+
+Okay.
+
+This is one approach.
+
+Let's say I have only two browser windows parent and child, so we can convert that into list collection.
+
+We have extracted parent ID, child ID and then whichever browser window you want to switch you can
+
+easily switch it.
+
+But sometimes if we have a more number of browser windows, let's say I have a 510 browser.
+
+Windows are already open.
+
+Then how we can switch.
+
+So instead of getting all IDs into multiple variables, I can simply use a looping statement.
+
+Okay, let me comment this.
+
+This is an approach one.
+
+It is.
+
+This approach is recommended only if you have a two browser or three browser windows.
+
+But if you have a many number of browser windows, then it is not recommended to convert into a ArrayList.
+
+Okay, we need to use a looping statement.
+
+Approach to.
+
+So we already collected window IDs.
+
+Both the window IDs.
+
+Right.
+
+Let's write a looping statement now for.
+
+By using looping statement.
+
+We can do it right.
+
+Window.
+
+IDs I'm capturing into a variable called string and this is enhanced for loop.
+
+String.
+
+Uh, we need window ID.
+
+I'm taking one variable.
+
+So from window IDs, I'm getting each and every window ID in this variable.
+
+So now by using this variable window id, I can switch to whichever browser window I want.
+
+So let's see.
+
+By using this window ID, what I can do is I can switch, say driver dot switch to dot window and you
+
+can pass window ID so this is got switched.
+
+But on which browser window it is got switched.
+
+Do we know that simply we are getting IDs one by one.
+
+Once you're getting the ID right.
+
+And we are using that ID in this window.
+
+But do we know exactly which browser window it is switched by using this statement.
+
+We don't know, right?
+
+But in the previously we have only two browser windows parent and child we have considered.
+
+But in this context there are multiple window IDs.
+
+I got one ID and I switched to to it.
+
+But how?
+
+We will know whether which browser window it is got switched.
+
+We don't know that.
+
+Right.
+
+So what we need to do is we use something called Dot get title.
+
+We can use the following command called Get title.
+
+So whatever browser window it is switched from that browser window we are extracting the title.
+
+We are extracting the title that I'm going to store in a title.
+
+So by seeing the title, by seeing the title, we will know exactly which browser window it is got switched.
+
+Right.
+
+So now what I will do is I'll put one condition if this title dot equals.
+
+Okay.
+
+Suppose if this title is orange.
+
+Hmm.
+
+Okay.
+
+What is the type of browser window?
+
+Is the parent or child?
+
+Okay.
+
+We don't know whether it's parent or child.
+
+Simply I can print URL so driver dot get current URL.
+
+Like this.
+
+Okay, so we are switching to the browser window and getting the title.
+
+And if the title equal to this one, we are just printing the URL.
+
+Okay.
+
+Now just observe how it is going to switch.
+
+Now it is switching to all browser windows one by one.
+
+Okay, now I can just observe.
+
+All right.
+
+What I'm saying here is I just captured the title with the title is Equals to Orange Theorem.
+
+Then only it is getting the title orange Sherm is what it is a parent browser window title.
+
+So we are getting the title a URL for the parent browser window.
+
+Okay.
+
+Suppose if you put something else here, or else what you can do is I can just remove the if condition.
+
+Okay, so I can say if condition I removed.
+
+So I'm getting the title.
+
+Okay.
+
+And, uh, uh, this is optional actually.
+
+So title is not needed.
+
+It is already switched.
+
+I'm not using the title as part of validation.
+
+If you want to validate you can just use this and say if.
+
+If I don't use if condition, it will print the URL for parent and child.
+
+Both the windows let's say if.
+
+Title dot equals.
+
+Right.
+
+So here I'll say.
+
+So if we inspect this page, you can see the title in the header tag.
+
+This is the title.
+
+The title is called Orangehrm and this is a driver dot.
+
+Get current URL I'm getting if condition.
+
+Else.
+
+Basically we can just do validation based on the title is the title is equal to orange.
+
+Hmm.
+
+Then do some validation here.
+
+You can put any other validations here, some validation on the parent window.
+
+Okay, so based on the title, we are deciding Kelsey is not required.
+
+Suppose you already have a multiple browser windows.
+
+I'm capturing the title.
+
+And suppose if you want to perform any operation on the parent browser window, then title equals to
+
+parent window.
+
+Then do the operations on parent window.
+
+Suppose if you want to do operations on the child window, then you can change the title here.
+
+If the title is equal to the title of child window, then do the operations on the child window.
+
+So it will capture the titles of all browser windows one by one in every iteration.
+
+But here what we are doing based on the title, we are checking on which browser window and based on
+
+the title, we are performing the action.
+
+So basically what exactly we are doing is we are applying some logic because we don't exactly whether
+
+it's parent window or child window.
+
+Right.
+
+Let us say I have.
+
+One, two, three.
+
+Let's say this is X and this is why this is Z.
+
+Let's say three browser windows.
+
+Currently our driver is here.
+
+And we got IDs of x, Y, and z.
+
+Now I want to perform some action on the third browser window here.
+
+Okay.
+
+So in the in the first loop what exactly we are doing.
+
+We are capturing the titles of.
+
+First, we are switching into the browser window first.
+
+Let's take a first window ID getting the title some Excel.
+
+Now second time switch to the second.
+
+Why getting the title called why next round?
+
+Getting the title called jet.
+
+So in the if condition what exactly we are doing.
+
+Suppose if you want to perform some activity on Z.
+
+So then if condition if the title equal to z okay then perform the action.
+
+So rest of the two will be ignored because the title we are matching with the third web page.
+
+Third browser window.
+
+So that's the reason based on the condition we can filter.
+
+So we on whichever browser window we want to perform operations, we can specify the title of that particular
+
+browser window.
+
+We can specify the title of that particular browser window.
+
+Suppose if you want to perform action on the child browser window, and here you can specify the title
+
+of the child browser window like that we can switch.
+
+Okay, so you understood this problem, everyone.
+
+So when I working with the looping statement.
+
+We can also perform actions on other browser windows, but we need to filter.
+
+Let's say you have ten browser windows.
+
+I want to do some action specific browser window.
+
+Then what?
+
+We need to switch to it and get the title.
+
+And if the title is so and so and then do the action.
+
+If it is not matching, then it will get another window ID, another title.
+
+Again it will match.
+
+Even if it is not matching, then it will get another title.
+
+So it will navigate through all browser windows wherever it is matching there it will start doing the
+
+operations.
+
+So this is the second approach.
+
+If you have a multiple browser windows then you can go with this approach.
+
+If you have only two browser windows then go with the converter cover conversion approach like convert
+
+to set to the array list, and by using get method you can extract.
+
+Okay.
+
+So these are the two methods are there.
+
+Just.
+
+So is it clear?
+
+So far, everyone.
+
+Yes.
+
+If you want to do, you can do also through your traitor.
+
+But in a traitor it will just give only IDs.
+
+One by one.
+
+It will iterate.
+
+You can try that.
+
+Okay.
+
+So yeah by using iterator also we can do this.
+
+You guys can try that.
+
+Okay.
+
+So now.
+
+I would.
+
+Based on this example, I will ask you one thing.
+
+You should able to answer this in the last class.
+
+I told you one scenario.
+
+We will try to see that scenario once again.
+
+We have learned browser commands.
+
+Write close and quit.
+
+Let's say I have multiple browser windows like this.
+
+This is one, two, three, four and five.
+
+Now if I use close command, what happens wherever the driver is?
+
+Uh, focused, only that particular browser window will be closed.
+
+Single browser window will be closed.
+
+Single browser window will be closed.
+
+When I use quit command, all browser windows will be closed.
+
+But now my requirement is I want to close specific browser window.
+
+Let's say I want to close only three or I want to close only five, or I want to close two and four,
+
+or I want to close three and five.
+
+Based upon our choice.
+
+Based upon our choice, I want to close specific browser window.
+
+Okay.
+
+So then how we can achieve this.
+
+So this is a very, very important use case uh, during interview.
+
+People will ask you this.
+
+Yes, same logic we need to apply.
+
+So whatever logic here we have implemented same thing.
+
+Let me show you this.
+
+Uh, creating new class.
+
+Closing.
+
+Specific.
+
+In-browser.
+
+Window.
+
+Taking main method and say finish.
+
+Okay, so now I just copy the same code.
+
+Okay.
+
+This is a good.
+
+Okay, so I launched my application, maximized it.
+
+Click on the link.
+
+So this will open another browser window.
+
+And then I captured both the window IDs.
+
+All right.
+
+Now I have a two browser windows.
+
+As soon as you have done this two browser windows are open.
+
+Now I want to close whichever browser window I want to.
+
+I want to close it.
+
+Okay.
+
+Simply what you can do by using looping statement.
+
+We can do it.
+
+So take this window IDs.
+
+Into a variable.
+
+Let's say we need it is a string variable.
+
+White string because all window IDs are in the string format.
+
+Okay, so now if you try to write like this driver dot switch to dot window window ID and dot get title.
+
+Okay I'm storing the title in a variable called title.
+
+Then I'm printing the title here.
+
+So what this will do actually.
+
+So it will keep keep reading each and every ID.
+
+Then switch to that particular browser window and then can get the title right.
+
+If I have ten browser windows, it will print ten browser window IDs and titles, not IDs.
+
+Because we already captured the IDs, we are reading each and every ID into this variable, and by using
+
+this ID, we are switching into the particular browser window and getting the title.
+
+So you can have n number of browser windows.
+
+So this will capture the titles of all the browser windows and it will print.
+
+Right.
+
+So let me show you.
+
+And by using the title we put one condition.
+
+Whichever browser window you want to close you will put one condition.
+
+Now you can see there are two tabs are opened here.
+
+First one and second one.
+
+Two browser windows are open.
+
+And if you look at here you got a two titles okay.
+
+Now my requirement is I want to close specific browser window.
+
+I want to close my parent window for example.
+
+Or currently uh okay.
+
+Parent window I want to close.
+
+Then what I can do just put one if condition.
+
+If.
+
+Title dot equals.
+
+This orange.
+
+Okay, then if this condition is matched, we have to close that browser window so I can say driver
+
+dot close.
+
+Driver dot close, so this will close based on the condition we are closing specific browser window.
+
+So now the child is still alive.
+
+So we don't need any break, actually.
+
+Yeah.
+
+If you want to put brake, no problem.
+
+You can put.
+
+But.
+
+If we have to close multiple browser windows, then it will be a problem.
+
+If you put break, I will tell you.
+
+So you can see the child browser window still open, but parent browser window is already closed.
+
+Okay.
+
+Suppose if you want to close the browser window, then I can put this title.
+
+Now this time it will close only child browser window.
+
+So now you can see parent and child child browser window should close.
+
+Yes.
+
+Child window is got closed and parent window still open.
+
+So based on the condition we can close it.
+
+So if you are closing only one browser window then you can put a break command.
+
+No problem in this because I don't need to get any other window IDs because as soon as you get a browser
+
+window matched, just immediately close it and exit from the for loop.
+
+No need to get other IDs, but if you want to close multiple browser windows, let's say I have five
+
+browser windows.
+
+I want to close only 123.
+
+Okay, then you should not put a brake command.
+
+And here you can put multiple conditions.
+
+Title dot equals this one or R title dot equals whichever browser windows you want to close.
+
+You can specify the titles of those browser window.
+
+Or you can say some other title right.
+
+So now this will close two browser windows which are matching with this title.
+
+And also this one because we put our operator or means what either this one or this one.
+
+So whatever browser windows are having these two titles, only those browser windows will be closed.
+
+Or this one or this one.
+
+Here we cannot use break, okay?
+
+Because if we put break as soon as the first browser window has got matched, it will close it immediately.
+
+It will break the for loop, but the second one it will not consider.
+
+So that is the reason here break is not applied.
+
+Okay, so this is how we can close specific browser window based on the condition.
+
+Okay, so based on the condition, we can close specific browser window.
+
+Whichever browser windows you open doesn't matter.
+
+You can close specific browser window by putting the condition.
+
+So this is how.
+
+Get window handles and get window handles.
+
+Most important topic just do one round of practice and we'll.
+
+So how do we know the title of it?
+
+Yeah.
+
+Before that, you know, the title actually is.
+
+Suppose if you want to close whichever browser window you want, you can capture the title just by right
+
+clicking and inspecting the page and the header part.
+
+You can see the title actually in the header.
+
+You can see the title tag in that you can find the title.
+
+So because whenever you want to close your browser window you have a plan, right?
+
+So you need to capture the title from this browser window and put the title in the condition.
+
+So like that, you can close whichever browser window you want because the title must be there.
+
+Otherwise we cannot know which browser window you want to close, because if you want to close something,
+
+you have to know something about it, right?
+
+You have a five browser windows fifth one you want to close, then you have to know the title of the
+
+fifth one.
+
+Or if you want to close one, two, three first three browser windows, then you have to know the titles
+
+of one, two, three like that.
+
+And you can get the titles from the Dom itself.
+
+From the HTML of the page, you can get the titles.
+
+So by using window ID, you don't know, right which browser window it is.
+
+That's the reason we are getting the title here.
+
+So you are passing window ID.
+
+That's fine.
+
+It will switch to the particular browser window.
+
+But you do you know exactly by using window ID do you know which browser window it is belongs to?
+
+No.
+
+Right.
+
+Suppose I have captured window IDs here.
+
+Let us say here I capture both the window IDs.
+
+So by seeing the window ID, can we know which browser window that ID is belongs to?
+
+Do we know exactly?
+
+Know by window ID, we cannot know that.
+
+And moreover, the window ID is dynamic.
+
+Every time it will generate the new window ID.
+
+So by using window ID we don't know which browser window it is pointing.
+
+So that is the reason we are switching to the particular browser window and then getting the title.
+
+So by using title.
+
+By knowing title we will know which browser window it is pointing.
+
+Right.
+
+So that is the reason we are getting the title here.
+
+If we don't have a title, we won't know.
+
+We will not know which browser window it is pointing.
+
+So that is the reason.
+
+Additionally, we added get title after switching to the particular browser window, capturing the title
+
+and based on the title, we are closing the particular web page.
+
+So this is how we need to do it.
+
+Okay, so this is how we need to switch between multiple browser windows.
+
+There are three kinds of switching commands are there.
+
+We can switch to multiple browser windows.
+
+We can switch to alerts.
+
+We can switch to frames.
+
+So alerts and frames we will discuss in the next uh sessions.
+
+So how to find the title from the URL?
+
+So title from the URL is not directly possible either.
+
+You can capture the URL of the web page, or you can capture the title of the web page.
+
+Suppose here we are calling Get Title right instead of get title.
+
+You can capture the URL also.
+
+Okay.
+
+Suppose.
+
+I'm trying to capture the URL.
+
+You can put condition on whichever way you want.
+
+So here you can call get current URL.
+
+So this will return the URL of the page.
+
+Okay.
+
+In that case you can put that condition as on URL.
+
+If the URL is so and so then close it.
+
+So this is possible, but from the URL we cannot get the title until unless you launch this URL on the
+
+browser.
+
+If you launch this URL on the browser, then you can get the title, but directly from the URL.
+
+You cannot get the title because both are two different commands we can access.
+
+From the driver.
+
+Okay.
+
+So this condition should be based on the URL or it can be based on the title.
+
+So whichever way you want you can use.
+
+But from the URL you cannot get directly get the title.
+
+Until unless you launch the page.
+
+Suppose here you launch your URL here.
+
+So then by using driver dot, get current URL or get title, you can get the title.
+
+Yes.
+
+It is also visible on the window tab.
+
+Yes.
+
+You can see here this is the title on the top tab.
+
+The name is showing here.
+
+You can see that.
+
+Can you see the tooltip?
+
+Human resources management software.
+
+Orange.
+
+Hmm.
+
+Can you see that?
+
+That's called title, actually.
+
+And here.
+
+Orange.
+
+That is a title.
+
+So on the tab itself, the title.
+
+Also suppose if you are not able to see here, you can inspect the page and go to the header.
+
+Header.
+
+And here you can see the title tag directly.
+
+You can use it.
+
+Okay, so that's all for today's session.
+
+I'll stop here.
+
+I'm still not feeling well.
+
+I'm just stop here for today's session.
+
+And tomorrow we will continue.
+
+And I will give you one assignment on today's session.
+
+You guys can try this.
+
+Okay, so that assignment is.
+
+Yeah.
+
+So just go to this page.
+
+So what you need to do is in this page you can see something called.
+
+Uh, a search box.
+
+So here you can see the tabs right.
+
+So here you need to provide some search string.
+
+It can be anything.
+
+Let's say I'm providing something called selenium okay.
+
+Then click on the search button.
+
+Then some links are displayed.
+
+So what you need to do is first step provide some string and search for it.
+
+Then count the number of links.
+
+So as soon as you have search some links are displayed.
+
+Right.
+
+You need to capture these links and find how many links are.
+
+Uh, displayed here.
+
+So how many links are there?
+
+1234.
+
+Five.
+
+Six.
+
+Totally.
+
+Six links are including this more six links are displayed.
+
+So you need to count how many links are there.
+
+The next thing is click on each link using for loop.
+
+So you need to capture each and every link from the web page.
+
+From this link you need to read each and every link test capture each and every link text and perform
+
+click action on it.
+
+If I click on this observe.
+
+You need to use a for loop here.
+
+As soon as you click on the link it is opening another tabs.
+
+Can you see it?
+
+Is opening multiple tabs.
+
+So how many links are displayed here?
+
+You need to click on each and every link that opens multiple tabs.
+
+That's the next step.
+
+And after that.
+
+Get window IDs for every browser window and then close specific browser window.
+
+So capture the IDs of every browser window by using get window handles and then capture the titles.
+
+And close whichever browser window you want to close.
+
+So I have 1234, five browser windows are open, and you can close whichever browser window you want
+
+based on the title.
+
+So this is assignment for today.
+
+You guys can try I will provide the solution.
+
+Also I will upload the solution for this.
+
+But you guys can do first okay.
+
+And then look at the solution for this.
+
+So this is again depend on the today's topic.
+
+Fine.
+
+So try to do this and tomorrow we will continue.

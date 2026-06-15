@@ -1,6 +1,7 @@
 Day-25
 ---------
 XPath axis
+XPath tốt = duy nhất + mô tả rõ + ngắn gọn + bền vững.
 --
 self
 parent

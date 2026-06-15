@@ -1,0 +1,26 @@
+Từ hôm nay chúng ta sẽ bắt đầu xem cách tương tác với các loại phần tử khác nhau. Ví dụ như checkbox, radio button, drop‑down, cửa sổ cảnh báo (alert), frame… tức là những loại phần tử web thường gặp trên trang web. Chúng ta sẽ tìm hiểu cách thao tác với chúng và những hành động khác nhau có thể thực hiện.
+Đầu tiên, hãy bắt đầu với cách xử lý checkbox. Đây là chủ đề rất quan trọng, hãy chú ý nhé.
+Vậy làm thế nào để xử lý checkbox?
+Hầu hết khi bạn thấy một checkbox, thao tác cơ bản nhất là chọn (select/check) hoặc bỏ chọn (unselect/uncheck).
+Giả sử có nhiều checkbox, ta có thể chọn nhiều checkbox cùng lúc.
+Điểm khác biệt giữa radio button và checkbox là:
+Trong một nhóm radio button, ta chỉ chọn được một nút tại một thời điểm.
+Còn với checkbox, trong một nhóm ta có thể chọn nhiều checkbox cùng lúc.
+Vì vậy, thao tác thường gặp nhất là:
+Chọn (check) checkbox
+Bỏ chọn (uncheck) checkbox
+Ngoài ra, ta cũng có thể thực hiện thêm một số hành động khác. Chúng ta sẽ lần lượt xem qua.
+Ví dụ: trên một trang web có các checkbox cho các ngày trong tuần: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.
+Ở đây có nhiều checkbox, ta có thể chọn một hoặc nhiều checkbox tuỳ ý.
+Tiếp theo, ta sẽ xem các hành động có thể thực hiện với checkbox từng bước.
+Giờ hãy mở Eclipse.
+Tạo một package mới cho ngày hôm nay, ví dụ: day29.
+Tạo một class mới, đặt tên là HandleCheckboxes.
+Trước khi xử lý checkbox, ta cần tạo một instance của WebDriver:
+
+java
+WebDriver driver = new ChromeDriver();
+Sau đó khởi chạy ứng dụng:
+
+java
+driver.get("URL của ứng dụng");
