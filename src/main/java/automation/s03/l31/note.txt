@@ -1,3 +1,7 @@
+https://the-internet.herokuapp.com/javascript_alerts?__a100skip=1
+https://the-internet.herokuapp.com/basic_auth
+https://ui.vision/demo/webtest/frames/?__a100skip=1
+
 Hôm nay chúng ta sẽ xem cách xử lý các loại cửa sổ cảnh báo (alert) khác nhau.
 Đầu tiên, chúng ta sẽ thấy các loại alert khác nhau: có thể là alert bình thường, alert xác nhận (confirmation), hoặc alert thông tin.
 

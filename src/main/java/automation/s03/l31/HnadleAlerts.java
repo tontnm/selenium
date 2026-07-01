@@ -13,8 +13,9 @@ public class HnadleAlerts {
 		
 		driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 		driver.manage().window().maximize();
-		
-		//1) Normal alert with OK button
+
+        //alert ko phải web element, nên ko thể xác định giống như web element đc
+		//1) Normal alert with OK button (alert ko đi chung với Nút click for JS Alert)
 		/*driver.findElement(By.xpath("//button[normalize-space()='Click for JS Alert']")).click(); // opens alert box
 		Thread.sleep(5000);
 		
@@ -30,7 +31,7 @@ public class HnadleAlerts {
 		//driver.switchTo().alert().accept();  // close alert window using OK button
 		//driver.switchTo().alert().dismiss();  // close alert window using Cancel button
 		
-		//3) Prompt alert- Input box 
+		//3) Prompt alert - Input box
 		
 		driver.findElement(By.xpath("//button[normalize-space()='Click for JS Prompt']")).click(); //opens alert
 		Thread.sleep(5000);

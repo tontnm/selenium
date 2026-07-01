@@ -15,7 +15,7 @@ public class HandleAlertusingExplicitwait {
 	
 		WebDriver driver=new ChromeDriver();
 		
-		WebDriverWait mywait=new WebDriverWait(driver,Duration.ofSeconds(10)); //explicit wiat declaration
+		WebDriverWait mywait=new WebDriverWait(driver,Duration.ofSeconds(10)); //explicit wait declaration
 		
 		
 		driver.get("https://the-internet.herokuapp.com/javascript_alerts");

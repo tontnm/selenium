@@ -12,7 +12,7 @@ public class AuthenticatedPopup {
 		
 		//driver.get("http://the-internet.herokuapp.com/basic_auth");
 		
-		//syntax
+		//syntax (ko phải dùng cho tất cả web app)
 		//http://username:password@the-internet.herokuapp.com/basic_auth
 			
 		driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth");

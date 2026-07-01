@@ -12,7 +12,17 @@ public class HandleFrames {
 	public static void main(String[] args) {
 		WebDriver driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
+
+        /*
+        * phân biệt frame và iframe
+        * 1 web page có nhiều section trong mỗi section có nhiều element thì gọi là frame
+        * 1 web page nhúng vào section của 1 web page khác gọi là iframe
+        * có tag frame thì xác định là có frame
+        * element ở trong frame, thì driver ko thể đi vào trong frame
+        * phải switch vào frame đã, sau đó làm gì ở trong frame
+        * rồi phải thoát frame thì mới qua frame mới được
+        * */
+
 		driver.get("https://ui.vision/demo/webtest/frames/");
 		driver.manage().window().maximize();
 		
@@ -39,7 +49,8 @@ public class HandleFrames {
 		driver.switchTo().frame(0);  // switched to inner frame
 		
 		driver.findElement(By.xpath("//div[@id='i5']//div[@class='AB7Lab Id5V1']")).click();
-		
+
+        // page - f1 - f2 (e) - page - f1 - f2
 	}
 
 }
