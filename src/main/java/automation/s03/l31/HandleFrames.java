@@ -46,11 +46,15 @@ public class HandleFrames {
 		driver.findElement(By.xpath("//input[@name='mytext3']")).sendKeys("programming");
 		
 		//swith to inner frame (part of frame3)
+        //copy của iframe, gõ url là ra 1 trang mới
 		driver.switchTo().frame(0);  // switched to inner frame
 		
 		driver.findElement(By.xpath("//div[@id='i5']//div[@class='AB7Lab Id5V1']")).click();
 
         // page - f1 - f2 (e) - page - f1 - f2
+        // iframe khác frame, iframe là nhúng 1 web page vào, còn frame chỉ chứa element thôi
+        // xài index cho iframe
+        // xài id, name, web element, index cho frame
 	}
 
 }

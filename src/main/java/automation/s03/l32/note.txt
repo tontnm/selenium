@@ -1,0 +1,1560 @@
+https://testautomationpractice.blogspot.com/?__a100skip=1
+
+Okay, so in the today's session I will see how we can handle drop downs.
+Providence.
+Now we can see a drop down box.
+Right.
+So drop down is a most important topic.
+So let us see because there are different type of drop downs we will handle them in different ways okay.
+Some predefined methods also there and without predefined methods also we can handle the drop down.
+So majorly there are three kinds of drop downs we can see on our applications.
+So the first type of drop down is normal selected drop down and bootstrap drop down and then hidden
+drop down.
+So these are the three kinds of drop downs we can see normally in our applications.
+So if we have a selected drop down this is very easy to handle because we have some built in methods
+are available.
+So we can easily handle those selected drop downs.
+So these are the default drop downs.
+And most of the latest type of applications nowadays having bootstrap drop downs and hidden drop downs.
+So these are the two latest technologies.
+But the old selected drop down is a old one.
+And sometimes you can see select drop down.
+Sometimes most of the times you can see bootstrap and hidden drop downs and different approaches are
+there to handle these drop downs.
+We'll see one by one.
+So first let us start with the select drop down.
+So how we can handle the selected drop down.
+And one more thing.
+Uh in these three drop downs only the first type of drop down is having select tag.
+If you inspect that a drop down element in HTML you can see select tag.
+Okay.
+And then you can confirm that is the selector dropdown.
+If you see if you're able to see selected tag in your HTML, you can confirm that is a selected type
+of dropdown.
+And if you don't see selected tag, sometimes you can see div tag okay.
+And other than div tag some.
+Sometimes you can see button tag or some other some other else tag.
+So those are all comes under bootstrap or hidden dropdown okay.
+If you're able to see selected tag in HTML that comes under the selected dropdown.
+And other than select if you are see any other type of tags that comes under Bootstrap or hidden dropdown.
+Okay, so I'll show you simple example.
+How we can handle these three types of problems.
+First, let us start with the select type of dropdown.
+Select dropdown.
+So I'll show you a sample example.
+So let's go to test Automation practice.
+And here if you look at this.
+There is a drop down called country.
+Right.
+There are multiple options are there in this kernel drop down.
+So if we inspect this element.
+And you can see select tag here.
+And if you expand the selected tag you can see multiple option tags.
+So every option in this dropdown is having a separate tag.
+Okay.
+So how many options are there in the dropdown there.
+You can see those many number of options present inside the select tag.
+So these are our options are child tags of selected tag okay.
+And this is called selected dropdown.
+So as soon as you can see select tag here in HTML that is called selected dropdown okay.
+Now.
+The dropdown element itself is one web element.
+And inside this there are multiple options.
+Are there right.
+Every option is a web element.
+So that means one web element contains some more web elements.
+So the drop down itself is one web element.
+And inside this the each and every option is also a web element.
+Every option is a web element because these are all child elements of the parent element that is drop
+down.
+Okay, so if you inspect this element in HTML you can see that.
+So the select this is the element which is representing the entire drop down.
+And then.
+Okay.
+And then if you expand the selector tag you can see multiple options.
+So each of every option is a web element.
+Okay.
+Now we'll see how we can handle this type of dropdowns.
+So let's go to eclipse.
+Create a new package.
+Sort, creating new class.
+Select.
+And drop down.
+Okay.
+So now we'll see how we can handle the selected option.
+So first of all we need to create a WebDriver instance launching application and all those things.
+So let me do it.
+Okay so WebDriver object created.
+This is implicit.
+Wait.
+And this is our application launching and then maximizing the web page.
+All right.
+So first we'll see how we can handle the drop down.
+So whenever you see the drop down what is the first action we do.
+We will select the value from the drop down.
+So we will select one of the option from this drop down like this right.
+So these are major option, major action we do most of the times.
+But before that we have to capture this element.
+Okay.
+How to capture this drop down element.
+And from that how we can select these value.
+So whenever you see a select type of or drop down to handle this, we have to use something called select
+class.
+There is a predefined class is available in selenium.
+Selenium which is called select.
+How could this is a class?
+So by using this we can handle the select the type of drop downs.
+Not every drop down only select type of drop downs we can handle by using select class.
+So for that what we need to do is first let us inspect this element.
+This is a dropdown element and select a tag.
+Is there class option class attribute ID is there.
+So if I go back and see the selector hub and which is given an XPath by using id attribute, it is given
+XPath for that element.
+So I'll capture it.
+And try to find that element.
+Driver dot find element by dot XPath.
+Okay, now this element we have to store in a variable.
+But taking DRP country.
+Some variable and type of the variable is obviously web element.
+Okay.
+Web element.
+So now import this web element.
+Yeah.
+So now we capture the drop down web element.
+But the next thing is we have to choose one of the option in this dropdown, right.
+So it is not directly possible.
+So we can capture this element as a web element, drop down as a web element.
+But every option is a web element again.
+So what we have to do is whatever element we have captured, we have to pass this element in the select
+class object.
+So we have to create something called select class.
+We have to take.
+Select.
+Okay.
+And uh this is element we captured DRP country element.
+And that we have to pass in a variable select DRP country.
+Equal to new select, and whatever element we capture, we have to pass it inside the select object.
+Like this.
+Now we need to import this.
+Select from org OpenCV selenium support dot UI.
+This is a process.
+So first we have to capture the dropdown element.
+Then we have to create a select class object.
+Inside that object we have to pass the dropdown element.
+So this is a special class which we have to use.
+If you are working with select type of dropdown and if you are able to see select tag in HTML that is
+called as select dropdown.
+Okay.
+Now once you create a select class object, by using this object we can perform other type of operations
+like what are the operations we can do?
+We can select the value or option from the drop down like this.
+Or suppose sometimes I want to find how many options are there in the dropdown I want to count how many
+are there or sometimes I want to retrieve each and individual values.
+Right.
+These are the different operations we can do.
+So we'll see how we can do those operations.
+So we capture the drop down as a web element.
+Now we have passed into the select class object.
+So now we'll see how we can select the option from the drop down.
+Select option from the drop down.
+So to select the option from the dropdown we have three methods are available in the select class.
+And we already created an object.
+So through the object we can access those three methods.
+So by using three methods we can.
+Uh, we can select the value from the drop down.
+So what are those three methods?
+Select a bike.
+Visible text selected by value, select by index.
+So these three methods are available in the select class itself.
+So we can access them by using an object of the selected class.
+So we already created an object called ERP country.
+So by using this we can access this method.
+Only one of the method is enough.
+Three options are available.
+Three methods are available.
+We can use one of the method.
+Select by visible text.
+Select by value.
+Select by index.
+Now let me show you how we can select the option from the dropdown.
+So we need to take this select class object drp country dot.
+We can type here select by visible text.
+Select by visible text.
+And here we need to pass which option we want to select.
+So in this there are so many options are there.
+Let me select something called France f r e n c e.
+So that happened to us.
+Like this.
+So what is a visible text?
+Visible text means whatever we can see in this UI.
+These are all visible text.
+So whichever option you want to select from the dropdown, you can pass that value as a string variable
+like this.
+So select by visible text.
+And this will able to select the value from the dropdown.
+So now execute and see.
+Yes.
+Now we can see the Francis got selected here.
+This is one option.
+Select a by visible text.
+Select by visible text and there is one more option.
+Suppose, uh, one more method is there so I can say drp country dot.
+Select A by value.
+Select A by value.
+So most of the people will confuse here what is visible text.
+What is value?
+Value is an attribute of the element.
+Value is an attribute of the element.
+So if you look at this particular options in HTML, every option tag is having a value attribute.
+Can you see here the value attribute?
+So what is the value of the value attribute is something we need to specify that.
+So suppose if you look at here let's say Japan and Japan is a value right.
+So I can just pass it.
+In the double quotes we have to pass, and sometimes the visible text and the value will be the same.
+So if I look at this, uh, you can say here it is a Canada.
+And the value of the value attribute is also Canada.
+Right.
+But there is a difference is visible text is started from uppercase and the value started with the lowercase.
+And here if I look at here the visible text is United Kingdom.
+But the value is what you get okay.
+Sometimes they may be similar.
+Sometimes it will be different.
+So don't think value is nothing but not a visible text.
+Visible text is a different.
+The value is different.
+Visible text means these are all inner texts which we can consider as a visible text, and value means
+the attribute of the particular option element, right?
+So now I want to select something called Japan so I can pass it as a Japan.
+Here select by value.
+And when to use it.
+Sometimes if you don't find value attribute, sometimes you don't have a value attribute in HTML.
+In that case, you cannot use visible uh, select by text.
+Sorry.
+So selected by value, so you cannot use this method if you do not have a value attribute in the HTML.
+So that's the reason they provided multiple options.
+Sometimes you may find that option, sometimes you may not find it.
+So if the value attribute is available for that option then only you can use this method.
+Select by value and select by visible text.
+You can every time you can use because visible text is always present, but select by value, you can
+use only if the value attribute is present.
+So now let us execute it and see.
+It should select Japan.
+Yes.
+So now we can see it is selected Japan from the country.
+So this is one method.
+Select by visible text.
+Select by value.
+Now the next method is.
+Select by index.
+DRP country.
+So what is this DRP country?
+DRP country is a select class object.
+So we should not use this web element directly because the drop down is one web element inside this
+option.
+Every option is a web element.
+So we cannot directly use this web element that we have to pass in the select class object.
+Then we have to refer the select class object to access all the methods.
+Now DRP country dot.
+Select by index.
+So what is an index where we can find it.
+So we cannot find index specially in HTML.
+We need to count manually.
+So for example index will start from zero again.
+So this is 1012345678.
+Like we need to count it okay.
+So for example uh I want to select uh.
+Okay, United Kingdom.
+So what is an index of 012?
+So now I can pass two as an index.
+Okay.
+So I can pass two as a an index.
+Let's see and execute select by index.
+So you have to count this manually.
+Run as Java application.
+Okay, now you can see United Kingdom.
+So options we need to count from zero.
+Index will count from 012.
+Like this.
+So United Kingdom 012.
+So United Kingdom is got selected.
+Okay.
+So these are the three methods are available.
+Select by visible text.
+Select by value.
+Select by index.
+By using one of these method, we can select the value from the dropdown.
+It is very easy, very straightforward, but if you go with the bootstrap dropdown or hidden dropdown,
+you don't see these methods because we do not have a select tag there.
+So we need to handle them differently.
+So these methods are applicable only if you have selected dropdown.
+Select a tag you should have in the HTML.
+Then only you will able to create a select class object.
+You will able to use these methods.
+Okay.
+Now let me show you one more operation.
+So this is how we can select the value from the dropdown by using these three methods.
+Select by visible text.
+Select by value.
+Select by index.
+Now.
+Mm.
+Zero is always starting index.
+Okay.
+We need to count index zero.
+From, especially from top down.
+Index.
+Most of the cases index will start from zero.
+So, but index is not an attribute of the element.
+If it is available, no problem.
+You can use that.
+No issues.
+Okay.
+Okay.
+So okay.
+Let me understand.
+Let me just try to do it sometimes okay.
+Let's say you have a selector tag like this select ID equal to CRP down something.
+Or you can say ID equal to.
+You need to change it according to your HTML.
+Okay.
+Let's say this is my select.
+Inside this there are multiple options.
+Are there.
+Let's say one option is having something called.
+Normally we have a value attribute okay.
+Value is equal to.
+Suppose I am and visible text is let's say India.
+Okay, now the option tag is got closed.
+So suppose if you see selected tag like this.
+So normally you can use this value as an attribute.
+This is an attribute right.
+So we can use value select by value method.
+So if you want to use select by visible text you need to pass this one.
+If you want to use select by value, then you have to use this one.
+If you want to use select by index, then normally we will count index from 01234.
+But sometimes you can see one more attribute here called index like this.
+Okay attribute.
+Now here index is a attribute.
+It is available as an attribute.
+So then what we can do you can use this index zero right.
+So that you can use as an index itself.
+Okay.
+So this is an attribute.
+Index equal to zero right.
+So you can pass zero here.
+So even that is also correct.
+Sometimes it may I won't see many times.
+But sometimes if you see this you can pass it or else.
+No.
+Okay.
+This is.
+You can pass.
+No problem.
+Even if you're not seeing this attribute.
+Still, you can pass index 01234 like this.
+Still, that will work fine.
+Okay.
+So this is how we can handle the drop down.
+We can select the option from the drop down.
+Next one.
+Suppose my requirement is I want to find how many total number of options in this particular dropdown.
+Okay.
+I want to find total number of options.
+And I want to compare that with my expected number.
+That's a part of my validation.
+So my requirement is I want to check whether this dropdown is having ten options or not or 20 options
+or not.
+So how we can do that?
+So we will try to first capture all these options into a variable.
+Then we can count how many are there.
+Okay.
+So how to capture all the options from the drop down.
+And we now need to write a common XPath here because which is a selected dropdown, we can easily handle
+this.
+So normally if you want to capture multiple options or group of options options we will write a one
+common XPath or we will use a common locator.
+But here to capture all the options from the dropdown we use one method called Get Options.
+Capture the options from the drop down.
+So how to capture?
+Very simple.
+Take this select class object drop country dot.
+There is a method called get options.
+Get'er options.
+So this particular method will return all the options into a variable.
+I'm creating one variable called options.
+Okay options.
+Now, what is the type of this variable?
+Get options method will return.
+A list of web element because every option is a web element.
+Every option is a web element.
+So if you return multiple web elements, the return type should be list of web element.
+It is just like a find elements.
+So normally if you write a common XPath which is pointing to group of web elements that will return
+list of web elements, same thing get options also method which is returning multiple web elements.
+And what are those web elements options.
+Now import this list collection.
+Right now we got the options.
+So once you get an options can we find how many are there.
+So I can say System.out.println.
+Options dot sys.
+Okay, this will give you total number of options in a drop down.
+So.
+Number of options.
+In a drop.
+All right.
+Now execute.
+I'm not selected anything.
+I'm just capturing the number of options.
+I already captured the options and then I'm just printing total number of options.
+Okay, now I can go back.
+Yes.
+Now I have a ten.
+Options are available in ten countries.
+Are there in my drop?
+Okay.
+Now suppose I want to print those options in my console window.
+Printing the.
+Options.
+So whatever options I've captured.
+Whatever options have captured from the dropdown, I just want to print them in the console window.
+Let's say ten options are there.
+So I want to print those ten options.
+So how we can print them.
+So we already captured all the options as a web element.
+Now we need to print them.
+So if you want to use normal for loop you can use it or else we can use enhanced for loop.
+So first let me show you with the normal for.
+For.
+Okay.
+So options is a list collection basically right.
+So where is the index will start zero.
+So I'm taking index int I equal to zero.
+How many times you have to repeat depends on the number of options.
+So I less than.
+Options dot size.
+So it depends upon the number of options.
+And I plus plus every time I'll increase the size.
+So listen carefully so how we can.
+Capture the.
+Elements from the drop down.
+See even in the last class.
+Also, some of you having some confusion here.
+So what is this?
+Options.
+Options is a list collection.
+List collection and what is there inside this list collection?
+Here there is one option here, another option here.
+Another option here.
+Another option right here.
+Another option.
+What is these options.
+Actually these are the web elements okay.
+These are the web elements.
+Now there are multiple positions.
+So in every position of the list collection there is a web element.
+Now what we have to do is we have to capture the web element from this position to get the web element.
+From this position we use a get method, get off zero or get off one.
+So when I use get method, that will return the web element from that particular position.
+And once you return the web element then I'm using get text.
+Okay so what is get method will do.
+Get method will return the particular web element from that list collection.
+Once it is returned, then I apply get text.
+So this will extract the text of that particular web element.
+So we cannot print web element directly because web element is a type of an object.
+Which is having so many attributes and methods and so on.
+So first we will get the web element by using get off zero or get off one and get off two and get off
+three and so on.
+Once you get the element, then we will capture the text of the web element using get text method.
+So these are the two methods we have to use simultaneously now.
+What I will do is here.
+First, I will get the web element from the list collection how we can get so from the options.
+From the options.
+Dot and get off.
+So here I will pass index I representing the index 01234 and so on.
+So I pass I.
+This will return the web element.
+And from that web element I'll capture the text value by using get text method.
+So that will return the actual, uh, text of the web element text of the option that I am printing
+here.
+System.out.println.
+Options dot get of I dot get of text.
+All right.
+So this is how we can write a normal for loop.
+To read the options from the dropdown.
+Okay.
+Let's execute now.
+So most of the times we try to use, uh, enhanced for loop, it is better to use it instead of using
+a normal for.
+Okay.
+I have not selected anything so far.
+I go back, see all the ten countries are got displayed here.
+Right.
+So this is how we can also find how many options are there by using get options.
+And we can also capture each and every option one by one.
+And from that option we can extract the text value.
+So what is another method is get options.
+So what this method will do?
+This will return.
+Returns all the options.
+From the drop down.
+As a web element.
+Every option is a web element.
+Remember this.
+Okay.
+This is one more method which is available in the select class.
+Okay now.
+Let me close this.
+All right.
+So now let us see how we can use enhanced for loop.
+Get options is only for selected type or drop down.
+Yes.
+Yes.
+So what are all methods I'm discussing here?
+These are all belongs to select class object.
+So if you have a selected type of drop down then only these methods you can access.
+Okay.
+If there is a other type of drop down how we can do these operations we will see that okay.
+So the get options get visible text from where we are accessing all these methods.
+We are accessing all these methods from the select class object.
+If I look at here drop country dot select by visible text drop country dot select by value select by
+index.
+Even get options also have access from the drop country.
+What does it mean?
+All these methods are present inside the select class only.
+So if we have a selected class drop down then only we can use select class object.
+Okay.
+Now let me show you how we can do the same thing by using enhanced for loop.
+Using enhancer loop.
+It's more simpler than above.
+Very simple.
+Let's take.
+We already captured the options.
+So take that variable and read each and every option in a variable.
+I'm creating one variable called op.
+Now what is the type of this variable.
+Obviously it is a web element because options are contains a multiple web elements.
+We are reading each and every web element one by one into this op.
+So op is a web element.
+What can we directly capture the web element here from the options.
+So once you get a web element from that web element, you can capture the text by using get text method.
+Here.
+We don't need get or anything because we are not using any index.
+Okay.
+Just print op dot.
+Get text.
+But here we are using index, right?
+That is the reason because we have to first get the web element and then find out the text.
+But here we already capture the web element into OP from the options.
+So that web element dot get text and directly used.
+So this also will print all the options from the drop down.
+Yes.
+So now we got all the options.
+Okay, so this is how we can handle normal drop down which is having selected tag.
+The first type of drop down.
+Okay.
+Everything is clear so far, everyone.
+So please confirm in the chat box.
+You understood about normal selected drop down.
+Next we will move on to the next one.
+So select the dropdown is very easiest because the built in methods are available.
+But bootstrap and hidden is a challenging stuff.
+Fine.
+So how we can identify a drop down is a normal selected drop down or not.
+In HTML or when you inspecting the dropdown you will see select tag.
+Okay, if you are able to see select tag in HTML, you can confirm that is a selected type of dropdown.
+And then you can apply this approach.
+All right.
+So now the next method next one is bootstrap drop down.
+So this is something the latest type of drop down bootstrap drop down.
+So you don't see selected tag for those type of drop downs you can see div tag.
+Or sometimes you can see button tag okay.
+Tags will be different but it is not selected tag.
+Now I'll show you one example for bootstrap drop down.
+So let me go to some application.
+Okay.
+Yeah.
+So look at this.
+This is the actual HTML code which is got created to design this bootstrap term.
+If I look at this this is the drop down and which is having options along with some checkboxes also.
+Right which contains some checkboxes.
+Also option contains a checkbox.
+Also this is a different type of dropdown.
+So if you inspect this element and again this is also multi-select dropdown in the dropdown.
+Again there are two categories one single option we can select.
+Sometimes we can select multiple options.
+So in the previous example we can select only one dropdown one option at a time.
+We cannot select multiple options.
+But here we can select multiple options.
+So this is bootstrap and also multi-select dropdown bootstrap and also multi select dropdown.
+You can select multiple options okay.
+So bootstrap and also multi selector dropdown.
+Okay.
+Now if you look at this and inspect this element.
+So you can see button tag here.
+Okay.
+You can see button you don't see selected.
+And if you expand this.
+Okay.
+This is button.
+And inside this nothing is there.
+This is just a multi-select as what are the values by default is got selected.
+They are displayed here.
+And if you inspect this UL option user list, every option is present inside the Li tags you can see.
+Every ally is having internally one anchor tag.
+And inside this again we have a label tag.
+And inside this we have a actual label web development.
+This is a label actually.
+And let's go to the next one.
+And you can see LA tag inside this anchor tag inside this label.
+Again inside this an input tag.
+So this input is representing the checkbox.
+Label is representing the text beside the checkbox okay.
+For example jQuery is a label.
+Beside this there is a checkbox.
+So here input is a checkbox.
+Label is the actual value of the option okay.
+So this is the hierarchy we can see in this every element is same thing again la tag anchor, tag label
+and input.
+So you may you may not have the same kind of hierarchy in every type of postterm it is keep changing.
+So accordingly we have to handle the different way.
+So basically all these items are present inside the li.
+Inside the li, there is an anchor tag.
+Inside the anchor tag, there is a label and input label is representing the text of the option.
+Input is representing the checkbox of that particular option.
+Okay, this is what we have understood from the HTML.
+So now we will see how we can handle this, how we can perform different operations on this dropdown
+and this.
+In this we can select single option.
+We can select multiple options also okay.
+And XPath will play very very important role in this type of dropdowns especially hidden dropdowns and
+bootstrap dropdowns.
+We will totally depends on the XPath only okay.
+So we'll see how we can handle every operation we can do only through XPath.
+Let's create a new class.
+Boot strap.
+All right.
+So we created one WebDriver object.
+And this is implicit wait and launching the application and then maximize.
+Right.
+So how to handle the first operation?
+How to select an option.
+Select how to select multiple options.
+I will show you through the looping, but if you want to select a single option.
+Select the single option from the drop down.
+Here.
+The select class won't work.
+Okay.
+Select class you cannot use because it's not a select class.
+Uh select object.
+So select the single option from this drop down.
+So by default HTML, CSS is already selected.
+Now I want to select another option.
+So simply what you can do is uh we need to first click on this element like this.
+We need to perform the click action.
+Okay.
+So for that we need to first locate the element.
+This is the element button element.
+So capture the export of this element.
+All right.
+See if you take this XPath.
+Will it work every time?
+So to identify this element selector hub is given this XPath.
+When I use this XPath to locate this element every time, this XPath will work.
+Know why.
+Because this XPath is got generated based upon the.
+Value which is got selected.
+Suppose tomorrow some other values got selected.
+Okay, now we inspect this element.
+Expert will be different.
+So here the options will be different.
+Okay.
+So we should not, uh, write XPath uh, like this based upon the values titles okay.
+So we need to write one common XPath.
+So how we can write one common expert for this.
+So without using the existing options, we want to write a common export.
+Okay, so let me write my own XPath.
+So instead of using title attribute.
+So the title attribute is there.
+But the values are not uh standard.
+These values keep changing.
+Okay.
+And other options we have like a data toggle we cannot use and uh type is equal to button.
+Maybe the other options also may have the same type.
+So other thing other than this we have a only class attribute.
+So in the class we can see multi-select right.
+So we can write like this.
+So at the rate class I'm taking class attribute.
+Okay class attribute equal to.
+And, uh, selector hub is giving something here.
+You can use this option.
+See one element is matching, so button at the rate class is equal to multi-select drop down toggle
+btn.
+So this is able to locate an element.
+Okay.
+Again, it seems very lengthy.
+Write the class name attribute is seems very lengthy, so I don't want to specify the end a lengthy
+one, I just want to select only multi-select so I can use one more thing called contains method.
+So we have a contains method right contains at the rate class comma.
+And here I just say only multi-select.
+I remove the rest of the thing.
+I can just remove it.
+Okay.
+And then close.
+Right.
+This is also correct.
+This is also able to this is more, uh dynamic.
+Right.
+So this is perfectly fine if even if you specify the full class name, sometimes some part may be changed.
+Here you can say drop down toggle btn btn default.
+These things may change.
+So multi-select is a common.
+So I can just put like this contains class attribute is multi-select.
+So this I can use.
+So you can write many ways, but whichever you want, you can just keep using it.
+Now.
+Here.
+I can directly click on the element driver dot find element.
+By XPath.
+And here I want to perform the click action.
+So when you do click action then it will open other options.
+So once you perform the click action on the dropdown element, then only other elements are visible.
+Other options are visible.
+So this particular command will open.
+Drop down.
+Options.
+Okay, so once you open the drop down options now we will able to select the value.
+So I'll keep this before this because this command is most important.
+So once you click on this it will open all the options.
+Now we will select the single option.
+So if you want to select the single option, you can direct option direct approach.
+Okay.
+For example, let's say this is a default stuff.
+When I click on it, it will open up options.
+Now I want to select one of the value.
+Let's say I want to select a Java.
+So then simply you can inspect the check box Java checkbox like this.
+Not label.
+You have to select the checkbox.
+Okay.
+Now it is got generated one x path and use it directly and say driver dot find element.
+By dot x path.
+And dot click.
+Dot click.
+So this will select an option from the dropdown.
+So if you want to select a single option, if you want to select a single option you need to do like
+this.
+Fine.
+Execute.
+Yes, you can see Java is also got selected here along with the two default options.
+Java is also got selected.
+Okay, so if you want to select a single option from the drop down, you can directly get the XPath
+of that option and perform the click.
+Suppose my.
+I want to select all the options.
+Okay I want to select how many options are there in the dropdown.
+So how to?
+First we need to capture the option.
+Then we can count how many are there right.
+So this is my first requirement.
+Select a single option from the drop down.
+Second requirement.
+Capture.
+All the options.
+And then find out.
+Size.
+So long to capture all the options and then find out the size.
+This is most important thing.
+So here we don't have a get options or anything.
+We have to write our own XPath.
+So capture all the options and find out the size so we can do this.
+So we need to write one common XPath, which is matching with all the labels in this particular dropdown.
+Okay, so if you look at the XPath look at the HTML.
+All these options are present in what.
+UL tag.
+Okay.
+Inside the ul tag.
+Inside the ul tag.
+Every le tag.
+Suppose I'm explaining one li tag.
+There is an anchor tag inside this.
+There is a label tag.
+Inside the label there is a input tag.
+So label is having actual.
+Value.
+Okay.
+So this what is the label?
+Suppose I'm expecting this one label.
+If I inspect the label here you can see the value.
+In this label, the value will be displayed.
+These values will come at the runtime actually.
+So that's the reason exact values.
+We cannot see uh, inside the HTML.
+So the label is empty actually.
+But this value will be substituted at the runtime.
+An input box is there.
+So we need to capture labels from all the options.
+Okay.
+So how we can write an XPath for this now.
+First I'm going to directly use ul tag.
+I'll go to ul.
+I'm starting from the ul.
+Here it is inside the UL, where we can find the labels inside the UL.
+Inside the allies.
+And inside each and every alley there is a anchor tag and inside the label.
+So I just want to skip this middle.
+Tags from UL.
+I will directly jump to the label from the UL.
+I will directly jump to the label so I can say ul slash slash.
+Label.
+Slash slash label.
+Just observe.
+14 elements are matching.
+14 elements are matched.
+Okay.
+Or what you can do is I can write like this.
+This is one XPath you can write or you can put one attribute ul at the rate class.
+Okay.
+And uh, for the UL class attribute, is there Multiselect container drop down menu.
+Right.
+So that I can use ul.
+Contains the Adelaide class.
+And here I can put multiselect.
+Multi-Select.
+So this we already written previously.
+So this is the expert we have written, which is actually matching the drop down element, the entire
+drop down element.
+But in this we have to go label section.
+So you can directly say label.
+But it will go to the label.
+This is also correct.
+14 elements are matching.
+Okay, so now we can get this X path to capture all the options from the drop down.
+Go back to here.
+And, uh, so what is the command we have to use?
+Find?
+Elements.
+So driver dot find elements.
+By dot XPath.
+And, uh, this will return all the options.
+So l I slash a I have not I've skipped it because we have written the relative path right in the relative
+X path slash.
+Slash will directly jump to the element label element, so it will automatically skip the between elements
+like, uh, anchor tag is there right between Li and anchor tag.
+So these two will be skipped from the UL.
+It will directly jump to the label tag.
+So in between whatever the tags are there, it will automatically skipped.
+Why?
+Because we use relative XPath.
+Relative XPath slash slash will directly jump to the element.
+So actually how we have to write first we need to go to anchor tag.
+Then you have to go to uh, inside this we have, uh.
+Label tag.
+So first we need to go to Le tag, then anchor tag, then label tag.
+So this is how we need to write normally right.
+So if you want to skip in the middle tags you can skip it by writing just a slash slash.
+So this will return the 14 elements.
+Okay.
+So now this will return all the labels from the dropdown into a variable.
+So I'm storing them in options variable.
+The type of the variable is what again list of web element.
+Okay, so we got capture all the options from the drop down.
+Now if you can find easily right.
+You can say number of options.
+So.
+Number of options.
+How we can get options.
+Dot size, so this will give you a total number of options.
+So this is the way we have to capture all the options from the drop down.
+So only everything is depends on the XPath.
+Okay, so we have written one XPath which is pointing all the options in a dropdown.
+Fine.
+So let's execute and see.
+So commenting the first one for now.
+Okay.
+So.
+Total number of options 14.
+Okay.
+Now the my next thing is.
+I want to print them.
+So I want to print all those options.
+Printing.
+Options.
+From drop down.
+Third requirement, so printing the options from the drop down.
+Same again.
+We can write a normal for loop or we can write enhanced for loop.
+Anything is fine.
+So I can directly write an enhancer for loop, because you already know how to write a normal value.
+So very simple.
+You can take this.
+Options.
+And get each and every option in the variable.
+I'm taking one variable called op.
+The type of the variable is again same web element, same procedure again.
+Once you get an option the procedure same.
+And here I can print op dot, get text.
+We have to extract the text from the web element.
+So this will print all the options from the drop down.
+Run as.
+Java application.
+Okay, now you can see we got all the options from the drop down.
+So because we already captured our options by writing proper XPath and just read each and every option
+into the variable, then get the text of that particular option.
+Okay.
+Suppose my requirement is like this because it's a multi-select dropdown, right?
+I can select multiple options.
+Also, if you want to select a single option you can go with this.
+You can directly write an XPath for that particular option for that particular checkbox and perform
+the click action.
+So that will select the one checkbox.
+But I want to select multiple checkboxes multi-select dropdown.
+Right.
+So how we can do that.
+Select multiple options.
+So whenever you want to select multiple options, better to go with the looping statement.
+Otherwise you have to write the same statement multiple times.
+So which suppose you want to select five items or five options.
+You need to write the single statement five times.
+So instead of going with this just try to use a looping statement.
+Okay.
+Now this time I want to select multiple options.
+So how we can select a multiple options.
+Same concept, same loop.
+Okay, so we are getting each and every option in this, right?
+That is basically a label.
+Basically there's a label.
+Right.
+So what we need to do now is we need to.
+Capture the text.
+And whichever element you want to select, you need to compare that value by using if condition.
+Okay if op dot get text op dot get text dot equals.
+Okay.
+For example, I want to select a Java.
+Okay.
+What else you want to select?
+Java.
+I want to select and I want to select Python also.
+So or we can use our operator our op dot get text.
+Dot equals.
+Dot.
+Equals.
+Then if it is a Python Python.
+Also I want to select.
+Are.
+So like this you can put all the options, whichever option you want to select.
+Then I want to select MySQL.
+MySQL or op dot.
+Get text.
+And get text.
+Dot equals.
+MySQL.
+Pascal is uppercase.
+Right now close this condition.
+So what are all options you want to select.
+You can put them here.
+So as soon as you get the text value if it is a equals Java or instead of writing this much what we
+can simply do is get the text op dot, get text into your variable.
+So here you can take one string variable.
+Okay.
+You can take one string variable string option.
+Okay.
+Now we need to compare.
+Take this option and substitute here.
+Okay, so instead of writing this, you can do like this.
+You can take another variable.
+So we are capturing the text value in a variable.
+Now we're comparing the text value equal to Java or Python or MySQL.
+Whatever it is we want to select it.
+How we can select we can simply say option dot click option dot.
+Not option op.
+OP is an actual web element, right?
+OP dot.
+Click.
+So this will select the option from the dropdown.
+Okay.
+So let's try to execute and see.
+So Java, Python, MySQL.
+So by default the two options are already selected.
+HTML, CSS.
+But apart from this I want to select three more options.
+Run as Java application.
+Yes, now I can see Javi's got selected, Python selected and MySQL is selected.
+So this is a way we can select multiple options from the drop down.
+Okay.
+Very simple.
+Lie is enhanced for loop C enhanced for loop doesn't follow any indexes.
+So many times I have explained, I think in the last class itself we have lot of discussion on this.
+See why we have not used get method in this enhanced for loop.
+Because from the options, we will directly get the web element in this variable.
+So from that web element we are extracting the text.
+Okay, but if you go with the normal classic for loop, it's not like that.
+If it is a normal for loop, we have to use a indexing concept.
+I think this is the fourth time or fifth time I'm repeating this.
+I don't know whether you are interesting or not.
+So this is the list collection.
+In this we have multiple options.
+Okay.
+These are all web elements actually.
+So these are all web elements, web elements in the sense the object type of data.
+So we are if you are following index in the normal for loop we have to follow index right 0123.
+For index we have to follow.
+So if you want to get this element first element we have to use get of zero.
+And then we have to extract the text of from the web element.
+So we have to use get text.
+This is the approach we followed in the normal fall loop.
+Because we are following indexing concept, we are not directly getting the web element.
+We are getting the web element by using index.
+So get off zero will get the web element on top of it.
+We are applying get text, same thing, get off.
+One will get the element and then on top of it we are using the get text method.
+This is with the normal for loop approach.
+When you come to the enhanced for loop, the approach is like this.
+Even enhance enhanced.
+For loop we have a list collection.
+We have an options okay.
+These are all web elements in enhanced for loop.
+What is happening is from that options we are directly getting the web element in this variable.
+So this variable contains a web element.
+Okay, so from that web element we can directly extract the text value because we are directly getting
+the web element into the variable.
+From that variable we are extracting the text.
+But in case of normal for loop, we are not directly getting the web element.
+To get the web element, we have to use another method called get get off zero, get off one, get off
+two.
+By using get method we have extract that web element first.
+On top of it we are using get text.
+But here why we have not used get method because we already getting the element into the variable op.
+So that is the reason we are directly using get text.
+Get is not needed here.
+I hope you guys have understood why.
+Where we have to use get where we should not use get.
+So this is the last time I will repeat again.
+I don't repeat this because this is the fourth time or fifth time.
+And also this is very basic concept.
+Okay.
+So whenever you want to use index then get method will come into picture.
+And whenever you want to use enhanced for loop index won't follow there.
+So we can directly get the web element in this variable.
+We apply the get text.
+Okay, now let's move on to the next thing.
+So if you want to select multiple options by putting one condition, you can select whichever option
+you want.
+So everybody's understood.
+This is all about bootstrap element bootstrap drop down.
+So whatever operations we have done in the normal selector drop down the same operations we have done
+in the bootstrap drop down also, but in the different way, without using built in methods, without
+using built in methods only we dependent on completely XPath.
+
+Okay.
+So this is a bootstrap drop down second type of drop down.
+And the bootstrap drop down.
+We don't have any built in methods.
+Everything we should handle through XPath.
+Now hit and drop down the third one.
+Which is very popular nowadays.
+The latest trending applications are using hidden drop down.
+Let me show you an example for hidden drop down.
+Why I'm calling hidden drop down means the options are hidden.
+The options we cannot directly inspect, we cannot see those options directly on the web page.
+Okay, let me show you some application.
+Not an SRM application.
+I'm logging into this once you log in.
+Go to Pam tab here.
+Click on Pam.
+Okay, now you can see there is a form.
+Uh, employee name, employee ID status, okay.
+Include job titles, subunit.
+Many things are there.
+So if you look at this job title or employee status or subunit, these are all hidden dropdowns.
+All we can say.
+They are the hidden dropdowns and what basis we will say that is an hidden dropdown.
+Let us inspect this element first.
+When inspecting this element, you can see there is a Du tag.
+There is a div tag.
+But inside this.
+Inside this.
+These options are not visible in the HTML.
+These options are not visible in the HTML.
+In this case, we can call it as a hidden drop down.
+Hidden drop down.
+Okay.
+So these options are not visible in the.
+HTML, then how we can.
+Select that option because there is no selected tag.
+So we cannot use built in methods.
+And these options are also not present in this HTML.
+If these options are not available in HTML, we cannot inspect them.
+If you try to inspect what will happen.
+Let's see.
+I just want to inspect some some item here.
+Database administrator.
+As soon as you right click on this element it is disappeared.
+It is disappeared and you are not able to see anything in the HTML you can see.
+Database administrator because you already selected here.
+But before selecting I want to inspect one of these options.
+Suppose automation tester for right click.
+It is disappeared.
+Okay.
+I am not able to see all these options in HTML at a time.
+Because that is most important when you're writing an XPath.
+Right.
+If you want to select one option from this drop down, you at least you have to write an XPath for one
+element.
+And suppose if you want to capture all the elements, you need to write one XPath which is commonly
+there for all the options.
+So until unless these options are visible in your HTML, you cannot.
+Work on these options.
+Okay.
+And this is also a dynamic dropdown.
+So these options will be loaded at the runtime.
+Okay.
+These options will be loaded as soon as you click on this option.
+These options will be available as soon as you close this element the options are disappear.
+So these options are dynamically coming.
+And we can otherwise we can say this is auto suggestion box.
+These options are suggested here.
+Okay.
+So until unless these options are visible in HTML, we cannot inspect.
+We cannot write XPath.
+Until.
+Unless we write an XPath, we cannot handle this.
+This is a major challenge of hidden drop downs.
+Okay, so then how to handle this?
+So we have to make the options are visible on the HTML.
+That is the first thing.
+Then only we can do anything on this.
+Then only we can perform any operation on the drop down.
+So then how we can make them visible on the HTML?
+That is a major part.
+So once they are visible in the HTML, then we can proceed further.
+Anything we can do, but how we can make them visible on HTML.
+So to handle these type of drop downs, selector hub is provided one option, which is very, very helpful
+for one of the feature in the selector hub.
+So by using that feature we can easily handle these type of drop downs, even auto suggested drop downs.
+Okay.
+And hidden drop downs.
+We can easily get them.
+So I will show you very quickly.
+Just observe very carefully so you can know that.
+So by default you will see this drop down like this.
+And if you try to inspect this drop down you cannot inspect.
+Can you inspect this?
+But you will not able to see any options visible in the HTML.
+Now go to Selector hub.
+In the selector hub, there is one feature called.
+Uh, debug on feature.
+This is the one turn on debugger.
+I think the fourth icon in the selector hub I can see.
+Fourth icon turn on debugger.
+So by using this option we can make options visible on the HTML.
+Okay.
+How we can do that.
+Very simple.
+First we need to click on this turn on debugger.
+So once you click on this turn on debugger within five seconds you need to click on this element within
+five seconds because the time of this debugger is only five seconds.
+So first step we need to click on this turn on debugger within five seconds.
+Immediately we have to click on this.
+So once you click on the drop down.
+Then immediately the screen will be freezed and the elements will be displayed on the Or.
+Elements will be visible on the HTML.
+I will show you.
+Listen this.
+I'm clicking on the debugger.
+And immediately I click on the drop down.
+Wait for few seconds.
+Now you can see the screen is got freezed.
+Once it is freezed then go to elements.
+Right now if you look at this.
+Expand this tag.
+You will.
+You can inspect now.
+You can inspect whichever element you want.
+You can see all the elements are still dynamically loading, but you will able to see each.
+And we are able to inspect at least.
+Right.
+But earlier.
+Those options are disappeared.
+You are not able to anything.
+Now you can see every option is there in the div tag.
+So if you expand this you can see here.
+But these options will be displayed at the runtime.
+You can see account assistant.
+You can see automation testers.
+Now you're able to see all the options.
+In this.
+You are able to inspect those options.
+Okay, so this is the main stuff.
+Again, if you just want to stop, you can stop the debugger.
+Again.
+Go here.
+Okay.
+So.
+Yeah.
+Yeah.
+Here there is an option.
+You need to just click on it.
+Resume.
+Resume means everything will be stopped.
+Okay, so from once it gets stopped, you cannot do anything.
+That's it.
+So this option we have to use I will show you one more time.
+See very carefully.
+So by default if you try to inspect like this, if I'm right clicking on some element here disappeared
+I'm not able to do right click anything.
+Right.
+So I'm not able to writing anything.
+Suppose if you want to do this.
+Through selector hub, we can see.
+Inspect.
+And go to Selector hub.
+Take this turn on debugger.
+And then click on this element.
+Options are visible.
+After five seconds, it has got freezed.
+Now go to element section.
+Now you can inspect this element.
+Whichever element you want, you can inspect.
+Take this inspect option, you can select which are.
+Inspect whichever option you want, you can inspect.
+Okay.
+So this is a way we can use this turn on feature.
+Okay.
+So this is by using Select Hub.
+There is other other way is also there I will tell I'll let you know.
+But this is a option which we can use for now.
+So let us see how we can do this.
+Let me create another example.
+Okay, so I'll show you one more time.
+Listening very carefully.
+First thing, you need to open the selector hub.
+Inspect.
+Open the selector hub.
+So once you open the selector hub.
+By default you will not able to inspect any element.
+See it is disappearing.
+Every element is.
+If I right click here, just disappear.
+Okay.
+So what you need to do is you need to click on this turn on debugger and immediately open the drop down.
+So click on debugger.
+Click on the drop down and wait for five seconds.
+Yeah.
+You need to wait till the screen is got freezed.
+So once the screen is got freezed, then what you have to do, go to elements.
+Now you can take this inspector and you can inspect any of this element.
+So now in the HTML also you can see all the options.
+Role attribute is there right.
+So whichever element you want you can click on element.
+You can see the div tag of that element and the inner text of the element.
+And once job is done you can just stop this.
+Then it will come back.
+So this is how we can use it.
+Is it clear everyone how to inspect these elements using selector hub debugger option?
+Just click on the debugger, turn on debugger, click on the drop down.
+Wait for five seconds.
+The screen will be freezed, then you can start inspecting the element.
+Okay, now let's create another example.
+Handle.
+Hidden drop down.
+Suppose if you don't have a selector hub, but it is a little difficult to do that, but there is some
+option in the dev tools.
+I will show you that.
+He didn't drop down.
+Okay.
+So now.
+Right.
+So we created driver instance.
+This is our implicit weight.
+Launching the page maximizing the page.
+Right.
+So the first thing.
+Again, same operations.
+Whatever we do, we will do it.
+But before getting this, we need to first log in and then we need to go to PIM.
+And then we need to navigate till we have to come till here.
+Right.
+So for that I have already some script.
+I'm just clicking.
+I'm just copying that piece of code.
+Yeah.
+This is just login steps, okay.
+So username entered password enter.
+Click on the login button and after successfully login I click on the PM tab.
+And then I got a drop down.
+Okay, so the first thing is before getting these options, if you want to get all these options, we
+need to click on the drop down like this.
+So how to click on the drop down.
+So first inspect this element.
+Dropdown element.
+And go to Selector hub.
+We need to write our own X path.
+So we need to click on this arrow mark.
+This is the one.
+Okay.
+So this is the relative x path which is given.
+One element is matching.
+Just a moment.
+You okay.
+So I'm just taking this dropdown entire dropdown.
+And this is the XPath which is generated press enter one element matching.
+So I'm using this XPath.
+This expert fee is for drop down.
+So driver dot find element.
+By Dot bath.
+And here I want to perform click action.
+Okay, so once it is clicked, this will.
+Open the drop down.
+Clicked on.
+Drop down.
+Okay.
+So once you click on the dropdown it opens all options.
+Now we need to select a one option.
+Select.
+Single option.
+So if you want to select a single option, we need to write an XPath for the single option.
+So if you right click, if you click on it and try to read uh try to right click on any of these options.
+It is disappearing actually.
+So what I want to do is I want to select something called finance manager.
+And if you try to inspect this element, disappear.
+So now what we should do?
+We should go to this turn on debugger.
+Click on this drop down.
+Wait for five seconds.
+Screen is freezed.
+Now go to elements.
+Now we can inspect whichever option finance analyst I want to inspect.
+So in this.
+Take this inspector and find out the financial analyst.
+So this is the element.
+And for this XPath is got generated.
+One element is matching.
+Capture this.
+So driver dot find element by dot XPath.
+Dot click.
+So direct click method you can use.
+So this will select financial Analyst.
+Facilities.
+Login.
+Go to PM.
+Yes.
+ANZ financial analyst just got selected.
+So if you want to select a single option, you can directly write an XPath.
+For that option you can select.
+Count the number of options.
+Count the number of options.
+Total number of options.
+So again we need to write an XPath which is matching with all the options in the dropdown.
+So we need to write one common XPath.
+So how to write a common XPath?
+Actually, the element option is available in the span tag.
+If you inspect every div tag here, this option is available in the span tag, right?
+So.
+But where is this div and span tags are available.
+Here is in the parent div.
+So these are parent video.
+And there is a role option role equal to list box.
+And inside the div multiple divs are there.
+Every div is pointing to every application if you inspect the div option.
+If you expand the div option here, you can see in the span you can see the actual value.
+So we need to write an XPath properly.
+First, let's start with the parent div tag.
+So inside the div tag.
+I'm using.
+Role attribute.
+Role.
+Equal to.
+Role equal to.
+So what is a role in the parent div tag?
+So all these dues are part of the.
+Main diva.
+Let me inspect one more time.
+So these are all the Du tags.
+So role equal to list box.
+This is the element.
+It's always the listbox.
+Now it is pointing to all the elements inside this I'm directly going to span.
+Now 28 elements are exactly matching.
+See 28 elements are matching.
+So this XPath I can use.
+And this writing this XPath and everything is possible only if your screen is freezed okay.
+Otherwise it will be disappeared.
+Okay.
+And once your job is done, then you have to stop the debugger.
+Okay, let me finish my job.
+And then I will show you how to stop the debugger.
+Copy that.
+XPath.
+And try to use it.
+Driver dot find elements.
+By dot x path.
+Dot.
+And capture all the options.
+All options into variables.
+So this is again list of.
+Web element.
+Okay, now we got options.
+Now we can simply count it.
+System.out.println.
+Its number of options.
+Options.
+Dot size.
+So this will give you total number of options in a dropdown.
+So once you're able to write an XPath everything is easy.
+Still it is counting.
+Zero.
+Okay.
+Just don't.
+Okay.
+So actually we made a mistake.
+So after clicking on uh just comment this one.
+And after clicking on the dropdown, it is taking a few seconds to display all the options.
+So I will put a thread dot sleep here.
+Five seconds.
+Okay, now I can see after using weight statement.
+After five seconds it should capture all options from the dropdown.
+Yeah.
+Now we got a 29 options.
+But this is a size of option.
+Okay.
+Sometimes the options will come very slowly from the dropdown.
+So in that case you will get a zero elements okay.
+So to avoid that you can just put some sleep statement 3 seconds or 5 seconds below five seconds.
+And that will solve the problem.
+So a number of options we can get like this.
+Now I want to print all those options in the console window.
+Printing options.
+Again, you can use a looping statement.
+Enhanced for loop.
+So whatever options I've captured, I keep them in the variable called op.
+That is again a web element.
+And, uh, how we can print this from the web element op dot get text.
+So get text is a method which will return the options.
+So this will print all the options from the drop down.
+But it is not a multi-select, so we cannot select multiple options at a time.
+We can select only one option.
+Google search box.
+I will show you how to handle that Google search box.
+Okay.
+That is an auto suggested dropdown.
+Google search comes under auto suggested dropdown because in that case the options are keeps changing
+so you will not get the same options there.
+Okay, so these are the.
+Current options which you have, so 29 are there.
+So this is how we can get the options from the hidden dropdown.
+So this is hidden auto suggest dropdown is a different auto suggested dropdown is like this.
+Okay.
+Before that let me stop this debugger.
+So to stop this debugger you can see one option here pass in debugger.
+Right.
+You just click on this uh step over next function call.
+And there is a resume script execution is there F8 is a shortcut key.
+And if you click on it it will stop.
+Okay.
+That option is there.
+So auto suggested drop down is different.
+So auto suggested means what.
+Suppose you will have a Google form here.
+So if you type something here I got some auto suggestions.
+But these are all dynamically you are getting.
+And every time you may not have a same number of options, every time you will have a different count.
+Every time you will have a different options.
+So these are all not static values actually.
+Okay.
+So in this case also you can write one dynamic XPath which is capturing all these options.
+And we can select whichever option you want from this.
+So this is auto suggested auto suggested dropdown.
+So this is the different.
+Okay.
+We will see that later.
+So this is also there.
+There is also comes on the drop down but is auto suggested.
+Drop down we can say.
+Okay, so is this clear to everyone how to handle hidden drop down.
+So before selector hub earlier, uh, dev tools is provided one option to handle the hidden drop down.
+So.
+But probably in the latest browsers are available or not.
+Not sure, but we will try is suppose go to dev tools inspect.
+In the dev tools.
+There is something called event listeners here.
+Go to event listeners.
+In the event listeners, there is an option called click here.
+Just try to refresh.
+Go to click here.
+And in this document, if you expand some document here, one of the document.
+You can see something called blur option.
+And you need to remove that blur option.
+Somewhere you can see that.
+Our focus.
+Yes.
+Yeah.
+You can see the blur.
+Okay, so you need to go to this blur option.
+And whatever you can see, you can just try to remove this.
+Okay, so once it is removed now we can try to inspect this element.
+Now we are able to inspect.
+So this option we can use from the Chrome browser.
+Other browsers I'm not sure, but Chrome browser you can see that option.
+So whichever element you want you can inspect.
+And that also visible in the.
+Our HTML.
+Okay, so earlier we have done like this, but once the selector hub came so then it is more becomes
+easy.
+Understood everyone.
+So this is how we can handle the drop downs.
+How to suggest a drop down?
+I will explain that later because I need to combine that with another topic how to handle the dynamic
+elements.
+So in that topic I will cover auto suggest drop down elements okay.
+So this is all about selector dropdown bootstrap dropdown and hidden.
+So based on this, I'll give you a few assignments today.
+You guys can try them.
+Uh, three assignments.
+I will give it to you.
+First assignment.
+Okay.
+Go to this particular page.
+So okay, so in this particular page you can see, uh, country drop down and state drop down, country
+and state.
+So what is the requirement is first you need to go to this page and count the total number of options.
+In the countries here just count the total number of options.
+Print all the options and select one of the option.
+You can try this okay.
+This is normal selected dropdown.
+It is just a normal selected order.
+If you inspect this element you can see the selected tag.
+You can do like this.
+Now the second example hidden drop down again.
+Go to orangehrm application.
+Log in to this website.
+Once you log in, go to Pam.
+So here we have seen job title.
+Right.
+Similarly you have something called employment status.
+You can see freelance full time, part time.
+So whichever you want you can select so employment status you can try to handle this problem.
+Employee status.
+And the other one is.
+Multi-Select dropdown.
+So in this application.
+You have another drop down here below one colors.
+In this there are multiple options.
+This is also select box.
+If you inspect this element you can see the select tag options are there.
+So the only the difference between this one and this one is here we can select only one option at a
+time.
+But here you can select multiple options.
+So you can try to do it through automated okay.
+So multiple options you can select in this multi select drop down.
+This is multi select.
+You can say combo box.
+This is also you can try.
+Colors.
+Multi selected box.
+Okay.
+Try these assignments for today's session.
+And tomorrow, uh, we'll see some more options.
+Okay.
+So that's all for today.
+I'll stop here.
+We will continue tomorrow session.
