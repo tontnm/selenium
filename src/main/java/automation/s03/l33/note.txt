@@ -1,0 +1,1596 @@
+So in our previous class we have seen how to handle different type of dropdowns like we have seen select
+type of dropdown, then bootstrap drop down, hidden drop down and also have uploaded uh on assignment
+auto suggestion drop down.
+Uh, I think I have seen that how to handle the Google search window.
+That is a major, uh, basically the dynamic drop down.
+Uh, let me go through that, uh, script.
+What we have done.
+So this is a script I have written for auto suggest drop down.
+First of all, let me show you.
+Uh, what is auto suggest drop down and which is also a dynamic drop down because the data we you will
+not get every time same.
+So let's go to Google page and this is your Google search box.
+And here you can search for something.
+Right.
+And here you can see as soon as you type some search string, you can see some auto suggestions here.
+And these values are dynamic because you will not get the same options every time.
+And also you will not get the options in the same order.
+The order can be changed and the date also or the items will be changed.
+Okay.
+And the number of items can be also changed.
+So this data is not a constant data.
+So this is keeps changing based upon the search string.
+So in this case uh we can capture this.
+We can do the same thing.
+Like once you provided your search string we can find how many options are displayed here.
+Also, uh, we can select one of the option and we can click on that option.
+For example I type selenium here.
+And in this we can select one of this option.
+And like this and then it will go to the actual page.
+So this is a dynamic dropdown.
+So to handle this what we can do is.
+First we have to launch our page and maximize it.
+And this is the element search box element.
+If I inspect this element.
+Right click inspect.
+And, uh.
+So this is a text area box.
+It is just like an input box text area.
+And there is a name attribute is here.
+Name attribute is q.
+So I have taken this attribute to find that element.
+So by dot name q dot sendkeys of selenium I provided some text here inside the text box, and once you
+provided some text here.
+So the data comes from SQL server.
+So which will take few seconds of time to fetch all this data.
+So let's wait for five seconds there.
+And after that you can operate this data.
+So in this what I have done is first I have captured all the options.
+And here XPath is most important.
+So we need to write one dynamic XPath.
+So if I inspect one option for now.
+And go to Selector hub.
+Okay.
+So if you look at this these are all options are displayed dynamically.
+Right.
+So if I go back and see the HTML.
+Under the ul tag ul is nothing but a user list inside this.
+There is multiple li tags are there.
+Each and every Li tag is representing one item.
+One search item.
+You can see this.
+L.A. is nothing but a list item, so each and every L.A. tag is representing one item.
+And if you expand one of the Li inside this, there is again one more div tag.
+Inside this there are multiple div tags.
+And where is exactly our item.
+So if I just expand this.
+Div tags.
+There are many div tags are there, so we need to find out exactly where is our element.
+Suppose I'm trying to inspect one element, let's say web drive.
+So inside the span you can find this element selenium webdriver.
+Inside the span when this value comes dynamically okay.
+And where is this span inside the div.
+This is again inside the du du du div.
+And finally all the divs are part of li tag okay.
+So let us write an XPath for this and that XPath should match with all the elements.
+So first of all where we can start.
+Let us start from the parent element.
+So that is ul element okay.
+So from the UI element we will start.
+And what are the elements are there?
+Uh, what are the attribute name, class and role is there?
+So I'll take a role attribute.
+So by taking help of this role attribute, let us write an XPath slash slash ul.
+At the rate.
+Role equal to list.
+Box.
+Okay.
+And inside this, uh, roll.
+There are many options.
+They can see us at the rate role equal to this box and two elements are matching.
+I when I take a role, two elements are matching.
+And inside this ul uh role equal to list box.
+And if you want, you can also take the class.
+I'm also taking the class list box.
+And.
+At the rate class equal to, we can specify the class attribute.
+Still two elements.
+So in that case class is not needed.
+Okay.
+So let us have this.
+So two elements are currently matching in this.
+So you can say slash slash li.
+Now we can see ten elements are matching.
+So all ten search items are matching.
+But inside the Li the actual item is there.
+Inside the actual text is there inside the multiple div tags.
+And once you navigated all the div tags, you can find that option in the span tag.
+Okay, so now how we have written this.
+Uh, inside the span tag.
+So let me.
+Find this option.
+One of this option.
+Yes.
+If I look at here, this is a span tag.
+And inside the span tag you can find all these things.
+Right.
+So what I can do is I can say like slash slash span.
+Now you can see that all the texts are matching because inside the span all the options are available.
+So I'll take this X path.
+So this is also the right export.
+Yeah.
+Be present.
+Uh, that is also part of the span, so no problem.
+Because if you take B only will get a partial thing.
+And if you, if I look at the search string some part is uh normal and another, some part is a bold
+letters.
+Right.
+So that's the reason they put inside the B.
+Okay, so now if we inspect one of the element again say this is entirely span tag.
+Everything is included in the span tag.
+Okay.
+And there are multiple tags you may have in between, but directly you can jump to the span tag because
+all these search options are available in the span tag.
+And all these are again part of the list.
+And all the lists are part of the user list UL tag.
+So accordingly we can write the XPath.
+So first we will go to ul tag, then list item.
+Okay.
+And if you want to specify uh, this attribute for list item, also you can specify presentation role
+equal to presentation.
+So for the list item also you have an expert and the rate role equal to presentation.
+Okay and then directly jump to the span element 50 elements are matching.
+When I say 50 elements are matching I think this role is having many places.
+So let me remove this.
+I think there are other list items are having same, uh, thing.
+So again, you can see.
+50 elements are matching, so this is not the right one.
+We need to get exactly these options.
+Okay.
+Let's see.
+Another expert will work on it.
+So let me check this one.
+And this expert will keeps changing so I will put this expert.
+Okay.
+Exactly ten elements are matching.
+So let me show you the same XPath I have written.
+So slash slash UL role equal to list box.
+Because this is the UL we have started from UL.
+Okay, let me find this.
+Yeah.
+This is the UL role equal to list box.
+And inside this I'm directly go to Lee tag.
+And inside this little bag instead of span tag, I'm taking the div tag actually.
+So this is the li.
+Inside the li there are multiple divs are there, and we need to find exactly in which div tag that
+item is present.
+Okay, actual tag is span tag, but maybe the other options are not there in the span tag, so we will
+take the parent one.
+The span is also part of the div tag, so we'll take the div tag okay.
+So if I look at this again there are multiple div tags.
+Are there.
+These are parent div tag.
+And there are again three div tags are there.
+So let's go to the first div tag.
+Expand this.
+Okay.
+And, uh, find out where exactly that element is present.
+Okay.
+RL is better to find one element.
+Okay.
+This is a span.
+Okay.
+So the role is option okay I have taken this one.
+This is the element I have taken pro equal to option.
+And each and every thing is an option here.
+So if I filter by using role equal to option exactly we can filter ten options.
+Okay.
+And this is the option I have taken.
+So where it is it is a second div tag okay.
+So la tag la contains a one div tag.
+And inside this div second div tag.
+So actually our element is present inside the second div tag.
+So second div tag and inside this first div tag.
+And here.
+Role equal to option.
+This is the one I have taken.
+Role equal to option and inside the role equal to option.
+Lady role equal to option.
+So I have taken this x path.
+So you can write this many ways.
+This is one of the way I have written which is pointing exactly ten elements.
+And let me remove this for now.
+So two elements are showing show or two elements.
+And if you say li only li ten elements.
+But it is also uh, when I say just li, it is also count.
+Uh, it is also pointing, uh, these icons actually.
+Icons.
+Along with this.
+This everything is one web element.
+It is taken.
+But I just want to eliminate this icons such items so I can just put some other.
+Option.
+Develop.
+All equal to option.
+Role equal to option.
+So let us see span.
+Also this is one x path.
+We will try another x path.
+Let us take this one.
+Yeah, in many, many ways.
+You can write XPath.
+If I take 50, elements are matching.
+I don't know where these 50 elements are coming from.
+Okay.
+Ten elements are matching.
+And inside this Lee.
+This is a lie.
+Dave.
+We can skip all the div tags and we can directly jump to the span inside the li.
+We can directly jump to the span.
+Slash slash spam.
+Okay.
+When I take a span element again it is giving 15 elements 50 elements.
+Okay, so even if I dig this one also it is giving 50 elements.
+If I take roll presentation it is again giving 50 elements.
+So again I'm going to the above one.
+So this one here I've taken roll equal to option.
+When I take roll equal to option div of roll equal to option, then it is giving.
+So instead of taking span tag.
+I can take this one.
+So do.
+At the rate.
+Overall equal to.
+Option.
+Okay.
+So if I take other, uh, other attributes is giving 50 elements, even if you take span or if you take
+this div rule presentation, it is giving 50.
+It is not accurate value.
+So again I'll go to the above parent this one.
+So here I'm taking role equal to option.
+So then it is giving ten elements.
+So this is the XPath which is correct.
+This is not the right one okay.
+So this XPath I can use to get all the options into the variable.
+I've created one variable called list.
+Okay.
+And then I can find the size of options.
+How many are there?
+And, uh, then I can find I can read each and every option.
+Now I have written normal for loop.
+You can also write enhanced for loop.
+Suppose I want to select one of the option.
+From that you can just get each and every option I just printed here.
+But normally if you want to select one of the option you can write a conditional statement like if list
+of get of I dot get text equal to this one and uh the same option.
+Click it and after clicking it we no need to go with the further option.
+As soon as you found required option, just click it and after clicking in that option you no need to
+go further options.
+So immediately just say break.
+Again.
+Break it.
+So based on the condition, we can select the value from the dropdown.
+So here I have passed something called selenium.
+Let's go and execute.
+Okay, now you can see the search string.
+Provided and then list of options.
+Now I have clicked on selenium.
+So it is a search string and I got all the links in the web page.
+So this is the way we can simply handle auto suggest or drop down.
+This is auto suggested.
+Drop down means as soon as you put some string, it will show you all the required options and same
+kind of scenario we already seen earlier, uh, in test automation form.
+Uh, this is Wikipedia tabs, right?
+The same here also, as soon as you type something.
+But here auto sessions will not come immediately.
+But after clicking on the search you will get this options.
+But in the Google form.
+As soon as you type something, even without clicking on search box, as soon as you type something,
+auto suggestions will come here.
+Okay so this is a simple example.
+You can try this.
+So everybody is clear how to handle this autosuggest box.
+This is the one type of autosuggest, but you can see different types of autosuggest.
+So only everything is depends upon the XPath.
+Okay.
+Some more, uh, drop downs are there?
+Uh, they're also auto suggest.
+Uh, I will give some links.
+Uh, video links.
+You can go through them.
+You can understand how to handle other type of auto suggest boxes.
+Okay.
+Because this will be different from one type to another type.
+So there are different type of auto suggestion boxes are there.
+So because developers will design them in the different ways, and the same approach may not be suitable
+for all kinds of auto suggest drop downs, sometimes you need to change uh, we need to apply some different
+type of logics okay.
+So later I will share some of the videos related to the drop downs.
+And you can just go through and you can understand different type of drop downs.
+But these are the uh, normal drop downs most of the times we can see in our applications.
+Right.
+So that's it.
+And based on this you can just try other one.
+And what is this Bjs.com.
+Yeah.
+This is also auto suggest drop down same just like a Google.
+This is also auto suggest drop down.
+You guys can try this.
+Okay.
+This is the search box as soon as you type something.
+Uh.
+Okay.
+Yeah.
+Now we can see you're getting some options here.
+And also you get in some products.
+This is also auto suggest.
+So you guys can try this.
+I put this as part of assignment.
+You guys can try this.
+Okay.
+Now, uh, you try this.
+If you're not able to do, then I can explain that later.
+Okay?
+
+Or I will do some coding and I'll upload it.
+But you can try this.
+That's not a big thing.
+Actually.
+It's not.
+It's a easy one.
+You can try.
+All right.
+Next one.
+Uh, today's session, uh, we'll start with something called how to handle Tables.
+Web tables.
+Okay in web tables.
+Also, there are different type of web tables we can see on our application and on the table.
+Most of the times we validate the data.
+The table contains a data.
+So we will capture the data and do some kind of validations okay.
+Basically there are three kinds of tables we can see on our applications.
+Uh static web table, dynamic tab web table and then pagination web tables.
+So static web table means what there are fixed number of rows fixed number of columns.
+Even data is also static.
+That will not change anytime.
+That's called static web table.
+And it is very easy to handle.
+And dynamic web table means what the dynamic table.
+The data keeps changing, the data keeps changing.
+Even number of rows.
+Also keep adding more number of rows.
+Keep adding and sometimes rows will be reduced.
+The data is not fixed.
+The data is dynamically changing.
+That's called dynamic web table.
+And, uh, columns will be fixed.
+Okay.
+In the dynamic web table, columns will be fixed, but the rows number of rows can be increased or reduced.
+The data also can be changed.
+And table with pagination means.
+Suppose if the table contains 100 records, right 100 rows, but in the first table it will show only
+few records.
+In the second page it will show few more records like that.
+This is called pagination table.
+So for example.
+Some sample table I'm showing, but we will see this actual in real time applications.
+Well, look at this.
+This is a static table.
+Fixed the number of rows.
+Fixed number of columns.
+The data also won't change the fixed type of data.
+This is one type of web table.
+Static table.
+Pagination means what this is the pagination.
+So currently five records are displayed.
+If I go to the next page then it will show you some more records.
+Again if you go to the next page some more records, next page, some more records.
+This is called pagination table.
+Okay.
+This is called pagination table.
+And this pagination table design can be different ways or designs.
+Are there the same design you cannot find.
+Okay let me show you.
+Uh, but it is a little bit tough to handle the dynamic, uh, pagination tables.
+But we will also see how we can handle pagination tables later.
+So, for example, uh.
+I'll show you a sample pagination table.
+So adding in open cart.
+Yes, at the table with multiple pages is called pagination table.
+So I'm just logging into this site.
+This is.
+I'm just showing the pagination table how it will be in the real time applications.
+Okay, so if you go back to the customers.
+Okay.
+This is another type of pagination table.
+You can see there are some customers.
+List is displayed in customer name, email address, group status and added everything.
+And if you go to the next one next page you can see some more details and you can navigate this each
+and every page.
+There are almost 1904 pages are there in this table, and in the first, each and every page it is displaying
+only ten records.
+Okay.
+So this is also a pagination table.
+But this is a little bit complex to handle.
+But we will see that also.
+But before directly going to this we will see basic level tables.
+We will try to understand actually what how to handle the table.
+What are the tags we can find in HTML, and how to write a dynamic XPath, and how we can pass parameters
+to the XPath.
+We have to learn few more concepts before jumping into this table.
+Okay, so we'll see that also.
+So static web table means what the data is static.
+That will not change.
+So this is the example.
+So you can see book name other subject price and everything.
+This is called static table.
+No change every time.
+Same data same number of rows same number of columns.
+Everything is same.
+Dynamic web table means what?
+The data keeps changing and also number of rows keeps adding.
+That's called dynamic table.
+Okay.
+For example let's go to orange.
+Hmm.
+Application.
+And here you can see dynamic table.
+Okay.
+So once you login into this.
+Okay.
+So you can just go to.
+I mean, see, this is our dynamic table.
+Actually this is also table, but this is a more dynamic.
+So here you can see user names, user roles, employee name status actions.
+And here the columns are fixed but the data keeps adding or keeps removing deleting.
+So suppose if you want to remove some record here I can just remove it.
+So now number of rows are reduced.
+One record is got removed.
+So this is a dynamic table.
+The data is not fixed every time.
+Okay.
+And pagination table means this is a pagination table.
+You can keep changing the pages and you can read the data.
+So these are the three different type of tables.
+Now in the today's session we will try to handle the static table.
+And in the next sessions we will see.
+So pagination in essence this is also dynamic table because the data is also keeps changing here.
+This is pagination plus dynamic web table okay.
+Both are satisfied here dynamic as well as pagination table.
+Okay.
+So if in the dynamic web table, if I just add pages, that becomes a dynamic and pagination table.
+So that we will see later tomorrow.
+And today we will focus mainly on the static table because we want to learn some basics from the web
+table.
+And then only we can handle other type of tables.
+So let's start with the static table first.
+I'll show you all the tables first.
+We'll start with the static table.
+So you can see this is a simple basic very basic table.
+And we'll try to understand what are the different type of operations we can do on this table okay.
+So if you inspect this table.
+First, let us try to understand about the tags.
+What are the tags we can find in HTML?
+So if I look at here the table is a tag.
+You can see the table tag which is pointing the entire table.
+And there is an attribute called name equal to book table.
+And if you expand this table.
+And you can see the T body tag table contains a t body.
+T body means table body.
+It is representing the entire body of the table and inside the T body you can find multiple TR tags.
+Every TR is representing one table row.
+How many rows are in this?
+Those many number of TRS you can find and inside the T body.
+So how many number of rows are there in the table.
+There are equivalent to TR you can find inside the T body.
+So you can see every TR is representing a table row.
+Now if I expand the first tr first tr you can see the t h tags.
+So t h is representing table header table header.
+So here book name other subject price.
+So these are four items are there.
+These four are the table headers.
+So t h is representing table header.
+In each t h there is a header name is present.
+This is a first tr.
+So first row is what header.
+First row is considered as a header.
+Now, if you go to the second tier now from the second tier, actual data is started.
+So this data is represented with the TDI tag.
+TDI is representing table data.
+So in the second tier you can see TDI tags.
+Each TDI is having table data.
+Same thing is continued for every tier.
+So third tier again multiple TDs are there.
+Fourth tier again multiple TDs.
+So these deeds are representing the table data in the particular row.
+So this is the structure of the web table.
+So the table tag contains a T body T body contains a TRS.
+TR is nothing but a table row.
+And the first tr contains a table header from the second tier it is started table data TDI tags.
+And this is very very important.
+So this is the hierarchy of the table.
+Okay.
+But sometimes, uh, some web tables, you may not find, uh, tr tag for the heading.
+Okay.
+They can put directly t h tag.
+Okay so this keeps changing again table to table.
+But these are the tags we can find in every table.
+But the order can be different.
+So hierarchy.
+Same table T body.
+Inside the tiers.
+Each tier contains a table header.
+Okay.
+Now let us try to do some operations on this table.
+So let's go to eclipse and create a new package for today.
+This is a static.
+Table.
+Okay, so first of all, uh.
+I launched my page and everything.
+So.
+And for this WebDriver.
+And this is implicit weight.
+And this is a page.
+And this is a maximizing the web page.
+Okay.
+Now the first operation I'm going to do in this page.
+So I want to find.
+I want to find the total number of rows in a table.
+So I want to find total number of rows in a table.
+In this particular table I want to find total number of rows.
+There are two different approaches out there.
+So if you want to find total number of rows, one approach is simply we can find number of teachers
+because every teacher is representing every teacher.
+Tag is representing row right.
+So if you count the number of teachers in a table that is exactly equivalent to number of rows.
+So for example I'm writing one XPath here.
+First we go to the table.
+And there is a name for the table, right?
+What's the name attribute at the rate name equal to.
+Uh, book table.
+Book table.
+So now this is matching with the entire table.
+One single table.
+And inside this slash slash I'm directly go to T.
+Now we can see seven elements.
+So this XPath is returning all the rows from a table.
+This XPath is returning all the rows from a table that is exactly equal to number of rows.
+So by using this XPath we can capture.
+The first requirement is.
+Find total number of rows in a.
+Table.
+So now we can say driver dot find elements.
+By dot XPath.
+Okay, now I can put XPath because this one.
+Is returning.
+Seven elements.
+Seven elements in the sense seven rows are exactly matching.
+So when I say slash slash tr, I can just keep a T body.
+I asked if I can skip.
+If you want, you can put the body.
+Also, I can say t body same value will get, but between whatever elements are there I can keep them
+right in the relative x path.
+So I can say slash slash tr.
+So this XPath will return all the teachers that I'm going to store in a variable.
+Or what I can do is you can simply use dot size method directly, because this will return multiple
+web elements.
+Every row is considered as a web element.
+Every row is considered as a web element.
+So once you get this.
+Atop of it.
+I'm using size method.
+Because this will return the list collection, right?
+A list of all the trees on top of it.
+I'm using size method, so this will count the number of trees.
+That means number of rows that I can store in a variable integer.
+Ross.
+Okay, now I can just print.
+So.
+Number of rows.
+This is what rose.
+So this is the one approach you can find.
+You can write an XPath which is pointing all the rows or which is capturing all the rows in a table,
+and then you can count it.
+Yes.
+Okay.
+So this is one approach.
+So we have we got seven rows.
+Columns are represented by th.
+Yes.
+So some tables you will have a separate column is separate column is included in the separate tag that
+is called t h.
+Yeah t h is also specified.
+But in this table I have a t h which is representing the columns as of now.
+So these are columns which are representing table header t h tag.
+And these t h is a part of the tr tag.
+First row contains a header part.
+Yes you are right.
+Okay, now we find out the number of rows in a table.
+So how we have done?
+We have find out all the rows and then on top of it we apply size method that is return number of rows.
+This is one approach.
+There is another approach.
+Suppose instead of writing XPath I can use a tag name.
+I can say.
+Driver dot.
+Find the elements.
+By dot tag name.
+So what is the tag name of all the rows?
+TR right.
+So that I can specify here.
+And this will also return.
+All the rows.
+It will also return all the rows and then I can find a size.
+So this is also correct.
+Inter rows.
+Okay, but when I execute this.
+Earlier.
+We got a seven, right?
+So now we'll see.
+How many will get.
+So now this time we got a 14.
+What is a problem in this is this is actually counting the rows from all the tables which are present
+in your web page.
+Okay.
+So this particular tag name of TR because in the same page there are multiple tables are there.
+This is one table.
+This is another table is also there.
+So this table is also having TR right.
+So basically what this tag name of TR will do.
+This is counted TR our table rows from all the tables which are present in the web page.
+That's the reason we are not getting the right one.
+So.
+But this is the right way.
+Okay.
+This is also correct.
+But when we have to use this one, when we have to use this one, if we have only one single table in
+our web page, if we have a one single table in your web page, then you can use this approach tag name
+of TR.
+Single single table in the web page.
+Okay, then it will work properly.
+You can get the all the tags from the table by using tag name.
+But if you have a multiple tables in your web page, if you have a multiple tables in a web page, then
+better to write a exact XPath to capture the trees from the particular table, because we are writing
+the locator for the particular table here, right?
+So we are capturing the trees from the particular table okay.
+So if we have a multiple tables.
+In a web page, then it is preferred.
+Okay.
+This is preferred if you have multiple tables.
+If you have a one single table in your web page, then you can go with this approach.
+Both are correct, but the second approach is not recommended if you have a multiple tables.
+Okay.
+Just remember that point.
+So now currently I have a multiple tables.
+I use first.
+So this will give you seven rows present in a table.
+How does it returns the title of the book table?
+Because we specified in XPath, right?
+We specify an XPath.
+In XPath, we specify the HTML tag so it will return all the tags from the table.
+And in another way we can also specify the tag name.
+Whenever I say tag name of tr.
+This will return the tr of tr tags all the tr from the table, so we use find elements anyway.
+It's okay.
+So in the second option we are not specified a specific table.
+So it is returning to from all the tables.
+That is a problem in the second.
+But if we have a single table there is no problem.
+It will also return the right value.
+Okay, now similar way, we can also find the number of columns in a table.
+Find.
+Total number of.
+Columns in a table.
+So how to find a total number of columns in a table?
+Again, we need to count the number of columns and where exactly the columns are present in the first
+tr tag, right?
+The T body in the first tr actual columns are present.
+So first we need to go to the first tr tag.
+And we need to find out how many deaths are there because the TR is representing header or column.
+So if you count how many deaths are there that is exactly equal to number of columns.
+Right.
+So we will write an XPath for this.
+Now go to the book table.
+In the book table.
+I'll go to first TR slash slash.
+TR seven elements are magic, but in which TR we have to go first.
+TR so we need to say index number one.
+When I say tr of one now it is pointing header.
+Exactly.
+You can see this.
+When I say TR of one first row it is pointing.
+When I say tr of two.
+Second row pointing when I say tr of three.
+Next row is pointing okay, so to count the header part how many columns are there.
+We need to go to the first row.
+So I say one.
+Inside this I have a t h tag so I can say t h.
+Now four elements are there.
+So exactly equal to four columns are there.
+So can we try to reduce this XPath.
+Can we reduce this XPath by removing this uh tr of one.
+Because the entire table.
+The T-h tag is present only in this place, and other tears don't have a pH tag.
+Right.
+Can we remove the sticker of one?
+Yes, we can remove this.
+Now.
+Still it is giving four elements.
+It is directly jump to the th.
+So now we can use this XPath to capture the number of columns or headers.
+Driver dot find elements.
+By dot XPath.
+Okay.
+Dot size.
+So this will exactly return.
+Number of columns.
+So that I can print here number of columns.
+It's.
+That.
+So let's execute.
+Okay.
+So number of columns are four.
+Can we use tag name here?
+Tag name.
+Driver dot find elements.
+By dot tag name.
+Of what to write all the tags I can capture dart size.
+Store in another variable.
+Now you can see.
+So previously it is written for.
+Now we'll see what this will return.
+So.
+See8 is returning because it is also counting from other tables.
+So same approach again.
+So the first one XPath is preferable if you have a multiple tables.
+Multiple table.
+Now, if you have a single table, then this is a preferable.
+Single table.
+Okay, currently this is not applicable, but there are two different ways we can capture it by using
+XPath or by using tag name.
+So mostly preferable is XPath.
+Uh, if you have a single table in a webpage then you can use a tag name.
+Okay.
+Nothing wrong in that.
+So this is how we can find number of rows and number of columns in a table.
+Now the next operation.
+So everything is depends on the tags only.
+So we will count the number of tags tr tags that is equal to number of rows.
+When you count number of th tags that is exactly equal to number of columns.
+Now the next requirement is.
+Suppose I want to read data from specific row and column.
+Read data from.
+Specific.
+A row and a.
+Column.
+I want to read data from specific row and column.
+XPath is most important, right?
+So when you're working with the tables.
+Okay.
+Now I want to capture some data from this table.
+Let's say I want to capture this one master in selenium.
+So that is the data I want to capture.
+So how we can capture this if you inspect that element.
+See I'm expecting this element.
+It is giving one XPath.
+Okay.
+Will this XPath works every time.
+So this XPath.
+Will capture master in selenium.
+And whichever row or whichever column it is doesn't matter.
+So wherever it is in this table, this XPath will able to capture this one.
+But now my requirement is I want to capture this from the specific row under column.
+Specific row and column.
+So for example in which row this value is present here.
+12345 fifth row and in which column it is present first column.
+So my requirement is I want to capture the data.
+From fifth row and first column.
+Okay.
+Let's say an example.
+Fifth row and first column.
+Fifth row and first column.
+Whatever data it has doesn't matter.
+I want to capture this.
+Fifth row and the first column.
+Then how we can write an XPath for this element.
+So let's try to write it.
+So I will go to the table first.
+Table tag.
+Table.
+At the rate.
+Name equal to.
+Book table.
+Think these uppercase book table.
+So now I went to table.
+And in the table which row that element is present fifth row.
+So I can say slash slash doctor and say slash slash doctor.
+It is pointing all seven rows.
+Seven rows.
+Now which row we want to go.
+Fifth row.
+So we pass the index five fifth row.
+Now exactly it is pointing.
+This XPath is pointing fifth row.
+So inside the fifth row there are multiple TD tags are there.
+So which column data we want.
+Which TD you want first reading.
+So slash slash TD of one TD of one.
+So this is exactly pointing to the element.
+So whatever value is there inside in here that will be captured.
+So tomorrow this value is got changed.
+Still this XPath will able to capture the value which is present in the fifth row and the first column.
+So this XPath I can use to capture the data.
+So driver dot find element.
+We are capturing one single data.
+This is not t h t h is representing header.
+Didi because from the second row all these are present in the table data.
+You can see TD.
+Are there TD is representing table data.
+The hatch is only for first row.
+Okay, if you want to capture the headers, you can use first tr and t h, but the rest of the rows
+are having TD table data.
+Okay, so it should be TD of one.
+So now I'm trying to use this XPath driver dot find element by dot XPath.
+Okay.
+And this will return the.
+Element, but from that web element we have to extract the.
+Text.
+So how can extract the text from the web element?
+So this will return the web element.
+So how to extract the text.
+Yeah continued dot get text okay.
+So this will get the.
+Element, fifth row and first column.
+From that we are extracting the text value.
+That is the actual value that I'm going to store in a string.
+I'll name it as a, uh, book name.
+That I can print.
+So I can just print book name.
+Like this.
+Okay, so we can capture the data from specific row and specific column.
+Yeah.
+Now you can say mastering selenium.
+So we can capture the data from specific row and a specific column.
+Just we need to write an XPath and top of it we use get text method.
+So get text is a method which will capture the text from the web element.
+Okay.
+So if you want to capture a specific row and column, just you need to change the row and the column.
+Suppose I want to capture something called uh.
+This one.
+JavaScript.
+Yes.
+Because this expert this is returning the output.
+Right.
+getText method will return the text value or string value.
+That's the reason I'm storing into the variable.
+And then I'm printing it here.
+So from the web element, I'm capturing the text value that I'm storing in a variable that I'm printing
+here.
+Basic question.
+Okay.
+Now we can see this.
+Suppose I want to capture the JavaScript.
+Which is there in the last row.
+Last row and the third column.
+So what is the row number here?
+How to write an XPath.
+Same tr TD but we can just change the numbers.
+So TR of seven seventh row and the third column.
+C JavaScript is pointing.
+So just by changing the row number and TD number, row number and column number, TR is representing
+the row.
+TD is representing the column.
+So just by changing the row number and column number we can point any of the data in this particular
+table.
+Okay so this x.
+But this is the way we can write an XPath.
+So whichever data you want to capture from this table you can just change only row number and the column
+number.
+That's it.
+Okay, now suppose I want to read all the data from the table means all the rows and as all the columns,
+everything.
+So then we need to go for looping statement.
+Okay.
+So by your looping statement we can read both requirement.
+Read all the data.
+All.
+Read the data from.
+All the rows and columns.
+Read the data from all the rows and columns.
+It is very simple.
+So this particular statement is reading the data from specific row and specific column.
+Right.
+Now we need to put this inside the looping statement.
+And every iteration we have to pass row number and a column number.
+Now we need to parameterize the value into the XPath.
+So here we have hardcoded the row number and column number.
+But this time we have to pass this value dynamically.
+In every iteration we have to pass a new row number a new column number.
+So it is just like a matrix form.
+So if I look at the table, it seems matrix form right rows and columns seems a two dimensional array
+even in the two dimensional array.
+Also we have a kind of we have a same kind of a structure, right?
+So if you want to read all the rows and columns, we have to go with the nested for loop.
+Because to increment the number of rows, we have to write one for loop.
+To increment the columns, we have to write another for loop.
+So two different for loops are required.
+Now let me write a for loop.
+So outer for loop is representing the.
+Outer for loop is for what?
+Repeating the rows so inner for loop is what?
+Repeating the columns in every row.
+So now observe how I am writing the condition.
+In outer for loop.
+Integer are equal to, so we already counted number of rows.
+Right here it is.
+So that I'm going to start.
+So row number one.
+So row number one is what header part.
+Row number one is a header part.
+So we include we ignore it.
+We will start from the second row because actual data started from the second row.
+So what I will do is I will start from the second row.
+Because first row I have ignored because it is having header part now.
+How many times you have to repeat depends upon the number of rows are less than or equal to rows.
+Because we already counted number of rows here, so are less than or equal to rows.
+Every time we have to increase the our value by one r plus plus.
+So this is how we need to write outer for loop.
+Okay, because Rose, we already counted.
+Size is also we already used here.
+So finally we get the number of rows so that I can directly use.
+Now.
+The second for loop is for what?
+Incrementing the number of columns.
+So we can start columns from the one itself 1234 columns are there.
+So into columns.
+C equal to one.
+C less than or equal to number of columns.
+We already counted here.
+Number of columns that I'm using.
+And C plus plus.
+Every time I'll increase the column number by one.
+Now.
+Come here.
+So we have already written one XPath to get exact value right that I'm going to copy.
+So what I will do is.
+To capture the value from specific row and column.
+First we need to go to the table.
+Here, whichever row number and column number we passed, that particular value will be captured by
+the get text.
+So instead of passing five and one here R is representing the row C is representing the column.
+Now I will pass this r and C here.
+Okay.
+So here I'm passing the R value dynamically.
+Here I'm passing column value dynamically.
+So then what will happen in every iteration.
+These values keeps changing.
+So accordingly we will get all the data from the table.
+Okay now.
+But here.
+The problem is we cannot directly pass the variables inside the XPath.
+Okay.
+So R is one variable.
+C is another variable.
+We can directly pass the numbers integers like this.
+But we cannot directly pass the variables.
+But how we can solve this problem?
+So still, if you want to pass the data through the variables, we have to follow a small syntax.
+What you need to follow is whatever are you specified?
+Okay.
+And before and after.
+First of all.
+Yeah.
+Before and after.
+Keep two plus and include everything in the double quotes like this.
+This is a syntax.
+Okay.
+Keep this are between plus and plus and put everything in the double quotation.
+This is the XPath syntax I have not invented this okay.
+This is XPath syntax.
+If you want to pass parameters into the XPath dynamically you can pass like this.
+The variable you can keep between plus and plus and keep everything in the double quotes.
+Same thing is applicable for C.
+Also, you can put C in the double quotes and then add plus before and after C.
+So this is the way we can pass.
+Dynamic values into the X path.
+Okay, so you never pass the strings into the XPath.
+You never pass strings into the X path.
+Only the index numbers you can pass.
+Only the index numbers you can pass.
+So here our value C value.
+You cannot directly specify the variables.
+Instead of specifying the variables, you can keep that in the double quotes along with plus before
+and after.
+So now what happens?
+Our value see value keeps changing in every iteration.
+And then the new values will be substituted.
+And this will able to capture the text value that I'm going to store in a string.
+That's the string value.
+And after that I will just try to print here this template or dot print line I can just print value.
+So this is how we can read all the data from the tables and how we can pass parameters to the XPath.
+Very, very important.
+How to pass parameters to the XPath.
+This is a syntax.
+Okay.
+Keep that variable in the double quotes first, then add plus before and after the variable.
+Only two things.
+Keep the variable in the double quotes.
+I'll show you one more time.
+Very simple syntax.
+First, keep the variable in the double quotes, then add plus before and after the way variable.
+Everything should comes under the double quotes.
+This is a syntax okay now.
+Let us run this.
+So this is just like a two dimensional array.
+What it is called.
+So this is a syntax of the XPath.
+Okay.
+Normally uh if you take this one.
+You people are not concentrating, actually.
+So I'm repeating already multiple times.
+See if you pass number.
+Let's say here are passing one.
+Okay.
+Here I'm passing two.
+This is the static value.
+So this will get the data from first row and second column.
+And here I'm passing two.
+Here I'm passing three.
+And this will get the data from the second row and third column.
+But how we can pass this value dynamically.
+Suppose I have something called row number is two and a column number is three.
+Now I want to instead of passing the hardcoded value I want to pass this variables I want to pass this
+variables.
+So if you want to pass this variables what you can do is you cannot directly specify r and C like this.
+You cannot directly specify the variables inside the XPath.
+So but how we can pass this variables the data how we can pass into XPath.
+So we need to follow the XPath syntax.
+So first keep the variable in the double quotes and add plus before and after.
+Same thing here.
+Also keep that variable in the double quotes and before and after.
+Add plus operator.
+So now this r value two will be substituted.
+Here see value three will be substituted here.
+Okay, so this is how we need to write an XPath.
+If you want to pass the variables as a parameters you need to follow the syntax.
+You understood?
+Everyone.
+Is this clear?
+To everyone?
+Please confirm in the chat box.
+So there is no specific name for the syntax.
+This is syntax which we ought to follow in XPath.
+If you want to pass parameters to the XPath, we have to follow the syntax.
+Just put the variable in the two double quotations and you add plus plus before and after.
+This is a syntax we have to follow.
+Okay.
+So very, very important.
+This will be very, very useful in the coming examples.
+Just remember this how to pass parameters into the XPath.
+Same thing we applied.
+So now let us execute and see whether it is able to read all the data.
+Yes.
+Right?
+So now we got all the data, but it is not exactly in the tabular form.
+We just captured the text.
+Right.
+But if you want to align exactly in the tabular format.
+So I want to get the data exactly, uh, in the same format.
+And the tabular format.
+How we can do, we can just slightly design it instead of println.
+You can say only print and after completion of inner for loop here you can just write one println so
+that will jump to the next line.
+And after printing the value, you can just give a one tab space.
+When I say slashed, it will add one tab space between the data.
+Okay.
+Or you can say empty value.
+So this will give add or else you can put something called slash D.
+So this will also add one tab space after the value.
+So now you will get exactly the data in the tabular format.
+Okay.
+I think this is a forward slash.
+Okay.
+So now we can see this is the backward slash we have to use.
+So this is a Java command right.
+So okay if I put backward slash t after printing the value it will give one tab space.
+See.
+Now you got exactly in the tabular format.
+So this is the first row.
+This is the second row third row fourth the fifth and the sixth row.
+So we got all the rows except the header part okay.
+So now suppose if you want to print header also I want to print the header also.
+Then how we can do this?
+I just want to print header.
+So here we are starting from row number two.
+We have just ignored the first one right.
+So can we put row number one here?
+If you put row number one, can we get header?
+External.
+According to the table.
+When I say from the first row, can we get the header part when I start from one?
+Actually we should get header also.
+But in this table there is a problem actually.
+What is the problem.
+Let me show you.
+So this is the XPath we have written right.
+Go back and see this is the XPath we have written.
+So here whatever row number we specified and TD means the table data specified.
+It is capturing the data from the table.
+It is just changing the row number and a column number okay.
+Suppose if we put row number one row number because I want to get the header also.
+So I put row number one.
+And table data.
+Also write TDF one.
+So then C zero element.
+Why it is zero element?
+Because in the first row there is no TD tags.
+In the first tr there are no t tags, only t tags are there.
+Okay, so if you write an XPath like this, this is valid for all the rows except the first row.
+Because in the first row there is no TD tag.
+In the first row there is a t h tag.
+So what is a problem in this?
+If you put a t h here, then we cannot read the rest of the rows.
+If you put a TD here, then we cannot read the header because header is having a separate tag and the
+data is also having a separate tag.
+So that's the reason I have eliminated.
+Header part.
+I have started from the second.
+
+Okay, but if you still want to print header, you can simply write one print statement here only.
+Header.
+Right?
+We can just print one statement print ln.
+So you can put header like this.
+So we can put the book name first.
+Header is what book name?
+Okay.
+And then.
+Given tab space.
+And also concatenate the second column is what other?
+Second column is other.
+Concatenate again.
+One more tab space.
+And the next column is what subject?
+Concatenate and give one more tab space and get knit.
+And the last column is a price.
+Just print the column names.
+Column names.
+Okay, now you'll get a column.
+Names.
+Now you can see along with the column names, we got all the data from the table.
+So this is how we can read data from the table by passing values into XPath, or to parameterize the
+data into x.
+So is this clear, everyone?
+So to read all the data from the table, we have to use a nested for loop.
+Right.
+Now let me show you another requirement.
+Sometimes we have to retrieve the data based upon certain condition.
+Okay, so let me show you something else.
+Conditional based.
+We can also retrieve the data.
+So here we have read all the data all the columns.
+Now my requirement is.
+Read the data from.
+Okay, read the data.
+Or we can say.
+I want to print.
+Book names, whose author is Mukesh.
+So this is a conditional based.
+See in the table.
+I have multiple books.
+There are multiple books, but I want to print book names only.
+If the author is Mukesh.
+So according to this data, how many books are there?
+How many books are written by Mukesh?
+Toolbox.
+This is the one book and this is another one.
+Write.
+These two books are written by Mukesh.
+Now I want to print only book names.
+They are written by Mukesh.
+That is my requirement.
+So how can we do this?
+We need to think about the logic.
+So first condition is what condition is based upon the name of the other other name.
+Right.
+So I want to print book names.
+It can be any book.
+But the author of the book should be Mukesh.
+That's a condition.
+So what we need to do now, we have to read each and every other one by one.
+Wherever you find a Mukesh.
+From the same row.
+We have to capture the first column data.
+And suppose Mukesh is matching here.
+Then immediately capture this book and next go to the next rows.
+And here one more time it is matching, so capture this.
+So like this.
+We have to repeat each and every other name.
+And wherever the Mukesh is matching, we have to capture that value.
+Okay, first thing, let us print other names.
+How to print this?
+Only other names from this table.
+Let us write an XPath.
+Only other names I want to print one by one.
+So other name is in which column?
+Second column.
+So the TD should be what two.
+When I say trough one.
+From two we will start.
+So now we can see tear off two second row second column.
+First order is matching.
+And suppose I say tear off three second order KF for next order.
+Tear off five.
+Next one tear of six.
+Next one tear of seven.
+Next one.
+So just by changing tear number.
+I will.
+I will get all the other names one by one.
+Right.
+So I will try to use this XPath to capture the other names one by one inside the looping statement.
+Okay, so I will write one first a looping statement.
+And here I will start.
+Our value from two are less than or equal to number of rows.
+All the rows I want to continue then R plus plus.
+And here I'm writing one XPath driver dot find element by dot XPath.
+Okay.
+Here I'm passing the R value, but two values fixed.
+Do is fix the dot.
+Get text.
+So this will actually return the.
+Other name so I can say string.
+Harder name.
+So here, just by changing row number we will able to get the others or not.
+The column number is constant two we no need to change, but just by changing row number one.
+Two next to three okay.
+Just by changing the row number we are able to get other names.
+So what I will do this r value I will pass here.
+Instead of seven, I'll pass our value.
+So then what is the syntax here?
+Put that in the double quotes.
+Use plus operator before and after.
+So after that I will just print other names.
+Okay, I will just print a other name here.
+So what this loop will do for now?
+This loop will read all the others from the table every other.
+So let's try to execute and see.
+We will get all others from the book table.
+So we captured only others.
+Column from all the rows.
+Yeah.
+Perfect.
+Now we got all the others.
+One by one.
+We are getting into the looping statement.
+But this is not our requirement.
+What is our requirement?
+If this particular other name is Mukesh then we will capture the book name.
+So instead of printing what I will do I will put one condition.
+What is the condition if this particular author name.
+Dot equals Mukesh.
+Okay.
+If the other name is Mukesh.
+So then what we should do.
+If other name is Mukesh, what we should do.
+Suppose here I put seven.
+Where is the Mukesh?
+Second row, for example.
+Okay, now it is pointing to second row and the second column.
+Second row.
+Second column is Amit.
+Third row, third row and second column is Mukesh.
+Now this XPath is matching with Mukesh.
+Now I captured a Mukesh.
+What is our requirement?
+If he is a Mukesh then I want to capture the data from the book name.
+I want to capture the book name again.
+It is a same row.
+It is a same row, but the column value is one, column value is one.
+So in the second column other name is there first column book name is there.
+So this XPath is matching for what Mukesh.
+Then on the same row that means on the same third row we have to capture the first value.
+First column.
+That is the book name.
+So what I will do is I capture the other name by using this XPath.
+If other name is equal to Mukesh, then in from the same row I will capture the first column data and
+that becomes the book name.
+You understood now?
+Everybody's understood this condition.
+Okay, so first I've captured the other name.
+If he is a Mukesh, then immediately what I have done.
+Same row, whatever row we have referred.
+Same row.
+But we went to first column and captured the book name.
+I think this book name variable we already used somewhere.
+Termites.
+Okay, now I got a book name.
+So then I will print here.
+System.out.println.
+Book name.
+That's it.
+So every row only row value will be incrementing.
+But here the column values are constant, so we don't need to write another for loop.
+Just one for loop is n.
+Now just observe.
+It is just returning the books which are written by the case.
+So this is the way we can also retrieve the data based on the condition.
+Yeah.
+Now you can see learn Java master in selenium.
+So I got a book names.
+But along with this book names I want to also print other name.
+We already captured the other name, right?
+Can I print it here?
+Yes.
+Give one's tab space and then concatenate it with the other name.
+So now I'll get a two columns.
+Book name plus author name.
+Okay.
+Perfect.
+So this is the book name is Mukesh book name and also Mukesh.
+So this is how we can also read the data based on the condition.
+So first we captured all the names and we then compare with Mukesh.
+If it is equal, then capture the book name and print it.
+If other than Mukesh, if we get any other other, the condition becomes false.
+Then again it will go up and repeat the loop.
+So everybody's understood this.
+How to retrieve the data based on the condition.
+Everything is expertise.
+If you know the expert, how to create and how to use.
+Everything will be easy.
+Yeah, slash T is representing the one tab space.
+So this is just a one tab space.
+After printing the book name it will give you one space.
+Then it will print author name.
+So this is actually Java slash T will give you Java slash T.
+If there is a duplicate Mukesh, it will count all the Mukesh.
+See, Mukesh is duplicated right here and here.
+Two times are repeated, so that's the reason it is returning two books.
+It is returning two books.
+I was in the output.
+The output?
+It is displaying two books.
+No problem.
+Even it is a duplicated.
+It is counting all the Mukesh.
+The question is doesn't make any sense actually, because I already put two times.
+Mukesh is repeated two times here and here.
+Duplicate you can have any number of times.
+Doesn't matter.
+It will read all the books from Mukesh.
+Okay.
+So now let me show you another requirement.
+On the same table.
+So here the last column.
+You have a prices for each book there is a one some prices.
+Now I want to capture all the prizes and I want to find the total price of the books.
+That's my another requirement.
+Here is only first name, but what if both mix has a different last name?
+You can use contains method instead of equals.
+You can use contains method.
+Equals method exactly match with this string.
+Okay, if you have a first name and last name totally different, then you can use contains method and
+whichever is common you can put that.
+Well, everything is depends on the methods.
+Okay.
+How we can use effectively.
+Right now.
+Let us see how we can find total price of all the books.
+So how we can get it.
+So first we need to capture the price for each book.
+Then finally we have to find out total price.
+But first of all we have to capture the prices for every book.
+Right.
+So let us see how we can achieve this.
+Next one.
+To find.
+Total price of all the books.
+Find the total price.
+First of all, we have to capture the prices for every book.
+So what I can do is I can write one XPath for this.
+Which column it is fourth column.
+So first go to the second row and fourth column.
+So 300 is matching just a change only row number.
+Column number is constant, so only just change the row number I say three now 500 matching four.
+Then 300 is matching.
+When I say fifth row 3000 is matching.
+Sixth row 2000 matching seventh row 1000 matching just by changing the row number.
+We are getting the prices right.
+Same XPath we can use.
+So same loop.
+Same concept.
+But politely.
+We have to change.
+Okay, so here instead of other name we will get the price.
+So we are passing the row number.
+And what is the column number of price for that we can specify here.
+Let's try to print the prices.
+Okay.
+I'm just printing the price.
+See you got all the prizes.
+So when you capture the value from the web application, everything will be in the string format.
+So even though it is displaying the numbers when you read the data by using get text, the get text
+method is always written the string format data.
+So if the data is in string format, can we do arithmetic operations?
+Can we find total?
+If the data is in string format, can we find a total of the prices?
+No.
+No.
+If it is in string format, we cannot find total price because it will be concatenated.
+Basically, when I use plus operator it will be concatenated.
+So what we should do now, we should convert this price into number format integer format.
+Right.
+Then we can add.
+So what I will do instead of printing the price.
+I will take a one variable here.
+Total integer total equal to making it zero initially.
+Now what I will do is here I will write an expression total equal to total plus.
+Because every time whatever I'm getting a price, I will add that price to the total value.
+But if I add like this this is a syntax error.
+Why?
+Because the total is an integer variable, whereas price is a string type of variable.
+So we cannot perform uh arithmetic operations.
+So we need to convert the price into numeric format.
+How to convert.
+How to convert.
+Yes, in Java we already learned it.
+Integer dot pass.
+Int of price.
+So we converted this into integer format.
+And then we have added to the total.
+And after that.
+So after completion of the for loop, because in every iteration you are getting new price that will
+be added to the total.
+And once the loop is completed, this total variable contains a total price.
+So after exiting from the for loop here we have to print the total.
+Total price.
+Of the books.
+Here.
+I'll print the.
+Okay 7100.
+Fight.
+So this is how we can handle web tables.
+So we can do different type of operations.
+Depends upon our requirement and depends upon the test case.
+So everybody's understood how to handle static web table.
+How to handle the static web table.
+So how to find the rows?
+How to find the columns, how to find the data, how to read specific row and column data.
+How to read all the rows and columns data.
+Everybody is clear.
+Yes.
+Now, based on this, I'll give you an assignment today.
+And rest of the tables we will discuss in the next sessions.
+Uh, dynamic table pagination.
+We will see in the next class and the today session.
+I'll give you an assignment.
+You guys can try this.
+So this is a web application.
+Blaise de Morcombe.
+Go to this website.
+Okay.
+So here, uh, it is just like a.
+Booking a ticket functionality.
+So here we already know how to handle the drop downs in the last class we already seen.
+So what you have to do is from this particular page, select the departure city, whichever city you
+want.
+Select a destination city.
+From the dropdown and click on the Find Flights.
+Then you will see the table.
+And in this table, what you have to do is.
+You have to find the lowest price in the table.
+Lowest price.
+So there are multiple prices, are there?
+Which one is the lowest?
+$200 is the lowest price.
+And once you find the lowest price, go to that row and click on the.
+Choose this flight, whichever is lowest.
+You need to click on that.
+Okay, now you will get another form.
+In this you can fill all this data.
+First name, address, city, state.
+All these are all normal input boxes.
+Again this is the drop down box.
+Put some dummy data and check box and then click on the purchase flight.
+So once you click on the purchase flight you will see this message.
+Thank you for your purchase today.
+So you have to validate this message.
+We have to validate this message.
+So this is a one test case you have to automate.
+And the major challenging thing is finding the lowest price in the table.
+And this price may not be in the third row.
+Sometimes it will be in the first row.
+Sometimes the lowest price will be the last row.
+Sometimes the lowest price will be in the middle of the row, wherever it is, you need to find it.
+For that.
+One logic we need to implement.
+What we need to do is we need to capture the prices, information, all prices into an array variable.
+We have to create one array, all prices we have to capture in that particular array.
+And after that we have to sort that array.
+Sorting of elements.
+So once you sort an elements you will get the lowest to highest right.
+So first to value have to take from array.
+Okay, let me explain the logic.
+Just try to implement this.
+Because we already know Java arrays concept everything.
+So we have to implement here C whatever topics we learn in Java we are going to implement C.
+These are the current prices which we have.
+So we need to capture all the prizes into area.
+So for example, let's say this is my area I have taken.
+So for 72.
+432.
+207 65 233.
+Okay, so first we need to capture all the elements one by one into array variable.
+Now we need to sort these elements by using arrays.
+Dot two sort method is their built in method.
+Once you sort it now all the values will be ordered in ascending order.
+Once you arrange them in the ascending order, first value will be 200 and rest of the values will be
+added.
+So once you sort it.
+Okay.
+You need to capture the first value 200.
+Okay.
+And wherever 200 is matching, you need to read each and every value.
+Wherever the 200 is matching, you need to go there and click on this link or button.
+In the same row, you have to click on this button.
+This is the logic you have to implement.
+I will upload the solution also.
+First try yourself your own self.
+And whenever you get a doubt, just refer my example.
+And rest of the thing is everything is same.
+Normal flow only.
+This is the tricky stuff.
+But other than this, everything is a normal flow.
+You can just go back and here is a starting point.
+So you need to select the departure city and destination city from the drop downs.
+Whichever you want, click on the find flights.
+Then you'll get a table.
+Find the lowest price and click on that.
+Choose this flight and fill all the details.
+Click on the purchase flight, then verify this message.
+This message is currently displayed or not.
+At least a thank you message should be there.
+Can you do it?
+So this is our assignment for today.
+Some.
+Try this.
+I will also upload the solution for this, and if you have any doubt or if you stuck somewhere you can
+go through my solution.
+You will understand at least the sorting technique you can understand.
+Okay, so let us stop here for today's session.
+Tomorrow we will discuss, uh, other things.
+Dynamic table, along with the pagination we will see in the tomorrow session.
+Okay, so one more thing.
+Uh, when you converting that into array, uh, I think you no need to, uh, convert actually, because.
+Let me tell you.
+So when you read these prices into array, it will come as a string actually, because the first character
+is a dollar.
+So you will read all the values in the form of strings and the strings.
+Also, you can sort, right?
+Even you can sort because the dollar is the same for every value.
+So anyway, it is sorting based on the values only.
+So string array you can sort string array you can sort.
+So you no need to convert this into numbers.
+Not at all needed.
+Just capture this data in the single dimensional array.
+Then sort it and capture the first value from array.
+That will be the 200.
+And go to this link and click on it.
+So you don't need to convert this into number.
+Nothing no need because we can also sort a string arrays right straw sort method will work for strings
+also.
+So there is no necessity of converting the data.
+So you can just follow as it is.
+Fine.
+So that's all for today.
+I'll stop here.
+Tomorrow we will discuss.
+One table, which is dynamic as well as pagination both in one single table.
+But practice this today session.
+You need to understand this.
+Otherwise you can't understand the pagination table.
+But in the pagination table there are so many things we need to understand something new.
+Stuff we will learn in the pagination table.
+All right, so that's all for today.
+I'll stop here tomorrow.
+We'll.

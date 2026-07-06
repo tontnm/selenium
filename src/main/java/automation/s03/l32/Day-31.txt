@@ -4,7 +4,7 @@ Dropdown box
 -------------
 1) select dropdown
 2) Bootstrap dropdown
-3) hidden drop down
+3) hidden drop down (xài debugger của selector hub để bắt element)
 
 
 select dropdown
