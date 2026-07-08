@@ -1,0 +1,1475 @@
+All right.
+So today is the first session.
+So we'll start with introduction of API testing.
+So I hope everybody is already know about uh web automation web testing.
+Like so in the web web testing what you will do normally we will test the UI part user interface right
+in the browser.
+We will try to access the application and we will try to validate the functionality of the application
+in the browser level.
+So that is part of UI testing or GUI testing or functional testing.
+So API testing is totally different than UI testing.
+UI testing is also comes under the uh, front end testing.
+Okay.
+If you take any application there are two different parts front end and back end.
+So front end in the sense what the browser from where we are accessing the application from the server
+through the URL.
+And we are trying to access the different functionalities of the application and we are testing it.
+So that is a part of presentation.
+That is a part of presentation layer.
+So we are basically call it as a uh UI testing.
+Right.
+So when you come to the back end testing there are two parts.
+Again one is API testing, other one is database testing.
+So these two types of testing comes under the back end testing.
+So we more focus on back end part API is purely dealing with the back end parts.
+So we are not going to deal anything with the front end application okay.
+So before understanding API testing.
+So first we need to understand some basic concepts.
+So some basic terminologies we need to understand before starting API testing.
+So today we will focus on them some basic terms.
+And what is API testing.
+What are the different types of API testing and what are the things we should know before starting API
+testing.
+And then we will try to understand that and then we will move forward.
+Okay.
+So if you take any web applications for example, what is web based application.
+Anybody knows what is web application basically.
+How many types of applications are there in the market?
+How many types of applications which we have in the market?
+Basically three types of applications, right.
+Three types of applications.
+One is web applications desktop applications, mobile applications.
+So broadly we can categorize all types of applications into three.
+Desktop applications web applications and then mobile applications.
+So desktop application is nothing but what desktop application means what it is a standalone application
+which we can download and install on your system.
+And you can work with that without having any network or internet.
+You don't need any internet to work with the desktop application.
+So what are the examples?
+So currently we are using Excel file or Ms. Word document presentation PDFs notepads calculators.
+Right.
+So these are all desktop applications.
+You don't need to connect to internet to work with those type of applications.
+There all comes under desktop applications.
+Then what are the web based applications?
+So web based application means what the actual software or application is installed on a server somewhere
+in the network, and you are trying to access it through the browser.
+So here the client and server, there are two terminologies come into picture.
+So client is nothing but what.
+So as a user as a customer I'm trying to browse some application through the URL.
+That is basically called as what a client.
+But actual web application is got installed somewhere in the server in some remote machines in the internet.
+That is basically called as a server, right?
+So web applications are basically follow the client server architecture.
+So there should be a client, there should be some server.
+So all the resources data everything is available in the server.
+But we are trying to access it through the client application.
+And all web applications are comes under client server applications.
+So if you want to work with the web applications, we have to connect to the internet.
+So we need to have a network in place.
+Then only we will able to work with the web based applications.
+Okay.
+And what is the third type of applications which we have in mobile applications.
+So mobile applications are examples are what every day we are using WhatsApp LinkedIn and different
+type of uh applications on your mobile.
+Right.
+Which we are downloading from Play Store iOS everyone.
+So these are all comes under mobile apps basically.
+So these are the different type of applications.
+So basically in the market we have a three types of applications desktop applications web based applications
+and then mobile applications.
+So especially the APIs will be used in web applications and also mobile applications okay.
+Especially APIs will be used in web applications as well as mobile type of applications.
+Mobile applications especially.
+Right.
+So here we need to first understand what is client and server.
+Simple understanding.
+In simple terms a client is a device or a software like our computer or our mobile.
+Or we are using some browsers different type of browsers, Chrome, edge, Firefox, some type of browsers.
+So what exactly we are doing with these things?
+We are sending some request.
+So for example you're opening a browser.
+What exactly you are doing in the browser.
+You're browsing some information to browse the information.
+What you will do, you will do some kind of a searching or you will open some URL in the browser.
+So what exactly you are doing there?
+You are sending some request from the browser and you are expecting some response, right?
+What client is doing?
+Basically here the client is sending some request and to get the response from the server.
+So client is basically what it's a computer or it is a phone or it's a browser, Whatever it can be,
+so the user is directly accessing the client and uses it in front of the client, and it will use or
+browse some data from the server, which is basically called as a client.
+So the what is the fundamental job of the client?
+It will send the request and it will get the response.
+And who is receiving the request and who is sending the response server.
+So what is a client job just for sending the request.
+But who is receiving the request?
+Server will receive the request.
+Server is able to process the request and server is able to send the response to the client.
+Okay, that is the server responsibility.
+Even server is also a kind of a computer, but it is a super computer.
+It is having higher configuration which contains all the software's resources, services, so many things.
+Okay.
+And what is the client responsibility?
+Client will just send the request and server will receive the request and accordingly, based on the
+request, it will process the request and after processing it will consolidate and it will send the
+response to the client.
+Now as a client, I will see the response.
+Right.
+So that is the job of the server.
+So what is the basic understanding of client and server.
+The client is used for what sending the request and server is used for what processing the request.
+Receiving the request.
+Processing the request.
+Sending the response that is taken care by the server.
+So this is the fundamental the terminology which we need to understand client and server, especially
+in the web.
+Web based applications we normally call it as a client server.
+And client is belongs to presentation layer whereas server is belongs to back end layer.
+Back end means it can be database server or it can be application server or it can be web server.
+Again, there are different type of servers are there to process for To maintain the data, we use some
+type of server, which is basically called as a database server.
+So which contains only data.
+And to process the request we use certain type of server which is called as a web server and application
+server.
+Different type of servers we will maintain at the back end, especially for web based applications.
+For desktop applications, we don't have any type of servers.
+Everything will be there in the application itself and especially for mobile applications.
+Also, we will internally maintain the servers.
+Suppose we are using WhatsApp or we are using LinkedIn.
+We are using all payment payment apps in your mobile.
+So actually the data is coming from where from the different servers, we are getting the data into
+our apps.
+So the client and server basically used in web applications as well as mobile applications.
+So wherever you say client and server definitely there will be some API's takes place.
+Definitely there should be some API's.
+Okay.
+We will discuss what exactly API means and all.
+First we will try to understand what is client.
+Client is a simple computer or a software, or it's a mobile phone, or is a browser through which we
+are able to send our requests to the server.
+Simple understanding and what is a server means it will receive the response.
+It will receive the request from the client and process the request and send the response to the client.
+Simple way we can understand what is client and what is server.
+And if I look at this picture simple you can understand.
+And between the client and server we will play the role internet.
+There should be some network and all the devices should be connected through the network client and
+the server.
+That is the relationship between the client and the server.
+Okay, now so let us try to understand few more important things.
+There are three kind of three kinds of architectures.
+Normally we follow in the client server.
+We call it as a client server architecture.
+So most of the times, like a desktop, applications mostly follow one type of architecture, one tier
+architecture, because there is no specific, uh, database server and web server.
+Nothing.
+There is no network internet nothing.
+Is there single system standalone system in which the everything will be installed?
+So for example, if you are opening a notepad and you are typing something and you have save the file,
+is there any is there any process going on in the back end?
+Nothing.
+There is no process.
+Just file will be saved and whatever file is got saved, it will be stored in somewhere in your memory.
+That's it.
+So you're opening the application on the same computer.
+You are entering the data in the same computer, and you are saving the file in the same computer.
+There is no specific database server or processing.
+Nothing is there.
+So that is simply called as a one tier architecture.
+Single tier or one tier architecture.
+There is no differentiation between the client and server.
+Nothing.
+When you come to the two tier architecture, there will be a database server and all client applications
+will be connected to the database server.
+This is also called client server architecture.
+Some computers will be connected to the database server.
+Mostly intranet applications will use this architecture.
+So what is the intranet applications?
+What is the difference between intranet and internet applications?
+Anybody knows what is the difference between intranet and internet applications?
+Intranet is nothing but what suppose within the organization.
+Within the organization.
+Okay, there are some systems and all systems are connected to one single database server.
+So for example if you go go to the bank some branch right.
+So there are multiple people will work on multiple computers, but all of them are connected to the
+single server and that is intranet.
+So whatever they are accessing inside their company or inside this branch, we cannot access them outside
+of the branch through internet.
+Right?
+Because they are intranet applications, they use their applications in their local environment.
+So they follow normally two tier architecture.
+They will have a database server in their local environment and all the client applications, all different
+computers will be connected to the database server, which is basically called as a two tier architecture.
+Now the third one is three tier architecture or entire architecture.
+We can call what is three tier or entire architecture means.
+Especially web applications are example for it.
+So in web application mainly there are three different layers.
+One is client layer which is basically a browser.
+And whenever you send some request or whenever you browse some URL first, that will go to a middle
+layer, which is called as a business logic layer, which is the second one from the business logic
+layer that will go to the database layer.
+So the whole application is divided into three different sections or three different parts.
+And these three different parts will be located in three different areas, not on a single system,
+because the client will be working on one single system and business logic, or the server will be there
+in some other location and database server or machine will be there in some other location, and all
+three are connected.
+And if the application is very complex, suppose if you take a bank, there are hundreds, thousands
+of branches will be there and each and every branch, they are having their own server, their own local
+server.
+And again all branch servers will be connected to the main server.
+Let's say you take some city, a big city, let's say Delhi.
+In the Delhi there are so many branches are there for single bank.
+So each and every branch, they are having their own local servers.
+Again, all the local servers will be connected to one main server within the city.
+And again, there are multiple cities are there in India.
+So all the cities, the main servers are connected to another main server.
+So like that the architecture keep on increasing.
+So there are multiple database servers.
+There may be multiple business logic layer.
+So it is called retail or entire architecture.
+So mostly the web applications follow three tier architectures three tier architecture okay.
+So client server architecture means there is a client, there is a server.
+And again in the server there are different type of servers.
+We have a database server web server application server basically which these servers are contains a
+business logic to processing the request.
+So we'll talk about this in detail in the coming slides.
+So this is basically three tier architecture one tier architecture two tier architecture three tier
+architecture.
+In one tier architecture there is no database server.
+There is no, uh, business logic, nothing.
+Everything in single system, single applications.
+Two tier architecture means there is a database server connect.
+All the clients will be connected to the database servers.
+All internet applications are example for two tier architecture or web applications are examples.
+For three tier architecture there is a client business logic layer and database server.
+Okay, so now let us try to understand exactly how the web applications build in which what are the
+different levels are there and what are the different technologies.
+Normally we use to design the web application.
+So basically if you take any web application, as I said, there are three different layers presentation
+layer, application layer and data layer.
+The data layer is also called as a data base layer.
+Actual data will be reside in that like we have MySQL, Oracle, Postgres, SQL server, MongoDB.
+So these are all the different databases available in the market.
+So to store the data we use these databases.
+So to have these databases we will maintain the different server machines which are comes under the
+data layer.
+On top of that we have something called application layer.
+Application layer basically contains a business logic which is also called as a middle layer.
+What is business logic?
+Actual functionality.
+So for example, let's say you are using some banking application and you are logging to your banking
+application.
+You want to find your account balance, right?
+You are.
+Send some request from your application.
+You are just opening.
+Or if you want to generate some report from where exactly the data will be pulled and the data is exactly
+present in the data layer, but you are trying to request from presentation layer.
+You are trying to request the data from the presentation layer, but actual data is reside inside the
+Database layout.
+Actual data is reside inside the database layer, but how exactly you are getting the data from the
+data layer.
+So you are here, but actual data is present here.
+How?
+As soon as you send the request.
+But how you are getting the response.
+So the application layer will take care of it.
+So which contains a basically business logic.
+So what is business logic means.
+It is a functionality.
+It is a logic a programming logic.
+So as far as you send some request, the business logic will be triggered based upon your type of request.
+The business logic will be send the same request to the database layer, and the process will be happen.
+Once the process is done, will get the response and the same business logic will provide the same response
+to the presentation layer.
+So the business layer or application layer is acting as a mediator between the presentation layer and
+the data layer.
+So basically this presentation layer is a GUI graphical user interface, our browser, our mobile application,
+our computer.
+These are all presentation layer.
+So wherever you are trying to access the data from the server, that all comes under presentation layers.
+Application layer is responsible for processing the request.
+It doesn't have any data with it.
+Application layer just contains a business logic.
+What is that logic implemented by programming and who is responsible writing the programming part?
+Developers are responsible for writing the business logic.
+So this application layer is responsible for whatever request the presentation layer is sent.
+The application layer will receive the request and process it in the database layer.
+Capture the response and provide the same response to the presentation layer.
+So that is all taken care by the application layer.
+And data layer just contains only data.
+Nothing.
+Only database having data.
+So these are the three different parts of any web application contains.
+So the first part presentation layer the UI part will be designed by using HTML, JavaScript and CSS.
+If you learn web automation testing you are already aware of these things.
+HTML is nothing but a hypertext markup language used for what?
+Designing the web elements like.
+If you want to put some input box or text box, some radio button, drop down box, some frame or some
+image, if you want to place these type of elements on the web application, HTML will be used.
+And what is the purpose of JavaScript here?
+To make action.
+To apply action on the elements.
+For example, you are clicking on some button.
+So some action should be happen and that particular action to be written inside the JavaScript.
+So what is the use of CSS Cascading Style sheet.
+We can design the website more attractively, more colorfully.
+Alignment, size, font.
+All these things will be taken care by CSS.
+So basically HTML, JavaScript and CSS will be used to design the presentation layer part.
+So this is all taken care by the front end developers.
+There is a separate team is available for front end development.
+And application layer contains what business logic.
+So this business logic is implemented by programming.
+And who is responsible for writing the programs developers like.
+They use Java programming or dotnet, C sharp, Python, C plus any programming language they use to
+develop the business logic and who are responsible for designing this part presentation layer.
+We call them as a front end developers.
+There are two kinds of developers.
+Front end developers.
+They are responsible for only this part and back end developers.
+They are responsible for what this one even database level.
+Also, there are developers and designers.
+They are working on this particular layer.
+So that means to build the whole full fledged web application.
+They are different skill set.
+People should work on different levels like presentation layer, application layer and data layer.
+And finally every layer should be communicate each other like again, we have to integrate the front
+end with the business logic.
+And without business logic there is no use of front end.
+And even if you have a front end business logic, there should be data present in the database layer.
+Otherwise there is no use of front end and the business logic.
+Right?
+So these three should be there in every web application.
+So the front end developers, back end developers, database developers always works in different levels
+of the applications.
+Now, where exactly APIs are comes into picture.
+So we already know about the web applications.
+So where exactly the web testing come into picture in the first place?
+Here we do the web testing or GUI testing graphical user interface testing.
+So what exactly we do in the web testing we will verify the functionality of the application.
+We are verifying the features.
+Different functionalities are properly working or not on the UI level that comes under the web testing.
+And if you do testing in this particular level, so what exactly the business logic means here?
+As I said, business logic reside here.
+What is business logic means what it contains.
+Actually, the business logic is nothing but a set of programs developed by developers.
+Okay.
+And these programs or these logics available in the form of APIs.
+API is nothing but a collection of a classes or Java classes, or some business logic.
+API contains some business logic.
+So for example, let's say there is an API and we will send some request from the client and what API
+will do.
+The API will receive the request and it will send the same request to the server.
+And it will process here and send the response to the API.
+Now API will present the same response to the presentation layer.
+So what exactly API is doing?
+Application programming interface.
+And there are three different terminologies.
+Are there application programming interface.
+Application means what it is assisting basically for the application from where we are sending the request.
+Programming in the sense what which contains the programming part.
+This is actually purely programming part.
+And what is an interface.
+It is acting as a mediator or interface between the application and the database.
+So that is the reason the name comes as application programming interface.
+And what is this API contains again business logic.
+Business logic in the sense an API collection of APIs and depends upon the type of request you have
+sent, corresponding API will be triggered.
+There are hundreds thousands of APIs will be there in the business logic, so it depends upon the type
+of request.
+Corresponding API will be triggered and it will do the process.
+So this is a web testing here.
+Whatever testing we do that is all part of web testing.
+So here whatever we do which is all part of these two are again back end testing.
+And again in the back end testing.
+Here we conduct API testing.
+And here what type of testing we will conduct in the third layer, what type of testing we do here.
+Data base testing.
+Data base testing.
+Okay, so web testing.
+API testing and the data base testing.
+So API and database is purely related to back end testings whereas web testing is purely related to
+presentation layer.
+Front end testing.
+Okay.
+So to become full fledged tester or automation tester you need to have idea about all these three layers.
+You have to know web testing.
+You have to know what is an API testing how we should conduct.
+And you have to know about database testing.
+So these are the three different levels of testing we have to conduct.
+Okay.
+So web testing skills are different.
+Again there are different tools are available to do web testing.
+And API testing is totally different.
+Again there are different tools are there to perform API testing.
+And database testing is also totally different.
+There are different tools are there to perform data database testing.
+So different type of people, they do different type of testing.
+But if you have a skill set on three different type of testing, then it will be very strongest profile
+for you.
+So you need to have full fledged automation tester or full fledged QA tester.
+If you want to become, then you need to have skill set of web testing, API testing and database testing.
+So if you conduct testing at the presentation layer or the front end layer, which is basically comes
+under web testing, if you test the application layer of you test the business logic, then it comes
+under API testing.
+If you test the database level then that is called database testing.
+So now we are focusing more on this part API testing okay.
+So now we will try to understand what exactly API and what it contains, how exactly the API works and
+what we should test as part of API testing.
+So we'll try to understand few more important things.
+So far.
+Everybody is clear.
+Please confirm in the chat box.
+Everybody's understood.
+What is client, what is server?
+What are the three different type of architectures and what is presentation layer?
+Application layer.
+Database layer.
+What these layers contains basically.
+Okay.
+Yeah.
+So now let us move on to the next one.
+What is an API?
+Simple.
+Full form of API is what.
+Application programming interface.
+Application programming interface.
+It is not a, just a nor.
+It is not just a abbreviation.
+There is a meaning in it.
+Application programming interface.
+Why?
+It is an application because it is assisting to the actual front end application.
+So without API there is no use of front end application.
+So from where we are getting the data to the application in the browser.
+API is providing us actually.
+So API is providing us.
+So for example how these three things will be connected.
+I'll give you a simple example.
+Let us say you have a Gmail application or any email application.
+What you will do.
+First you should do login part.
+So you do login.
+So you enter username.
+You enter some password and you submit it.
+You click on some submit button.
+So as soon as you have done some action here this is a front end part.
+So what exactly happened?
+It will not directly log into your application.
+First the API will be triggered.
+So what this API will do whatever username password you have processed here, you have sent here as
+part of your request will be received by this API.
+Now what this API will do whatever username password you are passing here that is already there or not
+in the database.
+This is your database.
+So this API will get this username and password send to the database and it will check again.
+This username and password is a part of this database or not?
+If it is there, then it will return a status or sign a true or false, and if it is a true, then this
+API will allow you to log in.
+Otherwise not.
+So what exactly this API is doing?
+Whenever you send a request, it is getting the data along with the request.
+Do some processing in the database and also allowing the user to log in.
+So what is an API here?
+The API is basically assisting to the application, which contains a business logic, which is basically
+a programming acting as an interface between your application and the database server.
+This is simple understanding what is an API.
+Okay, so application programming interface is just like a messenger to help two programs or systems
+talk to each other.
+For example here.
+What are those two systems here.
+Your front end application your database in these two.
+Between these two, your APIs sits in between these two and it will do the job.
+Okay.
+So application programming interface.
+It is basically like a messenger that helps two programs.
+Or it can be two systems.
+Talk to each other and share the information.
+Share the information and why the API is important.
+Here if you do not have this API, will you able to connect from the front end to database directly
+without having business logic?
+No, there is no use because this part is developed by front end developers.
+This part, the database part will be taken care by the database designers, database developers, and
+all those people.
+And APIs will be developed by the developer, functional developers, programmers.
+And finally they will integrate everything.
+Now you tell me which component will be developed first in the real time environment.
+So here we need to understand why API testing is important.
+So in the real environment which component will be developed first?
+Database or APIs or frontend?
+Which one can you guess?
+What is the first part.
+So they will first develop the database part.
+Okay.
+They will first focus on the database part.
+So once the database some data is available then they will focus on developing the APIs.
+That is the second step.
+First step second step.
+After developing APIs then the frontend will be ready.
+This is a step by step process.
+Okay.
+And this is the development aspect.
+Now when you come to the testing aspect so which one you can test first which component you can do testing
+first.
+First which which component.
+You can test whichever first available.
+You can immediately do the testing on that component right.
+Whichever is available first You can do testing on that component.
+So for example, let's say before the front end application is ready, let's say APIs are already there,
+already developed by the developer.
+So will you wait for the front end application, or will you directly test the APIs so we can test the
+APIs?
+Right.
+So why?
+Because to make the application works internally, the API should be ready without API.
+Even though the application is ready, nothing will happen.
+You cannot test the functionality if the API is there.
+If the business logic is implemented, then only you can test the UI also.
+Otherwise you cannot test.
+You cannot test any functionality, right?
+If the login code is not implemented, just the screen is not provided.
+What you will do with that screen?
+Nothing, right?
+So in the real environment normally what happens the database will be ready first.
+Then developers will focus on API development.
+That means they focus more on business logic implementation, and after that they will focus on the
+front end application.
+Okay.
+But earlier in the previous days, 4 or 5 years back, people more focused on the front end application
+testing.
+Web testing means what?
+70% of the testing on web and only 30% of the testing on APIs.
+So they will more focus on 70% of the testing on the web.
+Only 30% focus will be on the APIs.
+That is the previous way we are following.
+But nowadays we are more focusing on the APIs first.
+70% of the people, 70% of the focus we are putting on APIs testing and we are testing web only 30%.
+
+So why is it so?
+There are multiple reasons why we need to shift this percentage.
+Because before the front end application is ready, API is already developed.
+So how how why we need to waste our time unnecessarily, and why we need to wait till this front end
+application is implemented.
+So API is already ready and actual data coming to the application only through APIs.
+So instead of waiting for the application, if you directly test the API by sending the request and
+getting the response, if you validate these two.
+So we can do a minimal testing on the application side.
+Right.
+Because what is the base of this front end application APIs only.
+So instead of testing the application before that, if you do more testing on APIs, then lot of testing
+will be reduced on the application layer.
+So if you do functional testing more on API level, on the front end application, we can just focus
+on the UI part like alignment of element size of an element.
+So UI elements validations you can focus on instead of testing the more functionality area.
+So that is the reason nowadays companies are more focusing on API testing instead of web testing.
+So web testing is also important.
+But when I give priority to API, testing is a first priority and then web testing is a second priority.
+But at the time of learning, first you need to give priority to the web testing, then learn to the
+API testing.
+So because until unless you know how exactly web applications are working, you cannot understand about
+the APIs.
+So that is the reason you have to learn first web testing, then go to the API testing.
+But in the real environment we will focus more on API testing.
+First we do back end testing APIs, databases, properly communicating or not.
+And when you send some request you are getting proper responses or not from the API.
+So you will focus more on that.
+So once the front end or web is ready, then you will focus more on the web testing.
+So this is how the things will happen in the real time.
+So what is an application programming interface?
+What is an API?
+It is just like a messenger or an intermediary layer works between your presentation layer and the database
+layer.
+So simply we can say it is a messenger that helps two programs or systems talk to each other and share
+the information.
+So for example what food delivery application.
+So in the food delivery application what you will do normally.
+So when you select some restaurant and we place the order for example then what happens what the app
+will do.
+Now app will internally trigger the corresponding API and that will communicate with the different restaurant.
+So for example let's say you have a some food delivery app.
+And this app is connected with what different restaurants and whatever food you have ordered in this
+app.
+And it will automatically check from where the food is exactly available, in which restaurant the food
+is available, it will pick that food from that restaurant.
+If possible, you can also choose a proper restaurant.
+And who is doing this job?
+This app is doing app in the sense it internally the API is doing that job.
+So a simple example.
+So APIs are defined some rules for how the communication should happen like what data can be said,
+how to ask for it and what the response will look like.
+So when you send some request you are expecting some response, right?
+Whenever you browse something on the internet, you are expecting some response.
+So accordingly you will send the request.
+Whatever you ask, you will get a corresponding response.
+But you are asking something, you are requesting something, but you are getting something else.
+That means what?
+That API is not properly working.
+So whatever you are requested, you should get the proper response.
+So that is the responsibility of the API.
+So let us try to understand with more examples about API.
+So let's take restaurant analogy.
+If you go to some restaurant.
+So normally how many things are there in the restaurant?
+There are mainly three things.
+Customer.
+As a customer you went to restaurant and waiter and there is a chef.
+Chef mostly working inside the kitchen.
+Right.
+And he will prepare the food.
+Actually the chef is responsible for prepare the food.
+Actually the food will be prepared in in the kitchen by chef.
+These are three different layers we have.
+If I look at this particular simple understanding as a customer, what you will do when you go to restaurant
+and you will order the food, you will order the food.
+What does it mean?
+Basically you are sending some request and what waiter will do.
+He will take your order and he will go to the chef and whatever order you have given, same order,
+he will communicate with the chef and actual whatever order you have given.
+The corresponding food will be prepared in the kitchen by chef, and then that will be served by the
+waiter to the customer.
+So what exactly is happening?
+The waiter received the order from the customer and the chef is actually preparing the food again.
+What waiter is doing not only taking the request after food is prepared, he is getting that food and
+served to the customer.
+So here waiter is actually doing the job of API.
+His waiter is actually doing the job of API.
+So what API will do?
+Actually it will collect process a response and returns with the response.
+So it will take the request and it will send the same request to the chef.
+Here he will prepare the food and not only food preparation.
+After food is prepared, he will provide the food to the customer as part of response.
+So this is the best example to understand how exactly APIs will work.
+Now you can consider the customer is a front end chef is a back end that is called data layer and the
+waiter is an API.
+A business logic sits between the customer and the chef.
+Okay, so this is an example how exactly API works with the real time example we can understand.
+Now let me show you another analogy.
+Travel applications Makemytrip Agoda.com.
+So there are so many travel related applications out there in the internet.
+So all these like flight reservation or flight booking, hotel booking applications.
+So all these applications will internally work with the APIs.
+So for example let's understand this.
+There are different airlines are available.
+So for example let's say this is one type of failure.
+And this is another type of airline these Indian airlines British airline.
+They are different type of airlines.
+They are having their own companies.
+They are having their own websites.
+Now look at this.
+Makemytrip is a one application basically.
+So you are trying to book a flight By using this application.
+So you will provided some data like you provided some from to date everything to this.
+So from the magpie trip what exactly this app will do.
+Internally, the API will get this request from the customer and find out relevant flights from all
+the airlines.
+So what exactly this API will do here.
+So whatever request you are send to this app.
+Internally, the API will collect all the data from the different airlines and show to the user like
+what are the flights are available or what are the different hotels are available and who is doing their
+job.
+API.
+API will get the request from the customer and the processing at the server level, finding out or collecting
+the data and showing to the customer.
+So whatever the data the customer is sending, our API will find out or collect all the data from the
+server.
+and he is providing the same information.
+He fetched the information from the different airlines, providing to the same to the customer.
+So again, each and every application internally uses API only.
+So how the APIs work, it is collecting the data from the different applications.
+So these are different applications.
+A different software or different computers and API will communicate with everything.
+It will collect all the data and provide the data to the customer.
+So this is how exactly APIs works in the real time environment.
+I'll show you so many APIs we will see in the coming sessions.
+I'll show you so many real time APIs.
+So how exactly the API works?
+We understood so the API, where exactly it sits API resides inside the middle layer and what is called
+business logic also, which is also called as a business logic.
+So this is a front end.
+This is the back end in between the API layer will be there.
+So what this API will layer will do.
+This is also the responsibility of the API layer to take the data from the front end and insert into
+the back end.
+Sometimes we will create some data.
+Sometimes we request some data from the database layer.
+Sometimes we will update some data.
+So we is doing all the job.
+API is doing the job.
+API is directly interacting with the database servers.
+Our data will not directly go to the servers.
+Similarly, whenever you retrieve some data that will not directly come to the database.
+So internally the API will acting as a filter.
+It will take our request process, the request in the database layer and corresponding the response
+will be provided to the customer.
+So this is also responsibility of the API layer to fetch the data from the back end and display on the
+front end application.
+So now based on this we have a front end application.
+We have a API layer.
+We have a back end layer.
+So without API layer anything will happen.
+Is there any usage.
+There is no use only having data.
+There is no use only having front end.
+There is no use.
+But if at least we have a back end and APIs are ready, can we do testing?
+Even if you don't have a front end application, can we proceed with the testing?
+Yes, we can directly test the APIs and once the front end or web is ready, then we can start focusing
+on the web testing.
+Okay.
+So that's how the things will happen.
+So that's the reason we will more focusing on the API testing why we need to focus more on the API testing.
+Because to save the time, because we don't sit idle till we get the web.
+Everything is front end, applications are ready.
+The UI development will take some time.
+So apart from these three more time will be taken by the UI because there are different designing will
+be there and there is UX team will work designing and approvals.
+There are a lot of time they will spend only on the designing part, so this takes some time.
+But before designing it, apps are ready, so we'll directly start testing the apps and then front end
+application is ready.
+Then we will test the communication between front end apps properly communicating or not.
+Okay.
+So this is the basic understanding of what exactly API and how exactly it will work.
+Now what are the different types of APIs are available in the market?
+There are mainly four categories of APIs.
+We can see in the market four categories.
+Open APIs, which are also called as public APIs.
+Internal APIs, which is also called as private APIs, partner APIs, and composite APIs.
+We can categorize it into four different type of APIs.
+Let us try to understand what exactly they are.
+Open APIs.
+Public APIs.
+The name itself says public APIs means what anybody can access publicly available.
+These APIs are for everyone to use.
+You and me also can get those APIs access and we can use it.
+They are called public APIs, so these are open for everyone to use.
+Developers can access them without any restrictions, but there are minimal requirements will be there.
+For example, let's say if you want to access, uh, Google Maps API, Google maps works based on the
+Google Maps API.
+If you want to access it, you need to have a Google account.
+You need to have Google account, you need to create some token.
+So there are some requirements should be matched.
+We can do that actually without having any restrictions.
+So public APIs are available for public to use on daily basis.
+We can use we don't need any license.
+We no need to pay anything so freely available to the public.
+They are all called open APIs.
+So in the coming sessions, mostly we focus on open APIs only because they are only APIs we can access
+and we can test.
+So I'll show you different type of APIs.
+Okay, so Google Maps APIs are the examples for open APIs an internal APIs or private APIs are nothing
+but what within the company or organization those APIs can be used.
+We cannot access them.
+So for example, there is a company in the air.
+There is a air application.
+And to work with the Air application internally the APIs will be there.
+So those APIs will basically deal with the employees data or payroll processing of data.
+So which is very very confidential or very sensitive data.
+So such type of APIs we cannot access outside.
+So they are all called private APIs, company specific APIs.
+And they don't give those access on the APIs to the public, which are called private APIs or internal
+APIs.
+We cannot access them.
+We cannot test them.
+Partner APIs.
+The third thing is partner APIs.
+What are the partner APIs is nothing.
+But for example, these APIs are shared with specific partners or business.
+For example, there is a Google map API is there, and there are some travel applications.
+For example, if you want to book a cab, you have something called Ola.
+You have something called Uber, right?
+These are all basically we can use to book our cabs, autos and everything, right?
+But internally these Ola Uber is also having maps, right?
+Internally they are using maps or not.
+Initially they don't have any maps actually, but they are trying to use the map APIs from the Google
+itself.
+This is called partner APIs.
+Means what?
+The Google is giving permission to these guys to use the Google Maps in their applications, in their
+
+own applications.
+Ola is a different application.
+Uber is a different application.
+But here the Google is provided access to their application to use Google Maps.
+So such type of APIs, we can call them as a partner APIs.
+Partner APIs.
+Okay.
+For example, travel application, let's say flight Booking.com or Makemytrip.com.
+So Makemytrip.com is a website.
+And what exactly it is doing from the different airlines.
+It is trying to fetch the all the flight details and provide to the customer.
+And who is given permission to this Makemytrip.com these all airlines are provided permission to use
+their data through the API, so they are also examples of partner APIs.
+Suppose I have developed my API and someone is required that API in their organization.
+Then I can grant some permission to them to use my API in their organization in their application.
+So such type of APIs are basically called as what partner APIs.
+And finally we have a composite APIs.
+So open APIs Publicly available internal APIs or private APIs available only within the company.
+We cannot access them.
+Partner APIs we can access if you have a proper permissions from the parent company and composite APIs.
+Composite APIs is nothing but what is a combined multiple APIs into one call, allowing you to get the
+data from the different sources in the single request.
+Different sources from the single request.
+For example, let's say you have some e-commerce application in the e-commerce application, there are
+different modules are there.
+So for example, products information will be stored somewhere and the price is information.
+Prices of the product will be stored somewhere.
+Customer information will be somewhere.
+Customer reviews will be stored in some other databases.
+The different databases servers are there, different data will be stored in the different places.
+But how can you get all the data from the different servers or different places.
+So instead of having different APIs, one single API will get the data from the different servers or
+different databases and collect the data and provide the same data to the user.
+And such type of API is called composite APIs.
+Basically, how the composite APIs work.
+It will basically combine the.
+Suppose if you want to get the data from this database, there is one API pricing API.
+It will get only prices of the product, and there is another database which contains only product information.
+So here there is another API which will get only product information.
+There is another API which will get only product reviews information.
+So instead of using multiple APIs to get multiple information, there is only one single API which will
+combine all APIs.
+And when you send one request internally, all the request will be fulfilled.
+So such type of APIs are basically called as composite APIs.
+Composite APIs.
+Instead of sending multiple instead of invoking multiple APIs, we will have one single API.
+We send the request to that, and that API will internally call combine multiple APIs.
+So such type of APIs are called composite APIs.
+So these are the four different types of APIs which are available in the market.
+So open APIs publicly available internal APIs which are totally private APIs only within organizations
+are available partner APIs we can access only with proper privileges or permissions.
+Composite APIs basically combine multiple APIs and will get the data from the different sources.
+So these are the four types of APIs available in the market.
+Everybody is clear so far.
+What is an API?
+How many types of APIs are available in the market?
+Public APIs.
+Private APIs.
+partner APIs or composite APIs.
+Clear.
+So what type of APIs we can access for our demo purposes?
+Open APIs.
+So whatever APIs are available publicly, we can access those type of APIs and we can work with them.
+So in the coming forward.
+So I'll show you so many types of real time APIs like suppose we have a Google itself is having so many
+different type of APIs and GitHub is having their own APIs.
+Okay, LinkedIn, Facebook and etc..
+So these are all applications internally use a different type of APIs.
+So we will able to access all those APIs.
+They're all publicly available.
+Just we need to create some apps and we need to create some tokens.
+And we can easily access those APIs and we can test them.
+So they're all comes under public APIs.
+But private APIs, other APIs we cannot access publicly.
+Okay.
+So whatever APIs we are going to test and we are going to demonstrate all are comes under public APIs.
+Most of them.
+Okay.
+All right.
+So now let us understand API versus web service versus micro service.
+These are the different terminologies are there in the market.
+You you should have more clarity on this.
+Anybody know what is the difference between API and web service API and web service.
+What is an API?
+What is web service?
+First we will understand the difference between these two.
+Then we will try to understand about micro service.
+Anybody know what is the difference between API and web service?
+API is hosted on internet is called a web service.
+Yes.
+So what is an API?
+What is a web service?
+What is a major difference between API and web service?
+Very simple.
+Suppose developer is implemented a simple business logic and API is there.
+So if you test the API without internet.
+But still we haven't pushed that API into the production.
+It is not available in the production, it is not available in the internet.
+It is available only in offline.
+So if you do testing on that API, it is simple API, nothing else.
+It's simply an API.
+But if you place that API in the production, you call it as a web service.
+Once it is available in the internet to everyone, which is called as a web service.
+Okay, so all web services are APIs only.
+Nothing else.
+All web services are APIs, but every API is not a web service.
+Right.
+Every API is not a web service.
+Why?
+Because some APIs may put in the internet or may not put in the internet.
+So whatever APIs are available in the internet, we call them as a web service.
+They are available as a web service.
+But whatever APIs are available in the offline, we are just APIs.
+They are not web service, just you need to understand the basic difference between APIs and web service.
+Now another thing will come into picture micro service.
+Nowadays this is a term also becoming more popular buzzword in the market.
+Micro service.
+Anybody know what about.
+What is micro service?
+We know APIs.
+We know web services.
+What is micro services?
+Micro services mainly relate to the development part.
+Actually micro service I'll tell you the difference.
+You can easily understand this.
+So if you if you look at in internet, if you search in any you will be confused.
+There are lot of definitions.
+So many things unnecessarily will be confused.
+Just understand this very very simple way.
+What is API web service and micro service?
+Okay, so what developer will do first?
+For example, let's say developer implemented two different components which are related to same application.
+Same application.
+Okay.
+Let's say there is a banking application.
+There is a banking application.
+So what are the common functionalities are available in the banking applications.
+You can see your account balance and you can transfer the amount and you can generate the report.
+So let's say there are different things you can do in your banking applications right.
+So let us say the developer is developing this part a single functionality.
+And this is another functionality.
+This is another functionality.
+This is one service.
+This is another service.
+This is another service.
+Each and every component or function.
+We call this a service a micro service.
+Micro service is nothing but a small component in the application.
+A small functionality in the application is called as a micro service.
+Okay.
+Now if you want to do transfer functionality, or if you want to transfer your money to somebody else.
+That means what you are trying to invoke the one of the microservice.
+And what is the dependency here?
+Is there any dependency if you want to transfer the money to somebody else, what is the prerequisite?
+The existing balance should be there.
+So the balance part is taken care by another microservice.
+Balance part is taken care by another microservice.
+Is there any dependency or not?
+Yes, there is a dependency.
+Now, if you have a multiple web services, web service is nothing but what sorry, microservice.
+It's not a web service, it's a microservice.
+This is another micro.
+Micro is nothing but a smallest component or smallest functionality in the application.
+So in your application developer is implemented a small simple functionality which is called as a micro
+services.
+Now these microservices should be communicate with each other because there is a dependency, should
+communicate each other how they will communicate each other, each and every microservice, how they
+internally communicate.
+Again, they required APIs.
+So one microservice will communicate with another microservice again through API.
+Okay.
+So microservice is nothing but what a smallest piece of functionality implemented by the developer in
+the application API is nothing but what again, API is acting as an interface communicating between
+two microservices.
+Okay, so if you want to communicate each and every microservice again API is in place and same API,
+if you put in internet or production we call it as a web service.
+So now you got the clarity between what is API, what is web service?
+What is microservice?
+Microservice development.
+Microservice testing is purely related to the development part.
+Purely developed.
+Related to the development part and web services API testing APIs are developed by the developer, but
+we need to focus more on testing.
+We will always test the APIs and web services, but we don't directly test the web service.
+Before that, we will test the APIs once we push into the production, and once it is available in the
+internet, then we will test the Web service API only.
+But we will test the API as a web service.
+But microservices are totally different.
+That's purely related to the development.
+Even microservices testing is also a kind of a component testing or unit testing.
+Okay.
+Clear everyone.
+So this is a major difference between APIs web service and microservice.
+If anybody asks you during interview, you should not be confused.
+Most of the people have clarity on difference between app and web service, but most people don't have
+clarity on web service versus microservice.
+People will confuse here.
+What is web service?
+What is microservice?
+Microservice is a small component in your application, small piece of functionality in your application
+and to communicate multiple microservices.
+Again there is APIs required.
+Okay.
+So here I have given all the notes.
+So what exactly API means, how exactly it will work.
+And some examples have given and a way for different software systems or applications to communicate
+with each other.
+For that we use API.
+Whenever I say API that will be used for what communication between two components or two services or
+two systems is called API, and it defines some rules how we can how one can app how one app can request
+data.
+Mainly we will focus when I do API testing.
+When I deal with the API, we will more focus on two things.
+One is request what type of request we are sending, what type of data we are requesting, and what
+kind of response we are expecting.
+So we need to keep these two things in your mind when you're working with the APIs.
+Example some phone we have some weather app.
+So what exactly it will do.
+That API will get the weather data from the weather server.
+There is a server from that.
+It will give the data to you.
+Web service is nothing but what once you place the API in the internet, which is basically called as
+a web service that you can access only through HTTP or Https protocol, that means only through internet
+UI, we can access that web service, and it will basically exchange the data in the form of XML and
+JSON.
+We will discuss that later in detail, like payment gateways are example for web services.
+So suppose you are doing some payment through internet online.
+So what exactly how you are doing the payment actually.
+So internally the payment gateways internally use some APIs.
+You are doing some PayPal payment or razorpay payment or some other app you are using internally.
+Corresponding APIs will do the job.
+And those APIs are basically for what web services because they are available in the internet.
+So all web services are APIs, but not all APIs are web services.
+Okay, remember this point, all web services are APIs, but not all APIs are web services.
+Once you place the APIs in the production or internet, they become the web services.
+And microservices is what a small independent part of your application that does one thing means some
+functionality will be there.
+Okay.
+And by combining multiple microservices they build a big application.
+Okay.
+Large application.
+They will build by combining multiple microservices.
+And these microservices also will communicate each other through APIs.
+Okay.
+So I have given some examples.
+Here's for example an application shopping application online shopping application.
+Separate microservices are available for logging product catalog payments or order tracking.
+So again these features are dependent on each other.
+So all microservices should combine to become a large application.
+And those microservices will communicate each other through APIs.
+So how exactly APIs will work.
+We can also call as a Rest APIs.
+We have two kinds of APIs Rest and Soap.
+Soap APIs are very old.
+One very less companies are using.
+Nowadays 90% of the companies are using only Rest APIs.
+So what is the major difference?
+Soap APIs are basically used only XML format sending request response.
+Everything in XML format, whereas in rest API we can use a different formats like it supports JSON
+format, XML format, CSV format, text format, HTML format.
+So different formats of data is allowed in Rest APIs.
+In Soap APIs, that's not allowed.
+And there are so many differences are there in the architecture level.
+Even performance wise, Rest APIs are more faster than Soap APIs because XML is, uh, XML data.
+Basically, the data which is representing in XML format is very, very uh, it is not lightweight actually.
+So Rest APIs will specify data in the JSON HTML form.
+This is very lightweight.
+So whenever the data is lightweight the performance will be increased because in the transporting the
+data it will go very faster.
+So automatically the performance will be increased.
+So Rest APIs are very faster than Soap APIs.
+And in the Soap APIs is very, very limitations are there when you compare with the Rest APIs.
+So 90% of the companies are using Rest APIs, which support a different formats of data.
+And moreover they are faster when you compare with the performance.
+So we are dealing with only Rest APIs.
+So how exactly Rest API works based upon HTTP methods?
+So as I said, first thing, what is the fundamental point of API?
+How exactly API works?
+What is required for API?
+So I have some API.
+I want to test this API.
+So what are the things we need to.
+We need to just ask something.
+It will give something.
+So whatever you're asking that is basically called as a request.
+And whatever we are getting which is basically called as a response, there are only two things we need
+to focus while doing API testing.
+We do some request, we will get some response, but how many types of request we can send?
+There are different type of request we can send.
+we are called as HTTP request.
+So normally any API if you want to test we will request something.
+We are requesting something and that request will go in different type of requests which are called
+HTTP request.
+And these HTTP request there are different type of n number of requests are there.
+Majorly we will talk about four types of request.
+Get post put.
+Sometimes we use patch sometimes delete.
+So these are four and five types of request.
+We will do patch and put is almost the same and get post put patch delete.
+These are the main type of request we normally use in APIs.
+Rest API get is nothing but what we are trying to retrieve some data from the server.
+Get.
+Get is nothing, but we are asking something.
+Post is nothing but what we are sending, something, we are trying to create something in the server.
+It is nothing but what we are trying to update something server.
+There is some resource, some record is there.
+We are trying to update that.
+Put patch is nothing but what whatever existing record is there.
+There is some issue we need to update it.
+For that we use some patch.
+Delete is nothing.
+But what?
+Whatever the data which is already exist in the server, we want to delete it.
+So that's called delete request.
+So it depends upon the type of request.
+Corresponding APIs will be triggered and it will perform certain operation.
+So basically we are call them as a third operation create update delete and retrieve same database whatever
+operations we do.
+Same operations we do as part of HTTP request.
+Okay.
+HTTP methods we call them as HTTP methods or HTTP request.
+So whenever you are trying to work with the Rest APIs, we will focus more on request.
+and we will validate the response.
+So where do we do validations on request or response.
+We don't need to do any validations on the request because we are sending the request.
+But where exactly we do validations response that is very important.
+So whatever we are sending, we are whatever we are requesting and we are getting proper response or
+not.
+So that area we need to focus more to perform the validations.
+And again validations.
+There are lot of things we need to validate, like status code, we will validate body.
+We have to validate data time performance okay.
+Lot of things are there.
+We need to validate as part of the response.
+So again that we will discuss in the later in the detail way.
+So this is at very high level how exactly we have to test the APIs.
+So API is request a request.
+And that request we can send the different ways get post put patch delete.
+And there are so many are there.
+But majorly we use these type of HTTP request or HTTP methods.
+Okay.
+And finally.
+So we have understood exactly what is a Rest API and what is request.
+What is a response and how many types of HTTP methods are there.
+Get post put patch is optional.
+Put and patch is almost same.
+Get post put and delete.
+So these are the four major operations.
+Most of the times we do.
+So get is nothing but what receive the information about an API resource.
+Yeah.
+Now you need to understand some terminology.
+Resource.
+What is resource.
+Any idea what is a resource?
+Resource is nothing but what the terminology is important resource.
+Let's say I have a database server.
+I have some server.
+I have a different data.
+Is there m from the presentation layer.
+I am trying to request something.
+I want to get some for what I am requesting for.
+I have some resource here that I want to access it.
+So we are requesting for some resource.
+So whatever is existing in the database layer, which is called as a resource resource is nothing but
+what a functionality, a component or some data or some information is called as a resource.
+In API testing terminology we call it as a resource.
+Okay.
+So when you say get, get is nothing but what we are trying to access some resource, we are trying
+to retrieve some resource.
+When you send a get request post is nothing but what we are trying to create.
+Some new resource in the database server post means we are sending the resource that should be created
+in the database.
+Put update an existing resource.
+The resource is already there in the database server.
+We are trying to update it for that.
+What type of request?
+We have to send, put, request and delete.
+The resource is already exist, but I want to delete it permanently.
+Then I have to send delete request.
+So most of the times we do these four type of request get, post put and delete get is nothing.
+But the retrieving the resource post is nothing but a.
+Creating the resource put is nothing but updating existing resource.
+Deleting is nothing but what.
+Deleting the resource from the server.
+Okay, so throughout the rest API testing we will deal with these four type of methods.
+We will focus more on Rest request.
+And we will also focus more on response and different things we will validate as part of the response.
+Now here you need to understand the major difference between HTTP and Https.
+Anybody know what is the difference between HTTP and Https?
+Hypertext Transfer Protocol and what is yes means security.
+S means more secure.
+So what is HTTP and Https?
+Have you noticed these when you are browsing some websites?
+Anytime.
+So when you browse some websites, sometimes you will get HTTP with strike mark, red color strike mark
+you will get some URL.
+And when you say Https also, especially when you work with the banking application where accessing
+most of the times you will see Https and sometimes only you see HTTP.
+What does that mean?
+So when you see HTTP on your URL that is not secured, actually your data is not secured.
+But in some websites you can see Https.
+That means what your data is more secure.
+That means your data is encrypted.
+The data transportation is happening in the encrypted format, but in HTTP the data is not encrypted.
+That's not secure websites.
+Okay, so most of the banking websites, if you have a sensitive data such type of websites mainly maintain
+Https is a type of a protocol encryption and decryption type of techniques they internally use okay
+http https because what why we need to know about the http https because when I send get request, post
+put delete request.
+These requests are especially related to HTTP request.
+We call them as a HTTP request.
+So what is the major difference?
+If I look at this picture you will understand.
+So if you just look at see only http, that means this password is not encrypted.
+Suppose you are sending username and password in HTTP website that is not encrypted.
+Your password is just going just like a plain text.
+It is not encrypted, it is not secure.
+But when you say Https, your password is encrypted.
+Okay, so this is a major difference between HTTP websites https websites.
+Secured.
+And finally some terminologies we need to understand.
+Suppose if you look at the URL you can see you are a URL.
+You are in Uniform Resource identifier okay.
+And a Uniform Resource locator uniform resource name.
+You will see these type of names sometimes when you are working with the API testing.
+So we will just try to understand.
+It's very simple.
+Suppose when you see this particular URL this is completely we can call it as a one URL or you are a
+URL.
+Sometime we can call it as a URL.
+Or we can also call it as a URL.
+Means what?
+Uniform resource identifier.
+Uniform resource locator identifier or locator.
+Both are almost the same.
+What does it mean?
+meme HTTP is an old technology actually.
+Okay, so when you compare with HTTP and Https before HTTP is coming to the market, there is HTTP.
+So actually the HTTP websites are not secure in the market.
+And if suppose some companies or some people still using these HTTP website, they are not secure.
+They are very dangerous.
+The data is not encrypted.
+There is a chance of hacking the data.
+So initially they were there in the market, but later on people are like once the internet came into
+market, it becomes a popular.
+Right?
+So whenever the hackings are happening.
+So then on top of HTTP, some other new protocol introduced Https.
+So once they introduce Https, then Https is becoming very popular because this is more secure and even
+the W3C standards is recommended to have HTTP websites and don't trust HTTP sites.
+Trust only HTTP websites.
+Okay, and whenever you see HTTP sites in the network, don't provide your personal data or sensitive
+data.
+There is a chance of hacking the data because the data is not encrypted format.
+But when you see https in the URL so happily, you can provide your sensitive data.
+Also, because they can encrypt your data, they are more secure.
+Okay, so if I look at this URL, there are multiple parts are there.
+So let us try to understand what are the main parts in the URL.
+So the whole thing is called URL from here to here you can call it as a URL Uniform Resource Identifier
+or Uniform Resource locator okay.
+What are the different parts are there.
+This part you can see right.
+So the.com you can see.edu dot in.
+Sometimes you can see the country part dot a you.us.
+This is called as a domain.
+This is called as a domain.
+Okay.
+And this part is called as a hosting set.
+This is called as a hosting hosting server.
+Actually this is IP address because if you provide the IP address it is very difficult to remember.
+Right.
+So we will provide some hosting server.
+This will connect to the host and the domain.
+And this part is called as a resource.
+Actually this is also called as a path.
+First this part will go to the server.
+In the server it will go to articles folder.
+Inside the folders you can see article name.
+This is actual file resource we are trying to get.
+So if you want to get this particular file you need to provide the entire stuff.
+So there are multiple paths are there in this whole thing.
+So the whole thing is called Uniform Resource Identifier or Uniform Resource Locator.
+And this part is called as a path.
+And whatever the exact That resource we are trying to retrieve from the database, which is called as
+a u r n resource name.
+This is the actual resource we are expecting from the server and where this resource is present inside
+the articles folder.
+So articles dot article name.
+This whole thing is called a path.
+And where this is exist in the hosting server.
+This is all part is comes under the hosting server.
+Okay.
+And this part is HTTP.
+Https is also called as a schema schema.
+Okay.
+And protocol schema or protocol.
+So these are the different parts which we can see in the the whole URL path and resources are same path
+are resource is not the same actually.
+Why.
+Because the resource is present inside the path.
+So for example let's say in your local system you have a C drive.
+Inside the C drive you have a folder with your name.
+Inside this, you have actual file.
+Now, if you want to get this file, you have to navigate this path.
+Right.
+And what is an actual resource here.
+What is an actual resource here?
+The file is actual resource that we are looking for.
+But where this file is exist inside this path.
+So this is called as a path.
+This is called as a resource.
+Similarly here this is actually resource.
+This is a part of this path.
+If you want to access this resource you need to go to this path.
+We call this whole thing is a path.
+Inside the path the resource is present.
+Similarly inside this path this resource is present.
+And the whole path is present inside the host server host okay.
+And the scheme host domain path resource everything Combinedly.
+We can call it as URI or Uniform Resource locator okay.
+This is a terminology which we need to understand and feature and resource we have already understood
+what is the resource means, what whatever is existing in the server, which is called as a resource,
+also called as a feature.
+Okay.
+Now finally payload.
+What is payload request.
+Payload response.
+Payload.
+Payload is nothing.
+But what request payload and response payload.
+So whenever you send some request to the API.
+So let's say I have an API here, I have my server and here is my client.
+So you are sending some request to the API and you are getting some response here.
+The request here you have a response.
+So whenever you are sending the request to the API you will also pass some additional data.
+For example what suppose if you want to send this request, sometimes username and password is required.
+Sometimes the token is required.
+Sometimes some data we have to pass.
+So for example if you want to create a new employee data in the database server there is some API.
+So you need to pass the employee details right.
+Employee name employee ID number, salary.
+You have to pass the data.
+So whatever data you are passing along with the request which is called as request payload, okay,
+request payload and whatever data we are getting as part of the response, which is called as a response
+payload response payload means what the data we are getting along with the response.
+Suppose your banking application, you are sending some of your account number and it will give you
+all the data, account holder, name, balance, transactions, everything that is called as response
+payload and what are account number you are giving like your identity you are giving right?
+That is request payload.
+So whatever data you are passing along with the request, which is called a request payload, whatever
+data you are getting from the response, which is called as a response payload.
+Simple understanding because these are all important the coming sessions.
+Once you start testing the APIs, these terminologies you need to remember.
+All right so status code what is HTTP status codes.
+So understood what is HTTP request.
+Can anybody tell you what are the HTTP requests.
+How many are there.
+What are the API http request?
+We have understood mainly for get post put deleted along with the patch.
+So these are mainly four type of HTTP request.
+Similarly, whenever you say send request will get a response.
+So similarly for every response is associated with some status code.
+Every response is associated with some status code.
+That is also one of the key thing which we need to validate as part of the resource, as part of the
+response.
+So when you request something, you are getting some response.
+What are the things we need to validate as part of the response?
+There are a lot of things we need to validate the response body.
+We need to validate the response code that is called status code.
+We need to validate how much time it is taking.
+We need to validate headers.
+We need to validate cookies and a lot more other things we need to validate as part of the response,
+not only the data.
+So HTTP status code is basically referring the status code which is part of your response.
+Sometimes you will get 200 status codes.
+Sometimes you will get 201.
+Sometimes you will get 500 501.
+These are all called status codes.
+These are all called status codes okay.
+And mainly status codes will be five different series one.
+Series two.
+Series three.
+Series four and five.
+Series okay.
+And whenever you send some request to the server, most of the times if your request is successful,
+you will get the status code in the two series.
+And if suppose there are some errors, your request is not properly processed by the server.
+Mostly you will get four series or five series series.
+Only three characters will be there, or three numbers will be the three digits, and it will start
+with one, either 2 or 3, 4 or 5.
+Okay, so when you will get the one series, the server has received your request and is currently processing
+it.
+Your request is still not completed in the server, but you will get some status code.
+One series that means your request is still processing on the server, and two series you will get.
+That means what the server is processing your request and successfully receiving the received and understood
+by the server.
+In that case, you will get a two series and server has received the request, but it is being redirect
+to another location.
+Suppose you are asking for some resource from the server, and it is not able to found the resource
+in the server.
+Now it is trying to relocate the resource in some other server.
+In that case you will get a three series and server is unable to locate your resource.
+For example, that resource is itself is not exist.
+Then you will get a four series.
+And suppose there is a connection error between your client and servers.
+Server is not properly responding.
+Sometimes your API is not able to send the request properly to the server, and when a server response
+is sending, there is some disconnection issues.
+In that case you will get A55 series.
+So these are the five different series of codes are available which are also called HTTP status codes.
+We are also going to validate them as part of your response.
+So I have given the detailed list of all the codes one.
+Series two.
+Series three.
+Series and everything.
+You can just remember few of the things, especially two series and all are green which are successful
+request and five series.
+Just remember some of the five series and and four series.
+Also, sometimes you may see these kind of status code in even browser.
+Also bad request.
+Unauthorized.
+Forbidden.
+Not found.
+Have you seen these type of messages in your browser?
+Sometimes.
+Yes.
+So basically that code is representing something from the server HTTP request code response code.
+We call it as a response code.
+So when you validating the http API responses we need to also make sure should validate all the status
+code.
+Every response is associated with the status code.
+That status code is basically describes whether your request is successful or not, or your request
+is not successful, or your request is redirected, or your request is still processing how, we will
+know that based upon the HTTP status code, we will aware of that.
+So we should also validate these things as part of your response of the APIs.
+Okay.
+And finally this is a actual workflow of any Rest API.
+If I look at the picture you can simply understand consumer and producer who is consumer, whoever is
+accessing the API, trying to use that API.
+They are all consumers.
+Client consumers are nothing but a client.
+And who is the producer?
+The server is basically called as a producer, S1 and S2.
+So when you send a HTTP request, you have to pass URI or URL headers, some payload we have to pass.
+This is all data we are passing along with the request.
+Now the server will receive the request.
+Connect to the database and type depends on the HTTP type of request.
+It can perform post action or get action or put or delete whatever request it will perform here, it
+will get back the response and the same response will be provided to the consumer again.
+At the time of giving the response, the status code will be their response payload will be there and
+whether it's successful or not, the confirmation message is also part of the response.
+Okay, we already understood what is payload.
+So payload is nothing.
+But the data which we are passing along with the request is called request payload.
+The data which we are getting along with the response is called response payload.
+And the status code is one of the key point in the response which we need to validate along with the
+response payload message.
+And there are many more things we need to validate.
+This is the whole workflow.
+So these are all called Crud operations in the database language.
+Even in the database also we do the same operations.
+We will create some tables or create some data.
+We will retrieve some data.
+We will update existing data.
+We will delete the data.
+So we call it as a Crud operations in database language, but in API testing we call this a post get
+put delete.
+Create is exactly same as a post.
+Post is nothing but what we are creating.
+Something new resource get is nothing, but you are retrieving the existing resource.
+Put is nothing but you are updating the existing resource.
+A delete is nothing but we are deleting the existing resource.
+So whatever operations we do in the database, exactly the same type of operations we do through APIs.
+Okay, so this is all about the basic understanding of what exactly APIs and what are the different
+types of APIs, how exactly APIs work.
+What is request?
+What is response?
+Okay.
+You need to have more clarity on this.
+And then we can start testing the APIs.
+All right.
+So this is all about introduction part today.
+And then we will continue in the next class or next session.
+Okay.
+Yes.
