@@ -1,0 +1,117 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "location": "Hà Nội",
+      "phone": "0901234567",
+      "courses": [
+        "Toán học",
+        "Vật lý",
+        "Tiếng Anh"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Trần Thị B",
+      "location": "Hồ Chí Minh",
+      "phone": "0912345678",
+      "courses": [
+        "Hóa học",
+        "Sinh học"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Lê Hoàng C",
+      "location": "Đà Nẵng",
+      "phone": "0923456789",
+      "courses": [
+        "Tin học",
+        "Toán học"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Phạm Minh D",
+      "location": "Cần Thơ",
+      "phone": "0934567890",
+      "courses": [
+        "Ngữ văn",
+        "Lịch sử",
+        "Địa lý"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Hoàng Hải E",
+      "location": "Hải Phòng",
+      "phone": "0945678901",
+      "courses": [
+        "Tiếng Anh",
+        "Tiếng Trung"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Vũ Thị F",
+      "location": "Nha Trang",
+      "phone": "0956789012",
+      "courses": [
+        "Kinh tế vi mô",
+        "Quản trị học"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Đặng Văn G",
+      "location": "Huế",
+      "phone": "0967890123",
+      "courses": [
+        "Triết học",
+        "Xã hội học"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Bùi Minh H",
+      "location": "Vũng Tàu",
+      "phone": "0978901234",
+      "courses": [
+        "Marketing",
+        "Kỹ năng giao tiếp"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Đỗ Thùy I",
+      "location": "Đà Lạt",
+      "phone": "0989012345",
+      "courses": [
+        "Nghệ thuật",
+        "Thiết kế đồ họa"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Ngô Quốc J",
+      "location": "Quảng Ninh",
+      "phone": "0990123456",
+      "courses": [
+        "Kỹ thuật lập trình",
+        "Cơ sở dữ liệu"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Lý Thu K",
+      "location": "Biên Hòa",
+      "phone": "0909876543",
+      "courses": [
+        "Pháp luật đại cương",
+        "Tiếng Anh chuyên ngành"
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

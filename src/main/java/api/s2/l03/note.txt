@@ -1,0 +1,1747 @@
+All right.
+So in our previous class we have seen how we can set up the environment, like how we can install postman.
+And also we have seen the basic request like how we can get request post request, put request and delete
+request and so on.
+And today we will see how we can create our own APIs for testing purpose.
+Okay.
+So how we can create our own APIs.
+And after that we will try to understand what is a JSON and JSON path which is very, very important,
+especially when you do validations on response.
+We need to understand what is JSON, what is a JSON structure and so on, how to write a JSON and how
+we can write the JSON path.
+So these things are very important.
+So before validating the response okay, so for a few demos for few concepts we are going to use our
+own APIs which I am going to create.
+And I'll show you.
+You guys also can create your own APIs and accordingly you can practice them.
+And also we will try to say we will try to use some real time APIs.
+After understanding the responses, validations and everything, we will try to work with the real time
+APIs.
+Okay, so first let us start with how we can create our own APIs.
+So to create our own APIs there are mainly three prerequisites we need to achieve.
+So first thing we need to install Node.js.
+Second thing npm which is basically node package manager.
+And once we install node.js by default you will get npm.
+And after that we need to install a special package called JSON server, which is very, very important
+through which we can create our own APIs.
+Okay.
+These are the three prerequisites.
+Node.js we have to install and npm package you will get once you install Node.js.
+And then JSON server is another package which we have to install through npm okay.
+So especially when you work with any angular based applications.
+Node.js is a very important for for, especially for Java based project.
+We use Maven, right?
+Similarly, uh, Node.js is also a type of a maven project.
+So Node.js is a kind of a platform.
+And on top it provides something called npm.
+So through npm we can install different type of packages.
+So these are the three things which we need to have to create our own APIs okay.
+Not complex APIs.
+Very simple APIs we can create.
+And uh by using JSON file.
+Also we required I'll show you how to have how to create a JSON file and so on.
+So these are three prerequisites.
+We need to have Node.js.
+We have to install.
+And by default you will get 10 p.m. from Node.js and then JSON server we need to install.
+I'll show you step by step process.
+And you guys can try this after the session.
+It is very simple and easy step by step process and the Mac users also follow the same process.
+Okay, there is no difference.
+So first thing, we need to download and install Node.js software, which is mandatorily required to
+create our own APIs.
+If you don't want to create your own APIs.
+These things are not required.
+So these things are required to create our own APIs.
+User defined APIs, right?
+If you want to use some existing APIs which are available in internet so you don't need to install them.
+Okay.
+So this is only for creating the APIs.
+All right.
+So first see how we can download Node.js.
+And we will try to install Node.js.
+After that we will see other components.
+So this is the download link.
+And once you open this link you will navigate to the Node.js official website.
+And you can see the download button here.
+So you can see the tab called download.
+And if I just go to this download tab you can see multiple tabs here.
+Package manager rebuilt installer rebuild binary source code.
+There are multiple things you can see here.
+So you need to go to prebuilt installer.
+So this is a tab.
+We have to click inside this.
+And here you can see there are different versions of NodeJS is available.
+So you can take whichever.
+Mostly we will take LTS long term support or you can take current version 23 .5.0 is also fine.
+You can take always latest version.
+And then here you can select the platform.
+So on Windows or Mac or Linux on which platform you are going to download just select the platform.
+So currently I'm selecting windows and then which chipset 64 bit 86 and ARM 64 and Mac users select
+this ARM 64 okay.
+If you are selecting Mac here I can say Mac OS, then ARM 64 is selected.
+So this is the combination you have to select for Mac users.
+And for windows users directly go to windows and 64 bit you have to take.
+And once you select this combination and then click on Download node JS and currently showing 22 .4.0
+which is LTS.
+Long term support is there.
+So you can just download this.
+So once you click on it, it will download the installer.
+I will show you how it looks like I have already downloaded.
+So this is my installer.
+You can see that okay let me delete this file.
+So note version 22 .1.2. x.
+And this is dot MSE file okay Microsoft Installer file.
+So you will get this installer file.
+So once you get this installer file you can easily install Node.js.
+Just double click on it.
+So once you double click on it it will start opening the windows.
+And just you need to click on next next next.
+And then Node.js will be successfully installed.
+So I already installed my Node.js.
+I have captured all the screenshots.
+I will share them and you can just go to the same thing.
+So here as soon as you downloaded this executable file MSI file, then you can just click on it.
+It will go to the next screen like this.
+It will show you Welcome Wizard and just click on the next.
+You need to select any options.
+Simply click on next next next.
+So here just click on the next button and then it will go to another screen.
+acceptance licence and agreement.
+And again click on the next button.
+And here it will show you the default location where exactly the Node.js got installed.
+By default it will go to program files.
+It will create a new folder called Node.js.
+And inside this the Node.js will be installed.
+And if you want to install some other location, you can change the location, but let it be the default
+location and then click on the next button.
+And after that it will show you different options here.
+And if I look at these options one of the option is npm.
+Means what package manager.
+Node package manager.
+So this is a main component which we required further.
+And that is also have listed at the beginning as a prerequisite.
+We need npm right.
+So if you install node.js by default you will get npm.
+So you don't need to install separately.
+And that you can see here in this list.
+NPM package manager node package manager.
+Basically it's a full form and once you selected by default it is selected all the options.
+You don't need to do anything here.
+Just click on the next button just and then it will go to another screen.
+And here you need to select anything.
+Just click on the next button and again and the final screen you will see the install button here.
+So once you click on this install it will start installing your Node.js.
+So once it is done process.
+And finally you will get a completed Node.js setup wizard and to simply say finish.
+So this is simple installation of Node.js software.
+So once you have installed this Node.js software you need to cross check the environment variable path
+is got created or not.
+So every software whenever you install.
+And we need to set a path environment variable.
+So where we can set that you can just go here and right click on this PC go to properties.
+Under properties go to Advanced System Settings.
+So normally we configure Java path Maven path and everything right in the same location.
+Just go to environment variables.
+And here under System variables select the path variable.
+Click on edit.
+Now here you can see program files NodeJS.
+This path is already created.
+So we no need to add any path here actually.
+So the NodeJS itself will automatically add these two paths.
+NodeJS.
+Under NodeJS there is another folder called node modules.
+This is also required.
+Sometimes it will add only one one path program files on NodeJS.
+But you need to additionally add this also same nodejs path slash node modules.
+So make sure these two paths are configured under environment variables.
+So by default these two things will be added.
+If you look at after installation of NodeJS.
+If not you have to add them manually okay.
+Go to the location of Node.js, copy this path and paste it here.
+So once you copied these two parts and just simply close everything.
+So this is how we need to set path of Node.js software.
+So I have given all the screens step by step and even setting the environment variables.
+Also, I have given the path go to System Properties.
+Select the path variable.
+Make sure these two paths are successfully added into the environment variable section.
+Okay, this is how we need to set up.
+So in the Mac users you don't need to do all the environment setup.
+Just you need to go to installer.
+Click on installer and installation is done.
+That is enough.
+So the path will automatically set by the installer.
+You don't need to set any path even in the Mac also.
+Okay, fine.
+So once you have successfully installed the Node.js, then how we can verify whether the Node.js is
+successfully installed or not.
+So for that we need to first go to the command prompt.
+So if you are working on Mac you need to open the terminal.
+Or if you are windows you need to open the command prompt like this.
+So in the command prompt you can type a command called node.
+Hyphen.
+Hyphen.
+Version.
+Node hyphen hyphen version.
+So this will actually gives you which version of Node.js you have successfully installed and configured.
+If you have not set path properly, you will not get the version.
+So anyway, the path is automatically set.
+So you will get this option.
+Okay.
+So this is the command you have to check.
+So this is you are getting version is nothing but what you have successfully installed Node.js.
+Also you are successfully configured Node.js software okay Mac users you can open the terminal.
+In the terminal you can execute this command.
+So this is how we can simply install Node.js software.
+This is the first prerequisite okay that the first one is achieved.
+Now as I said npm by default you will get along with the Node.js.
+So we need to also verify the npm version.
+So how we can verify npm version on the same command prompt you can simply say npm hyphen hyphen version
+because npm.
+By default you will get along with the node.js.
+Simply execute this command.
+It will show you npm version.
+Also, this is the version which is currently available which comes along with the node.js.
+You no need to install npm separately, so you have to make sure node is successfully installed.
+And along with that npm should automatically comes.
+So you need to verify both the versions are correctly displayed or not.
+So this is the first thing we need to verify okay.
+So with this we have achieved two requirements.
+Node.js we have successfully installed.
+And by default you got npm from the Node.js.
+Now what is the third thing we need to install JSON server component.
+So we can install JSON server only through npm.
+So to do this we need to execute one more command.
+So these are the two commands I've just shown you.
+Node hyphen hyphen version npm hyphen an iPhone version.
+Now the third thing is we need to install JSON server.
+So how we can install using npm command.
+NPM install hyphen g JSON server is a keyword.
+So if I execute this command on the same command prompt, it will install JSON server and later this
+component is required to create our own API's to run our own APIs on your local systems.
+So let us try to install JSON server so I can simply go and execute this command npm install hyphen
+g JSON hyphen server.
+Okay, this is the same command.
+All are lowercase characters.
+So once we executed this command, it will start installing JSON server and you will able to see these
+commands these messages it will add some packages.
+This number will vary version to version number.
+So don't expect every time you will have only 45 packages and it will give you some kind of a notifications
+here.
+Simply you can ignore these notifications.
+Okay so this command will just install JSON server.
+So I already executed this command once.
+So I cannot execute the same command once again.
+So I'm just capture the screenshot here.
+Once you executed this command you will see these kind of notifications.
+Okay so with this we have achieved three prerequisites.
+We have successfully installed Node.js.
+Also npm comes along with the Node.js.
+We have verified the versions also.
+And finally we have installed JSON server using the command npm install g JSON hyphen server.
+So when I execute this command it will install JSON server.
+So these are the three prerequisites we need to first achieve to create our own APIs now.
+So with this how we can create our own APIs.
+So far everything is clear.
+Can you guys can do it?
+Can you guys do it?
+Three steps how to install Node.js, how to get npm and how to install JSON server.
+Simple.
+Only three components are required.
+This is only one time installation, one time setup.
+So in future you can create any number of APIs your own APIs okay.
+All right.
+So once you have achieved these three prerequisites now we will see how we can create our own APIs.
+So to create our own APIs we need to have some data in JSON format.
+It can be any type of data.
+So we need to have the data in the JSON file.
+So here if I go back and see in the C drive I maintain some of the JSON files.
+That is again prerequisite if I go back to automation files.
+So I have some list of JSON files.
+You can see JSON data dot JSON store, dot JSON students dot JSON.
+So I have different JSON files are available here.
+So if I open this students dot JSON, I'm opening here and just opening in the notepad plus plus.
+And you can see the some code content is there.
+So this is actually data API's data.
+But in the real time actually we don't store this data in the file format.
+The data will come from the database.
+But this is just dummy APIs we are creating.
+So we will maintain the data in the JSON format.
+So when I send API request this is the same data we will get as part of response.
+So this is the data which we have in the JSON format actually.
+So what is exactly this data.
+This is students data students.
+And this is a data of the first student second student and third student.
+Every student is having some ID name location, phone number and what are the courses they have enrolled.
+So this current data which we have.
+So later we will try to understand the JSON data, what exactly it is, how we can understand JSON path
+and all these things.
+We will try to understand slowly, but we need to maintain one JSON file like this.
+Okay.
+So the first thing.
+So we have already done the prerequisites and the JSON file is already exist.
+So now we need to create our own API okay.
+Now we need to create our own API.
+So now let us see how we can create our own API.
+So with this JSON file.
+So to create our own API.
+So wherever you place this JSON file you need to just go to that location.
+I'm just going to another cmd I'm opening here and the previous command prompt.
+If you want you can close it because we already installed Node.js, verified the version of npm.
+We have already installed JSON server, so this is not needed.
+Now if I go back and go to the location where exactly you placed your JSON file, and here we need to
+run one command to create our own APIs.
+So students dot JSON which is data is already available.
+So now we need to run this JSON file which will automatically create an API.
+So one single command we have to execute.
+Simple very very simple.
+So we have created student dot JSON file with the following data.
+And now we need to execute one single command JSON hyphen server.
+In the third prerequisite we have already installed JSON server, right?
+If you already remember JSON server we already installed.
+So with that component only we have to create our own APIs.
+Now if I scroll down here, I have given one command JSON hyphen server hyphen hyphen watch.
+So this parameter is optional and the students dot JSON.
+So whatever file we have we need to specify that file.
+So this particular command will start JSON server and create an API which we can access locally.
+So here I have run the command JSON hyphen server hyphen hyphen watch.
+So what is hyphen hyphen watch will do when I add this parameter.
+Here you can see the index static files end points.
+It will give you all the URLs here.
+If I don't specify this it will not show you URLs.
+It will run the API.
+It will create it, but it will not show you the URLs.
+If you want to see the URLs you can put this hyphen.
+Hyphen watch okay.
+So this command we have to run every time whenever you want to launch your API.
+And if you close this command prompt or if you exit from this command prompt, your API will stop running.
+Okay.
+So we should not close this window once you start your API.
+So I'll show you how to execute this command.
+So we already opened the command prompt like this.
+So here all my JSON files are exist.
+When I say dir you can see students dot JSON file is already existed.
+So now I'm running this command JSON hyphen server hyphen hyphen watch and which file we are going to
+execute students dot JSON.
+And when you run this command, now you can see it is given end point.
+So this is the actual URL which we need to access.
+Okay.
+Now if I open this you can just right click on this.
+It will open another.
+Or you can simply control click on this link.
+So now we can see the URL is got open.
+Now this is the data.
+We got it.
+So along with this URL we can also create a new student.
+Here we can update existing student data.
+We can delete the existing student.
+So all these actions we can do by passing different kind of URLs.
+But this is the base URL.
+So which will retrieve the data of all the students which are available in the API.
+So this is a local API.
+Okay.
+So similarly if you have a JSON file we can create that kind of API.
+So currently we have a students dot JSON.
+I'm able to create a student API.
+Similarly if you have some other data let's say here I have something store.
+Dot JSON if I open this.
+This particular JSON file contains a store data.
+Means what?
+There is a book contains different data like other category, price and title of the books.
+There are multiple books are there.
+So you can also run the JSON command for this JSON file and it will also create another API.
+At that time you can create only one API.
+Okay, because the JSON server will try to use same port number localhost, so it cannot be duplicate.
+So once you started running the students parallelly, you cannot start store dot JSON API at that time.
+Only one is work, one works at a time.
+Okay, so this is the actual end point.
+So by using this end point we can do get request, put request delete request and post request everything
+we can do.
+Okay.
+So we need we should not close this window.
+We should just minimize this window.
+Right.
+So this is how we can create our own API.
+So I have given all the steps here, and this is a URL which we need to access once you start running
+your JSON file through JSON server command.
+So any API, if you have simple one JSON file, you can run the JSON file as an API using JSON server
+so that you can use for testing so that JSON you can use it for testing.
+Okay.
+So I'll share this document.
+Very simple step.
+You guys can do step by step later and get ready with that.
+So now I'm just closing this or I can just minimize it for now.
+So for everybody is clear how we can create our own API dummy API.
+So now I'm going to show you how we can send the request in our postman tool.
+So whatever API we just created students API, I'm going to create a different type of request.
+And I'm going to show you in the postman tool how we can test them in the postman tool.
+Okay, so I have created some of the test on the same student API.
+I'll show you.
+Let me open my Excel file.
+Yes.
+So look at this.
+So this is my Excel file, which contains a different type of request which are related to student API.
+So if I go back to the first one, get the single student data.
+So I may have multiple students in my API.
+So when I send this URL so you can see students slash one what kind of a parameter it is.
+Query parameter or path parameter.
+So localhost colon 3000 till here this is just a URL domain.
+Students slash one.
+What is one here?
+One is basically an ID of the student.
+Okay students slash one.
+So this will return the details of one single student.
+So when I send the get request there is no authentication required.
+There is no payload required.
+But payload response will be like this.
+So because we are requesting the first student details it will return the only details of the first
+student and the status code will be 200.
+Similarly, if you want to get all the students so then you can send another request.
+This is another request.
+Get all the students data.
+And here we just say only students.
+We should not specify specific ID here.
+And again this is the Get request.
+And here you can see all the students information as a response.
+This is the response payload.
+Again status code is 200.
+And then the third request create a new student.
+So what kind of request it is.
+Post request.
+So currently in my JSON file I have only three records.
+If you want to create a new record through API, you have to send this URL along with the Post request.
+Okay.
+And do we need to post any payload request payload?
+Yes, because we are going to create a new record through API.
+So we need to pass the data.
+So this is the data which we need to pass.
+And this is the record in the JSON format.
+So that will go and create a new record.
+And it will return the same record.
+Whatever the new record which we created that will return the same record.
+By attaching the ID the ID will be created.
+So currently three records are there.
+The new ID will be created, which is four and two zero.
+One is a status code.
+And suppose I want to update the existing student data.
+So whatever the new student we created here, I just pass the ID which is four and put request I'm sending.
+And whatever the data we want to update that we can specify in this request payload.
+And this is the response same ID but the data will be changed.
+And finally if you want to delete the student you can just again pass the same ID, send the delete
+request and everything will be deleted.
+Finally, you can see empty curly braces.
+200 is a status code.
+Okay, so this is how we can create the tests based upon the API.
+Okay.
+So now let us see how we can send this request in our postman tool.
+So until unless we understood the JSON format we cannot add validation points.
+Okay.
+So we cannot add validation points.
+So in this when you create a new record the time stamp is not added.
+Okay.
+Time stamp is not added because this API is not designed like that.
+So every API cannot add time stamp.
+That depends on how the developers are designed.
+The API.
+Okay.
+Currently this API is not supporting any time stamp, but still we can validate the response and status
+code data.
+Okay.
+How much response time we got?
+Cookies headers.
+There are many things we can validate on this APIs.
+All right.
+Now let us go to postman and we will try to send this request.
+And after that we will try to understand the JSON format.
+So open the postman tool.
+Now in the postman.
+If I look at this, I will create a new collection for today.
+So this collection is already created yesterday.
+I'm just going to create a new collection.
+How to create a new.
+How to create a new collection.
+Click on this plus button.
+It will ask you create a blank collection.
+I'm just selecting blank Collection and by default it is giving some name called New Collection.
+So what I'll do is I'll say data underscore students API.
+I say students API.
+So this is the new collection I created.
+So under this I'm going to add multiple request.
+So these are the different request get request.
+There are two get request one post request put and delete request totally five different type of request
+I'm going to send.
+Currently my API is running.
+I have not closed my windows.
+You should not close this.
+If I close this window your API will stop running so we need to just minimize it.
+Okay.
+Now let us see one by one.
+So let's go to postman.
+Now I'm adding first request which will return a single student data.
+So add request basically is a get request.
+Okay.
+Now here I'm just specifying, uh, the name of the request.
+What's the name of the request?
+Get single student or get single student.
+Okay.
+So I'm just adding some name called get a single student.
+Now here we need to pass the URL.
+So go here.
+And this is the URL which we are going to send it.
+So in the last class I already told you how to get the requirements.
+So developers will create the requirement to design swagger documents.
+And once you receive that you will understand the URLs, what URLs we need to run, what type of request,
+how, what type of data.
+We have to pass everything you will know based on the swagger document.
+So in the coming sessions I will show you the entire testing process.
+But for now, just focus on the execution part.
+Okay.
+So this is the request get request.
+And as soon as I have added this URL you can see what is the parameter I'm passing here.
+Path parameter slash one is the path parameter.
+Do we have any query parameters here.
+No right.
+Simply click on send button.
+Just observe.
+See we got the data here.
+So from where we are getting this data from our JSON file only.
+So let me open my JSON file student dot JSON and look at the first record what it is there so you can
+see John India, Java, selenium are the courses.
+This is the data.
+Same data is written in the postman.
+You can see this right.
+Same data is got it.
+Why.
+Because we specified the id.
+So for example, let's say two here.
+Now send it.
+Now we got that second record.
+Basically this request we are sending to get the data of the single student.
+So when I send this you got the response.
+So this is one type of request.
+So later I will show you how we can add validations.
+Because before adding the validations we need to understand the structure of the JSON.
+So there are a lot of things we need to validate in the response.
+We will discuss that as a separate part validation part.
+But for now just focus more on different type of request what we are going to do.
+So this is one request I created.
+So this is basically a Get request which will return the details of the particular student.
+And you don't need to save it by default.
+Auto save we have already enabled.
+So by default it will save.
+So now I'm closing this okay I'm just closing this.
+So now I will create another request.
+So what is the status code you have got.
+You got it here.
+Status code 200 is okay.
+This is the same status code we are expecting.
+Right.
+Because request is successful.
+We got the 200 is a okay.
+And the response is again in the JSON format.
+And do we need to pass any, uh, request body here.
+No because it is a simple Get request.
+So we no need to send any request body.
+Done.
+So now I'm going to create another request.
+So this time I want to retrieve the data of all the students.
+So what is the URL this time we need to use this URL localhost 3000 and students.
+So this URL when I send get request it will return all the students data.
+Now go back to postman and try to create another request.
+So select the collection.
+Click on the three dots here.
+It will show you add request.
+And this is this time I want to extract multiple students.
+All students.
+So I'm sending get all students and here I'm pasting the URL.
+So localhost 3000 slash student.
+So this is also path parameter when I send this request.
+So now you can see this time you got the details of all three students.
+So this is our first student data second student and then third student.
+Currently only three records are there.
+123 are the IDs of the records.
+So now I'm going to create a new record.
+I don't want to add a new record in JSON file directly.
+I want to create a new record through API request.
+So let us see how it will happen.
+So currently how many records are there in my JSON file?
+Only three records.
+Now before adding new record, don't open the file.
+Just let's close the file okay?
+Because if it is open it cannot be updated.
+So I'm just closing the file.
+Now I want to create a new record through API post request.
+Okay, so for that what I will do, I just close this for now.
+I'm going to run another request.
+Post request.
+So here I'm saying create student.
+Create new student.
+And what type of request it is.
+It is a Post request.
+So I'm selecting post here.
+And what type of URL we have to send for the post request.
+The third request.
+This is the one same URL but request type is different, so same URL I'm passing, but request type
+is what post.
+So this is the request type.
+Now do we need to send body because we want to we are creating the new record right.
+So we have to send a body.
+So go to the body section here go to raw.
+And here we need to select the JSON format.
+So here we need to add the data of the new student, which we are going to add now.
+This is the data I have prepared.
+Now I'm passing this data.
+So with this data I'm going to create a new records.
+How many records are there earlier?
+Only three records are there.
+And what are those IDs?
+123.
+There is no fourth record.
+So we should not pass IDs here in the data.
+We have to just pass only name, location, phone and courses.
+Courses is basically an array JSON array.
+And in the response we will get an ID.
+So once you added this data, once the request is successful, then the ID will automatically added
+by the JSON.
+So now let me run this request post request.
+And with this data I'm adding.
+So when I send this request observe see it has got created.
+Some ID is also got created.
+You can see some ID has got created.
+It's not given the number this time it is given some kind of a code.
+It's not a number actually It depends how the apps got designed it is depends.
+Sometimes you may get the number.
+Sometimes you may not get the number.
+Instead you will get an ID.
+So now if I see this request is created a new record.
+Now let us go and see the JSON file.
+Previously only three records are there.
+Now I'm just opening my students dot JSON file.
+And look at this.
+The new record is got successfully created.
+So previously we have only 123.
+So this time it is created a new record.
+Right.
+So this is how it will create.
+Now let me close this now.
+So I want to update the existing record.
+So how can we update the existing record.
+So I don't want to touch this JSON file.
+I'll update the record only through postman itself.
+But before updating remember this id because only based on the ID we can update the record.
+So what is the response?
+We got it here after adding the new record if I go back to the Excel.
+So this is a response we got.
+Okay.
+This is the response.
+And what is the status code.
+If I go back and see status code is created 201 is a status code is created.
+Now if you want to update the record.
+So what is the key here.
+ID based on the id we can modify the name, location, phone number or courses.
+Anything we can modify in this by using ID.
+So how we can modify this.
+If I go back and see the request update student.
+So what kind of request we have to send.
+Put request.
+So in the put request again whatever response we captured here this is the actual data.
+Now we want to modify.
+So what do you want to modify.
+I want to modify the courses.
+So I want to modify something.
+Let's say previously it was court and the location is.
+What.
+France.
+Now here I want to update.
+The location is equal to Germany.
+And rest of the data is exactly the same.
+The phone number is also 123456.
+Now I'm changing the phone number also and courses let it be their same courses.
+I'm not changing the courses you want, you can change it.
+So what are the things I'm going to change in the previous this is the output.
+We got it now what are the changes I want to do?
+I want to do location.
+I have to change.
+Previously it was friends.
+Now I'm making it as a Germany previously phone number 123456.
+Now I'm adding another phone number and rest of the data is exactly the same.
+So now this is a format I'm going to send.
+Okay.
+So let's go and update the existing record.
+So I will open like this I don't want to close.
+Let me create another request.
+New request.
+And what type of request it is.
+It is a again put request.
+And what is a URL we have to send to update the students on which record we are updating that you need
+to pass.
+So currently what is an id phi c f e?
+Right.
+This is an id so that is a id we have to pass in the URL.
+Not for if id is for you can pass for.
+But this is the ID as of now.
+So now we need to copy this URL.
+Go back and put here okay.
+Now this is a put request because this is a put request.
+We need to add body also.
+So go to the body raw and go to the JSON.
+Same JSON and what type of body we need to add here.
+So this is the body we have to anyway ID we are passing along with the URL.
+So we need to just add this body here.
+And this is our previous request.
+So this is the actual output we got previously.
+But now we got this output.
+But before that if we want to verify really this record is got created or not through API, I want to
+verify simply copy this ID go to the first request.
+So this will return the student details.
+Right.
+So instead of one just pass ID whatever the newly ID is got created, simply send and it is returning
+the data.
+So that means perfectly it is successfully created.
+So before updating just cross check whether this record is got successfully created or not.
+Perfectly fine.
+Now I'm going to send my put request along with this URL.
+And this is the ID we are passing and what are the changes we are doing.
+Location, phone number I'm changing and rest of the things are exactly the same.
+If you want to change other things you can change it.
+So now I'm sending the new request.
+Now you can see this is the response we got.
+So name location has got changed, phone number has got changed.
+And ID is also got changed.
+Everything has got changed.
+So this is how we can update the record.
+And if you again go back and see the JSON file.
+And previously this is the record we have added.
+So now the location has got changed.
+Mobile number is got changed.
+This is the ID okay.
+So this is how we can also update the record through API.
+We have done everything.
+So now we are not updated this JSON file directly through API.
+We are doing it.
+So now finally what is the final last request delete request.
+So delete a student.
+So at the time of deleting the student also we need to pass same URL along with this id we have to pass,
+but we no need to pass any request.
+Nothing.
+Simply we say ID along with the URL.
+So same URL just copy here and these ids will be generated randomly.
+So sometimes it will give 12345.
+Sometimes it will give you some random code.
+So this is the ID.
+Go back to postman.
+Now I'm creating new record.
+So new request.
+So this is a put request.
+I will just try to change the name.
+So this is for update student.
+Okay.
+So now I'm going to create another request which will delete the student record.
+Go and create new request.
+Add a new request and what type of request it is delete the student.
+So I say delete student specific student.
+So delete student.
+And what type of request it is.
+It is a delete request.
+Now what is the URL we have to send same URL only the request is different.
+Copy this and then post here.
+Right.
+So previously when I access single student we got the data.
+So I will also open this another request.
+Okay.
+When I send this you got this data.
+So currently this record is available.
+Now I'm deleting the same record.
+So send the delete request.
+So now it is got deleted.
+So and 200.
+Okay we got it.
+So this is the response it is giving actually.
+But let us see whether this record is exist or not.
+For that again I am running the Get request with the same ID.
+So when I send this you can see what is the response you got.
+Not found four not four not found.
+That means the record is already deleted.
+The record is already deleted.
+But when you send the delete request, what is the status code you got?
+200 means what?
+The deletion is successful.
+Sometimes you will.
+You may get the no content.
+Also sometimes you get a no content.
+Depends on how the API has got designed.
+So these are not standard okay.
+So when I send a delete request it is successfully deleted.
+And what record is got deleted.
+Also it is shown clearly here.
+But when I send the get request with the same ID it is simply saying not found.
+So that record is not exist.
+So this is how we can send different type of request for the API.
+So now if I open this file again one more time so that record is gone.
+So only 1233 records are available.
+Okay.
+So this is how we can explore.
+Or we can create our own API and we can test them in the postman.
+So now I can stop this.
+So once you control C now it is get stopped.
+So once it is got stopped you will not get anything.
+So again if I go back and let me send the request I say one here, click on the send button.
+So now you can see could not send the request.
+We got some connection error.
+Connection refused because API is currently not running.
+It is down again.
+Once you run this command.
+What is the command?
+This is the command JSON server hyphen hyphen.
+Watch students dot are JSON.
+So again this will run another one.
+Suppose this time I'm providing another JSON file.
+Let's say I have another one store dot JSON.
+I can send store dot JSON.
+So this will create another API.
+So again same URL.
+It will not change but this path will change.
+So I'm clicking on this URL.
+Now you can look at this.
+So now this API is running.
+So again from this book also we can extract the data.
+We can delete the data.
+We can update the data.
+All kinds of HTTP requests we can do on this API.
+So dumb APIs.
+So only thing is you need to have a JSON file proper data.
+We need to maintain the JSON file.
+And if you run the JSON file with this command JSON server, your API is up and running with this URL.
+And this is only for practicing purpose, but in the real time it won't be like this.
+Okay, real time.
+The APIs will be installed on the server.
+You will able to access those APIs only with the valid URLs, not from the local systems.
+Okay.
+And there will be a swagger document also available for understanding all the requirements and what
+kind of URLs we have to send, what kind of URL we have to send for delete request, port request,
+put request, and what kind of response we will get and what kind of status code you will get.
+All the information is available in the swagger document.
+It it looks like a requirement document when I read the swagger document is kind of a interactive document.
+So if you look at the swagger document you will understand each and every thing.
+So that is a document normally provided by the developers.
+Okay.
+So later I will show you how we can create swagger document how we can refer the document and based
+on the swagger document how we can create our test cases, API test cases.
+We will see that.
+Perfect.
+So now we have seen how to create our own APIs and how we can create a different type of request for
+our local APIs.
+So for everybody is clear.
+Please confirm in the chat box Everybody's clear so far how to create our own APIs.
+Dummy APIs by using JSON server command.
+Simple Node.js we have to install npm command will be there and JSON server.
+So next time whenever you want to launch API, you no need to do everything again.
+Simple one command you need to run.
+This is same command, single command you have to run whenever you start your API.
+If you close this window, your API will stop running.
+Okay, so now we have created a collection and we have created different type of request.
+And when you send any request.
+So what are the things you can see in the response.
+What are the things you have noticed in the response.
+So we'll get some response body here okay.
+Let me start running this one more time.
+We will just notice what are the things we got in the response.
+That is the most important.
+Sometimes in interview Also, people may ask.
+Jason, Sara can directly run this command.
+Okay.
+What is optional?
+Okay.
+So we can run this command now.
+Student API is up and running.
+Go back here and send this command.
+Now we got the request response.
+Now what are the things you have noticed here, guys, when you send a request, what are the things
+we need to focus on?
+Validation part.
+There are multiple things we need to validate.
+Okay.
+So first thing the status code is very important.
+That's the first thing.
+Second thing how much time it is taken to get a response and how much size of data we got in the response.
+Right.
+Response size and request size.
+Request size in the sense when I send some request we are basically sending some data to the server,
+right?
+How much size of data we are sending to the server?
+And response size is nothing but what how much of data written by the server.
+So the time is also most important.
+So here you can see there are three things.
+Status code time in milliseconds.
+How much time it is taken, how much size of the data you capture it.
+And if you want to save this response, you can save it.
+If I click on this save response, the response will be saved okay.
+The response is also will be saved under the request if you want in future.
+But every time dynamically we will get the response from the server so we don't save it normally.
+But if you still want to save, you can simply save it.
+So these are the few options are available.
+So status code time in milliseconds.
+Size of the data request data and response data.
+So these three things are directly visible here.
+We can directly test them manually and by adding validation points.
+Also we have to test them.
+So later I will show you.
+But apart from these three what else we need to test here when I send any request Sometimes you will
+see the cookies part, so cookies also will be displayed.
+But currently these APIs are running locally without internet, without web.
+So cookies are not generated.
+But if you are really sending the request through internet through web, definitely the cookies will
+be generated.
+So we need to also verify the cookies are properly creating by API or not.
+Next thing is headers part.
+So the headers also very important.
+So what type of content we are sending as part of request.
+What kind of content we are getting as part of request response.
+What type of content means what?
+Whether it's a JSON format, HTML, XML, which format that we need to validate and date.
+Also, we need to validate and how much time it is allowed.
+Timeout.
+Current length.
+Content length.
+So these are all part of headers.
+And the headers will be sent along with the request.
+Also the headers will come from the server along with the response.
+So headers will be part of both the request and the response.
+Okay so next one.
+Headers cookies headers and body.
+Anyway we have to validate this JSON format.
+This is most important.
+We need to validate the data also.
+Exactly when I send first request I'm getting the name John or not I'm getting the location.
+India not phone number is correct or not.
+According to my requirement.
+The phone number is this one or not.
+So we need to validate the data also.
+But every time don't think the JSON response will be this much simple.
+Most of the times it will be more complex.
+There is a huge content will be written by the response by the server.
+So we need to validate the response properly.
+For that we need to learn JSON and JSON path, which is very, very important.
+That will play very important role.
+Okay, in web testing, whenever you are locating some web elements we use something called XPath,
+right.
+So what is the use of XPath to locate the web element.
+Similarly here to locate the data, whatever is there in the JSON format, we use a JSON path.
+So for example, we have an XML path which is also called as a XPath.
+But for JSON we have a JSON path.
+JSON is nothing but a JavaScript object notation.
+Okay, so just like a this is a exactly competitive like XML is exactly opposite of JSON.
+XML is one type of format.
+JSON is another type of format.
+HTML is another type of format.
+CSV is another type of format.
+Text is another type of format.
+So Rest API supports all these formats.
+So developer is having that kind of a flexibility.
+Suppose you want to support JSON.
+He can develop all the APIs which will support JSON.
+Suppose if you want to develop APIs which will support HTML, he can do that.
+Suppose you want to develop APIs which will support CSV.
+He can do that.
+So for development point of view he is having more flexibility.
+But when I go with the Soap type of API that will support only XML, it doesn't support anything and
+JSON is more lightweight content when you compare with the XML.
+So that is the reason if you would.
+If your data is in JSON format, the transportation will be very faster, performance will be very fast.
+So that's the reason most of the times rest API is use JSON format.
+Okay.
+And sometimes you can see HTML format also.
+And such type of APIs also will be there.
+Sometimes I will also show you that later.
+But for now let us focus more on JSON.
+So if you want to validate the data in the JSON response you need to first understand what exactly it
+is.
+What is JSON object?
+What is JSON array?
+What is a key?
+What is a pair?
+What is a key and what is a value?
+So what are the different types are there?
+What are the different data types are there in the JSON.
+You need to understand that first, and then only we can do validate the response body.
+Okay.
+So now let us see.
+Let us try to understand something about JSON.
+So the validation parts we will see in the next class.
+But before adding validation parts where we will add validation parts.
+So here there is one tab called scripts here.
+So here we need to add validation parts.
+Once you added validation point here once a successful response is done.
+So under this test results you can see whether the request is passed or not or the scripts.
+The validation scripts are passed or not.
+So that information will be shown inside the test results.
+But as of now, we have not added any validations for this request.
+So we are not getting any test results here.
+But if you add any validation point here, we will get the test results.
+So for what are the different type of validations.
+Normally we do for APIs we will validate the response, body status, code time and everything and data
+size, headers, cookies.
+Okay, all these things we will validate.
+So to validate these things we need to add JavaScript.
+And inside the script folder script tab.
+So here we need to add okay.
+So in the next session I will let you know how to add different type of validation points which will
+validate all these things status code time size and body also especially body which is very very important
+okay.
+But before that we need to understand the JSON.
+So let's move and try to understand JSON.
+I'll minimize this postman.
+Now let me share some other document.
+JSON.
+So what is JSON.
+First of all Jason is what is the full form of Jason.
+So an interview perspective also, which is very important.
+Listen carefully.
+JavaScript Object Notation JSON is full form.
+Is what JavaScript object notation.
+So what is a JSON?
+Why why why we need to use JSON basically, especially for storing the data or exchanging the data between
+client and server.
+You are sending some request to the server and you will get some response.
+So whenever you send the request actually in which format data is transporting in JSON format and in
+which format, you are getting the response again in the JSON format.
+So that means what actually the data exchanging or storing is happened in the JSON format.
+And it is very easy to understand, even if you feel some difficulty while reading the XML format or
+other formats.
+But JSON format, it is very, very easy to understand the data.
+See, I have just shown you the students data.
+Right.
+So you can easily recognize if I look at this data, you can easily recognize how many records are there
+and what is exactly this data is belongs to.
+As soon as you see this content, you can easily understand.
+Right?
+So this is the first record of the student, second record of the student, third record of the student.
+You can easily understand this.
+Again, every student is having some ID, name, location, phone number and list of courses because
+this is very easy human readable form and light weighted format.
+So that is the reason most of the times in Rest APIs we will prefer to use a JSON format.
+Okay.
+And basically it is extended from the JavaScript language.
+So there is a direct relationship between the JSON and JavaScript.
+So that is the reason postman support validations only in the JavaScript.
+So on what we were putting the validation points and JSON response.
+So that is the reason the validations.
+Also, we need to write only in the JavaScript because JSON is derived from the JavaScript language
+only.
+And what is the file extension?
+Dot JSON is a file extension and every file there is a media type is available.
+Application slash JSON is a media type.
+Suppose you have request or response in the text format for example.
+Then the media type will be application slash text and for the csv file some other media type will be
+there, some PDF there is another media file will be there.
+So different type of files having different type of media file.
+But why it is required.
+The media type is says what type of data we are sending, in which format of data we are sending to
+the server, and which format of data we are receiving from the server.
+So that information will be decided based on the media type.
+Even if you see the postman request in the headers, you can see that actually content type.
+You can see what is the content type here.
+Application slash JSON.
+What exactly it is representing.
+It is representing the response.
+What we get from the server is JSON format.
+So this is also one of the important part.
+We need to validate all the header details.
+Also we need to validate cookies.
+We need to validate body.
+We need to validate headers.
+We need to validate along with this status code time everything.
+So all these validation points we need to keep inside the scripts.
+So the content type is also most important.
+That is the part of headers at the time of sending the request.
+Also we will have something called header.
+Here I go back and see it is showing six headers but it is not displaying here.
+Hidden.
+Yeah.
+Now you can see here.
+Do we have any content here created?
+I think it is not created any content.
+But sometimes when you pass any because it is a Get request, we are not sending any content, so it
+is not giving anything.
+But sometimes here also we need to validate the content type.
+Okay.
+So that is a media type.
+So for JSON especially the media type is application slash JSON.
+Right.
+So now let us try to understand the data which is created in JSON format.
+So to understand the data in JSON format first we need to know the data types.
+So what are the different data types are available in JSON format.
+There are four data types 3 to 4 very basic types.
+Are there string?
+We already know string is nothing but what a collection of characters or group of characters and how
+we will represent the screen.
+Normally in the double quotes strings we will represent in the double quotes symbol.
+So if I look at this example, whenever you write a content in the JSON format, it will start with
+the curly brace and with the curly brace.
+This is comes under one single JSON object.
+So it is started from the curly brace and with the curly brace any JSON file.
+And if I look at here the name is John Doe.
+So city New York status active.
+What exactly they are name city status are called keys.
+Every key is associated with some value.
+And what type of value, what type of data it is.
+It is string type of data.
+And remember all keys must be included in the double quotations.
+All the keys.
+Suppose if the value is a string format that.
+Also we need to enclose in the double quotations.
+But if you assign some number.
+For example, if I look at the second example age I want to store.
+So age is what here key.
+In this I am storing a number because it's a number.
+I no need to put the double quotations, but every key should enclose within the double quotations.
+So these are string type and these are the number types.
+Okay.
+String is one type and number is another type.
+So here you can put either decimal numbers or integer numbers.
+All are allowed.
+And boolean type of data.
+Also we can store sometimes if I look at here this is again another JSON object.
+And you can see there are two keys.
+Are there two variables.
+Is a student false is employed true.
+So false and true are what boolean values.
+So this is a Boolean type of data.
+Also we can put.
+But when you assign boolean data you should not enclose in the double quotations.
+And one more important thing here key and values are separated with the colon not equal to okay key.
+And the values are separated with what colon and after key and value is completed another variable or
+another data will be started after after comma.
+Comma is separated.
+Each value is separated with the comma.
+And here also.
+So age colon 30 means what age is the key?
+30 is a value.
+Comma means that record is end.
+Now the next one height score.
+These are number data types in JSON format.
+Next one Boolean.
+If I look at the boolean.
+So this is false and true.
+So when I say false and true we should not put in the double quotes.
+And the last variable or last one should not have any semicolon because this is the last one.
+Null is also another type.
+Suppose I don't know any value.
+I don't have any value for now.
+So then simply you can say null.
+Null is nothing but an unknown value, and that also we should not include double only strings.
+We need to include in the double quotations and rest of the data we can directly put into, but all
+key should be included in the double quotations.
+It can be number variable or it can be string variable.
+It can be boolean variable.
+It can be array variable, any type of variable or any type of a key.
+We should not call it as a variable.
+Actually we should call it as a key.
+So any key we should include in the double quotes the values can be depends type of data based on the
+data type we need to add.
+So these are the basic types string number a boolean null.
+And now there are two important types array and object.
+Array is nothing but what in simple definition what is an array?
+Can anyone tell me what is an array?
+Simple definition what is an array?
+In every programming languages we have an array is simple to represent a group of values.
+Group of elements.
+Group of objects we use arrays.
+Array is nothing but what it is representing group of values or group of objects.
+Right.
+So same thing in JSON also.
+Array is representing a group of elements or group of values or group of objects.
+Same thing.
+Now how we can represent the array in the JSON format.
+You can look at this starting curly brace.
+Ending curly brace skills have taken one key variable called skills.
+And I want to assign multiple values into this variable multiple values.
+I want to assign the multiple values.
+Previously I have assigned only one single value.
+But this time I want to send multiple values to the skills.
+So then you can put them in the square bracket.
+You can see.
+So this is actual array.
+So this first value second value third value array index will start from zero itself.
+These are zero element first element second element.
+So group of elements including the square bracket square bracket is representing a JSON array and which
+contains again string values.
+All are string values.
+So we put in the double quotations.
+Now look at this once course colon.
+And these are numbers.
+This is number type of an array.
+So this is one type of an array.
+This is another type of an array.
+And both arrays contains a group of values.
+Sometimes array also contains a another JSON object.
+Because array means what array contains a maybe primitive types or object type.
+Also, sometimes array also contains a JSON objects.
+But before that let us try to understand what is the JSON object.
+So JSON object is nothing, but it is a group of keys and values.
+Very simple.
+If I look at this one, this is all one JSON object.
+This is all one JSON object.
+So let me just try to make you understand this.
+So JSON will start with what curly brace starting point ending point.
+Now this is the actual key person is a key.
+And if I look at here again one more bracket is started here and the one more bracket is end here.
+This one.
+And whatever you can see inside this, this data is actually belongs to what person the data is belongs
+to what person.
+If I look at this particular format of the data, you can see here the person is having first name.
+The person is having the last name.
+See single value string string.
+Now if I look at this address.
+Address is having again city new York zip.
+Can we use array here instead of this address.
+No we cannot use array.
+We cannot use array because key value pairs are there.
+So whenever you have a key value pairs again we need to create another JSON object.
+Now you can look at this address field or address key is having one more bracket here and here.
+So this is one JSON object and this is again another object.
+An object contains another JSON object.
+So what is a JSON object?
+Object is nothing but a group of keys and values is called object.
+Now this is one object and this is the whole thing is one object.
+The object contains another object.
+Okay.
+Object contains a another object.
+So can we use city name and country name in the same array.
+So here we have we have used a or not.
+So do we have array here in this JSON object.
+Do we have array or not.
+Do we have array in this.
+No there is no array here.
+Have you used anywhere the square bracket?
+No.
+If I use square bracket individual values are there.
+But this type of data you cannot store city zip.
+And so here you cannot use array.
+But we can use array in the different purpose.
+I will show you that also.
+So as of now this is a JSON object.
+So started with the curly brace and with the curly brace.
+Now, if you look at here, the person is started here and here.
+And these are the two fields.
+And address is started and end here.
+So this is one JSON object.
+And these are the two different variables.
+And the overall the person itself is a another JSON object.
+So that means what a JSON object contains another JSON object.
+JSON object contains a another JSON object.
+Just simple.
+Remember, an object is a collection of key value pairs enclosed in the curly braces and keys are always
+strings.
+The values can be any JSON data type.
+Values can be any data types.
+If I look at here what data type we are using here, first name is what string?
+What is the last name?
+This is also string.
+And what is the city?
+This is also string.
+What is a zip?
+This is also string.
+So JSON object is what a collection of key value pairs.
+So this is a key and value.
+Key and value.
+This is the key.
+These are the values.
+Curly braces we have included.
+And all keys are what strings and the values can be any type.
+So this is JSON object which is representing an entity.
+Currently this object is representing a person.
+This object is representing a person.
+Okay.
+Now I will show you by combining all the types.
+Then we will try to understand more about JSON type.
+Now look at this.
+This one.
+So now you have to tell me I'll ask something here.
+So from here to here one object.
+There is no name for this object actually.
+Now if I look at here, what are the keys are available here.
+Name is one key.
+Age is another.
+Key is married.
+Children.
+Hobbies.
+Address.
+So these are the main keys.
+And the name?
+Age is married.
+Children.
+These are all normal, primitive data.
+So name is having single value.
+Age is having.
+And this is a numeric type of date and is married.
+False.
+Boolean type of data.
+Color is null.
+Null type of data.
+Now you tell me what is this?
+Hobbies.
+What type of data it is.
+Array.
+Array.
+Because hobbies can be multiple right?
+So those multiple values we kept inside the square bracket.
+So this is reading traveling coding.
+So this is a curly brace.
+So hobbies is what an array is an array.
+Now tell me what is an address here.
+What is an address.
+We understood these three things.
+Hobbies is an array.
+Now what is an address.
+Address is a JSON object.
+Why?
+Because it started from curly brace and with the curly brace, which contains some key value pairs.
+So the address is what?
+JSON object.
+Now what about the score?
+Score is a JSON array or JSON object.
+Scores.
+Scores is again a JSON array which contains a group of values.
+Again.
+Finally profile complete.
+Profile complete is again primitive type.
+So this entire JSON contains everything.
+Primitive values.
+First 3 or 4 are primitive values.
+Hobbes is a JSON array.
+Address is a JSON object.
+Scores again JSON array.
+Profile complete.
+Again a primitive type.
+So now you understood the whole the structure of the JSON part.
+So that's how we need to first split.
+We need to understand as soon as you see the JSON file immediately you should notice which one is a
+primitive.
+Which one is JSON array.
+Which one is a JSON object.
+So now can you recognize easily by seeing the JSON format of data?
+Yes.
+Why can't write us a name?
+Colon.
+First name, last name.
+So first name.
+Last name where it is.
+Yeah, you can write it.
+Suppose if you want to store first name, name, last name, then you can make name as an array.
+That is also correct.
+Currently I have stored only one name.
+Right.
+If you want to store first name and last name.
+So then you can make this as an array like this.
+You can make like this.
+And here you can put last name.
+So this is the first name.
+This is last name.
+Then it becomes a JSON array.
+So that is also correct.
+You can put like this.
+Okay understood.
+Or another way you can put for example if you don't want to keep them in the JSON array then you can
+put one variable for first name, another variable for last name.
+So two variables you can create as a primitives.
+So there is no way you can create multiple ways.
+All right.
+So this is how we need to understand the JSON format of data okay.
+Now I'll show you a little bit complex data.
+So let us look at this.
+So I already given everything here.
+You can understand this.
+Where is exactly the JSON object started from the curly brace.
+So from here to here is called what object starts and object end.
+Now you tell me, what is this title?
+Primitive title string.
+This is a string.
+Actually.
+Other is what string?
+This one.
+Generic.
+This is also string.
+Now tell me, what is this detail?
+Detail.
+JSON object.
+Because it started with the curly brace here and with the curly brace here.
+So every keys have associated with some values.
+So this detail is what object.
+JSON object.
+Now what is price here.
+Yeah this is important price.
+What about the price.
+Price is started with a curly brace where it is end here.
+Here it is.
+End.
+Starting point.
+Ending point.
+Now, if I look at this error means what group of elements.
+So those elements can be strings.
+The elements can be numbers.
+Sometimes elements can be JSON objects because array also can store objects.
+Now if I look at this this is one object.
+This is another object.
+Two objects are stored in one single JSON array.
+Everybody's understood this part price is very important.
+So now the price is an array which contains a two JSON objects two JSON object.
+And if you want to access this object how we can access price of zero.
+That will give this part.
+And if you want to access this one then price of one.
+So this part we can access okay.
+So the JSON array contains the two JSON objects.
+So this is another sample data.
+Okay.
+So these objects are not separated by in any JSON array.
+So no no the JSON object this itself is one JSON object.
+And inside this key and value pairs are there.
+And this is another JSON object.
+Key value pairs are there.
+So if you want to access this entire object then price of one index price of zero.
+This is price of one.
+Again if you want to access individually we need to again use a dot symbol.
+So I'll show you that comes under the JSON path okay.
+That comes under the JSON path.
+Suppose price have currency symbol.
+How can we write even price is also having currency symbol that you can specify that.
+So for example here type is there.
+So here you can have a dollar symbol.
+Then include that in the string format.
+Or suppose you have a rupee symbol.
+Include that in the double quotations.
+There is no specific type for currency.
+Just put everything in the double quotations if it is a purely decimal number or integer number.
+Don't include in the double quotations, but other than this, if you have any other type of data,
+you can put everything in the double quotations.
+Okay, so so far what we have understood is what is JSON, how we can represent data in the JSON.
+So price is an array name.
+Exactly.
+Price is a name of the array which contains two different objects because array can also contains objects.
+Okay.
+So when I say price of zero then you will get this object.
+When I say price of one then you will get another object.
+So that comes under the JSON path I'll explain that.
+Okay.
+So for everybody is clear.
+What is JSON, how we can represent the data in the JSON.
+What are the different data types are available in the JSON.
+So for everybody is clear.
+Please confirm in the chat box.
+This is the fundamental thing which we need to understand before going further.
+Very, very important.
+Okay, so now we have understood the JSON part, but the very, very important thing is we have to extract
+the data from this to perform validations.
+Suppose I send some request API request.
+Let us assume I send some API request.
+Let's go back to the postman.
+Let's say I have sent some API request.
+Now I got this response.
+In the response I want to verify my location is India or not.
+It is written India.
+But how?
+We will know whether India what I'm exactly expecting or not so that we need to validate or in the courses.
+Java is a part of the courses area or not.
+I want to validate it.
+So to validate it how we will do.
+Normally when you add validation points, once you get a response, we will extract the data from the
+JSON and we will compare with our expected data.
+If both are equal, then our test will pass and the data is not equal then our test will fail.
+So before comparing this data with our expected data, we have to first extract the data from the JSON.
+After extraction we will compare it.
+Otherwise no even for the web testing.
+Also you do the same thing, right?
+Suppose in the web application you have done some transaction and you got some acknowledgement message.
+Suppose you have done some message you got.
+Now you want to validate this.
+How you will validate.
+You will extract the text and compare it with your expected text.
+If both are equal then my test is passed.
+Both are not equal.
+Test is failed right?
+How?
+We are extracting the text from the web page.
+We are locating this element using XPath, right?
+Same way in JSON response.
+Also, if you want to validate any data, we need to extract the data from the JSON file or JSON data
+or JSON response.
+So once you extract it, we will get data that we need to compare with our expected data.
+Okay.
+So before comparison means for comparison is again part of the validation.
+Comparison is again part of the validation.
+But what we need to understand here is how to extract the data from this JSON, which is very, very
+important.
+And to extract the data from the JSON, we use something called JSON path okay.
+From XML, XML path is derived.
+The XML path is also called as a XPath.
+In web application testing we use this XPath.
+Similarly for JSON format of data, we have a JSON path.
+We have a JSON path.
+So now we need to understand.
+We need to learn how to write JSON path to extract the data from the JSON data JSON response.
+Okay, now you understood why we need JSON path, why we need to learn JSON path.
+I'll show you some examples.
+It is very simple, very easy.
+Even XPath is more complex, but JSON path is very simple and there are so many predefined tools.
+Also there you can easily create your own JSON path.
+It will automatically create and you can automatically evaluate your JSON path is correct or not.
+There are so many tools are there in the internet.
+I'll show you how we can use JSON path and everything.
+So let me go and JSON path.
+Okay, simple JSON path is a query language for JSON data, just like XPath is there for XML.
+Similarly JSON path is there for JSON data.
+So what the JSON path will do, it will extract.
+Just navigate to the exact data.
+Exact value which is there in the JSON response.
+And we use the different type of operators like dot square brackets, star star representing multiple
+things.
+Many things.
+Square bracket is basically representing array elements.
+Dot is representing some child elements okay.
+So multiple symbols are there.
+So by seeing examples we will try to understand this.
+So this is an example JSON data currently I have.
+So now we will try to create our own JSON paths to extract the data from this particular file.
+Very simple.
+We try to understand this okay I'll copy this JSON in my notepad.
+Okay so this is my JSON.
+Let me close this.
+So it is very simple.
+You guys can tell me how we can create JSON path okay.
+So for example, let's say this is my store.
+Inside this there is a book.
+And what is a book here?
+What is the type of book?
+What is the type of the book?
+You can see this, right.
+So what is the type of the book here.
+Right.
+So let me save the file.
+Store dot JSON.
+Okay fine.
+So if I look at this this is a JSON.
+So what is the type of the book here.
+Book is what is an array basically.
+Right.
+So array contains how many objects how many objects.
+The book array contains how many objects.
+How many objects the book array contains.
+This is one object.
+This is another object.
+And this is end that is ended here.
+So only two objects Right and how many variables we have in the store.
+Store.
+How many variables are there?
+Book is one bicycle again, bicycle is another object.
+Bicycle is again another JSON object.
+Okay.
+So now we need to extract some data from this JSON.
+Same data.
+I've copied whatever I have in PDF.
+Same data I have copied.
+So now I'll show you different type of requirements.
+Case.
+So let's try to understand this.
+So my requirement is so I want to access for example mountain.
+So this data I want to access or I want to extract that how we can write a JSON path.
+So whenever you start writing the JSON path it will always start with the dollar.
+Dollar sign is representing the the whole JSON object.
+The entire JSON object is represented by single dollar okay.
+Dollar.
+And what is the starting object here?
+Store.
+Right.
+So dollar dot store.
+Dollar dot store.
+And we need to.
+Where is this mountain is present here.
+It is a part of the bicycle.
+And where is the bicycle?
+Is present.
+Is a part of the book part of the book or not?
+No bicycle book or the changed elements of the store.
+So book and bicycle.
+These two are what changed elements of the store.
+Now we want to access bicycle directly.
+So how we can do that?
+Dot dot bicycle like this.
+You can write bicycle.
+And again in the bicycle what is the value we want access mountain.
+So what is the key for this value type.
+So I can say dot type.
+So this is how we need to write a JSON path.
+So dot is representing the navigation.
+So in XPath we use slashes for navigation right.
+Similarly here we use a dart as a navigation now.
+First it will go to the store.
+From the store it will go to buy skill.
+From the buy skill it will capture the value of the type.
+So this is how normally we write the adjacent path okay.
+For example now how many books are there in this book area?
+How many elements are there?
+How many objects are there.
+Two objects are there.
+So this is my first object.
+This is my second object.
+Now I want to capture the title Python Basics from second object of the book area.
+Then how we can write a JSON path.
+Can anyone guess?
+Just type in the chat box where we have to start dollar dot.
+We need to go to the store.
+So in the store what which element we need to access book element we need to access.
+So store dot book store dot book again in the book how many objects are there.
+One and two objects are there and which object we want to access.
+Second object we want to access second object in the sense what is the index of the second object?
+One is the index.
+Index will start from zero.
+So the first object represented by zero.
+Second object represented by one.
+So book of one.
+So now this JSON path will return the second object from the array.
+But in the second object what exactly we want only title we want so dot title.
+So this is how we need to write our JSON path to capture the title from the second object of an array.
+Okay, so this is how we can create our own JSON paths.
+We can create our own JSON paths okay.
+So to make simplify this we no need to worry about this.
+There are so many tools are available in internet.
+I will show you what are the different tools are available in the market or in the internet to make
+our job easy, so we no need to write more JSON parser.
+Very simple.
+So there are different websites are available.
+So JSON Pathfinder is there.
+So this is one of the website.
+So let me go back and show you.
+So here just to copy the JSON data I'll show you how to use this.
+So I just copy my JSON data whatever I got in the response now.
+So it will show you the structure.
+Exactly.
+The view has got changed.
+You can see this.
+This is the actual data which is there in this JSON.
+Now which one you want to access from this.
+Suppose I want to access this type of mountain.
+Right.
+So where it is here it is here.
+So I just click on it.
+As soon as you click on here it is automatically generated the JSON path.
+So here x is basically represented by dollar actually.
+So this is the JSON path which we can use to capture this mountain okay.
+Suppose if you want to access uh the categories for example.
+So how we can access how to write the JSON path.
+Just go to categories and select this.
+As soon as you selected this category it is automatically generated the JSON path okay.
+So just you can click on the copy and use this JSON path in your test scripts.
+Very simple okay.
+Now if you want to access the price from the first array element.
+So where it is there, here it is.
+Just select it.
+The path is automatically generated.
+So this is very very simple JSON Pathfinder.
+Similarly there are multiple websites are there.
+There is another one here you can create your own JSON and you can validate also let me open this.
+This is another one.
+So here you can simply copy your own JSON.
+Whatever data you have.
+Now you can see it is automatically shown in the entire view.
+So now if you want to capture the JSON of any element, suppose I want to capture this other information
+JSON Jsonpath.
+I want to write for capturing this other information.
+Simply click on this other.
+Now we can see it is automatically generated Jsonpath.
+It is more simpler.
+And if you want to suppose capture the mountain, click on this.
+Now it is automatically generated the Jsonpath which will capture this mountain.
+Okay now if you want if you create your own jsonpath and if you want to validate it.
+So then you can use another one.
+Suppose let me copy this and go to the next step.
+Jsonpath evaluator.
+Now I copied the same JSON data here.
+Now here you can write your own Jsonpath.
+Suppose I have written some Jsonpath here store dot mysql dot type.
+Now we can just click on this evaluate.
+Now you can see the result is given here.
+So this is how we can also use this website.
+So whatever JSON data you have you can just copy here write your own JSON path.
+Click on evaluate and you can check whether your JSON path is properly giving the data correctly or
+not.
+So you can also evaluate.
+You can also automatically generate JSON path.
+So there are multiple things you can do using this website.
+And there is another website called JSON path.com.
+I have just listed only these three because these three are very popular.
+But if I search in internet, there are so many sites you can find.
+So this is another one.
+So here simply you can copy your JSON data.
+Let me copy the JSON data here.
+Go here and just copy the JSON data.
+So here you can write your own JSON path.
+And here it will give you the results.
+So I just given I'll just write some JSON path here.
+I just copy from here and write your JSON path whatever you want.
+Now you can see press enter.
+If some error is there it will not give you anything.
+Just write something.
+See, when I say dollar which is representing the entire JSON.
+So you got everything.
+Suppose I'm writing something called dot store dot store.
+Now you can see store data.
+Now inside the store where I want to get I want to go to my book.
+I say book now you can see only book details are captured.
+Can you see this font?
+I think this is very smaller.
+Let me maximize see now whenever I say book here it shows only book related data.
+It's not showing any bicycle related data.
+Now again in the books I want to capture only the first record.
+So then how we can capture array zero.
+Now we can see you got only the first record in the array.
+Again, inside this I want to capture only title.
+So then you can add dot title.
+Now you can see you captured only title.
+So this is another website.
+So you can write your own JSON path here.
+And from this JSON data you will able to extract the data so you can cross-check here.
+And once it is working fine, you can use this JSON path in your postman tool to add validation points.
+Okay, so in the real time, if you are able to write your JSON path, you can write your own.
+Or if you feel some difficulty while writing the JSON path, you can use these tools.
+But in interview perspective you have to learn how to create JSON path.
+Understood everyone.
+So I have given these websites here you can try to use it and apart from this you can find so many websites
+you can automatically generate the JSON paths, or you can create your own JSON path and validate whether
+the JSON path is correctly retrieving the data or not from the JSON file data.
+So you can do or you can explore this.
+Okay.
+So because this is very important to add validations.
+So for example in the postman I got some response here.
+So I want to verify this phone number is correct or not.
+So how we can do that?
+First I want to extract this data.
+For that we need to write one JSON path.
+And then I can compare the data with my expected data.
+Then I can add validation.
+So JSON path is very important to validate data in the response body.
+Okay.
+But other things we can easily do that the direct methods are there for status code time and everything.
+Headers cookies, all those things we can directly easily verify because there are some built in methods
+are available in the postman, but especially for validating the body, we have to use JSON path, which
+is very important.
+Okay, so just do continue practice on this.
+Very simple.
+Now I've given some examples in the document.
+I will share this document today.
+Go through each and every example whatever I have given and also try to create your own API student
+APIs.
+I will share the JSON file also student dot JSON file and create your own dummy APIs and try to add
+some more requests like this and explore the JSON and JSON path.
+Okay, so I'll stop here for today's session.
+Get familiar with this.
+In the next session, I will show you how we can add validation points or verification points.
+We are just sending the request, but how we will know when the request is successful or not.
+We are just seeing manually here status code and response.
+We are confirming it but I don't want to see anything manual.
+I don't want to test anything manually, I just want to add some validation points immediately.
+I want to get the test results here so that happen by adding validation points.
+Okay, so next class we will focus more on validations.
+How many ways we can validate the response body and other stuff.
+All right.
+So that's all for today's session I'll stop here.
+We will continue in the next class.
