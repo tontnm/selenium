@@ -1,0 +1,1030 @@
+All right.
+So today we'll see one of the most important topic in API testing.
+Uh, the topic is chaining of APIs or API chaining.
+So what exactly the meaning of API chaining.
+So API chaining allows you to execute multiple API requests in a sequence where the output from one
+request is used as an input for subsequent request.
+So what does that mean.
+Suppose we are sending a request API request and we got some response.
+And we will take that response.
+And we will pass that response as a as part of input for another request.
+So which is basically called as chaining of uh API request or API chaining okay.
+So most of the times we follow this approach in our API testing projects For example, let's say I created
+some or let's say I send some post request.
+Okay, so when I say post is nothing but what it will create some resource.
+It can create some student or user or something.
+So what is a Post request will do.
+It will create something.
+So whenever it is create something it will generate some timestamp or ID something.
+Right.
+So this is the response.
+So we'll get the ID is got generated as part of the response.
+Now by taking the ID from the response we will send another request called get request.
+And this will return the user details or student details as part of the response.
+So this is called API chaining.
+And similarly if you want to delete the user request or if you want to delete the user or student,
+again we will take the same ID and we will use it for what?
+Another request.
+So delete request.
+So what does that mean?
+Execute multiple API requests in a sequence.
+Why?
+We are saying as a sequence.
+Because until unless the IDs got generated, we cannot capture it and pass it to the another request.
+So this is a sequence is required.
+So before sending Post request, if you send get request you won't get the ID right.
+So sequence is very very important.
+So execute multiple API request in a sequence where the output from the one request.
+So here id is an output from one request is used as an input for another request or multiple request.
+We can use this as an input.
+So this process is called API chaining okay.
+So today we will try to implement this API chaining by taking some public API and which is also required
+a token authentication.
+Okay.
+So today I will show you some a demo API which is required for token authentication.
+I will also show you demonstrate you how we can use token authentication for API request.
+And then we will try to understand how we can implement API chaining.
+Listen this carefully.
+Most important concept.
+So first of all before implementing API chaining.
+So let us try to understand the what kind of API we are going to use as part of this demonstration.
+So I have a go rest API which is very popular API.
+Most of the people will know which is available in internet, which is a basically public API.
+We can access all the request, all the URLs are available, go rest API and this is the actual URL.
+And if you go to this URL you will find what are all APIs.
+They are provided, but if you want to use those APIs, you need to create a access token, which is
+basically called as a bearer token.
+Authentication is required to access this API.
+So the token we have to create.
+So otherwise we cannot send the request using go request.
+Go rest.
+So first of all we will see that process how we can access go rest API, how we can create access token
+and what are the different type of URLs are available.
+What kind of request body we have to send.
+So we will try to understand the uh about go rest API first, and then we will implement API chaining
+by using go rest API.
+Okay.
+So how we can access go rest API.
+So I can just go to Google and just find out go rest API.
+Okay.
+Which is very popular.
+Many people know and you can do a lot of practices on this.
+You can simply search for go Rest API and you can find the URL.
+Or if you could not find here I provided that URL in the document itself.
+Go rest.co dot in so you can directly open this URL on the browser.
+Go rest.co dot in.
+So when you go to this URL you can find the API documentation.
+So basically it support GraphQL, Rest API and many more things.
+But we will try to use rest API for now.
+So here there are different resources resources in the sense they are different users.
+Users post comment todos okay.
+There are different type of URLs are there.
+And this is and again different versions are available and a lot of content is also there in the same
+page.
+Everything is got provided here.
+This is all part of requirement.
+So to access this API what are the things we need to have.
+So here if I look at here get your access token.
+You can see this link right.
+So by using this link we have to create the access token first.
+By using this link we can create our access token.
+It's very simple easy to do that okay.
+Once you you've created your access token, then how we can access the URLs and we are trying to use
+this particular resource users resource.
+Similarly, we have a post resource comments to those different resources are there.
+And for API chaining for demo purpose I'm using this particular resource.
+So if I go and open this link and you can see that URL is giving some data, this is actual data which
+is coming, which is given as part of response.
+When I send this URL, which is the response which is given okay.
+And this is the resource actually.
+And for this particular resource you can see there are four type of request here.
+For every resource there is a different type of request they have given.
+So for users if I look at this users so you can see post request public slash v2 slash users.
+This is a resource for get request.
+This is another resource for put or patch request and delete request.
+So these are the four different type of request we can send for this particular users URL.
+Okay so I have documented it very clearly.
+So if I just scroll down here I mentioned a small table.
+So this is the URL we have to pass along with this URL.
+We need to add this path also.
+This is path parameters.
+Basically there are no query parameters here.
+All of them are path parameters.
+So along with this URL we need to add this path.
+And we can send Post request.
+By adding this path we can send get request.
+By adding this path we can use post request or delete request.
+And here 23 is basically the ID of the user.
+So once you send a Post request, it will create a new user with some ID and that id we can pass in
+the Get request, put request and delete request.
+So these are the four different type of request we are going to test as part of API chaining.
+Because ID is required for all rest of three requests okay get request, put request and delete request.
+We need ID so that ID will be generated by sending Post request.
+Okay so these are the four URLs we have.
+And before accessing it we need to create a token.
+So to simply create a token just click on this link get your access token.
+And here it will ask you three types of options GitHub.
+Google Microsoft.
+So if you have a Google Email ID you can just click on this Google.
+Or if you have a GitHub account, you can click on GitHub.
+Provide your email address password.
+Similarly, if I just click on the Google, provide your email address, password or Microsoft.
+Whichever you want, just click on it, provide your authentication and then you will see the access
+token immediately it will create.
+So by using GitHub I already created.
+So can I show you a screenshot how I have created.
+If I look at this.
+So here these are the three options I have been shown.
+I just click on the GitHub.
+You can use Google or Microsoft whichever you want.
+So once I click on the GitHub.
+So here it is asking for authorization.
+Then I provided my GitHub email and password.
+Then you will see this button authorize XV.
+So once you click on it and then it will automatically show you the token like this.
+So this yellow mark you can see right.
+This is called actually token right.
+So this token we can use uh to send different type of API request.
+So this is the process and I have copied my token here.
+So you guys create your own token.
+Because this token is not permanent it will be expired.
+So every time I will delete this token as soon as my session is completed.
+So you can create your own token and you can use it.
+Okay.
+So maximum it never expires.
+But if you want to delete it, you can simply delete or you can create a new token also.
+Okay.
+And you can create multiple tokens also if you want.
+So option is available.
+Right?
+So very simple.
+Just go to this page and click on this link.
+Get your access token and you authenticate with by using any of these options.
+And simply click on this authorize GV and then it will generate the token okay.
+So once we have this token keep it with you.
+Now we can start sending the request okay.
+So as a prerequisite we have all the different type of request.
+And we have created one token and URL with us.
+Everything is there.
+So now we will try to understand chaining process.
+So how we can link these four request.
+So here I have shown you a small picture.
+So based on this we can understand the workflow.
+So how we can link them how we can chain them.
+First thing we need to start with the post request.
+What the Post request will do.
+It will create a new user.
+So to create a new user what are the things I will pass request body.
+We have to pass.
+So in the request body we need to send name, gender, email and status.
+So when you pass these four details as part of request body or request payload, and it will go and
+create a user with a Post request.
+And that will generate the ID.
+So once you send a Post request that will generate a ID of the user.
+Now by using this ID, I can send another three request get user update user delete user.
+So when I send this id in the get user, this will again gives you ID name and email address.
+And again we can compare.
+So at the time of creating the user whatever request body we have sent, what are the details we have
+sent after creating the user?
+When I pass id as a parameter to the get user, this will also return the same ID, same name, same
+email id right?
+So this validation also we can do for the get user.
+After that I will try to update existing users.
+So by using this ID I will try to change the name, email and status of the existing user.
+That's called update user means what?
+I can send a put request.
+And this is a Get request.
+And by using same ID I can do the delete user request and every request I will add some validation points.
+Okay this is the overall picture.
+So workflow now two important challenges are here.
+So what are the challenges.
+So first request we can easily send okay.
+By passing this request payload we can send Post request and we will get the ID fine.
+But to pass this ID into another another request we have to store this ID in somewhere else right.
+Somewhere we have to hold that ID in some variable and that I can use in multiple request.
+Right.
+So in the create user for this particular request we have a pre request script.
+Post response script.
+Right.
+Normally in the prerequisite steps what you will do we will create a variables in the post response
+scripts.
+What you will do you will add validations.
+Remember this point okay.
+Because in the last class we have discussed it in detail.
+For every request we have a prerequisite.
+Pre script Pre-request script post request script.
+In the pre request script we will add variables in the post request post response script we will add
+validations okay.
+Now once you send your create user and for creating the user we need this data name gender email status.
+We need this data right.
+So where we can define this data even data also I want to define Fight dynamically.
+So before sending this, create user request or post request where exactly we can define this data in
+the Pre-request script or Post request script where in Pre-request script.
+Perfect.
+Now after creating the user after sending the post request, we will get an ID right?
+ID is what part of the response?
+Part of the response.
+And now I want to store this ID in some variable.
+I will create one variable and as soon as I got the response, I will capture this ID from the response.
+And I'll store in some variable.
+And where I can do that in the Pre-request script or post request script, because after getting the
+response only we will get the ID right.
+So capturing the ID and storing it into a variable can be done in the Post request.
+Okay, first thing is done.
+So this is the first request we need to do.
+So we need to first send a Post request in which under prerequisites prerequisite Pre-request script,
+we have to add variables, name, gender, email status, and after getting the response, we need to
+capture the id and create a variable under post response script.
+So let us first finish this part and then we will go with an another type of request.
+Everybody's understood this part.
+The first part till here post request.
+Okay.
+So now let us move on to the postman.
+And now I will create a new collection today Blank Collection.
+And I'll name it as day five underscore uh API chaining okay.
+So now new collection has got created.
+So inside this I'm going to add a new request and get request.
+And here I will name it as Create user.
+Create user.
+Now what type of request we are going to send post request.
+Right.
+So we need to take the post request.
+And what is the URL we have to send.
+So we need to pass this URL along with this path parameter okay.
+So we need to add this URL.
+First go to the postman.
+This is the URL slash and this is the path parameter okay.
+This is the path parameter.
+Right.
+So this is the URL we have to pass I provided all the details in the below.
+You can guys you can go with this okay.
+First we need to create a user.
+This is a URL we have to send.
+And what is a body we have to send.
+So name gender email status.
+So this is the body we have to send request body.
+Now I'm passing this body.
+So where we need to specify the body under body session and then raw because the JSON format we need
+to take JSON.
+And here.
+Okay.
+So in this response body sorry.
+In the request body user name and user email I will generate dynamically.
+I don't want to hardcode those two details okay.
+So where I can create these two these are the actual variable names I'm referring user name and user
+email.
+So where I can define this variables where we can create this variables in which script pre request
+or post response in the pre request okay.
+So in the body I'm referring user user name and user email.
+So these two parameters we required.
+So I will create these two uh because before sending the request we need to have these two values.
+So where we need to create them under Pre-request.
+So under Pre-request we need to add we can create any type of variable either collection variable or
+global variable or environment variable.
+Anything is fine.
+But don't create a local variables because why we don't create a local variables because we want to
+use this responses in another request.
+If I create a id as a local variable right, then what will happen even if you create them here?
+Name.
+Gender.
+Email local variable.
+They are request specific only within the request we can access, but we want to validate them in another
+request also.
+Right.
+So better to create a global variable or environment variable or collection variable is also fine because
+all the requests are part of single collection.
+So what I'm going to do is I want to create two things.
+So two uh, collection variables I will create because here I need two variables.
+It's the moment.
+Okay, so under body we already specified the request payload.
+And in this username and email addresses we need to create and go to the scripts Pre-request script.
+Now how to create a collection variable.
+Last class we have seen PM dot collection variables.
+Dot.
+What is the method?
+Setter right.
+Set the get and set only three methods are there.
+Very easy to remember.
+Set is for what creating the variable and set is what deleting the variable.
+Get is what retrieving the data from the variable.
+So collection variables dot set.
+And here we need to pass two parameters.
+The first parameter is what user name comma.
+Here we need to pass some username.
+I say a b c x y z okay.
+And similarly we will create user email.
+So same thing user email and a b c x y z at the rate gmail.com or anything you can say yahoo.com right.
+So I've created two variables user name and user email at the collection variables level.
+So when I create them collection level then we can access everywhere within the collection within all
+the request.
+So where I have created them under the scripts Pre-request now save the request.
+I'm not sending you now, so we just saved it.
+Okay, now in the post response, what we need to do now in the post response okay, so we have created
+the post request here, right?
+We have sent the URL and we specified the body.
+So whatever the variable we created under Pre-request script user name and user email I'm just capturing
+them here.
+Username and email.
+So perfectly fine.
+If I send this request it will go and create a user.
+Once it is created, the user we need to capture the ID of the user, right?
+That is our ultimate goal.
+So we need to capture the ID of the user, the how to capture the ID of the user.
+Now see the diagram.
+So we just send this request create user and which will generate the id.
+And now we need to capture this ID from the response.
+And we need to store it in some variable because that variable we will refer in other request.
+So now how we can do that where we need to do that.
+So when I send this request anyway it will generate the response from that response we need to capture.
+Let me send this first okay I'm sending this.
+See authentication failed.
+So why it is saying authentication failed because this API is required access token.
+At the beginning I I've told you.
+Right.
+So this API is required access token authentication failed.
+So we need to provide the access token.
+So we have already created an access token.
+So what I will do is where we need to have that access token where we need to keep that access token.
+There are multiple places guys.
+Suppose you have multiple requests right post get put delete and the other access token is required
+all the request.
+So instead of suppose if you want to add access token for this request you need to go to authorization
+tab here okay.
+And in this you need to take the bearer token authentication.
+And here you can paste like this.
+And if you do like this for every request you need to continue this.
+For every request go to authorization.
+Take the bearer token and provide the access token.
+So instead of doing this for every request because access token is same for all the request.
+So what I will do is I will add this access token at the collection level.
+Okay.
+At the collection level.
+So what I will do I just go to the collection.
+And in the collection select I have selected the collection.
+Right.
+Here also you can see authorization.
+So instead of adding authorization access token for every request I'm just going to the parent collection
+because all the requests are belongs to the same collection.
+So if you add that access token at the collection level, that will automatically applicable for every
+request inside the collection.
+So go to authorization.
+And here I'm taking bearer token authorization.
+And here I'm providing the token.
+Don't give any spaces or nothing as it is you need to provide and then save it.
+That's it.
+So once you have saved it right now go to the request and here make sure you have inherit auth from
+parent.
+Make sure you have selected this option.
+Okay.
+So then after adding the access token, now I'm sending the request.
+See this.
+Now it has got generated response c a b c x y z name email address have given mail and inactive.
+So this is the ID which has got generated.
+So now what we need to do.
+We need to capture this ID from the response and create another variable which we need to use in multiple
+request get user.
+We need id update user.
+Also we need ID or delete user.
+Also we need the same id.
+So after creating the user, once you get a response we need to capture the ID from the response.
+Okay, so where we have to capture the ID from the response where we can do that and the same request,
+go to the scripts and a post response.
+Write the post response.
+Only we can capture.
+The last class we have seen how to capture the response, how to capture this whole Response after sending
+the response.
+How to capture the response.
+PM dot response dot JSON.
+Perfect.
+So PM dot JSON dot response.
+So what is PM dot response dot JSON.
+PM dot response dot JSON.
+So now this method will return entire JSON response into variable.
+So I'm just storing into JSON data.
+And this variable can be defined with a var keyword.
+Or you can create with the let keyword JavaScript.
+There are three things are there.
+So we can define with a var or we can define with the let or we can define with the const in JavaScript.
+Also we have a data types okay.
+But it is dynamically script or dynamically typed programming language actually means what We no need
+to specify the data type before the variable like integer, float, or double right?
+So we don't need to specify depends upon the type of the data which is written automatically.
+The data type will be assigned to the variable.
+So we can suppose if we don't want to change the value of the variable, make it as a const here, or
+else we can specify where or let.
+So these are.
+The three keywords are available in JavaScript because I don't want to change this value every time.
+So I make it as a constant.
+So what this statement will do now this will capture the whole response.
+But I don't need all the response.
+I need only id part.
+So from the JSON data we need to capture the id, we need to capture the id.
+So how to capture this.
+How to capture only ID and we need to create a variable also.
+So from the JSON data listen carefully which is important from the JSON data.
+How to capture this ID because we don't have anything right directly.
+This is JSON object.
+So JSON data, dot id JSON path, JSON data.id.
+This will actually give the id.
+But I want to create a variable.
+And in that variable I will store this value.
+Okay.
+So I will create another collection variable here PM dot collection variable dot set.
+And here I will say user id.
+User id is my variable name okay.
+And what is the value of the user id.
+This will give you value that I can put here comma user ID you understood now.
+So after sending the request what we have done under post response, we capture the entire JSON response.
+From the response we capture the id with that id we created a variable collection variable we created
+okay.
+So once you created this collection variable we can use this variable in another request also.
+Right.
+So now let me send this request once again.
+Now you can see what are we saying.
+Field email message has already been taken.
+Why we are getting this because duplicate emails are not allowed.
+Earlier we already passed some email address here.
+Right.
+So same email address.
+We cannot pass again and again.
+So that is the reason it is giving field email has already been exist already taken in the previous
+request.
+So now what we can do we can generate this email dynamically.
+So we just hardcoded this email right.
+Whenever you send the request same email ID will be passed and it is duplicated.
+So you every time you will get this response.
+So we have to dynamically pass some email ID.
+So in JavaScript do we have any Methodology through which we can create a dynamic text or dynamic string
+in Java Python.
+There are so many methods out there, right?
+We have already seen in the past classes.
+So in JavaScript, do we have any method through which we can create a dynamic text or dynamic string?
+Yes.
+So I will add this here in future if you want you can use.
+So in JavaScript you have a predefined class called math.
+In this we have to call a method called random inside the random.
+This random method will return some random characters number and that we need to again convert into
+two string.
+And here we can pass how many characters you want, how many characters this max 36 characters.
+And inside this I'm calling one more method called substring and two substring of two.
+So this is a constant code guys in JavaScript.
+So this will actually generate the random text.
+So I'm creating a one variable here const some text okay.
+So this particular statement will generate generate random text okay.
+So now I can use this text random text here.
+But can we use directly like this.
+Because this is a variable right.
+We cannot directly do that.
+So what we can do now simply you can say we will create another variable email equal to text concatenation.
+Here I can say yahoo.com or gmail.com.
+Whatever you want you can specify.
+So now what is this email.
+Now email is actually email right.
+That I can pass here.
+Now you understood everyone.
+So how we have generated this content?
+Text.
+Random text.
+And if you want to print this in the console window also you can just print it if you want I can just
+print it.
+So how we can print this.
+Simple.
+How we can print this?
+In the last class I have shown you console, dot log and email.
+So whatever email it has got generated we are just printing it in the console window.
+After that I am passing the username and email address randomly.
+Okay, now save it and then execute one more time.
+Yeah.
+Now what is an error field email is invalid.
+Still it is giving invalid email because this is a variable.
+We have to define const.
+You can put var whatever you want.
+So I just put a constant.
+Now this becomes a variable.
+Now save it and execute one more time Unprocessable entity.
+I think concatenation is not properly working.
+Sorry.
+Uh, user email.
+Okay.
+Field equal to email.
+This is fine.
+So this email we are just passing same email we are passing here.
+There is some syntax error.
+Field email message is invalid.
+Uh, sorry.
+Yeah.
+At the rate is missing.
+Exactly.
+So we need to pass at the rate also.
+Okay.
+Yeah.
+Save it and send it.
+Yeah.
+Perfect.
+Now we can see this is the email address randomly generated.
+Okay.
+Now in every time when you send this request, the new email ID will be generated.
+So you won't get any issues here.
+Perfect.
+Now after creating this, the data we already used as part of the body write username email.
+But what about the variable in the post response?
+We created this variable right?
+User id so where it will store.
+Can we check here.
+Collection variables go here.
+Now we can see under variables all variables you can see collection.
+User ID is not generated or not.
+Same user same ID right.
+So 323326333326.
+And the same username say user email is also got created.
+And these two variable we created before sending the request.
+And this variable is got created dynamically after getting the response.
+Understood everyone.
+So how we have handled the first request.
+So this is a very important.
+So once you are able to handle the first request rest of them are very simple.
+So when I send a Post request before sending the Post request I've created a user name and user email
+and same data have passed.
+After getting the response, I captured the entire response, and from the response I capture the only
+ID with this ID.
+I created another variable.
+Now the variable is available here.
+Now this variable I will refer this id.
+I will refer in another request.
+Okay so let me do that.
+Save it and then go and create another request.
+So what's the next request.
+So we created the user.
+Now we want to get the user details.
+So step two get the user details.
+How to get the user details.
+What is the URL we have.
+So this is a URL we have to pass.
+And again when you get the user details we have to pass user ID as a parameter user id as a parameter.
+Now go back and create another request get request.
+So add request.
+And here I'll say get user.
+And this is a URL.
+Now you can just see user ID is a email id I'm referring which is already created by previous request
+and same user id I'm referring here.
+Okay.
+And do you want to pass any body here because it's a Get request.
+We don't need any body okay.
+But what are the things we can validate here.
+And I'll go to the script.
+So do you want to pass anything under Pre-request pre request.
+No need because we no need to create anything right.
+And post response we do validations.
+What are the validations we do.
+For example let's say I'm sending this request now I have not added anything just I'm sending the request.
+Now we can see we got the data.
+We send the Get request.
+This user ID is captured from the variable.
+Now we got the data.
+Now I want to verify this data.
+What?
+I can verify the say ID is exactly the same or not.
+Whatever ID which is created from the, uh, in the previous request, that ID and here, whatever ID
+we are getting here that should be same name also should be same email also should be same because these
+three details id name email.
+We already created variables.
+Here you can see name user email user id.
+So now we need to compare these three from the response.
+We need to capture these three details and compare with the values of these three variables.
+If I look at the picture you will understand this.
+See, after passing the ID, we will get the user and the user.
+When I send the get user, it is returning ID name, email and these three fields.
+Again I will validate from the previous fields.
+Whatever the fields we are passing at the time of creating user, the same data should be there after
+getting the user also.
+So what are the things I can add here?
+Post pre request or post response where you can add comparison?
+First I need to capture this data and then I want to compare with the variables.
+So post response after sending the response only we can add.
+Yeah.
+Now tell me how to capture the response.
+pm.pm dot response dot JSON.
+So this will actually returns the data.
+So I say const JSON data right.
+So now we need to capture multiple fields.
+So not only id we need to capture id name also email address.
+So three things I want to capture.
+At the same time I want to compare those three with this variables which are correct or not okay comparison.
+Also there.
+So we need to add assertions here.
+So not only creating captioning, we need to also add assertions.
+So first of all, let's go back to the post response.
+We capture the JSON data.
+So once we capture the JSON data what we need to do now we need to write.
+What we need to write here we need to verify right.
+So we need to write a arrow function right.
+We need to write an arrow function.
+Validations we need to do comparison is required earlier.
+We have not written any arrow function.
+When I go to the create user under post response.
+Have I created any arrow function here?
+Have we done any validation?
+Actually here we have not done actual validation.
+So what exactly we have done here?
+We just created a variable.
+We have not done any comparisons, no validations, nothing.
+Right.
+But now this time we need to do validation.
+Also we need to capture this data and compare with the variable this data username, email address and
+user ID.
+So for comparison, we need to write a arrow function.
+Now I already captured the JSON data here.
+Now let us create an arrow function.
+PM dot test.
+PM dot test.
+Right.
+So here I can write the test description.
+So I can write some description and say validation of validation JSON fields or validating JSON fields.
+So this is my text.
+Comma and bracket arrow function I am writing.
+So this is the syntax of writing arrow function.
+And after curly brace we need to open this and close it.
+Now inside this arrow function we need to capture the id name email addresses and compare with these
+three variables so how we can capture it.
+First, there are multiple things we need to do.
+First ID we will capture how to capture the ID from the response.
+Now you should guide me.
+So ID is already there in the response.
+So we need to capture this ID from the response here.
+How to capture this JSON
+data.id.
+Okay so this is the capturing the data right.
+So this will give the ID and that I want to compare with our variable.
+So this will give the data actually.
+And this I want to compare with the user ID of the variable.
+Okay.
+Before that how to compare this.
+What is our session.
+PM dot expect is a session.
+So now I'll keep it here.
+PM dot expect this JSON data.id .2. equal two dot equal.
+And now we need to compare.
+So this json.id should be equal to what this user id.
+Now how to capture this user ID from the variable here.
+Here we need to write.
+So how to capture or let's write a separately.
+How to capture the user ID from the variable.
+From the variable.
+From the variable.
+So here user id is already there I want to capture this from the collection variable.
+I want to get the value of the variable c curly braces.
+Here we have used write.
+If you are trying to access this variable as part of the request URL, then you have to use curly braces
+syntax okay.
+But here I want to capture the value using JavaScript.
+Using JavaScript I want to get the value from the variable.
+What is the method?
+Get is a method okay pm dot.
+This is also we discussed in the last class PM dot collection variables.
+Dot.
+What?
+Get off!
+And what is the variable name here?
+User id okay, now this will actually gives you value of the variable so that I can pass here inside
+the bracket.
+Okay I just close this.
+Okay.
+So now you understood this single step.
+So what I have done, I captured the ID from the response and also capture the user ID from the collection
+variable.
+And I'm comparing this using expect method.
+This is one comparison.
+Now let us also compare email address and name also.
+Okay same thing.
+We will repeat.
+PM dot expect now name.
+Also we need to verify name two equal and name is also there in the collection variable, right?
+If I go back here and see here user name is there user email.
+So these two also we can verify.
+So let me capture the user name.
+So user name done.
+Another validation.
+So what is the next thing here.
+Email address.
+Email JSON data dot email.
+Compare with what user email from the variable.
+That's it.
+Okay three validations we have added in the test method.
+Everybody's understood this.
+So we have captured the response.
+And from the response we are capturing ID name email address.
+Also comparing with what user ID user name and email.
+So these three are the variables.
+And here ID name emails or data from the response.
+So we have achieved this one actually the first part.
+So once pass ID get user request we have sent it is given the id name email.
+We are compared with the actual data.
+Okay this comparison is done.
+Okay.
+Now let us execute and see whether it will work or not.
+So before doing that because now get user is dependent on what create user.
+Now we need to run sequentially right.
+So once you run the create user it will create a new user.
+And variables will be created newly.
+And after that get user request we have to send.
+First let me run the create user again and I send a create user.
+Now we can see the id has got changed, email ID has got changed.
+And if I go and see the variables you can see ID has got changed.
+Email is got changed.
+Okay now go back to the get user now.
+So this user ID dynamically gets and these variables will be verified now.
+So when I send this request, see that test results passed.
+Okay.
+So this is how we can link two different type of request.
+Create user get user for the get user.
+Have you applied any authorization here?
+No authorization.
+Why?
+Because we already added other other token at the collection level.
+So the same token is applicable for create user and get user.
+Okay.
+So if you want to check go to the Get user and see authorization.
+It is saying inherit auth from parent.
+What does that mean.
+It is automatically inheriting authorization from the parent.
+What is the parent here is collection.
+Okay so everything is clear.
+So far we have done two things actually.
+So we have done this part.
+We have done post request generated the ID with this ID again, we have sent a Get user request and
+capture the response ID name email compared with the existing data.
+Okay, now by using same ID I will try to update the user.
+So when I try to update the user, what are the details I will update?
+Name.
+Email status.
+Three things I will update as of now.
+If I go back and see the get user again one more time.
+So currently these are the details we have.
+So what are the details I will update here.
+I will update name email status because ID we cannot update because this is a unique.
+So what are other things I can update.
+Here is name email status I'm going to update name and I'll update email and the status gender.
+Also if you want you can update.
+So these are the things I can update.
+And these are the current details.
+Now I want to update it.
+So for that I can write another request put request okay.
+So let it be here.
+And now I'm going to create another request.
+So ad request.
+And what is this type of request.
+This is update user and this is put request.
+And what is a URL we have to pass for put request.
+Put request.
+Also we need to pass ID only.
+So next update user details.
+So this is the URL we have to pass.
+The same user id.
+Again we are referring.
+So when I send a put request because we are updating the data means what we need to pass request body.
+So go to body and uh raw and then JSON.
+And here we need to write a body because user ID we are already passing here.
+So we no need to pass ID at the time of creating the user.
+What is the data we have passed inside the body?
+This is the data we passed Now this time also at the time of updating user also I'm passing the same
+data ID.
+Is not there any way here, right?
+Because it is already created here we are passing that also.
+So name gender email status.
+So these are the four things I can update if you want.
+Right.
+So what I will do is I will try to update a few things here.
+Because if you update everything we cannot recognize easily.
+So what I will try to do is I will try to update a few things here.
+One is uh, this is update user, so one is name, email and status.
+So name email and status name email and status.
+So I just try to remove the gender part okay.
+Now previously it was it is active or inactive.
+Previously it is inactive.
+Status is inactive.
+Now I want to make it as a active.
+Now I want to make it as an active.
+Now the name and email address I will update.
+So whatever email address username is already there.
+Previously here.
+So I'm not going to use these two because I want to update now.
+Right.
+So what you need to do now again we need to go to scripts here.
+Go to Pre-request script and create again one more time a new email ID you can create new name, new
+email ID you can create once again randomly.
+You can create how?
+You can create again go back to the create user.
+We already done it.
+Go to the scripts Pre-request script.
+So here we have done same thing copy paste go to Update user and here okay so this will go and create
+here a b c x y z.
+All right.
+So I say 123.
+So now the new username will be created.
+The new email ID will be created and this user name and email address I am going to pass here.
+And where we created these two under Pre-request script.
+So before sending this request these two things will be executed.
+And whatever the username email is already there previously in those variables will be automatically
+updated with the latest script.
+Okay now we can say save it.
+Okay.
+So what we have done so far is simple.
+We just send update user request by passing ID as a request URL parameter and name email address status
+to generate this new data.
+Again, we have put this inside the Pre-request script so that whatever ID name or whatever name email
+addresses are there previously that will be replaced with the new email and status and that I am passing
+as part of the body.
+Okay, now if you want to add validation again, you can add.
+So we already scripts we have added how we can add validation.
+The user email ID will be updated.
+So if I send this.
+Now you can see this is the new email ID has got generated.
+The new name is got generated status code and with the same ID you can see whatever ID we have passed
+here.
+So this has got changed.
+123 has got changed right.
+So username has got changed.
+User email is also got changed.
+So again if you want to add some validations here you can simply add them.
+So on the get user whatever validations we have added under post response.
+Same type of validations I can add in the update user also because update user also returning the whole
+response and in the post response I can add the same thing, but few things we need to change because
+whatever user id we created under variables, we are getting the same user ID and here user id should
+be equal and the same username.
+And here the username should be same.
+And after that, whatever email address we are passing and email address here should be same.
+Now save the request.
+And again now everything is dependent.
+Let me run all the request one after another and closing everything.
+Now first to create a user send.
+So the new user is created.
+So just remember 7613344.
+If I look at this this is a these are the username email address all variables.
+You can see that ABCXYZ3344.
+Here you can see the data whether it's changing or not okay.
+Create user.
+We have done.
+Now go to the get user.
+So we have not sent the request still.
+So currently these are the variables we have.
+So I'm sending the request now.
+Perfect.
+So test users are passed.
+Now you can see 3344, a, b, c, x, y, z and we got some email address and inactive.
+It should be active after updating.
+Now go back to update user I think inactive active.
+You are not checking because we have not created variable for that.
+Okay so let me run this now and observe how these variables are going to change here.
+Previously a b c x y z some three three, four four will not change email address and user email will
+be changed.
+Now I'm sending this request.
+Now you can see user email has got changed.
+User ID is same and email is also changed.
+So my test is got passed.
+Okay so how about environment section is showing QA.
+Are we doing all activities in QA.
+So as of now I shifted to QA.
+Here you can put whatever environment you want.
+And the last class I told you right.
+If you want to create a environment variable or environment QA or dev or whatever, so you can select
+which one you want.
+Because we are not creating any environment variable, even if you selected no environment here, it
+will work.
+No problem.
+So these environments is required only when you create environment variables.
+Otherwise we no need to deal with anything with this.
+Even if you put no environment, it will still work.
+Because we have not created environment variables, we just created collection level variables.
+Okay, so by default it is selected.
+I have not noticed here, but still even if you select another environment, no problem.
+But make sure if you instead of creating collection variables, if you create environment variables
+then you need to make sure select the right environment here.
+Okay, so far what we have achieved create user we have done and then we have done get user update user.
+Now finally what is the request delete user.
+Let's do that.
+So let me create another request.
+So this is delete request.
+And what is a URL for deletion.
+Update user is done.
+Now delete user.
+This is a request.
+And again user id we have to pass as part of URL.
+So this your user id we will get it from the collection variable.
+So user ID you will get it from here.
+And do we need to pass any body for deleting the request.
+No no body is required.
+Do we need to add any scripts.
+Yes.
+So let us remove all the variables because this is the last request right.
+Because we in the create user we have created variables for get user we have used this id name and everything
+for update user.
+Also we have done.
+And finally, whenever you are executing the last request, you can unset all the variables because
+unnecessarily if you don't remove the variables, the variables still maintain here.
+Okay.
+Once you completed all the requests, let us try to destroy all the variables.
+Why?
+We need to maintain unnecessarily.
+Right.
+So we can remove the variables.
+After completion of all the requests, let us clean up them.
+So how we can do that?
+Where we can do that script, where we can clean up.
+Where we can clean up those.
+Delete user request under pre request or post response post response.
+So here we can clean up all the variables currently.
+What are the variables we created.
+User name email and user ID.
+How we can delete them.
+What is the command unset PM dot collection variables.
+Collection variables dot unset.
+Simply specify the variables.
+What are the variables?
+User name is one variable.
+That's it.
+And similarly another one user email.
+This is another one.
+Next one.
+User ID.
+Even a user id is also I'm going to delete everything.
+I'm just trying to unset.
+Now save this request and send this.
+After sending this final request, just observe what will happen.
+See this?
+Everything has got removed.
+All collection variables are cleaned up.
+Okay.
+So again if you go and create a user request, create a user.
+Now observe see collection variables three are got created.
+Now get user.
+Successfully working update user.
+And when you update the user user name email address is got changed.
+See they have changed.
+Perfect.
+Now go to delete user.
+So when I send delete user, the request will be deleted.
+The resource and these three details will be cleared.
+When I send this all these got cleared okay.
+So this is how we can change the APIs.
+That is the main concept.
+We have combined all three APIs.
+Now every API request is dependent on dependent on previous request.
+Previous request okay.
+So can we run all these requests in one shot.
+Can we run all this request in one shot?
+How we can run.
+Just we need to run the collection okay.
+So let's select the collection now.
+So once you select the collection here you can see one option called run run collection.
+Simply execute.
+So it is saying it is selected for collections.
+And simply you Simply can run collection.
+That's it.
+Okay, so in the delete user we have not added any test.
+So it is saying no test found.
+But for update user get user we have added the test.
+It is passed even the Post request.
+Also we have not added any post test.
+We have not added any validations there.
+We just created a variable which is storing user ID but we haven't added any validation.
+So all three, all four requests are successfully executed.
+And if you click on this view all runs it will show you a report kind of thing.
+So if I expand this it will show you the details.
+So schedule performance okay I'll explain these things later.
+So functional test.
+So far we have done.
+Even if you go to the console.
+You will see all the requests here.
+So what are the requests we have sent?
+How much time it is taken?
+So everything is shown here.
+Okay, so this is all about API chaining process.
+So based on that you guys can try this.
+Another one I'll give as an assignment.
+So I've just given collection variables.
+We created Pre-request script.
+We had added post response also added.
+And finally we have done we have applied chaining based on user ID.
+So this is assignment you guys can try.
+So we already have a student API right.
+So in the last classes we have discussed how to start student API by using JSON server command the local
+API.
+So you can start that API.
+And then two request.
+First create a student with this body.
+I have given all the instructions very carefully with this body.
+Create a new student, and, uh, and the test scripts capture the ID from the response and create a
+variable ID variable.
+And then as part of second request, send another get request.
+So here the first request is a create student.
+The second request is a get student.
+But here whatever ID which is generated in the previous request by using the same ID we have to capture
+the we have to send the second request.
+And once we get the response we need to validate the data is exactly same or not.
+So whatever data we passed here, the data here is same or not.
+We need to validate.
+After that delete request with the same id, we have to send the delete student request.
+So read all the instructions you will clearly understand.
+And you guys can try this as part of assignment today okay.
+So I'll stop here tomorrow.
+We will continue with the rest of the topics.

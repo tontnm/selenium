@@ -1,0 +1,1658 @@
+Okay, so let us start today's session.
+So today we learned two concepts, uh, from postman.
+One is variables and another one is scripts.
+So again in the scripts we have a different type of scripts.
+Uh, like uh, pre-request script and post response scripts and so on.
+We will discuss that later.
+First, let us start with the variables.
+So normally what is the definition of the variable.
+What is a variable.
+So as per the definition variables are basically containers or a placeholders where we can store some
+data or we can store some input in the variable.
+Right.
+There's a generic definition.
+If you learn any programming language.
+Normally the common definition of the variable variable is nothing but which can hold some data.
+Or we can say it is a kind of a placeholder where we can maintain the data in a variable.
+Okay.
+So as per postman, also it is a similar definition.
+Variables are placeholders for values and where we can use those values in different places, like we
+can use those values in the request.
+Sometimes we can use those values in the scripts and collections in multiple places.
+We can refer those variables.
+Okay.
+And why we need variables.
+So why we need to create a variables.
+The most important point.
+Most of the times we try to avoid the duplication values.
+So for example let's say I have a multiple uh request in my collection.
+In every request I want to pass, uh, some data or I want to pass the URL.
+Right.
+So suppose if you look at one single project, the URL is almost same.
+Let's say I have a different type of Get request and post request and different type of request.
+And whatever the URLs I'm using in every request, the URL is the same actually.
+Right?
+So instead of using the URL value directly in every request, I can create some variable URL equal to
+so and so.
+And this variable I will refer in every request.
+Okay.
+So what exactly we are achieving with this variable.
+We are trying to avoid the duplication.
+At the same time suppose tomorrow if you want to change the URL, you can just change in one single
+place.
+That will automatically reflected in all the request.
+So that means what?
+We can change this value at any time even it is dynamically changing, right?
+And that is the main usage of the variable.
+So we can avoid hard coded values.
+Initially we can add some value but later we can update this value.
+We can modify this value by writing some JavaScript statements.
+Okay.
+So what is the use of variable to avoid the hard coding values.
+And we can reuse the variable values in multiple scripts dynamically.
+We can pass the data and it is easy to manage basically.
+Right.
+So not only the URL.
+Sometimes there are some common data which is required for every URL request.
+For example, I will have to use API key.
+So if you want to access any API, suppose let us say I want to have some API key.
+And that API key is a commonly required for every type of request.
+In that case, I can create a variable for storing API key, and in which I can hold the key value,
+and that I can refer in every request.
+So like this.
+There are many types of values we can store in a variables.
+And those variables we can refer in multiple requests.
+So that is a main usage of variables in postman.
+So where we can use the variables once you created we can use those variables in the URLs and headers
+and request bodies or in any JavaScript statements.
+So in multiple places in many ways we can refer the variables okay.
+Now in postman there are five different levels we can create like variables we can create in five different
+places which we can call them as a variable levels.
+We can say variables, types of variables or else.
+So five different types of variables we can create.
+So first type is a global variable.
+Environment variable collection variable local variable and data variable.
+These are the five different types of variables we can create.
+All right.
+So now if I look at the hierarchy in postman where exactly we create a request.
+So what is a what is a high level thing.
+Is collection right.
+So first we will create a collection.
+So workspace contains a multiple collection.
+Let's say workspace contains a collection one and collection two and collection three.
+We can create multiple collections.
+Again what is a collection contains.
+Collection contains what request right.
+Again these request may be part of the folders also.
+So every collection is having different type of request.
+So this is the hierarchy.
+Now when I create a global variable and the global variable accessible Everywhere.
+That means everywhere in the sense what?
+In every collection we can access, the global variable in every collection means what?
+In every collection.
+What the collection contains.
+Collection contains a different type of request.
+So when I create a global variable that is workspace level, that means what?
+Inside the workspace, you may have any number of collections and any number of request in every collection.
+In every request you can refer that variable which is called global variable.
+Another one is environment variable.
+So environment variable is almost similar to global variable but slightly difference.
+Is there even environment variable also specific to environment like QA or prod.
+What does it mean?
+Just like a global variable you can also create an environment variable.
+Then what is the difference?
+The global variable we can access in every collection in every request directly.
+Whereas when I create an environment variable.
+Also you can use in multiple collections, but you need to switch to that environment.
+For example, let's say I created two environments QA and dev.
+Under QA, I created some variables in the dev I created some other variables.
+Now these variables.
+Suppose I want to access the variables which are created under QA environment.
+My collection should shift to QA environment and then I can access the variables.
+Similarly, if I want to access the dev variables inside the collection two, then I have to switch
+to the dev environment.
+Then I can access the variables in the collection two.
+So that is a major difference.
+So global variables we can access in everywhere directly.
+There is no switching is required.
+But when I create environment variables and before creating environment variables first we need to create
+an environment.
+Under that environment we can create environment variables.
+And if you want to access the environment specific to that environment, we need to switch to that environment,
+then we can access the variables.
+I will show you practically.
+Then you will understand more about it.
+So that is the second one.
+Environment variable specific to environment.
+Like we can create any number of environments in each and every environment.
+We can create multiple variables and we can access in every collection.
+Third type is collection variable.
+As the name says, collection variable means what the variables we can create at the collection level,
+and those variables we can access within the collection.
+Suppose in the collection one I created some variables I those variables I can access within the collection
+in all the request.
+So whatever request I have created under collection one, I can access in all the request because the
+variables are created under the collection.
+So they are called collection variables specific to collection or request local variable.
+This is specific to request.
+Suppose in the collection one I created request one, request two, request three and request to specifically
+create one variable, and that variable I can use only in the request one and specific to request two,
+I can create one variable that I can use only within request two and request three, and so on.
+That is called local variable.
+Local variable or request level variable.
+That is a lower very very lowest scale scope.
+Like in Java programming we have something called private protected right and public.
+So similarly even in the postman variables also different levels.
+So lower local variable means only request level collection variable is collection level environment
+and global variables are above the collection.
+These two variables we can access in everywhere in every collection but global variables we can directly
+access but environment variable.
+We have to switch to particular environment and then we can access those variables.
+So these are the four.
+And fifth one is data variable.
+And these variables we can define in some external files like CSV file or JSON file.
+We will create that file and in which we will create all the variables.
+And we will refer those variables inside our postman request or postman request, body or wherever you
+want.
+You can refer those variables.
+And those variables are called data variables.
+It's a normal in the Java programming or Python we will use something called properties file.
+In the properties file we will put common variables and we can use those variables in all our test cases.
+Similarly here the data variables we will specify either in CSV file or in JSON file.
+And we will refer those variables inside our postman request.
+So they are called data variables.
+So which are also called as external variables.
+The data variables also called as external variables.
+So today we will focus on first to four types of variables.
+I will show you how we can create and how we can use.
+And tomorrow session I will show you the data variable because this is related to data driven testing.
+This is related to data driven testing.
+So we will see data variables along with the data driven testing in tomorrow class and today we will
+focus on four types of variables.
+Global variable environment.
+Variable collection variable and local variable.
+Okay.
+Now let us move on to the practical part.
+How we can use those variables one by one.
+So global environment collection local and data variable.
+So what I will do is I will take one request.
+And in the request let's say this is my URL right request and response dot in.
+So for example let's go to postman directly and let's go and create a new collection for today I'm creating
+new blank collection and I will name it as day four.
+And I'll name it as a Variables and scripts.
+Or you can say a variables.
+Okay, now my collection name is got created day four variables.
+Now inside the collection I'm going to create one sample request.
+So what I'm going to do is I'm just taking a sample request.
+And here we have a sample API.
+So I'm going to take one list users API.
+And this is the URL I'm going to send.
+So this will basically return some data which is there in the database.
+This is a Get request.
+So I'm using this request URL.
+I'm just going to create a simple Get request.
+And here I will place the URL.
+So this is my URL.
+So just a URL you need to place okay.
+Now I'll just try to rename it.
+I'll name it as a Get request.
+Or I can say get.
+Users.
+Okay so simple.
+I created a simple request here and when I send this request you will see some data response.
+Right?
+So now we'll see how we can use variables and where we can create how we can access all those things
+step by step.
+So as I said five different type of variables.
+First we'll discuss four different variables.
+One is global variable environment variable collection variable local variables.
+These are the four types of variables.
+So for now what I'll do is let us assume this URL is same right in every request.
+Maybe the path parameters and query parameters can be changed.
+One request to another request.
+I'm talking about request URL in the request URL in every request.
+This part is same, right?
+So this part is same, but path parameters and query parameters may change according to the type of
+the request, type of the data or type of the request.
+So I will what I will do is I will just capture this URL and I'll store this URL in a variable, and
+that variable I will access in every type of request in different levels okay.
+So first let us start with the global variable.
+How to create a global variable.
+What is a global variable means the global variable we can access in every type of collection in everywhere
+within the workspace.
+Again you cannot access outside of the workspace, only within the workspace anywhere you can access.
+So now I'm going to create a global variable.
+Just listen very carefully because in postman there are multiple flows are there.
+And you have to remember those flows.
+Otherwise you cannot practice it okay.
+So after the session you can just repeat this video once again so that you can easily see the flows
+and you can practice.
+Now what I will do is I will just take this URL and I will create a global variable.
+So where I can create a global variable.
+So to create a global variable you need to go to the settings here.
+Can you see here the Settings Postman Settings button and click on the settings here and go to the settings.
+And inside the settings uh you can see something here.
+Sorry not here.
+Because in every uh postman version they keep changing the, uh, UI part.
+So if I look at the previous version of postman, the UI is different.
+The options are got changed.
+Now this is a totally different.
+So let me try to find where exactly we can create a global variables.
+Okay.
+Currently we are in the workspace and we are in collections okay.
+This is our collection and currently we are in the collection.
+So we need to create our global variable.
+Let me find it.
+I think.
+Yeah.
+This is the one guys.
+So I can just go to here.
+This is iconic and see variable section.
+Okay.
+So go here and you can here you can see different type of things.
+So environment collection global right.
+So as of now there are no global variables in this workspace.
+So we can add new global variables.
+Simply you can click on add here.
+And now it will open the window like this.
+So here you can create a global variables.
+So here I'm going to create one global variable as a URL underscore global.
+So just to represent it as a global variable I'm just giving some extension.
+So underscore global URL underscore global.
+And here initial value uh I can give some default value or initial value.
+And the current value is almost same in in future if you are not able to provide the current value somehow,
+so the initial value will be automatically taken.
+Okay.
+Safe side.
+You can have initial value.
+So this is how we can simply create a variable URL underscore global I created a new variable.
+So once you created click on the save button say global.
+Now it is done.
+So once it is done you can close this.
+So now the global variable is got created.
+So that I want to refer in the URL.
+So how we can refer the global variable here.
+Simple.
+Remove this URL till here and what you need to do.
+Simple.
+Open two curly braces.
+And here it will show you the list of global variables which we already created.
+You can see initial current scope.
+You can see the values are given here.
+So in the curly braces simple type url url underscore global it will automatically pop up here okay.
+So you can just select this.
+Or you can just type directly global and then close.
+Two curly braces are required.
+Okay.
+So suppose if you know if you're not created these variables, but still if you are trying to use it
+here, it will give you a red color mark error.
+It will show you.
+So currently we have already created.
+So we are just referring the variable.
+We are not provided the URL.
+So now when I send this request so we'll get the same response.
+So from where it is taking this URL from the global variable, it is taking this URL from the global
+variable.
+Okay.
+So again if I go back and saving the request and again if I go back and see global variable section,
+do we have the global variable here.
+If I click on it here you can see URL underscore global.
+Still it is available okay.
+So this is the first type of variable.
+So global variable we can create.
+What is environment variable.
+So when I create environment variable first we need to create an environment.
+In that environment we can create environment variable.
+So how we can create it.
+So to create environment variable.
+First we need to create an environment.
+And then we can create environment variables under the environment.
+So as of now it is saying here there is no environment.
+Here.
+You can see there is no environment.
+So we have to create our own environment.
+In that environment we can create a variables.
+So first let us create our own environment.
+So go to this option drop down create environment.
+And I think here also there is an option all variables.
+So you can see there is an environment.
+So here there is no environment selected.
+So here we can select the environment.
+But here we cannot create environment variable.
+Here this option is available for only choosing the environment okay.
+Now if you want to create a new environment go to this drop down and click on the create environment.
+So once you go here simply give some name of the environment here.
+New environment here.
+I'm just giving you a environment.
+Or you can simply say QA.
+So this is the name of the environment.
+But under this environment we can create a variables.
+Now the URL variable I will create under this environment.
+So I'm giving a different name I say URL underscore q underscore env.
+So this is the name of the variable I'm giving q a is representing environment.
+Env is representing environment.
+So q url underscore qa underscore env I'm just giving a similar name.
+And here I can provide the the URL.
+So this is a URL.
+And current value is also same.
+So now this is the variable I created under which environment QA environment okay.
+Now save this.
+Now I want to use this variable inside my request.
+So let me close this.
+Now here.
+Currently I'm pointing to global variable.
+Now I want to point environment variables.
+And if you want to point this environment variable as of now currently which environment is selected.
+Q environment.
+Suppose by default you don't you see only no environment.
+So now I'm trying to refer that variable.
+Environment variable.
+Okay.
+For example let's say uh URL underscore let I'll keep this global variable directly here.
+I don't want to disturb this.
+Uh what I can do is I can create another request.
+I can take a duplicate one.
+Okay.
+I can take that here.
+There is an option called duplicate.
+If I select duplicate, request will be created.
+So here I will try to rename it get users a global.
+Okay.
+Global.
+Global variable.
+Global var I'm just giving similar name so that you can easily refer.
+So here we used global variable.
+Now in the second request I'll try to use environment variables so get users underscore.
+Environment variable.
+Okay.
+This is another request I created.
+So now instead of referring global variable I'm trying to refer to environment variable.
+So if I rename this I can just try to remove this.
+And to refer any variable we have to use curly brace like this.
+Okay.
+Now which type of variable we have to access.
+Now we need to access environment variable.
+So what is the name we are given.
+URL underscore qa underscore env.
+So this is the name we have given.
+Now you can see it is giving red color error.
+It is giving an error.
+So why it is giving an error.
+Can you guess why it is giving an error.
+So we are trying to access the environment variable which is already created.
+But still we are trying to get it, but still it is giving an error.
+Why?
+Because currently in which environment we have.
+We have not selected any environment here.
+So we created this variable under QA environment.
+So what we need to do we need to switch to it.
+So here you can see drop down here you can see whatever environment we created earlier.
+It will show you simply select this.
+So as soon as you select it that error is gone.
+So this time the URL comes from where environment variable.
+So you can simply click on send button.
+Now we got the response.
+So this is how we can simply access environment variable.
+So before switching before accessing environment variable you need to select the environment properly
+here.
+Otherwise you cannot access okay.
+So this is how we can access environment variable.
+So you can create multiple variables under one environment.
+So now the next one is collection variable.
+And this variable we can create only at the collection level.
+Only within the collection we can access.
+So what I'll do is I can create a variable in the collection level.
+So currently where is our collection day for underscore variable.
+So this is my collection.
+So I will create a collection variable under the collection simply where we can create here can click
+on the.
+You can see here there are three dots.
+You can see here.
+When I click on the three dots you can see more create form view change or not this one.
+So you need to go here.
+Again click on the variables and you can see collection.
+We already created one environment variables and global variable.
+Also.
+Now we need to create collection variable.
+So click on this add.
+So just remember the flows guys.
+Because most of the times it will be confused because in every version of postman they do some changes
+UI changes.
+So that is the reason most of the people will have confusion.
+So sometimes they could not find the options also.
+Right.
+So here you can see this variable section go here.
+And currently we already created one environment variable.
+It will show here and global variable also created.
+Now we will create a collection variables.
+So no variables are defined in this collection so far.
+So I'm just adding here.
+Click on add link.
+So once you click on Add link it will give you one more window.
+So you can see the variables tab.
+You can see here go there.
+So even if you are not clicking here what you can simply do is select the collection automatically.
+It will show you the tab here.
+This is the one place directly we can add or else you can go here.
+Click on add.
+So then it will show you this window okay.
+So over you authorization scripts and variables and runs there are multiple sections you can see.
+So go to the variable section.
+Once you select the collection go to the variable section.
+Here I'm going to create.
+So this time I'm going to create URL underscore collection level I'm creating.
+So I'll just name it as a collect and initial value and then current value.
+So as soon as you type initial value, it will copy it into correct current value also.
+So this is a collection variable which is created and then simply save it.
+Now where I can access this variable under any request in whichever request you want.
+In all the request we can access the variable.
+So what I will do is I will try to create another duplicate.
+And in inside the request I say get user.
+So this is collection variable I call it as a collection where.
+Okay.
+Now.
+So currently it is referring environment variable from environment.
+So I just try to go to the no environment for now.
+So now I want to refer this from the collection variable.
+So simply what you can do.
+Same curly braces URL underscore.
+What is the name you have given.
+Collect URL underscore collect.
+That's it.
+So this is comes from the collection variable now.
+So when I send save and then send the request.
+So we got the response.
+So this variable is created under the collection.
+So within the collection you can use this variable in every type of request in all types of requests
+within the collection you can access.
+But outside of the collection you cannot access.
+This is called collection variable.
+Now the local variable.
+So which is very specific to request.
+Very specific to request.
+The local variable.
+So where we can create it.
+So again let's go and create another request.
+Let me go and create duplicate I'll rename it as a get users local where.
+So where we can create a local variable.
+So I'm just saving this request.
+So as of now, this URL comes from the collection.
+Now I want to create a variable especially for the request.
+So then where we can create local variables.
+So the local variables we can create under the Pre-request script.
+Here we can create by writing the JavaScript.
+We can create a local variable okay.
+And uh there is another way we can also create somewhere here let me check.
+And the local variable is specific to the request not for other type of request.
+So if I go back here this is again all variables.
+You can see global variable collection variables and other things are there.
+So local variable option is not here because local variables are very specific to the request.
+So let us try to find Somewhere we can create.
+I think there is no way.
+So only in the scripts we can create.
+So to create a local variable, what we can do is here we need to write a simple JavaScript statement.
+So how we can create a simple JavaScript statement is simple I'll tell you.
+So PM is a package pm.pm dot.
+We are going to create a local variables.
+So I say pm dot variables pm dot variables, dot set, dot set.
+And here you can create.
+So how we can create simply I can say uh what is URL underscore.
+I will name it as a URL underscore local URL underscore local comma.
+In the second parameter we need to specify the URL.
+Semicolon is optional in JavaScript okay.
+So PM dot variables dot data set URL underscore local comma, the value of the variable.
+So this is how we need to add.
+So where we can add this under the scripts tab go to Pre-request script okay.
+So on the Pre-request script you can add this okay.
+So once you add it now just observe when I send this and how we can refer this in the URL, how we can
+refer this simple URL underscore remove this I say local.
+That's it.
+Okay.
+Now whatever the variable we created here, we are referring in the same request.
+Now execute this.
+It will give you a response okay.
+So this is how we can do that.
+So there is an option called set here.
+These are default options.
+Suppose if you are not able to write the script by using this simple snippet you can simply add it.
+So for example if you want to set a variable.
+So here there is a method available.
+Set global variable set collection variable.
+And these are all statements for coding I will come to that part.
+Okay.
+So in the next I will explain that how to create variables through JavaScript.
+So in that case we will use this snippets okay.
+So so far we have seen how to create a variables in the UI part in the UI options using UI options.
+But we can also create a variables by writing a JavaScript.
+Just like this.
+We created the local variable, right?
+Similarly, we can also create global variables, environment variable collection variables, everything.
+We can delete the variables, we can get the value from the variables.
+All these actions we can do only through JavaScript statements.
+So I'll come to that part.
+So to create a local variable what we can do we can simply say pm dot variables dot set.
+And the key key is nothing but a variable and the value.
+So whatever variable name we have given here same thing I'm referring.
+So when I save and send it.
+It will give you the response.
+So these are the four types of variables which we can create global variables, environment variables,
+collection variables and local variables.
+Remember when you create a local variable where I have created this script under the scripts tab you
+can see Pre-request script.
+I'll explain what exactly these two.
+For now, just remember Pre-request.
+Under this I created this local variable script.
+Okay, only through JavaScript you can create a local variables.
+Done.
+So these are the four types of variables global variables environment variables collection variable
+local variable.
+So data variables.
+In the next class I will discuss because these variables also called as external variables which are
+come from CSV and JSON files.
+We have to define the variables in the external files.
+We will get those variables and use it in your request.
+Okay, so now let us see how initial value is the same for all types of variables, but in the real
+time those initial values.
+Suppose.
+Suppose you forgot to pass a value in the variable.
+So then the default value would take.
+An initial value will be taken.
+So for the safe side we can have the initial value also for that variable.
+So that's the reason in the UI they have given like that.
+So initial value is given like this.
+Suppose if I just go to the global variable also.
+And here it is given.
+Right.
+So here you can see global variables.
+So this is the value.
+Finally we have given.
+Okay.
+You can see that.
+So here you can see these are the values which are given.
+So we can create initial value or initial value in the sense not only the URL.
+So you can pass an initial values not meaning that actually the initial value meaning is a default value.
+The default value.
+You're considering initial value is the same for all types of variables, but in the real time those
+it may be different.
+So if the values are different, you don't take the variable okay.
+So if the value is same across multiple requests you can create a single variable.
+You can store that value in the variable.
+So then you can reuse that variable in multiple request.
+If the values keeps changing then directly go to the local variable.
+Because in the local variable here you set some value here.
+And if I create another variable another request.
+Then again you can change the value of the variable.
+So it keeps changing okay.
+And we can also change the values of the variables dynamically.
+I'll show you that concept in the chaining process okay.
+Suppose there are multiple request.
+And one request is getting some response giving some response.
+We need to take that response as input and pass it as a input for the another response another request.
+So in that case, I will show you more examples on variables how exactly we use variables in the real
+time when implementing the chaining process.
+But here we are seeing the variables at the individual level.
+Individual request level.
+So when to go for variable.
+When you define the variable.
+When you create a variable when it is required.
+If you find something is common across multiple request, then create a variable.
+Have that value in the variable and then refer the variable in multiple request.
+So that is a concept.
+If the values keeps changing then don't go with the variable in global.
+Yes, global means what it is accessible based on the accessibility.
+You need to decide which type of variable is required, either global or environment or local.
+So based upon the accessibility.
+So variable is same.
+But I created in a different levels right.
+So you can create whichever level you want depends on the requirement.
+Suppose I want to have that variable.
+I want access in all the requests.
+Then where you will create that variable in which level you will create.
+I want to access the variable in all the request related to the specific collection.
+Specific collection.
+Then go with the collection variable.
+I want to create a variable.
+I want to access it in all the collections throughout my project.
+All the collections then go with global variables.
+Right.
+Suppose I want to access a variable specific to that request.
+I don't want access anywhere else.
+Then go with the local variable.
+Okay, so depends on your requirement.
+You can create the variable in whichever level you want.
+Understood everyone.
+So these are the four types of variables we can create.
+And we can refer inside the request or in the request body.
+We can also refer the variables inside the request body.
+Also sometimes we send the post request.
+The post request we will pass some data.
+Right.
+So even that data also we can get it from the variables.
+I'll show you that part.
+Okay.
+So global variables, environment variables, collection variables, local variables and even also we
+have a data variables which is also called as external variables.
+We will get it from the CSV and JSON file.
+So using this approach we will use we will do data driven test.
+Data driven test is nothing but what the same request we are sending multiple times with a different
+sets of data.
+So that's called data driven testing that we can achieve using data variables.
+I will show you this in the next class.
+So now we have seen how to access the variable right.
+What is the syntax.
+Two curly braces and the variable name.
+And another two cases.
+It can be any type of variables.
+The same syntax we follow any type of variable.
+It can be global or environment or local collection whatever type of variable we follow the same syntax.
+No double quotation, no single quotations.
+Just start with the two curly braces variable name and with the two curly braces.
+Okay, so now let us talk about postman scripts.
+So far everything is clear.
+Everyone.
+So what are the types of variables, how to create and how to use it.
+So three things we have discussed.
+You need to do multiple rounds of practice.
+Then you will able to remember the flow.
+But in the real in the reality.
+We don't do that guys because we don't do through the UI actions.
+We will write a JavaScript to create a global variable or environment or collection whatever variables
+you want to create, you create it through JavaScript statements in the real time.
+I'll show you how we can do that.
+It's just for information.
+I have shown you through the UI operation because UI operations keeps changing UI elements, so it is
+not always constant.
+So try to learn how to create the variables only through JavaScript statements.
+So I have shown you for the local variable.
+And similarly we can create global variables environment variables, all types of variables we can create
+through JavaScript statement.
+Okay, fine.
+So I'll show you how we can do that.
+So before doing that, let us try to understand postman scripts.
+So there are two kinds of scripts provided in postman.
+One is called pre-request scripts.
+Second is post response script Pre-request post response.
+So what does it mean?
+So whenever you send a request, you will get a response.
+Whenever you send a request, you will get the response.
+Suppose before sending my request.
+Before sending my request, if I want to execute some scripts, the scripts in the sense obviously it
+is a JavaScript.
+Okay, so before sending this request, if you want to create some scripts, if you want to execute
+some scripts and those scripts should fall under pre-request scripts.
+And those scripts are called as pre-request scripts.
+And suppose I want to execute some scripts after getting the response.
+So once I request I got, I got the response, and once I get a response, then I want to execute some
+other scripts and which are called post response scripts.
+Here we will execute post response scripts.
+Pre-request scripts.
+Post response scripts.
+Okay, now you tell me when exactly the variables are required before sending the request.
+After getting the response when the variables are required.
+When the variables are required before sending the request, or after getting the response before sending
+the request, we need to create a variables.
+So that is the reason where we created the variable local variables and everything under here.
+If I go back and open the request you can see scripts under script.
+You can see two types of scripts here pre request and post response under pay request.
+Here we can create the variable.
+So this area is especially for what creating the variables.
+Example okay.
+Example is what creating the variables.
+So what is a prerequisite?
+Scripts Pre-request scripts will be executed before sending the request.
+Now after getting the response, after getting the response, we have to add post response scripts here
+in the second tab.
+Here we will add.
+So what are the normal generally?
+What are the things we will add in this section?
+Post response.
+After getting the response, what are all the things we do.
+Validations right.
+So in the last class I have shown you all validations we have added inside the post response.
+So why?
+We have added all the validations in this section because after getting the response only we will start
+doing validations.
+So post response this is responsible for executing after getting the response.
+That means what?
+Pre-request scripts will be executed before sending the request.
+Post response scripts will be executed after getting the response.
+These are the two different type of scripts postman is provided.
+Okay, now again the Pre-request scripts and post response scripts are available in three levels three
+levels collection level, folder level, request level.
+See if I go back to the postman again.
+If you see here what is the main entity here?
+Postman.
+And this is a collection inside the collection what is we have request.
+Suppose inside the collection can we create a folder?
+Folder is nothing.
+But what?
+Like a sub folder?
+Suppose here click on three dots and I'm creating a folder so I can give some folder.
+I'll name it as let's say my folder.
+Okay, then what happens in the variables collection?
+I created a new folder called my folder.
+So inside the my folder I can add a request.
+So I can click on Add request right.
+So inside this add request here I can pass the URL.
+So simply I can say URL get request and simply send.
+So this is get users.
+Now save the request and consent.
+So if I look at here what is the hierarchy collection.
+Collection can have a folder.
+Folder can have a request.
+So you can see three different layers collection folder request.
+So pre request script and post response scripts can be executed in three levels.
+For example look at this diagram.
+See let's say this is my request and response.
+This is my request and the response.
+Now if I look at here Pre-request script, we can add at the request level, folder level and collection
+level.
+But wherever you have added all these prerequisites will be executed before sending the request.
+Okay.
+Now after getting the response, we can add post response script again in the collection level, folder
+level or request level.
+That means what collection folder request.
+So Pre-request script and post request post response scripts.
+Both are available for request folder and also collection in three levels.
+It is available, but in which hierarchy they will execute, in which hierarchy they will execute.
+So when I run the request and get the response the same hierarchy it will execute.
+So Pre-request script from the collection will execute first, then Pre-request script from the folder
+will execute next Pre-request script from the request will execute next.
+This is a hierarchy and after getting the response first where it will execute, which post response
+will execute at the collection level, post response will execute after that folder level response will
+execute after that request level response will execute.
+Okay.
+So this is the hierarchy.
+This is the fourth one, fifth one and sixth one.
+So this is the hierarchy okay.
+So you no need to maintain two folders.
+One folder is enough.
+So one folder is enough.
+So one collection one folder and one request.
+For every level you have a pre-request script and post post response script.
+For example, let's say this is my collection.
+In this collection we have a folder in the folder.
+I have a request.
+So before for request level Pre-request script is there for folder level.
+Also we have a Pre-request script for collection level.
+Also we have a Pre-request script.
+Similarly for the request level.
+Also we have a post response script for folder level.
+Also we have a post response script for collection level.
+Also we have a post response script.
+So that's what I'm saying.
+So single collection, single folder, single request is enough to add these three things.
+Okay practically I will show you then you can understand.
+So based on this diagram what we need to understand is the hierarchy in which order they will execute.
+So all prerequisites will be executed before sending the request.
+All the post responses will be executed after getting the response only.
+That is same.
+But again in these three pre-request scripts, which one will execute first?
+Which one second?
+Which one is third?
+Priority will come right?
+Because all three are what Pre-request scripts at three different levels.
+We specified the first collection level will execute, then folder level will execute, then request
+level will execute.
+After execution request will be sent.
+Response we will get after that collection level.
+Post response will execute.
+Then folder level post response will execute and then request level.
+Post response will execute.
+So this is the exact order.
+Now I'll show you practically and we will see the order.
+So as I said one collection, one folder, one request is enough to demonstrate all these things.
+So let's go to the postman and show you how we can create all those things.
+Listen carefully.
+So currently I have day four variables.
+What is this?
+This is a collection now folder.
+This is my folder inside the folder.
+How many requests I have inside my folder.
+How many requests?
+I have only one request, which is Get users.
+Okay.
+Remember this.
+All right.
+So now what I'll do is request or I think this URL is not correct.
+Let me correct this URL.
+Okay.
+So this is a right URL.
+Perfect.
+So now let us create scripts in the different levels as we understood before.
+So I will create a Pre-request scripts for collection level folder level.
+And as I said for collection we have a prerequisite to script and post response script for folder.
+Also we have a pre-request script and post response script even for request.
+Also we have a pre-request script.
+Post response script I'll show you here, you can understand.
+So first let us go to collection.
+Okay.
+If you go to collection now you can see the scripts.
+So you can see the two tabs.
+Here you can specify the Pre-request script.
+Here you can specify the post response script.
+Okay, this is the place.
+Suppose if you go to folder level in the folder level.
+Also you can see the scripts here.
+Go to the scripts.
+You can see Pre-request script.
+Here you can specify post response script.
+You can specify the folder level.
+Now go to the request level.
+In the request level where it is.
+Here it is.
+Go to the scripts here Pre-request script.
+Post response script okay.
+So now let us go and create step by step.
+So I'm going to collection level go to scripts and here Pre-request script.
+So normally we use it for creating the variables and creating the variables and everything.
+But I'm just trying to print something.
+So to print some text in JavaScript we use some method called console dot log.
+Console dot log is like a print statement and where you can see the print outputs and everything in
+the console window here you can see at the bottom.
+Postman is having one console here.
+When I open this console you can see console window.
+This is a console window of the postman.
+Here you can see outputs and everything.
+And I can clear this for now I'll show you that.
+So console dot log is what in JavaScript console dot log is a method through which we can print something.
+Okay.
+So what I'll do is I will create a method one simple statement console dot log and what I can include
+in this Pre-request I'm just writing simple things so pre-request script at and which level we are creating
+this collection level.
+So Pre-request script at collection level.
+Pre-request script at collection level.
+Now I'm saving it and again go to the post response here.
+Also I'm writing what is this?
+This is a post.
+Post response script at collection level and again save.
+Okay.
+Now we created Pre-request script post response scripts both at the collection level.
+Okay.
+Now come to the folder level again.
+Go to the scripts.
+Go to pre-request.
+So here again what it is Pre-request is set in which level?
+Folder level.
+Folder level.
+Save it.
+Now again go to post response.
+Here this is post response.
+Post response script at again folder level.
+Folder level I'm just writing something.
+Save it.
+So now we created Pre-request script and post response script both in the folder level.
+Now go to the request level.
+Now go to the script under Pre-request I'm writing.
+So this is Pre-request script data request level.
+Save it.
+Now go to post response and this is post.
+Post response script at request level.
+Done.
+So now I have just printed some messages so that I want to show you the workflow, the hierarchy, the
+order of execution.
+Okay.
+As as shown in the picture.
+So this is the exact order of execution.
+So before sending the request first these three will be executed.
+After getting the response, another three post responses will be executed again.
+In these three first collection level will execute, then folder level.
+Then request level will execute.
+After the getting the response again, post response from the collection will execute first, then folder
+and then request.
+So this is the hierarchy.
+Now if I go back to the collection level We added Pre-request to script, post request script and folder
+level.
+Also pre-request script and post response script.
+Even the request level we have added Pre-request script and the post response script.
+Everything is perfect.
+So now we want to execute.
+So we want to execute which one we have to execute request folder or collection.
+So we have to execute collection not the request.
+Why?
+Because if I execute only request, only the pre-request post response will be executed only from the
+request.
+The folder level will not be considered okay.
+Similarly, if execute folder, the folder level request level will be considered.
+It will ignore the collection level.
+So if you want to consider all the levels, all three levels, we need to run the collection.
+Not the folder, not the request.
+Okay, now let's go to the collection.
+How to run the collection directly.
+You may have multiple requests in the collection, so if you run the collection, what will happen?
+All the requests which are created inside the collection will be executed.
+So to run the collection is very simple.
+Select the collection.
+Here you can have an option called.
+They have changed so many things guys.
+So earlier the options are different.
+So you can see run collection option is there.
+So you can use this option run collection.
+When I click on this just observe what will happen.
+See it is giving everything whatever is there in the collection.
+You can see this is the folder we have and these are different requests also created which are there
+in the same collection.
+So what are the requests we want to execute.
+We don't need to execute these things for now and just uncheck I want to execute only this one.
+If I expand this you can see okay, this is a Get request which is a part of the folder only this part
+I want to execute.
+So select this and simply click on Run day four variables.
+Click on it.
+This is the name of the collection.
+Actually Click on it.
+Now it is successfully executed.
+It is successfully executed.
+So if you click on View Summary, it will show you, uh, one is got executed, one is got passed,
+and you can see iterations, duration and everything.
+View results.
+It will show you the results itself.
+I click on it.
+It will show you the response headers request and everything you can see here.
+Okay.
+Now let us go back to the console here because we have written some statements in every prerequisite
+script and post response.
+Right.
+So you want to see that.
+Now go to the console.
+Now just observe this is very very important part.
+So remember this hierarchy collection folder request here also collection folder request.
+Okay.
+Now go back to the console.
+So this is our console.
+Can you see the screen.
+Yeah.
+Now where is our request went here.
+Get request here.
+This is our request right?
+So this is our request.
+This is a Get request.
+This is a URL we send.
+So before sending this URL these three statements are printed.
+You can see Pre-request script at the collection level is executed Pre-request script folder level is
+got executed Pre-request script at request level is got executed.
+Perfect, right?
+So before sending the request, all three Pre-request scripts are executed.
+Then request is sent.
+After that three post responses got executed.
+Now again if you look at these three, which one executed first collection level, folder level, request
+level and after getting the response again collection level, folder level and request level is got
+executed.
+So if you compare this with our example, it is exactly same collection folder request after getting
+the response also collection folder request.
+So same hierarchy.
+Collection folder request.
+Collection folder request.
+Okay, so just to understanding the hierarchy or order I printed simple messages actually okay.
+So this is called postman console.
+What is console mean.
+Whatever request you are sending, whatever response you got everything will be shown in this console
+window.
+You can clear this if you want.
+You can simply clear this.
+Uh, this is like a test.
+Testing is not like testing assertions.
+Okay?
+Don't think like that.
+Don't compare.
+It is not testing assertions.
+Assertions is nothing but a validation points basically.
+Okay.
+And where we will include that validation points where we have included validation points in the post
+response.
+In the post response we have to add the validations.
+In the last class we have seen that okay now.
+So we have just understood the postman scripts.
+So how many types of scripts?
+We have a pre-request scripts.
+Post response scripts.
+These are the two kinds of scripts are there.
+And also if you specify the post pre-request script in multiple levels, how they are got executed,
+in which order they have executed, we have seen that.
+Okay, so now let us see how we can create the different type of variables using JavaScript.
+Using JavaScript you can create anywhere.
+Okay, so normally where we will create the variables, where we will create pre-request script or post
+response script in these two scripts where we will create variables in which place we create a variables
+Pre-request script.
+Remember this.
+This is most important interview question also where you will create a variables under Pre-request scripts.
+It can be request level or it can be collection level or folder level.
+Pre-request scripts variable will be created under Pre-request script and where you will create assertions
+or validations where you will create validations under post responses scripts.
+Okay, remember.
+And what is the reason why we will create a variables only in the pre-request scripts?
+Because the variables should be created before sending the request and why?
+We will create validations under post response scripts because validation should be done after getting
+the response.
+Okay.
+So remember very very important Pre-request script and post response scripts.
+Now by using this pre-request scripts, we can create the variables in different levels like we can
+create a global variables environment, variable collection variables, local variables, data variables,
+data variables, we cannot we.
+This will come from the external sources and these four types of variables we can create using JavaScript
+that we can include inside the pre-request scripts.
+And not only creating the variables, we can change the values of the variables.
+We can retrieve the data from the variables.
+And if you don't want the variables, you can delete the variables also.
+So all these operations you can do.
+For example, in the postman I created some local variable here.
+And if you want to delete this, suppose I just written some script here which will which is created
+a local variable.
+And if you want to delete this I can also write another method called unset.
+See here you can write unset.
+There is a method.
+So this method will remove the variable will remove the variable.
+But when to write this script where to write.
+Write the script.
+Creation of the variable is created under Pre-request.
+But if you want to delete the variable where you will delete it here or somewhere else.
+Deletion of the variables and retrieve the data from the variables where you will do those operations
+under post response.
+Because as soon as you created the variable which is required for request.
+Request needed after the getting the response, you can delete the variable after getting the response
+Pre-request script won't execute.
+What will execute them?
+Post request response will execute, so the deletion of the variables should be done inside the post
+response.
+Okay, so these things we can do using JavaScript.
+Now I'll show you how to create different type of variables using Pre-request scripts.
+And also I will show you how we can capture the data from the variables using post response script.
+How can delete the.
+How can we delete the variables using post response scripts?
+We will see all these operations one by one.
+Listen this very carefully.
+I will provide the notes later.
+All right.
+So I will close everything.
+Are you guys following me.
+So this is very simple concept.
+You need to do multiple rounds of practice okay.
+So what I will do is let's go back to the get users.
+And I'm taking this request okay.
+Get users request in this what I will do is I want to create local variable global variable environment
+variable.
+And what else collection variable.
+So four types of variables we have right.
+So how to create those variables.
+So to create a different type of variables we can write a different type of a methods.
+So let me create a global variable and all types of variables we can directly create here under Pre-request.
+Here you can create.
+So now I'm going to create a global variable.
+So slash slash is representing a comment.
+Okay.
+So now how to create a global variable.
+From the request I'm going to create.
+So simple we have a command called PM dot.
+And what type of variable you want to create.
+Global variable you need to create.
+So you can select a globals dot set is a command.
+It will set the variable pm dot global dot set.
+And we need to pass two parameters key and value.
+So what is a variable you want to set.
+And this time I want to create a variable for storing the page number.
+You can see page equal to two okay.
+So let us say page number I say I'll name it as a page number or else you can put another one.
+So let's say order number page number whatever you want okay.
+User ID better use user ID.
+So user id I'm using.
+Okay.
+So global variable I'm creating.
+So I'll name it as a user ID underscore global sorry user ID underscore.
+Global.
+Now this is the variable name.
+Now we need to pass the value.
+Also in the double quotations I'll put the value.
+Semicolon is optional in JavaScript even if you don't put semicolon no problem.
+So this particular statement will create global variable pm dot globals dot set user id underscore global.
+This is the name of the variable and two is a value.
+Previously how many global variables we created.
+Previously we already created a variable.
+How many global variables we created.
+We already created one global variable.
+You guys remember in the same collection, if you go back and see here how many global variables are
+there?
+URL underscore global.
+There is only one variable.
+Earlier we created this right.
+Now observe I put this statement under Pre-request script I'm sending.
+And I created this variable right now.
+Why can I use this variable here as part of the request.
+Yes.
+So how we can use it.
+Take this variable name and remove the two curly braces, double curly braces and specify the variable
+name.
+So this is how we need to replace okay.
+So this variable I'm referring here user ID underscore global.
+So earlier we haven't created this variable we are newly creating here.
+But when this variable will be created at the runtime it will create as soon as we have written the
+statement immediately it won't create when I send this request, when I send this request and the runtime
+it will create.
+And then substitute this variable here because Pre-request script will execute before sending the request.
+So once you click on the send button here the script will execute and variable will be created and substituted
+here.
+Just observe I'm saving the request and sending the response.
+Sending the request.
+Now observe it is got.
+It is written the page.
+Which page it is written to is is returning.
+Suppose I say three.
+Here, send.
+Now you can see.
+Third page is got written.
+Again I'm making as a two.
+So this way we can keep changing the values of the variables and again save and send.
+Now again this time page number two is written.
+But will it store under global variable section.
+Previously we created a global variables which is stored somewhere we are able to visible.
+We are able to see that global variable.
+But this time we have created this variable through script.
+Let us see.
+Go back here.
+Icon.
+Previously how many global variables we have URL only but this time it is created user id underscore
+global.
+The value is two.
+Perfect.
+So the first one is got created manually through UI option.
+Now second variable is got created through script.
+So this is how we can create a global variable.
+Okay.
+So now how to create environment variable.
+Environment variables.
+How to create environment variable.
+Same thing to create environment variable again PM dot.
+Yeah.
+So which one we need to take now.
+Environment dot set.
+Very easy to remember.
+Okay.
+The methods are not complex.
+Very simple.
+It will automatically gives you pop ups.
+So PM dot environment dot set here.
+Key and value pair same.
+So again I'm creating user ID underscore environment variable I'm creating user ID underscore in each
+in each environment I'm say QA underscore environment.
+So this is the variable name.
+This is the variable name.
+And what is the value.
+Again I'm giving two.
+Now tell me in which environment this variable will be created.
+Because we have not specified any environment right.
+We have not specified any environment which environment we created.
+This is just a variable name.
+You can give any name here x, y, z is also good, but where it will create by default this will create
+under default no environment we selected here.
+So if you select a QA here then this variable will be created by default under Q environment.
+Otherwise no.
+Remember this guys.
+Okay.
+Before creating this environment variable make sure which environment you have shifted here.
+So QA have shifted.
+So this variable will be created under QA environment.
+So previously how many variables we created under QA environment.
+Okay.
+Go back and see.
+Under environment there is only one variable has got created.
+Close this.
+Now after executing of this code it will create another variable.
+So how we can use this inside our URL.
+Here I'll just try to replace this.
+And just try to replace.
+So now this comes from the environment variables.
+Now save and execute.
+Perfect.
+It has got executed.
+Now let's go back and see.
+Environment variable has got created or not perfect.
+Now you can see user ID underscore underscore env.
+NB so another variable is God created environment variables.
+Also we can create using JavaScript.
+Okay, so what is the next global we created environment variable.
+We created.
+What is the next collection variable.
+Collection variable.
+How to create a collection variable.
+Same PM dot collection variables dot set again.
+Key value pair.
+So how to provide user id underscore collect I'm just giving some name called collect because a collection
+variable comma the value.
+So this is collection variable.
+So where it will create under the collection.
+Under the collection only we can use this.
+Now how to refer this variable in the URL.
+Copy this and simply replace here.
+Replace Okay, now the collection variable will be created and that will be substituted here.
+Now previously how many collection variables we have.
+I go back and see.
+Can you see?
+Collection variables here.
+Yes.
+Only one variable we have under collections.
+Now after execution of this it will go and create another variable.
+Now let me save and then send.
+Yeah.
+Now it has got created.
+And go back and see again one more time.
+See under collection also we have a two variables are got created.
+Okay.
+Perfect.
+Now we created global variable.
+We created environment variable.
+We created a collection variable.
+And what is the next one.
+The last one.
+Local variable.
+Local variable.
+Okay.
+So how to create a local variable.
+We already seen that.
+So PM Dot variables dot set again key value pair.
+So user id underscore local and the value we need to put double quotes.
+So this script will create a local variable.
+So how we can refer the variable in the URL.
+Or do we have to choose environment when we create the for example collection variables uh collection
+variables and other variables environment is not required okay.
+So only when you create a variables in the specific environment, then you choose the environment here
+for other variables for global or collection variable.
+Local variable environment is not needed.
+Only when you're creating the environment variable.
+Make sure you have chosen the right environment here.
+Then this variable will go and create under this particular environment okay.
+All right.
+So now how we can replace this variable in the URL.
+So user ID underscore local here.
+I can replace this.
+Okay, now this variable is referring the local variable.
+So earlier we don't create any variable local variable especially for this request.
+Do you have any variable created.
+If you create here it should be here itself.
+It's not there right.
+So this is a local variable.
+Let me go and execute save and then execute send.
+So local variables we can create only through script.
+So it is got executed successfully.
+So this time it is taken user ID from the local variables.
+So we created a global variables environment variables collection variables and local variables okay
+clear so far everyone.
+So these four things how to create a global variable environment.
+Variable collection.
+Local variable four types of variables through JavaScript not through UI.
+Earlier we have seen through UI how to create.
+But now I'm showing you through scripts.
+Even though if you are creating through scripts you can see those variables under here.
+Environment.
+Variables.
+Collections.
+Global variables.
+Everything you can see here.
+Okay.
+Suppose you do not know this script.
+For example you don't know PM dot variables.
+You are not learning this.
+So by default snippets are there.
+So by using the snippets also you can insert this.
+So these things you can create at the request level better to create in the request level okay.
+Better to create in the request level.
+Always preferable in the request level.
+So why.
+Because why you are creating only from the request level.
+You can create in any level, even the folder level.
+Also you can create.
+But what is the problem?
+Suppose in the folder level can you create a local variable collection variable?
+Sorry, the folder level.
+Can you create a local variable?
+No because local variable is specific to request.
+So this variable you cannot create on the folder level.
+Remember that.
+So collection variables can be created under the collection only.
+But environment variables global variables we cannot create.
+So that's the reason.
+Better to create everything in the request level because request is a child of everything.
+So if you create everything in the request level up will be automatically created in other parents folder
+or collection or environment or global in all the levels it will be created.
+Okay, fine.
+So suppose if you don't know this script JavaScript so you can use snippets.
+So if I just click on this button here arrow mark you will see so many script here.
+So you can say set a global variable set collection variable.
+There are multiple options are there.
+For example I want to create another global variable.
+Simply what you can take here set global variable.
+Click on this link automatically you will get the snippet.
+So here just add the key and the value.
+So this will create a global variable.
+Similarly if you want to create a collection variable simple get a collection variable.
+Click on this.
+So this will create a collection variable.
+Sorry this is a get method.
+And we need to use set method for creation.
+Get method for retrieving the value from the variables so that we will do as part of post response okay.
+Or here we use only set method.
+So if you want to create collection variable.
+So then which method we have to use here.
+If you are not able to see here you can search for it.
+Okay.
+So here you can see there are so many snippets.
+Are there set collection variable.
+Click on it.
+Here you can create a collection variable.
+Similarly set a global variable.
+Set the environment variable okay.
+Similarly set variable is for local variable creation.
+So by using snippets we can also add pre-request scripts.
+Here you can create a variables.
+So one important thing you notice even though we created the scripts here, even though we created variables
+using JavaScript, it is automatically reflected here.
+So in the variable section you will able to see that all the variables are reflected here okay.
+Now after creation of all the variables, as soon as I created those variables in the pre-request,
+I'm using those variables as part of the request URL.
+Here I'm referring.
+But after sending the request, do you really need these variables?
+Do you need to keep the variables?
+No need.
+Right.
+So after the sending the request I don't need these variables.
+So I want to create this variables at the dynamically means what.
+Before sending the request I will create.
+After getting the response, I will delete them because I don't need to store somewhere else unnecessarily.
+So how we can remove the variables.
+After sending the response.
+So where we can do that inside the post response.
+Okay.
+Pre-request.
+Here we created four types of variables.
+Now we want to delete them.
+So how we can do that under post response here you can do that.
+So how we can do that here.
+Unset.
+The method is called unset.
+Same thing.
+Again how we can delete the global variable.
+And before deleting I just want to print the value in my console window.
+So inside the console here I just want to print I want to get the value from the variable.
+And after that I want to delete it.
+So how to get the value and how to delete the value.
+For example let's say global variable I created.
+Right.
+So I want to get the value from the global variable.
+Then I want to delete it.
+So to get the value we have a method called pm dot global variables I want to get.
+So use globals dot get.
+Get is a method and here simply provide the key.
+You don't need to provide the value.
+What is the key.
+We created user ID underscore global right.
+This is a global variable we created.
+So what this will return actually.
+This will return the value of user ID underscore global.
+Have you created that variable earlier under Pre-request.
+Yes.
+Here it is.
+Got created same variable I'm referring here.
+But this will get the value.
+But you want to print that in my console here.
+So print that to print that value we will additionally use console dot log.
+Console dot log of put everything in the console dot log okay.
+Because the get method will return the value of the key value of the variable.
+But still, if you want to print that in the console box, you have to use console dot log and after
+printing that I want to delete it or okay.
+So after printing that I want to delete it.
+So how we can delete simple PM or.pm dot unset.
+So which variable we are going to delete global variable.
+Right.
+So I say global dot unset simply provide the key.
+So whatever the variable you want to delete simply provide it.
+That's it.
+So now what will happen.
+So this will get the value from the variable and print in the console.
+And this will go and delete it.
+So after deleting the variable can we see here.
+So currently how many global variables we have two variables user ID global is already there.
+Now after execution of this statement can we see here user ID underscore global.
+No.
+Let's go and see that I'm saving this.
+Sending this.
+Just observe.
+It is automatically printed, the value also in the console.
+And if you look at here under globals, the variable is got deleted.
+The variable is got deleted.
+Similarly, I will try to print the value of collection variable.
+Print the value of environment variable.
+After that I will delete those variables also.
+So we will try to repeat the same thing for collection variables.
+Environment variables.
+Environment variables and also collection variables.
+Also local variables also called as a request variables.
+So how we can do this for same environment variable same thing.
+Console dot log pm dot environment dot.
+Get the variable variable variable name.
+And again if you want to delete PM dot environment dot unset instead of set method, we use unset method.
+That is the only difference.
+Nothing else.
+But in the set method we also pass the value, whereas in sunset method we don't pass the value.
+This is for deleting the environment variable and then this will automatically delete from here.
+And after that how to delete the collection variable to delete the collection variable.
+Again same process.
+First I'm printing the collection variable pm dot collection variable dot get user id underscore collect.
+And then this is going to delete the collection variables.
+And after that how to delete the local variables.
+So the variables local variables.
+Also we can delete.
+So this is how we can just I'm printing the variable value first.
+And then I'm deleting because we are deleting these variables after getting the response.
+So that will not impact anything on the response.
+Okay.
+So before sending the response we are creating all the variables.
+After getting the response we are deleting all the variables.
+So when I delete here, even that is reflected in this window.
+Also currently we have one environment variable here that is going to delete collection variable.
+Also going to delete.
+So here global variable we already deleted.
+So save it and then send this.
+Now you can observe.
+It is every time I'm printing the value.
+Also.
+After that you can see all the variables.
+Whatever we created environment variable collection global variables all got deleted okay.
+So by writing postman scripts, by writing postman scripts we can create a variables.
+We can get the values of the variables.
+Also we can delete the variables.
+Understood.
+Everyone so far is clear.
+So how to work with the variables.
+Very important concept.
+In the coming sessions we will use this again.
+There are multiple concepts are depending on this concept.
+If you understand this then only you can understand the further sessions.
+Okay.
+So what we have seen so far how to create a variables through UI.
+Also we have seen how to create a variables through JavaScript statements.
+So I have given all the examples in the notes.
+Later you guys can refer these notes.
+How to create a variables.
+How to remove the variables.
+How to get the values from the variables.
+Everything I have given okay.
+Now so far whatever variables we created.
+So where we have used those variables as part of the request URL, right.
+Maybe the URL also we used as part of the request URL.
+Even the user id is also part of the URL.
+But can we use variables as part of request body?
+Sometimes when you send post request, you need to provide the body also in the body, whatever data
+I am passing and that data I can get it from the variables right.
+So now let me show you another example how we can, uh, how we can pass variables inside the request
+body.
+So for that I'm going to create a new request here under the same folder.
+You can create a new wherever you want.
+But I'm just adding another request.
+And this is my post request.
+So for the post request I will try to use another URL.
+Okay, this is the request URL I'm going to use and along with the request body.
+So this is the actual post request URL.
+So whenever you send some request post request you need to send body also.
+Right.
+So go to the body and go to the raw and JSON format.
+So what exactly we need to pass actually here if I go back and see the documentation I'm sending the
+post request create request.
+So this is the body we have to send.
+So this is the body actually.
+So name and the job.
+Suppose I say name is x y z.
+Okay so job is a manager I'm passing this data directly.
+So when I send this request save and send this request then what happens.
+It is created a new record and it is responded with ID and creation time.
+Right.
+So now what I will do is I will try to I can say get user and here create user.
+I'm just giving a different name.
+Create user okay.
+So when I send this request what happens.
+It is created a new record with the same name and job.
+Now I will create this data through variables.
+I will get this data from the variables.
+So where we will create a variables.
+Now for this request where we have to create a variables under scripts where you will create under Pre-request
+or post response Pre-request.
+Okay, go to pre-request.
+And here we need to create a script.
+Right.
+So how to create a local variable local variable pm or.pm dot.
+Variables dot set okay.
+So what is a key name.
+So name comma what is the value I'm giving my name here.
+This is a one variable it will create.
+And similarly I will create another variable I say my name okay.
+My name is a name of the variable and my job.
+And I say I'll give some other name here trainer okay.
+So now I have created how many variables two variables I created.
+So when I send this request.
+It is giving same name and job.
+Why?
+Because we have just created variables but in the body we have not used that variable.
+Still we are passing same name and job.
+Okay, so now what we need to do whatever scripts we have created, whatever variables we created,
+the variables we have to refer inside the body okay.
+Now just try to remove this value.
+And what is the variable name we have here.
+Also double curly braces.
+So what is the name we have given for the name.
+My name that variable name you have to specify.
+That's it okay.
+Similarly the manager.
+So here my job variable name.
+So here you can say in the curly braces say my job.
+That's it okay.
+So this is how we need to everything.
+You have to put in the double quotations guys okay.
+Remember this.
+So this is how we can pass the variables data in the response request body also.
+So not only this URL we can also pass the variables data inside the request body okay.
+So now save and then send it.
+You can see this time the data is got created whatever data we created in the variables same data with
+the same data output is got created.
+Okay clear everyone so far.
+So how to create a variables.
+Now I want to do some validation on this guys I want to check the name is correctly given job is correctly
+printing here or not.
+I want to verify that.
+So where I can add the validations now under the scripts post response okay, so before adding validations
+I just want to delete these variables.
+I want to delete these variables.
+After that I will add some validations.
+So go to post response and instead of set what is the method unset.
+And when I say unset you need to pass the value just pass only key.
+Similarly PM dot variables and set my job.
+So after execution of my response I don't need variables, I'm just deleting it.
+Now I want to add validations.
+So how we can verify the validation.
+I can verify the response code.
+I can verify the time and I can verify the body.
+So we already seen all these things right.
+So what about null values or numbers.
+Also do we need to give a double quotes.
+Everything should be in the double quotes.
+Everything should be in the double quotes in the body.
+Everything.
+The parameter.
+Wherever you're passing the variable that should be put inside the curly braces, double curly braces,
+and also in the double quotations.
+Okay, fine.
+So now another thing.
+So go to the script.
+I want to add some validation here.
+After deleting the variables I want to add some validation.
+How can I add validations?
+So we already seen in the day three right.
+And the post request create a new student under the scripts.
+So status code validation we can do.
+And these two validations we can do for now.
+So let me go back here.
+And just adding this status code is 201 or not I'm verifying and the status message created or not.
+Also I'm verifying can we verify the body also body content.
+So to verify the content what we can do we need to write a JSON path.
+We need to capture the response in the JSON variable.
+And after that we can do the verification.
+So how to get the response in the JSON variable in the last class we have seen.
+So first we need to capture the response in the JSON variable.
+We need to create a constant variable not schema.
+Schema is different okay.
+So we need to capture the the whole response into this variable.
+Now from this variable we need to extract the name and compare with our expected name.
+Right.
+So how we can do that.
+We need to write our own method.
+So data type not data type validation.
+We need to validate the data.
+We need to validate the data.
+So this is the method we have used earlier to validate the data.
+So look at this.
+So values of the field.
+So currently you can validate ID time randomly generating.
+So we cannot validate them.
+I can validate name and job.
+So how can we validate PM dot expect from the JSON data what you need to extract name.
+So name should be what.
+So this is the name expert.
+And also I'm expecting what job.
+Job should be.
+What trainer now.
+Okay, so like this we can do the data validation.
+Perfect.
+So I think I have added required validation.
+So status code we are validating.
+Create a status message I am validating.
+And after that body also we are validating.
+So let me save it and then send this.
+Yeah.
+Perfect.
+Now we can see.
+Go to the test results.
+All three are got passed.
+And if I look at the console window we can see everything here actually.
+So let me clear this and send request once again.
+Now we can see this actual post request we have sent.
+There are two statements.
+We have created the prerequisite.
+And these two got executed because these two are got created in the previous request right under get
+users.
+So they are also executed.
+Understood.
+Now you got some idea how we can put Pre-request script Where we will have to use where we have to use
+post responsive scripts, especially for creating the variables.
+We use Pre-request script to do validations.
+We do post responsive scripts.
+Okay, so I given everything in the notes.
+Just go through this document each and everything I have given and do 1 or 2 rounds of practice.
+So then you will understand better this.
+So you need lot of practice guys because this is not the coding actually very simple coding JavaScript
+1 or 2 statements.
+You can easily do that right.
+It's not a big thing actually.
+You can easily do that.
+But you need to do multiple round of practice.
+Otherwise you cannot remember the flows and everything because this is a UI tool completely UI.
+Okay, so that's all for today's session.
+In the next class, I'll show you how we can use this data variables and how we can achieve the data
+driven testing using this data variables.
+Okay, so that's all for today's session.
+I'll stop here.
+We will continue in the next class.

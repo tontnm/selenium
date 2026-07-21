@@ -1,0 +1,1340 @@
+So today we'll start with two different type of APIs.
+So first let us see how we can uh test file upload APIs.
+Okay.
+So sometimes what happens.
+So when you see file upload scenario in the web UI.
+So internally what exactly happening when you're uploading the file or single file or multiple files
+internally the APIs will be triggered.
+So the APIs is actually doing the job.
+So API will get the request from the client and then send the same request to the database.
+And whatever files you have attached or uploaded will be stored in a server.
+So for that we have a different type of APIs are available.
+And today, uh, let me show you how we can set up that API because it is difficult to find, uh, these
+type of APIs in internet public APIs.
+So we will create our own API, uh, to upload single file and multiple files.
+And then we will see how we can test this in our postman tool.
+So to test this API, I just given one link here.
+You can just go to this link and we can simply download a jar file.
+So open this link and you just go here.
+So here file upload rest API dot jar file is there.
+So this is a development project.
+Actually we have done long back and given this as a jar file.
+So you can just download this jar file.
+So we can simply download.
+You can just click on the three dots and simply say download and jar file will be downloaded.
+Okay.
+So once you downloaded the jar file you can just keep in somewhere.
+Anywhere will also provide the jar file.
+So you can just I kept here under C drive automation files and I put my file here.
+So file upload rest api dot jar file.
+So this is a step number one.
+So we need to download the jar file.
+So how we can run the jar file through command prompt.
+If you have installed Java, we can run the jar file.
+So any jar file we can run through Java command.
+So to run this jar file simply we can execute one command called Java hyphen jar and the name of the
+file okay.
+Because this project is implemented using spring boot application.
+So finally we created a jar file and we can run the jar file using Java jar.
+So let us start running this jar file so it will start the API.
+It's very simple very easy.
+So I'm opening command prompt.
+So once you open this command prompt here I'll run one command Java iPhone jar.
+So if you want to run any jar file this is the same command we use Java hyphen jar and then file name
+file hyphen upload hyphen rest api dot jar.
+So once you execute this command it will start running your API.
+So you can see at the end you can see JVM running.
+So you can just wait till you get this message and you should minimize this window.
+If you close this window you will API will stop running.
+Okay.
+So as soon as you get this message started file demo application, simply minimize it.
+So now your API is up and running.
+And how we can verify that.
+Suppose if you started this API then you can open this URL.
+So this is basically web URL.
+If I open this URL on the web you can see here this is the UI application is currently running.
+This is a UI not API.
+This is just a UI.
+So from the UI also we can upload the file.
+You can simply choose file and browse the file.
+Whichever you want.
+You can say open and then submit.
+And similarly if you want to upload multiple files, you can click on the choose files and select multiple
+files and simply say open and multiple files will be uploaded after submission.
+Multiple files can be uploaded.
+So this we can do through UI but not through UI.
+We should do this through API now.
+Okay so but currently application is running.
+But how we can do the same activity through API back end APIs.
+Now for that there are two APIs.
+Uh endpoints are provided.
+One is for uploading single file.
+Another is for uploading multiple files.
+So let me show you how we can access the endpoints.
+So once you cross check your API is up and running.
+Once you are able to see the UI, that means your API is running.
+So now let us go with the postman and this is the post URL.
+And both are the post request for uploading file, single file or multiple files.
+We should send a Post request.
+So what is the URL.
+So http localhost colon 8080 slash upload file.
+This is a Post request we have to send.
+And when you send this Post request what is the risk?
+What is the request body we have to add.
+So what could be the request body here?
+File.
+So whatever file we are going to upload that is a file should go as part of request body.
+Okay.
+So now this will be different I'll show you how we can do this.
+So let me go to the postman.
+And here I'll create a new collection or I already have collection.
+Let me try to import this.
+So click on import and you can just drag and drop.
+Your collection will be imported.
+So file uploaded.
+So I'll just try to rename it let's say day seven today and file upload.
+Now first of all let's see single file upload.
+So basically it is a Post request.
+So I have taken post and this is the URL I mentioned.
+And this is a URL.
+And when I send the post request uh 8080 is a default port number.
+So we cannot change it okay.
+So that is already specified as part of, uh, development.
+So whenever you start running the jar file.
+So by default, 8080 port will be taken.
+Okay.
+So that is every website or any URL should have port number.
+Anything will run through port number only.
+Okay.
+Yeah.
+So localhost colon 8080 slash upload file.
+So this is basically post request URL.
+Now what is the body we have to send.
+Because upload file is basically we can upload only single file.
+Right.
+So if I go back to the body session body section here.
+So earlier how we have taken normally we just go to the RA and go to the JSON.
+And here we specify the request body in the JSON format.
+But this time we don't need to send any JSON format of the text.
+We just send the file single file we need to upload.
+So we need to just send the file.
+So for that we need to take another option called form data Okay, so there is a radio button form data
+we have to select.
+So when I select the form data it will give one table.
+And here you can see there is one key.
+It is added.
+If it is not added we can add our own.
+So for example by default you may not get this.
+By default you will get this table like this.
+Now we need to add here.
+So what we need to add file is a key.
+And what is a value we need to take here text or file.
+Because we are going to upload a file.
+So we need to select the file okay.
+And here we need to browse the file.
+So where exactly our file is present.
+So I'm just going to new file from local machine I am selecting this.
+Click on it and now browse the file wherever it is.
+So I already have one file here.
+Test one dot txt just say open okay.
+Now the key is a file and type is file.
+Here the value is test one dot txt.
+so we no need to pass anything else.
+If you just want to write a small description, you can upload or single file attached.
+Okay.
+Simple description.
+You can write or you can leave it empty.
+No problem.
+So this is how we need to use form.
+Data is a field which we have to use before sending the file.
+So now we can simply send the request.
+Now save it and then send it.
+Now this is a response.
+If I look at here what is the file we have uploaded.
+Test one dot txt.
+So this is also part of the response.
+So it will accept all kinds of formats.
+You can upload Excel as PDF word document, any type of file you can upload CSV.
+All types of files are supported.
+File is simple file only okay so it can upload any file.
+So now you can see the response here.
+So in the response you can see file name is exactly the same.
+Whatever test one dot txt we provided same file name is displaying and file download URL.
+are so where exactly the file is uploaded.
+So the URL is also given.
+Okay.
+And what is the file type we uploaded.
+Text file.
+So text slash plain.
+Suppose if you have uploaded some other type of file then the file type will be changed.
+How much size it is.
+It is just 770.
+Maybe it is a KB in 70 KB.
+The file is there.
+Okay, so this is how we can simply send request post request to upload the single file.
+Okay.
+Suppose again if you want to check the file is successfully uploaded on a plane is described the plain
+text.
+So this is called a mime type.
+Every file is having a mime type.
+Suppose if it is a text file the Mime type is or file type is text slash plain okay.
+And similarly JSON slash application for JSON.
+Similarly, for CSV there is a different Mime type.
+So for every type of a file there will be a different file type will be there.
+So by default it is displaying here.
+So all kinds of files are accepted.
+Whichever file type you have uploaded the type file will be displayed.
+Simple.
+Okay.
+So now this is how we can simply upload the file.
+Suppose if you want to check whether it is uploaded or not.
+So it is already given the URI right?
+Can we use this URI in another request?
+Let me copy this URI and I'll create another request here generate add request.
+And what I can do here.
+Check.
+Or you can say instead of a single file upload or download single file okay.
+Because once you upload it we can also do download right.
+We can also verify download.
+So it is already given the URL.
+Once you have uploaded the URL is already given.
+So now the same URL I can pass it here, but which type of request we have to send here.
+Get the request.
+We have to send because the file is already exist.
+We are retrieving the file.
+So pass this URL whatever URL is got generated.
+Just pass it here and click on the send.
+Save and then send.
+Now you can see basically it is showing the content of the file.
+But if you are using this in the UI it will download the file.
+But here it is not possible.
+Simply it is showing the content of the file.
+So where exactly it is created?
+If you want to look at and go to the C drive.
+And here by default the upload folder is got created, the file is got uploaded here.
+Even download is also happened from here.
+If I open the file take the extra text.
+You can see these are the three lines of text which we have.
+Same text is got displayed as part of response text type of response we captured here.
+Suppose if you are uploaded JSON file here then you are downloading the JSON file.
+So here the content is also JSON type of content you will get.
+Okay, so this is single file upload and single file download.
+Now let us try to upload multiple files.
+Go to another post, request multiple files.
+How we can upload the multiple files.
+And remember what is the body.
+We have to send form data.
+In the form data, we need to add a file key and browse the file.
+And this is the response we will get.
+Now upload multiple files.
+So the path has got changed.
+This time upload multiple files here.
+Upload file just.
+That's it.
+Now here we need to add multiple files.
+Let us see how we can do that.
+So here this is a URL.
+Post request URL.
+Go to the body.
+Same form data.
+Previously we have taken the keys.
+Just a file.
+But this time we have to take files files.
+And here I can type these files.
+And now here we need to add two files currently already added.
+Let me remove them.
+So now we need to browse two files.
+So simply click here new file from local machine.
+So I can just select the two files.
+Now I say open.
+So now two files are not attached.
+So I can write description here.
+Attached two files.
+You can upload multiple files.
+Now save the request.
+Now just observe I'm just sending the request.
+Now we can see this is my first file which is got uploaded.
+And this is second file is got uploaded.
+So this is the response again in the JSON format okay.
+Now again if you want to check the download multiple multiple files, you cannot download at a time.
+Only at that time you can download only single file.
+So if I use this URL it will download the first file.
+And if I use this URL it will download the second file and where exactly these files are created here
+under C drive upload.
+This is the default path which you have given in the jar file.
+So this is the path.
+By default it is taken.
+You no need to create upload folder that will automatically create it.
+So for example I just try to remove this uploads.
+I don't have upload folder.
+Now again I'm sending the same request one more time.
+And what are you saying here?
+500 internal server error I think that file is not.
+We should stop the API.
+Then only we can do this.
+Let me because API is running right.
+So the API process is uh, the locked those two files even we have deleted this, but it is not uh,
+removed by this API.
+So we need to stop the API.
+Okay.
+And then we have to rerun the API one more time because manually we should not delete because API will
+capture.
+See as soon as you run this API Automatically uploads folder got created and if you open the uploads
+there are no files.
+Okay, so when I run this request.
+Now again one more time.
+So two files are got uploaded.
+So this is the positive response.
+We got it okay.
+Form data we have to pass.
+When you're uploading single file or multiple files okay.
+Any file type can upload or download using form data.
+Yes it supports all the files.
+So that's the reason they have not given a specific file type here.
+File is nothing but what a generic file any any type of file okay.
+And again it depends on the type of API how the API has got developed.
+So this API currently supporting text files and CSV files.
+I tested a different type of files also image files.
+Image files have not tested.
+You guys can try if you want and excel files PDF files.
+So currently these files are supporting with this API.
+I'm not sure about other type of files.
+Maybe image files.
+I'm not tested.
+You guys can try this.
+It is depends on the development again.
+So according to the functionality, what type of files the API should accept and how much size it should
+accept depends on the requirement they design the API.
+Okay, but for this API we don't know the exact requirement, but we can simply test by attaching simple
+files.
+You can try with a different type of files okay.
+Right.
+So this is how we can simply and if you want you can add scripts also.
+So based on the response you can validate the file name is exactly same or not.
+And you can validate the file type is same or not size.
+Also we can validate by writing the scripts in the post response okay.
+All right.
+So this is how we can simply upload single file and multiple files.
+I'll share this document along with the jar file.
+You guys can just do one round of practice.
+That is enough okay.
+Now So is this clear, everyone?
+So now I'll move on to the next one.
+All right.
+So now let us see the different type of authentications.
+What are the what are the different type of authentications supported in postman.
+So very important concept guys.
+So please listen carefully.
+What is the meaning of authentication.
+Authentication.
+Authorization.
+Both are same or not.
+Authentication.
+Authorization.
+Access control.
+There are multiple terms.
+Are there?
+So are they same or are they different?
+Access control is totally different.
+Authentication authorization is almost the same.
+Okay.
+And what is a major difference in authentication or authorization.
+Basically it will check the user is valid or not.
+The user is valid or not.
+In access control, what you will test if the user is valid, what kind of privileges he has.
+Okay, that is a part of access control.
+So here we are talking about authorization or authentication of the user.
+So when it is required.
+So whenever you are trying to access some type of APIs sometimes we need a different type of authentications.
+And basically for security purpose they add Authentications and some APIs we can directly access.
+Some APIs require some token, some APIs, we require some API key.
+Some APIs are required.
+Username and login.
+Some APIs are required.
+What to watch one.
+Authentication.
+So so many types of authentications are there.
+Basically all types of authentication are implemented as part of security okay.
+To add security to the APIs.
+All right.
+So mostly when you're working on real time, definitely you will have some kind of authentication on
+your APIs.
+But most of the public APIs doesn't have any authentication we can directly access.
+Okay.
+So let us start discussing about what are the Authentications are supported in postman and how we can
+test the APIs by using those type of Authentications to demonstrate authentication.
+I have taken different type of APIs because single API doesn't support all kinds of Authentications
+single request, single API request cannot support.
+So each type of authentication I will try to demonstrate a different type of API request.
+Because some API request may take username login, some APIs will take token, some API is required
+API key some API is required OAuth authentication.
+So different type of authentications are there.
+Okay.
+So first of all let us try to understand what are the different type of authentications postman will
+support.
+This is again tool specific.
+Okay.
+Postman, what kind of authentications or authorizations.
+Postman will support.
+So basically there are many number of authentications are supported, but some authentications are very
+generic and any type of applications, any type of APIs can have such type of authentications, but
+some authentications are application specific.
+For example, AWS is a different kind of a project that needs a separate authentication.
+Okay.
+Similarly, some different type of applications are the different type of uh, authentications are provided
+in postman, but there are some authentications which are generic means.
+Mostly most of the APIs.
+90% of the APIs will follow such type of authentications.
+Okay, so let me show you where we can see the authentications.
+So if I just open any type of a request.
+So if I just go back and see authorization tab.
+Here you can see the list of authorizations.
+No auth basic auth bearer token JWT digest auth one two hoc authentication.
+So the first whatever you can see these are all generic Authentications basic bearer token and digest
+OAuth API key.
+Okay, these are all generic authentications, but if you look at JWT hoc authentication, NTLM, Akamai
+ASAP.
+So these are all specific AWS signature.
+These are all application specific.
+Authentications okay.
+Because if you have access or account on these applications, then only we can create these authentication
+and we can use it okay.
+And also these are more advanced and recently added these authentications in the postman based on the
+request by those applications okay.
+because they're not currently using these generic authentications, but 9080 to 90% of the applications
+are using generic authentications.
+Okay.
+We'll try to understand this because the rest of them we cannot simulate in our environment.
+But whatever the generic authentications are there, we will discuss them, how exactly they will work,
+how we can create those authentications, and how we can send the request with other authentications.
+We will discuss one by one.
+Okay, right.
+So I have taken few types of authentication.
+First, let us start with the basic auth.
+What is a basic authentication required?
+Basic authentication means simple.
+We need to pass username and password.
+So username and password is required.
+And that username and password will be encoded into a requested header.
+So that will be encoded along with the request URL.
+The username and password will be sent in the encoded format.
+That is simple basic auth.
+So whenever you log in to any application by default basic authentication will be triggered.
+Gmail or Yahoo login login screens.
+All the login screens basically implemented basic auth username and password.
+Okay, so here I have given a few examples.
+Uh, later I will show you in the postman.
+So basically basic auth required username and password.
+And this is another URL request which is also required username and password.
+So let's go to the postman.
+I already created one collection here with a different type of authentication.
+So let me try to explore one by one.
+So I'll try to change this name.
+Day seven Authentications or.
+Authorizations whatever.
+So first one let's go to the basic auth.
+So whatever request I have given here the same request.
+This is actually postman uh request.
+And what this will return.
+So this will return something whether it is valid or not.
+Uh I'm sending get request and this is the URL and I've selected book author.
+Suppose I just try to remove this authentication and say no auth, nothing.
+So when I send this request so you will see unauthorized.
+Unauthorized because we are not provided any authentication to access this request.
+So what kind of authentication it is required.
+It is supported basic auth.
+So when I say basic auth we need to pass a username and a password.
+So what is the password I have passed.
+Here is password itself.
+The password is password only.
+So when I add this authentication when I send this you can see authenticated is true.
+Authenticated is true.
+Okay.
+Now if I go back and see the headers.
+So these are the default headers that got created.
+You can see authorization.
+So whatever the username and password we have given that is basically encoded.
+So this is encoded format of username and password.
+That is a part of the header.
+It is automatically attached to the header and which we cannot see here.
+This is basic authentication.
+Simple.
+Very straight forward.
+We can simply select basic auth, provide username and password and then send it.
+Okay.
+This is basic authentication.
+So when I send this request so the response is authenticated.
+That means your authentication is successful 200 is okay.
+And similarly there is another type of authentication.
+This is also basic authentication.
+Another request.
+And this is another Get request and which is also required basic authentication.
+And for example here I'm not taking any authorization.
+And when I send this request uh no no headers by default will be added not eight headers.
+So headers is by default added when you send a some request which is having a lot of content connection,
+accept encoding or not user agent.
+These are some default values added by postman itself, and we no need to consider all the headers,
+but there are few headers which we need to understand.
+Okay, so go to authorization.
+As of now, no authorization.
+I'm sending this request.
+Now you can see the response not authorized.
+But now I'm sending the basic authorization and username is admin.
+Password is also admin.
+Now save this request.
+Go back to the headers and see authorization is here is encoded.
+Now if I send this request and you got some response but it's HTML format of response, this time we
+got HTML response.
+Depends on how depends on how the API is designed.
+We'll get the response, but we need to make sure 200 is okay correct or not okay.
+This is a code.
+So these are two basic authentications and they are straightforward.
+We don't need to do any setup.
+Nothing.
+No configurations.
+Simply if you know username and password we can directly go to authorization.
+Select a basic auth and here provide username and password.
+Send it.
+That's it.
+So this will do the basic authentication.
+Now there is another type of authentication called digest auth.
+Digest authentication which is also exactly similar to basic authentication but slight difference is
+there.
+Okay.
+In the basic authentication uh the username and password is just encoded.
+Encoded is nothing.
+But what encryption is different.
+Encoded is nothing but what it is just not visible.
+Right.
+Uh, are we able to visible?
+Just we provided here, but in the headers it is not visible.
+But in digest authentication is also required.
+Just username and password.
+But the difference is in the, uh, digest authentication the username password will be encrypted in
+the network.
+Also it will transport in the encryption format.
+It will transport in the encrypted format.
+But in the basic authentication It will not encrypt actually, so it is not much secure.
+Only digest authentication is more secure than basic authentication.
+Why?
+Because in the basic authentication, the username and password will directly transport to the network.
+It will not be encrypted, but it will just show in encoded format for the user.
+But in the transportation it will it will go directly.
+But in the digest authentication the username and password will be encrypted and then it will transfer
+to the network.
+It is almost similar to the basic authentication, but more secure as it is uses encryption technique.
+So whatever APIs are supported basic auth.
+They also support digest auth.
+Most of the APIs because most both are almost similar only except the transcription encryption part.
+Rest of them are similar similar type of architecture.
+So let us try to use digest.
+So if I go back to the this one this will also support digest authentication.
+So let me show you how it will be digest auth.
+So in the postman again I'm sending the same request get URL and this time in authorization I'm taking
+digest auth instead of basic auth.
+If I take basic auth also it will work because both are supported and I'm taking digest auth here.
+And what is the username and password is postman and password is also password.
+And I'm going to send this and I got the response authenticated.
+Now let's go back and see the console once how it is going to send okay.
+Now we have send this request.
+And if I go back.
+And these tokens are all postman are created.
+You can see authorization digest username is equal to postman.
+And I can see this is I think this is a password only username is displayed and it is going as a digest
+authentication.
+Okay.
+So very simple guys.
+So basic authentication whatever we have same thing in digest authentication also.
+But only the different is in the digest authentication.
+Encryption is added additionally.
+Otherwise both are exactly the same and both are having username and password.
+If you simply know username and password we can easily access, uh digest authentication.
+And this is a second very basic.
+Now the third one API key authentication API key.
+So some applications or some API request requires API key.
+If I have API key then only we will able to access the API.
+Otherwise not.
+So I'll try to demonstrate this API open weather map API.
+So this is again built in public API which is available.
+And basically this API will return the weather conditions in different locations.
+We can provide the different locations.
+Different cities, different states, and accordingly it will return the weather information.
+Current live weather information.
+And let me go through the API first.
+So just search for Open Weather Map API and you will go to this website.
+Okay this is the official website.
+Okay so this is weather API.
+And if I go back and scroll down it is provided.
+So many APIs guys and not everything is free.
+Even if you are trying to access with the API, the API will automatically expire after some time.
+Okay, so how to access this API?
+So we have the URL actually.
+So here I don't have.
+Okay.
+So to access this API we need to first create a API key.
+So let's go to API tab here.
+Then it will show you what all APIs are currently available so your current weather data is available.
+So let's go to API dock.
+Okay.
+Now you can see which is given the lot of documentation.
+And if I scroll down mainly there are three APIs are considered here.
+Let me increase the page size okay.
+There are three API requests.
+They are provided if I look at here these are first API.
+When I send this API along with the city name, we have to pass as a query parameter along with the
+API key.
+So this will actually return the current weather condition on this particular city.
+And similarly another API request.
+Here we can pass city along with the country code.
+Then it will all three will do the same job, but only query parameters are different.
+Here the first request we need to pass city along with the API key.
+And the second request we need to pass city name country code along with the API key.
+The third request we have to pass city name, state code, and country code along with the API key.
+So these are three different type of query parameters we have to pass.
+But ultimately the response is exactly the same.
+Okay.
+So if I take this particular API request what is the thing we need.
+City name.
+Any way we can pass some randomly.
+Any city but API keys is most important.
+So to access this API we need to create a API key.
+So how we can create this API key.
+We can just click on this API key.
+And what we're saying it is just asking to sign into your account.
+So when you sign into the account it will create a API key.
+As soon as you sign into this account it will create a API key.
+And that is the key we have to pass.
+As part of this API.
+ID is a key key name.
+And here we need to pass the value of the API key.
+So to create an API key just login is required.
+Okay.
+So once you click on uh if you don't have email, if you already have email ID password you can provide
+here.
+Otherwise you can just click on the create an account and provide your details.
+Then create account and login.
+As soon as you log in to this application it will show you API key.
+Okay that's it.
+So I already logged in this in a very long back.
+I already captured the API key.
+I have this API key with me.
+I'll just try to use it.
+You guys can create your own API key, or you can use my own API key which I will provide.
+Just by signing in you will able to see the API key.
+And this process is not the same for all kinds of applications.
+Every type of application is having their own process to create event tokens, API keys Authentications
+different applications are having different procedures, so you need to ask the developers or about
+the documentation procedure and everything.
+So then only you will know how we can create all these keys.
+Okay.
+So once you log in so you will able to see the API key.
+So we need to extract that key.
+And we can use it to send this request for this API.
+So what I have done, I already created one API key.
+So you can see this is my API key.
+And key is app ID and the value is this one.
+And when I add this API key that will be part of the query parameters.
+So if I look at this API request also where we are passing this app id app API key as part of the query
+parameter, right?
+Even city is also part of the query parameter.
+App ID is also part of the query parameter, so these two will be automatically added to the query parameters.
+Okay, so let's see how we can send the request with the API key.
+So this is a request URL I'm going to send.
+Let me copy this.
+And I already send this.
+You can just go to API key authentication.
+So here this is my URL.
+And here we need to pass the name of the city.
+Currently I pass Delhi.
+The value is hard coded.
+And if you want to create a separate variable for maintaining the country name or city name, you can
+create a variable that you can refer here.
+But currently I just hard coded the value and app ID here.
+You can directly hard code the value.
+Whatever API key you generate.
+You can directly place it here, but that is not the best practice.
+What you can do, you can just go to authorization and select the API key here okay.
+And API key authorization is there.
+Select it.
+And once you selected this API key it will show you the simple form here.
+And the key is app ID.
+So this is not a user defined it exactly the same key we have to pass because as per as per the URL
+request, app ID is the exact key we have to pass.
+And this is the value.
+Whatever key we generated, we put this value and add to query parameters because the key should be
+part of query parameters.
+So here we need to pass query parameters as soon as we have done and save it.
+You can see this parameter and everything.
+And if I go back to the param section here also you can see app ID encoded format it is displaying.
+And these are all param query parameters as of now.
+App id q and there are three parameters are there.
+So app id api key.
+So which is taken from this authorization by default.
+Okay.
+So just we need to select the API key, provide the app ID key value and add to query parameters because
+the key should be part of query parameter.
+Now once you send this request and now see the body what it is returning and do we need to pass any
+body?
+No, because it is simply get request.
+And we are sending along with the API key.
+When I send this you got the response.
+Now here if I look at this.
+So there are two API keys.
+Actually this is the disabled okay.
+This is not required.
+So this is additional.
+This is not equal.
+This is a disabled actually.
+Let me add once again.
+Suppose if you remove from here.
+No authentication.
+Now let me save it.
+Go back to the parameters.
+Now you can see these are the default.
+Are there so few app ID.
+And here also I put curly braces API key.
+So from where this API coming from have you created anywhere else.
+No.
+Right.
+So this API should come from authorization.
+So here we need to select a API key and app ID and provide the API add query parameter and save it.
+So now whatever API key we provided here.
+So that will be substituted here because this is referring.
+So this is by default created by the postman okay.
+We can simply ignore this.
+This query parameters are automatically added.
+We have not added.
+the postman has got added and these two are the actual two query parameters we are passing.
+Okay.
+Now let us send this request and this is the response.
+And if I look at here how we will know whether this response is correct or not.
+What we can verify here.
+And we are passing some city Delhi.
+Right.
+And we should validate the Delhi is present or not somewhere it should be here you can see Delhi is
+there.
+So whichever city we can pass there.
+So that will return the weather condition.
+And along with the name you can also see the time zone country okay and other detailed information.
+Detailed weather information will be shown here and any country can pass.
+Okay.
+Let me just pass some other.
+Sorry not country.
+City.
+Just pass something called Chennai send.
+Yeah.
+Now you can see the Chennai and let me change something.
+Hyderabad.
+Okay.
+Perfect.
+So now we got the weather information specific to that particular city.
+So this is how we can simply pass API key authorization and to create an API key.
+There will be different processes in different type of applications.
+So we need to know that information from the developer itself.
+It should be single basis here.
+No this API key.
+Just a moment.
+It is giving an error.
+No it is still working but it is taking from here not here actually.
+So one second.
+Let me check this.
+Okay, I think this we don't need it.
+We can just remove this also.
+So because this API is taken here and I send this still you are getting the response.
+So actual thing is because we have added API key here.
+As soon as we have added this API key we send the query parameters we added.
+Right.
+So that is the reason in the parameters this API has got added.
+So additionally we don't need to add app ID.
+So as soon as you send here uh authentication is done.
+But city we have to pass city we need to pass here okay.
+So it is accepting but it should not accept actually.
+So API key we have added here.
+Suppose if you are not added okay so query parameters we added that is a part of the query parameters.
+But here it is not displaying.
+And if you want to see that query parameter also as part of the URL.
+So then you can create another one here.
+Query parameter app id.
+And then you can specify.
+It's not there actually.
+So app ID.
+Send this.
+And still it is working.
+So just for displaying here uh we are adding it.
+Otherwise even if you are not adding this also still it is working.
+Still it is working fine.
+But don't try to do here directly.
+Go to authorization and select the API key from here.
+And that is automatically reflected as part of query parameters okay.
+All right.
+So this is API key authentication.
+Now What is the next.
+So we have sent this is weather API.
+So there are multiple APIs are there.
+So if you want once you created your API key you can explore these three.
+Also if I go to this URL you can find this three APIs.
+But all APIs are required API key.
+So how we will get the API key.
+Just login into the application, create your own account sign in.
+Then immediately it will create a new API key, right?
+So the next one is bearer token.
+This is something different.
+Token authentication bearer token.
+So we already seen one API in the last class go rest API right.
+So go rest API required bearer token and even books API which we have seen in the last class.
+Even that is also required bearer token.
+Have you guys remember.
+So if I go back see books API.
+So we have created the token, right?
+So the same token we are used in other even submit order.
+Also how we can pass token authorization bearer token.
+Here we need to add access token.
+And similarly we also also seen go rest API.
+Go rest I think go rest API doesn't need any authorization.
+Okay, so only books API is required.
+Authorization token authorization.
+So we will see one more API.
+Uh here I have something called GitHub related API.
+So GitHub is also having their own APIs.
+And to access those APIs we need to create a bearer token or token.
+So this is the API request actually.
+So let me send this API request.
+If I go back and see again guys can you see my screen.
+So this is all part of the documentation, guys.
+Okay.
+So which token is used for which API.
+That is all information.
+We need to get it from the developers.
+And everything is should be part of the documents at the time of testing.
+Because here we have taken some demo APIs in internet and I have referred so many documentations and
+accordingly.
+So I know what kind of API is required, what kind of token or everything.
+Uh, I think yeah, go rest API.
+Yes, exactly.
+And the collection level we specified.
+Yeah, you are right.
+I forgot it so you can see go rest API is also required token.
+So even in the go rest API also we just successfully log in and we created our own token right.
+Same thing.
+So now let's see how to create the token for accessing GitHub APIs.
+So if I go back to the GitHub API bearer token.
+So here I have added some bearer token.
+So for example uh let me remove this.
+No authentication.
+Now I'm sending this Get request.
+Basically what this URL will do.
+This will return the repositories GitHub repositories in which are created with my account.
+Everyone is having their own GitHub account, right.
+So with your GitHub account, whatever the token you created.
+So by using that token it will return the repositories from your account.
+So when I run this request it is saying requires authentication for not for unauthorized because this
+URL or request is required this request is required token authentication.
+So we need to create a token.
+So how to create a token.
+And if you provide the token here let me take Bearer token.
+And here my bearer token I provided.
+And now if I send this request, it will return the repositories, all the repositories, whatever you
+created in your GitHub account.
+And if you want to see the login name, you can see this is my login GitHub account login.
+And this is the ID of the every repository having some ID, even the name.
+Also it will display.
+You can see this is the name of the repository okay.
+And you can see that.
+So this is these are all repository URLs everything it will display here okay.
+But to access this request or API we need to create the token okay.
+So let me show you how we can create this token.
+So to create this token first we need to go to GitHub account login github.com.
+And I already logged in.
+So how to create a new token.
+So to create the token you need to go to settings.
+and in the settings you can just go to Developer Settings.
+And here in the developer settings you have Personal Access tokens.
+Open it and take the tokens classic.
+So once you take this here you can see this token is already created.
+Now if you want to create a new token you can just go here generate a new token.
+Classic.
+Take this.
+Classic beta is still not implemented, so generate new token.
+Now again it will ask you the password.
+Let me log into this.
+Okay.
+So once you log in so here you need to provide the token.
+So I call it as a my token one.
+And how much time you need this expiration date you can specify.
+And with this token what you are going to do.
+You want to access all your repository.
+So you need a need privileges on this particular token.
+So I'm just selecting repo.
+So this will give you accessing commit status all the repository related actions you can do by taking
+these privileges.
+And rest of them we don't need.
+Simply click on Generate token.
+So now you can see the token is got created.
+So now you need to use this token in your postman.
+So I'll just try to replace this.
+This is the new token which we have created.
+Save it.
+And now send the request.
+So you will get all the repositories which are available in your GitHub account.
+So this is the process we followed in GitHub.
+But different applications are having different type of approaches to create your token.
+So earlier we have seen go rest is a different process.
+Books API is a different process.
+Now GitHub is a different process.
+This is token bearer token authentication okay.
+So this is one type of authentication.
+Now finally we have OAuth two authentication.
+OAuth one and OAuth.
+There are two types of this OAuth one is old one.
+Old architecture.
+OAuth two is the latest one.
+So this is a little bit complex.
+But we will try to create OAuth two authentication.
+And we will see one API.
+So there are so many APIs are there.
+So you can just if you want access Google Maps OAuth two is required.
+And even LinkedIn APIs and payment systems like PayPal APIs, PayPal.
+If you want access there is worth two authentication required Facebook, Twitter, LinkedIn.
+All these applications mostly using OAuth two Authentications okay, because this is more secure when
+you compare with other type of Authentications.
+Okay.
+So I'll show you how we can create OAuth two authentication for any for by taking some application,
+some API, and we will see how we can do that.
+So first of all, we will try to understand the steps.
+What are the steps are required in OAuth two authentication.
+So what are the main things we required in order to authentication.
+So later I will explain how those authentications will work.
+First let us focus how we can use those authentication within the postman tool.
+Okay.
+So when I use OAuth two authentication we need to follow certain steps.
+The first important step we need mainly three things guys in OAuth two authentication OAuth two authentication.
+We need three things.
+First important thing is client ID.
+First important thing is client ID.
+Client ID second thing is client secret.
+This is also a kind of a code we will generate.
+Third thing is a token.
+So these are the three important things which we need to focus when I use OAuth two authentication.
+Okay.
+So client ID client secret we have to generate manually.
+Manually we need to generate how we can generate these two manually.
+First we need to log in to the application.
+And with the developer account.
+Then we need to create some application some app we need to create.
+And as soon as you created an app it will automatically gives you client ID and client secret.
+So these are the steps we need to do manually.
+So how to capture client ID client secret.
+We need to log in to the application.
+And we need to create one application app.
+And with that app client ID client secret will be created.
+That is a step number one we need to do manually.
+So once you know client ID and client secret then by using these two we have to create a token.
+This is automatic process within the postman.
+So if you know client ID and client secret, by using these two we can automatically create a token.
+This is automation process within the postman.
+So once you get the token now you have client ID client secret.
+By using these two we create a token also.
+So by using these three we can send a OAuth request OAuth authentication.
+So auth authentication requires three parameters.
+Client ID is required.
+Client secret is required.
+Token is required.
+Client ID client secret.
+We will create manually whereas token we will create automatically within the postman.
+Once you get the token then we will use client ID, client id token, all three things while sending
+the request using OAuth authentication.
+This is the process.
+Okay.
+Now I'll show you step by step.
+Listen very carefully.
+For that.
+What I'm going to do is I have taken one application OAuth two authorization.
+So this is a Get request basically.
+So basically what this will do it will fetch different images.
+There is a website called Imgur.
+Let me open this.
+And search for this.
+Go to this.
+Yeah I think not this one.
+API Imgur.com.
+Yeah.
+So this is a URL.
+So when you go to this URL uh sorry not this one.
+Type only this one.
+Yeah.
+So this is the actual website.
+So first of all we need to log in to the first step.
+We need to log in to this application.
+First step we need to log in to the application.
+As I said three important things right.
+What are the three important things.
+First one we need to create client ID client secret.
+And after that we need to generate the token.
+And then we have to send a request.
+So we need to do this step by step.
+Listen carefully.
+So first thing so when I send this URL let me go to postman.
+And I will create a new request here.
+Okay.
+So I'll name it as OAuth.
+OAuth two authentication.
+So what is the request I'm going to do here is I'm going to do this get request.
+Okay.
+So this is a Get request I'm going to do within the postman.
+And I'm saving it and directly send this I'm not providing any authorization.
+Nothing I'm simply send this.
+So what it is saying authentication required unauthorized for zero one another is authentication is
+required.
+So we are not getting the response.
+So but to send the request we need OAuth two authentication.
+So if you go back to the authorization you can see here OAuth 2.0.
+This is the latest one.
+So this one no one is using now because after getting this OAuth 2.0 and as soon as you select this
+over 2.0, uh you will see something here.
+You can see a big form here, a lot of things we need to pass here.
+We don't know any tokens as of now.
+So configure token.
+So here there are so many details which we have to pass.
+So later I will show you this okay.
+So far there is no authorization nothing.
+So by sending the request we will get a no authorization okay.
+So step number one what we need to do here is we need to first go to.
+Okay.
+So let me close this.
+Okay.
+So this is the request we send.
+We got 401 unauthorized.
+So first thing we need to sign up with the application.
+So this is the URL.
+So we need to open this URL and sign up with your account using your email address.
+And create username and password.
+And it will ask you some additional verification steps by sending OTP and everything.
+Just do this.
+So here I shown you the screenshot also.
+So click on the sign up button and it will ask you to register or continue with the Google or continue
+with the Apple.
+So I'm using continue with the Google existing Google account.
+And if you're not, you can create your new account with this and click on the sign in.
+So this is step number one.
+So we need to sign in to the application.
+So here you can see your username.
+So I already signed in to this application.
+So here I can see my username here okay.
+So this is your home page of your application.
+So once you log in to this application.
+So next thing is we need to register an app means we need to create one app inside the applications.
+Our own app we need to create to register our own application, we need to open this URL again one more
+time.
+So why I'm not able to copy this?
+Just a second.
+Yeah.
+So I just copy this URL and open this.
+Https.
+So because I already logged in.
+So here you can see your email address username.
+So this is the form you will get register and application.
+So here you need to fill some details.
+You can provide whatever name you want.
+Application name you can provide select OAuth two authorization.
+And here this is very important.
+Authorization callback URL application website.
+These details normally the developers will provide you because you don't know all these things.
+The only few things we need to pass application name.
+We have to pass OAuth two authentication callback URL is must and these are optional application website,
+email.
+You can pass description.
+You can pass and you can select this robot.
+Simply submit it.
+So once you submitted this form you will get client ID and client Secret.
+You will get a client ID and client secret once you submitted the form.
+So here application name you can give like postman or whatever you want.
+Authorization type.
+And this is the callback URL.
+I will share this document anyway, so all the details are available in the document.
+You can pass it.
+This is the callback URL you need to pass, then email address.
+Also you need to pass then submit the button.
+So once you fill this form this is the form.
+So once you fill it everything simply submit it.
+So once you submitted then automatically the client ID client secret.
+Both both are generated here.
+So once you register with this form, you will get a client ID client secret.
+These are very important.
+You need to keep it with you.
+Okay.
+So first step we have achieved.
+So as I said three things are important right.
+For OAuth two authentication.
+What is the first thing we need to capture the client ID.
+Second is what client secret.
+So we capture these two from here.
+So what is the next thing we required.
+Third thing.
+By using this client ID client secret we need to generate the token.
+So we have done the first two manually.
+By logging into application we fill the form submitted client ID client secret is generated.
+Now we need to create the token.
+So to create the token we need to go to the postman.
+The token we will create automatically inside the postman.
+So how to create the token automatically inside the postman.
+So to create we need to go to postman.
+In the postman inauguration, we will select OAuth to authorization.
+And here don't touch this current token.
+So this is empty as of now.
+Go to configure new token form here.
+Here you need to fill all these details so you can give any name here.
+Authorization code select here.
+Grant type is authorization code callback URL.
+So at the time of filling the registration form, whatever callback URL we provided same callback URL
+we need to provide auth URL access token URL.
+So these details normally the developers will provide you you don't know these anything before.
+And here the client ID and client secret.
+We need to pass okay.
+Client ID and client secret.
+So these are the two places we need to pass and scope state.
+Nothing is required.
+So once you provided these details Now scroll down.
+Here you can see one button called create.
+Get a new access token.
+So once you click on this button it will generate the access token.
+How it will generate as soon as you go to the postman and selected OAuth two and fill all the details
+in the form token name, callback, URL, auth, url, everything you provided.
+Then once you click on this submit get new access token, then what will happen?
+You will get a one pop up window like this.
+Get a new access token and basically it is asking for authenticate via browser and parallelly as soon
+as you open the window parallelly, you will see this window also one more time it will ask you to login
+to the website.
+Okay.
+And once you provide your email password here, then click on allow button one more time.
+Then authentication will be successful.
+Then you will get one more window like this.
+Click on the proceed and after that the token will be generated within the postman, it will again go
+back to your postman and here you will see this window.
+This is called access token, which is generated as soon as you get this form, click on Use Token.
+So once you click on this use token, then if I go back to the postman I already done this step.
+So as soon as you click on this get a new access token.
+I'm just clicking on it, see what will happen.
+So when I click on it see here it will open like this.
+So how this process will be continued once you provide your email address password here and click on
+allow button.
+So as soon as you click on yellow button then this process has got completed.
+But it is not asking me to provide email password because I already provided earlier.
+So once it is done, just hold on for few seconds automatically the token is got generated.
+Now just click on Use token.
+Once you click on this, my token is a name and token is not generated.
+Simply use token.
+As soon as you have done it, go above here in the drop down.
+See there are my two.
+My tokens are there.
+One is previously I created.
+Another one is now.
+Just now we created.
+If we select this one, this is the latest one just now.
+Whatever created that will automatically pop up here okay.
+So once you get it now save everything.
+If I look at here now we have a token.
+We have a client ID, we have a client secret.
+Everything is there.
+So now we are ready to send a request with OAuth 2.0 authentication okay.
+Now again if you go back to the steps, very simple.
+What I have done I have done all these steps and then click on Use Token.
+After that select the token from the drop down box, whatever is selected.
+And one more time test the API.
+So now go to the postman once again and again sending the request.
+So authorization OAuth 2.0.
+Everything is got provided here.
+Now this time I'm sending the same request.
+Just observe.
+See this.
+This time successfully done.
+So previously we got 401.
+Now we got 200 okay.
+So success that means authentication is successful with this request.
+Okay.
+So this much process we have to create OAuth two authentication.
+And again this will be different from one application to another applications.
+But ultimately we need three things.
+One is client ID client secret is mandatory.
+And once you get client ID client secret then we have to generate the token within the postman.
+And after that we can directly send the request.
+Okay.
+So this is all about uh I think it will be there around seven days.
+It will be there 7 to 10 days.
+It will be there.
+You can create any number of authentications, any number of tokens.
+No problem.
+Currently I have two tokens I already created.
+So you can create any number of tokens.
+You can create any number of apps.
+Also, if you log in to the application here you can create a number of registrations.
+But the details are very important.
+So I already given the details in the document.
+So please follow those details exactly the same and few details.
+If you want you can change here.
+So for example application name you can change but authorization callback URL you cannot change same
+callback URL you have to use and email address.
+If you want you can change it.
+You create your own email ID and after submission client ID, secret ID will be generated and don't
+use this client ID secret ID which I have created.
+You create your own client ID and client secret and after that go to the postman.
+Select this authentication and fill these all the details in the form callback URL.
+Auth URL is same.
+Everything is same as you don't change anything here except the client ID and secret ID.
+Everything is same and after that submit the request and then get a new access token.
+It will authenticate login here, allow login and then it will be successful here.
+Just wait for few seconds.
+As soon as you have waited here you will get another screen with the token.
+Then click on Use Token and then automatically the token will be there in your postman itself.
+And after that you can send the request.
+It will go successfully with the OAuth two authentication.
+Okay, so all these details will be provided by the developers.
+We don't have any information with us, only these details will be there at the time of development.
+So at the time of developing these APIs developers will know exactly these details.
+So they will document it at the time of developing these APIs.
+They will document, so they will provide everything.
+So we need to ask more information.
+So then they will provide accordingly.
+We need to do configurations and we need to do the testing.
+Okay this is OAuth two.
+I have taken one simple application here.
+We can just do one round of practice here.
+So there is no situation.
+Having two types of authentication is not possible.
+Only one authentication at a time is possible.
+It's not possible either token or API key, or it can be OAuth two or bearer token at a time.
+Only one authentication is possible.
+There is no possibility to have two authentications at any one request.
+Okay, so I'll share these documents and try to do one round of practice.
+So basic auth digest authentication token authentication API authentication OAuth authentication.
+Indication so depends upon your applications in the real time.
+So we need to ask more information about the developers.
+And then they will provide the required details.
+And accordingly you need to plan.
+Even developers also do the same thing depends on the requirement and design.
+So our job is only testing.
+We don't know how they have developed what they have used inside.
+Okay.
+Basically the input is what our requirement and design.
+So based on the requirement the design developer they implement.
+But at the time of implemented implementation there are some technical details they will maintain.
+So until unless we know those technical details we cannot test our APIs.
+So we need to get that information from the developers.
+And then we will use it for our testing.
+Okay.
+So now let me just go through at very high level how exactly these authentications works and we don't
+know exactly how exactly internal things work, but at very high level I'll go through.
+What are the main differences between these three authentications?
+Just a moment.
+I'll share a small screenshot so that you will understand exactly how these things will be different.
+Just a second.
+Fine.
+So we can just look at this.
+Can you see this?
+So I just added four different type of authentication.
+So based on this you can just understand it very high level exactly how these things will work.
+So in basic in basic authentication digest authentication is almost the same.
+And sometimes it is also called as a preemptive authentication.
+In rest assured we call it as a preventive authentication.
+So almost same.
+So how exactly the basic authentication works.
+So we will request the resource and it will ask the username and password.
+So once you provide a username and password the server will send the resource simple direct.
+So this is our client machine server machine.
+We are asking for the resource.
+Then it will ask for the username and password.
+You provide the username and password and then return the resource.
+Same basic authentication and then digest.
+Authentication is also same.
+The only difference is in the basic authentication.
+Username and password will go as it is without encryption, but in digest authentication will go with
+encrypted format.
+So that is a difference.
+Now the next one is token authentication.
+Let me maximize this.
+So exactly the token authentication works.
+So user logs in and sends encrypted tokens.
+And this is again manual process.
+We do token creation.
+And then whatever the token we captured in the encrypted format from the application we are sending
+the request along with the token.
+And then from the server we will get the return resource.
+So first two things to generate the token we do manual process.
+And sometimes there will be some API request available for generating the token.
+Also depends.
+So this is token authentication is simple.
+We log in to our application, generate the token that will return the token to us, and we can send
+the request along with the token and from the server we will get the resource resource in the sense
+the response.
+This is token authentication.
+And in authentication there are multiple steps are there.
+So first as a client authorization request will send.
+Authorization will be granted.
+So what exactly this process is sign up process.
+So at the time of creating auth authentication we are first signing up to the application.
+Right.
+That is a process we do manually.
+So with the Gmail account or whatever you just log into application and it will give the access.
+And once you log into application what you will do, you will create one application app to get the
+client ID and secret ID.
+So that is a process authorization grant or server will give the access token.
+Actually these two we will do through automation.
+So even access token will be created within the postman, right?
+By sending the request, by taking client ID, secret ID from the first and second step, we will do
+three and fourth step.
+And once we get an access token also, then we.
+Finally we will send the request along with the access token and we will get the response.
+So this is a process OAuth authentication process.
+At very high level.
+But again there are some detailed steps are there.
+But that is not needed for now.
+And the last one API key authentication.
+So in API key what exactly we are doing here we are creating the key manually.
+Right.
+And once you created the key we will get the key.
+So these two again manual process.
+So once you get the key we are sending the request along with the key.
+And then the key is authorized and we will get the resource.
+This is API key Authorization.
+This is a big authorization.
+It's very simple at very high level workflows.
+So I'll share this document also with you so you guys can keep it with you.
+So Grant is nothing but simple.
+Once you sign up your application you are able to access everything, right?
+So that means it is granted to you to create an app, or it is granted to you to register something.
+That is a simple meaning of grant here.
+These are simple terminologies.
+Guys don't give bigger meanings to that.
+So just try to understand these type of authentications so it will be differ from application to application.
+So they are not constant things.
+So because we need to just know what exactly it is, how it is going to work.
+But the configuration setting up environments will keep changing from application to applications in
+the real time.
+But in the real time applications, most of the times you don't see basic authentications.
+Mostly you see what application, or what authentication and API authentication and token authentication
+is.
+These three Authentications are most popular in real time applications.
+And if you go with LinkedIn or Facebook or Twitter, these applications mostly use OAuth Authentications
+OAuth Authentications.
+Okay.
+And suppose if you go with the Google Maps API and suppose travel applications like Ola, Uber.
+So these applications are internally using token authentication.
+And API authentication is also sometimes they use okay.
+So just do one round of practice I'll share the documents and everything step by step.
+Try your own.
+And next class we will continue further.
+Yes.
+So you have to explain that.
+So if they ask about what the two workflow we can simply explain how we can explain.
+First, you need to sign up to the application.
+Now you register it the details with the callback URL and other things.
+Then you will get a client ID and client secret.
+Now, by using the client ID and client secret, you will generate the token.
+And once you get the token, then you will send the request final request along with the client ID client
+secret client callback URL along with your token.
+That is the actual workflow of auth two.
+The process.
+If you take any other application, most of the process will be same, but generating client ID client
+secret will be a little bit different.
+But once you have client ID client secret, rest of the process is exactly the same.
+Okay, so that's all for today's session.
+I'll stop here and we will continue in the next class.

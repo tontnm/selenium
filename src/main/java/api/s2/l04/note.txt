@@ -1,0 +1,1540 @@
+So in the today's session we'll see how we can validate response.
+So in the last class we have understood what is JSON and what is JSON path right.
+So if you want to capture any data from the response.
+So we need to write a JSON path.
+So we can extract the data from the JSON response using JSON path.
+So that is very important when you add validations on response.
+So normally what are the different type of validations we do on the response.
+So we will verify the status code.
+We will verify the cookies headers and response body time.
+And there are a lot of other things we need to validate okay.
+So for that what I will do is first of all I have already created some new collection which is again
+same student APIs.
+Whatever we have created in the last class, same student APIs, all different request, I have created
+another one, so I just rename it.
+Student API response validation.
+So today is day three.
+Okay.
+So in this I have a different type of student request.
+Get single student.
+Get all students data.
+Creating new student.
+Updating existing student and delete the student.
+So I'll also start running my student API locally.
+And then we will start discussing about uh validations response validations.
+So let me go to my uh, JSON file.
+So where I have kept here inside my automation files JSON file.
+So here I have my students dot JSON file.
+So let me start this.
+So in the last class we have seen how to start our local API.
+So same thing I'm doing.
+So what is the command we have to execute to run our local API JSON hyphen server.
+Right.
+So you need to remember a single command because we already installed NodeJS npm, everything is there.
+Just we need to run single command along with the JSON file path.
+So JSON hyphen server and provide the name students dot JSON.
+And once you enter this command it is started your API.
+Now it will show you the end point.
+So by using this URL we can access all your APIs.
+Now let me minimize it.
+And now let's go to the postman.
+Now I'm just running a single request.
+I'm just trying to get the ID of the student.
+One single student.
+Let's execute and send.
+Now I got the response here.
+So as soon as you see the response we need to do different type of validations.
+So as of now we are able to see response payload.
+This is the actual response in JSON format.
+And also you can see status code okay.
+And time in milliseconds size of the data.
+And uh here you can see you don't see anything because this is a Get request.
+We are not passing any request body.
+So along with this, if I look at here there are no cookies.
+But actually when you run this API through internet.
+So definitely will get certain kind of cookies here.
+So we can also validate those cookies and header information.
+Also we can validate.
+So here you can see there are different keys.
+And value pairs are generated along with the response.
+So we can validate this.
+Like for example content type we can validate connection type.
+We can validate content length.
+We can validate.
+So these details we can validate okay.
+So we'll see how we can do these type of validation.
+And finally we can also validate the response.
+Body means what in body what we can verify.
+We can verify the data types.
+For example here ID is in string format.
+Name is in string format.
+Again courses is an array format.
+And this is all entire thing is JSON object type.
+So the data types Also we can verify.
+Also we can verify the individual data.
+For example name John is respondent.
+So John is correct or not.
+The phone number is correct or not.
+The array elements are correct or not.
+So individual data.
+Also we can verify and apart from that we can also verify the schema.
+That is another most important.
+So I'll discuss about that.
+What is schema JSON schema how we can validate all those things.
+Okay.
+So these are the basic elements which we have to validate for every type of a response.
+And it will be different from type of request especially when you send a Get request.
+These many things we need to validate because response is also part of it.
+So we need to more focus on the response validation.
+But when you send delete request or Post request.
+So normally we don't get much response here.
+Just we will just get some confirmation message.
+So we do certain validations like status code time and headers, cookies and everything.
+But we no need to validate more on body response body, but when I send a get request, server will
+respond with the data.
+So we need to add more number of validations on the response body also.
+Okay, so now how we can add all the validations.
+So to add validation scripts we have a separate top tab here called scripts.
+You can see that.
+So in postman there are two kinds of scripts supported.
+One is pre request.
+Another one is post response.
+Pre request is nothing but what whenever you send some request.
+Whenever you are sending some request before sending the request to the server.
+If you want to execute certain things and you can put such type of scripts inside the pre request so
+that we will see tomorrow session and post response is nothing but what here we actually add validation
+scripts because when we will do validations, once the request is successful then we will start doing
+the validation.
+That means a post to response means what?
+Once you get a response on top of response, we will add validation scripts.
+So before we need to go to the script tab here under the scripts you can see two types of scripts p
+request and post response.
+Now to add validations where we need to add inside the post response.
+If I click here currently there is a window open window.
+Nothing is there.
+So here we need to write all the validation part okay.
+So by default postman support JavaScript.
+By default postman support JavaScript.
+If you know very well about JavaScript you can use postman it very well, very effectively you can use.
+But even if you don't know JavaScript, just try to understand some basic stuff.
+I'm going to teach you how we can add validations using JavaScript, and step by step we will see all
+validations we can do.
+Very simple, very easy to do that.
+Also, I will share some document which contains all the validation points and whenever it is required.
+Wherever it is required, you can just copy paste those validation points and that will do the validations.
+Okay, so this is the place where we can add all the validation points.
+So now let us discuss how we can add validations in JavaScript.
+Okay.
+So normally if I go back to any programming language like suppose when you're working with the selenium.
+So we use something how we can add assertions in selenium.
+Selenium testing how we will add assertions, how we will add assertions like suppose we use selenium
+plus Java combination.
+So if you want to add validations in selenium WebDriver.
+So how we can add validations, assertions from where we will get assertions from where we will get
+assertions assertions use testing right.
+We use some framework testing framework or some people will use JUnit framework.
+So whenever you want to add some assertions or validation, we will take the help of some built in framework.
+It can be testing or it can be JUnit.
+Or suppose people are using some C sharp, so then they can use something called n unit.
+This is another type of framework.
+So from that we can add assertions.
+Suppose the people using some Python.
+So then we will take another framework called py test.
+So by from the py test we get the assertions.
+So any programming language if you take there is a corresponding framework is available in the market.
+So we will take the all assertions from that the type of frameworks.
+Similarly Python basically support JavaScript okay.
+So not only Python any other frameworks.
+Suppose in automation whether.
+Suppose if you go with the playwright or if you go with the cypress.
+Also mostly they use JavaScript or TypeScript.
+So whenever you work with these type of languages JavaScript and TypeScript there is a special framework
+is available called Chai framework.
+So the framework name itself is called Chai framework.
+Or we can say Chai library.
+So this is provided all kinds of assertions.
+This chai library provided all types of assertions.
+So a postman by default support chai library assertions.
+Okay.
+So in that particular assertions these are the assumptions we have to capture from the Chai library.
+We need to add them into our different type of request.
+Even get request, post put or delete whatever.
+Okay so how we can add validations.
+How we can write validations using chai library.
+So that first we need to understand and then we will come back and add different type of assertions
+one by one.
+So I'll share a small document later with you so you guys can go through this.
+First, we will try to understand how we can add validations to the postman request.
+So as I said by default postman support Chai library or Chai assertion library.
+So the syntaxes will be different.
+So you should not compare these syntaxes with your Java or Python.
+Anyway, these syntaxes are totally different.
+So if I look at here we can add validations in Chai library two different formats using function syntax
+we can use or by using arrow function you can use.
+So normally in JavaScript this is the syntax we use to create a function in JavaScript language.
+We will use this function or we will use this syntax to create a function.
+For example, let's say because Python is acquired everything from the child library, they are given
+some package name called PM.
+PM is representing postman okay because they have already integrated child library suits and everything
+into postman itself.
+So every function we need to start with a PM.
+PM is representing postman.
+Okay, now you can say PM dot test.
+So test is a keyword.
+So whenever you add some test, test is nothing.
+But what a validation.
+So we need to add this method PM dot test in the bracket.
+Here we can specify the test name.
+So what kind of test we are going to do or what kind of validation we are going to do that you can put
+in the double quotations function is a keyword.
+So whenever you write a function that should open with open bracket and close bracket and starting brace
+and ending brace and whatever bracket we open here, we need to close the bracket here.
+And semicolon.
+So actual syntax is like this case.
+I have put in single statement pm dot test, pm dot test.
+The first parameter is a test name comma.
+Second parameter is we need to write some function name.
+So function is a keyword.
+You should not give any name here okay.
+Function is a keyword.
+We have to use same name here.
+You should not give any other name function And this function we have to implement in the curly braces.
+And this bracket is closed here.
+And semicolon end with the semicolon.
+This is the actual syntax.
+Okay.
+We have to follow this syntax in JavaScript to write a function.
+And this is basically the test function.
+Or we can say test method, test function or test method.
+And this is the old format.
+So PM dot test test name function bracket.
+And here we will add assertions.
+So we have a special class called uh expect special method called expect.
+So by using this special method we will add all assertions inside the function okay.
+So if I look at this there are two ways we have.
+So this is the first approach.
+This is the second approach.
+In the first approach this is the syntax PM dot test test name function.
+And here we will add all assertions.
+Second approach is by using arrow function.
+This is more advanced approach.
+The latest trending approach.
+again.
+Same kind of syntax.
+PM dot test.
+Test name.
+Here we use function keyword.
+But here we don't use any keyword.
+And after the bracket we use arrow mark here.
+So this only part is different.
+Rest of the things are exactly the same.
+So here we use function bracket.
+Here we use bracket arrow and followed by curly brace.
+And here we will add assertion.
+So this is called as arrow function.
+This is called arrow function even in advanced Java Java uh after Java 12.
+Also these kind of syntaxes are supported even JavaScript it is already there.
+Arrow functions are there.
+But in Java we call them as a lambda functions.
+Lambda expressions okay.
+So the syntax in Java also we have.
+But there that is not much important.
+But here by default Java library we follow the same syntax.
+Right.
+So these are the two different ways we can add validation.
+Either we can go with this one or we can go with this one.
+But most of the times we use the second approach because this is the latest approach, even postman
+documentation.
+Also you can see the arrow methods so you don't see this approach.
+This is a very old one and you can use it.
+It will work but everything is same.
+Whatever assertion we added here also we can add assertion, but the syntax is different which is called
+as an arrow function.
+Okay.
+So now we'll see how we can validate different things in the response one by one.
+So first where we have to start validating the status code how we can verify the status code.
+So to verify the status code we have three different type of validations.
+We can do three different type of test.
+We can add.
+Suppose if you want to verify the exact status code suppose I'm expecting 200 is a status code.
+So then what you can do you can write method like this PM dot test.
+And here the test name status code I'm expecting 200.
+So this is a state test name.
+You can put here arrow function.
+and pm dot response dot.
+This is actual assertion method which comes from the library.
+PM dot response .2. have status 200 okay.
+PM dot response two dot have dot status 200.
+If you add this assertion method, this will verify the status code is 200 or not.
+If the status code is 200, this will pass.
+If the status code is not 200, it will fail.
+So this is a one way we can do.
+If you know exact status code, you can put like this.
+Suppose I want to verify.
+Suppose I don't know exact status code, but I want to verify my status code may be two zero 1 or 2
+zero 1 or 200.
+I don't know exactly, but I have certain status codes.
+But my status code, expected status code should be one of the status codes.
+In that case, what we can do, we can slightly change this.
+We use something called expected.
+But here we are exactly expecting same status code, but here PM or not expect in the expect method.
+First we need to capture the status code from the response.
+How to capture the status code from the response pm dot response dot code.
+So this will actually return the status code from the response and that response code to be to be one
+of two zero 1 or 2 zero two.
+Basically this is an array.
+So now if the if my response code is 200 then it will it pass or not.
+The test method will pass or not.
+If my status code is 200, no, it will not pass what we are expecting here two zero 1 or 2 zero two
+we are expecting.
+So sometimes when you send a Post request especially, sometimes you will get 201.
+Sometimes you may get 202.
+So possibilities are there.
+So that is the reason we include both.
+So the status code might be 201 or it can be 202.
+Anything is fine.
+So then my test should pass.
+In that case you can put multiple status codes.
+Especially this is applicable for post responses.
+But when you send get response get request most get request always return 200 is a status code.
+There is no other code.
+But when you send Post request you may get 201, or sometimes you may get 202.
+So if you want to specify multiple status codes, then you can use this method.
+So this is the one thing the first method is for what specific exact status code we have to specify.
+And here we can specify multiple status codes.
+And even one is got matched that will pass.
+My test method will pass okay.
+Now the third one.
+Sometimes when you create some request or when you send some post request, the resource will be created
+in the server.
+So in that case, along with the status code, you will also get some message called created.
+Okay.
+Right.
+So such type of messages also you will see for example if I go back to the postman.
+See here not only 200 you can see some other message called okay that's called text status code text
+okay.
+And the text also we can verify if I look at the first here, here and here we just specify only status
+code.
+But if you want to verify the message associated with the status code, in that case we can add another
+assertion called response dot to have dot status created.
+Or if it is a Get request we can say okay.
+So in this in this particular case there is a okay here.
+So we can validate the text which is associated with the status code.
+So these are the three different methods we can add to verify the status codes of the response.
+Okay.
+So now let me show you these are the only three methods which we have to verify the status code.
+Let us try it practically.
+Let's go to postman now.
+I'm sending the get request here.
+So I got some response.
+But I want to verify the status code is 200 okay or not?
+Then what we can do?
+We need to go to the scripts post response.
+And here we need to add that particular method.
+So let me add that method.
+What I'm expecting here 200 I'm expecting.
+So I just added here PM dot test status code should be 200.
+I'm expecting arrow function pm dot response dot two have status is 200.
+So let me try to send the request.
+Now observe what will happen.
+So previously we were not able to see any results here because we haven't added any validation point.
+But now if I send this request just observe what happens along with the body response.
+In the test results you can see something called past see status code is 200 which has got past.
+Suppose I'm just giving some invalid status code 201.
+When I send this, this has got failed.
+So why it is failed?
+Because we have given actually is 200, but we have given 201 which is not matched.
+Okay.
+So simply we can verify the status code like this.
+Suppose I want to verify the status code along with this message okay.
+Is there.
+So that message also I want to verify.
+So then what we can do we can also add another one.
+So this is the method which we can add.
+This will verify the status code message which is associated.
+So what is the status message here okay.
+Which is case sensitive.
+Just specify that status code name has string.
+String is nothing.
+But here okay.
+Now let me run this.
+So M is not defined.
+Sorry P is missing here pm dot test PM dot test.
+So let me run this again.
+So now we can see.
+The second thing is also passed because the status code is also associated with the okay.
+Right.
+So this is how we can verify the status code.
+In case suppose if you want to specify multiple status codes then you can use this method.
+So suppose you are expecting two zero 1 or 2 zero two.
+You can specify that.
+So let me add this also multiple status codes.
+So in this you can specify.
+So what is the status code.
+We are expecting 200.
+We are expecting.
+And other than this there is no 2012024 Get request.
+But especially if it is a Post request we can add.
+Suppose even if I give 1201 then what happens?
+Will it pass or not?
+I say 202 zero one.
+So what is the status code we are expecting actually 200.
+So 200 is a part of this array.
+So definitely it should pass.
+Right.
+So let me send this.
+Now it has got passed.
+So successful get request.
+So like this we can also specify multiple status codes.
+So these are the three methods which we can use to verify the status code along with the text okay.
+Now let us move on to the next element.
+So is this clear everyone.
+So how to validate the status code along with the status message.
+So these are the only three methods are available.
+So these are comes from Chai Library.
+You can just use it.
+So any type of any type of request even it is a Get request post request update whatever it is request
+the first focus is on status.
+Code should be validated.
+So you can use these three methods to verify the status code.
+Okay, so now I have added three different validation points.
+Now when I send this request I got the result here.
+Under test results I have added three validations and all three are got passed.
+Okay.
+So now let us move on to the next one.
+So after status code, what is the next thing important headers part headers.
+Also we need to validate so how we can validate headers.
+What is a header.
+First of all what is an header.
+So whenever you send response whenever you send a request.
+So we'll get a response.
+So along with the response we will get some kind of headers.
+The header is basically describing the response what kind of content it is, how much size it is, in
+which language it is responded.
+So all the details we can find in the headers.
+So which is also very important component which we need to verify as part of our API response.
+So now we'll see how we can validate headers.
+There are two important things we can validate.
+First thing first of all the header actually how headers will be created in which format.
+If I look at the headers here key and value pair.
+So in normally in Java we can see key and value pairs right.
+So even headers also follow the same format key corresponding value.
+Now if I look at this there is a content type.
+What is this?
+Actually this is a key.
+And what is the value of this content type application slash JSON.
+So what exactly it is representing this is representing the response.
+Whatever we captured here is in JSON format.
+So that is actually representing here and rest of them.
+So for example time out and how much content size.
+So there are other types of keys and values are there in the headers.
+So we can verify all these things.
+But most of the times few things we will validate mandatory.
+One is content type.
+We will validate.
+That's the first thing.
+Second thing is content length.
+Also we will validate sometimes content length.
+Also we will validate.
+So how we can validate.
+First of all I want to check the content type itself is a part of header or not.
+Okay, in the header I want to verify the content type is exist or not.
+After that I will verify the value of the content type.
+Similarly, first I will check the content length is exist or not as part of header.
+It is there or not.
+If it is present then I will verify the size the value of the content length okay.
+So there are two methods are available two test methods.
+One is we can verify particular key is available in the headers or not.
+Second is we can verify the value of particular header.
+Okay.
+So for that we have a two methods.
+The first method check if the header is present or not.
+So for that what you can do again same arrow function pm dot test content type header is present.
+This is the test.
+Simple description.
+You can put whatever you want.
+Arrow function and how we can put the assertion here.
+PM dot response.
+So always remember.
+Ponds.
+PM dot response is always representing the response.
+Whatever response we capture from the server that is actually represented by PM dot response to have
+header.
+And what is the value we are.
+What is the key we are expecting in the header content type so that you can specify.
+Similarly for example I'm expecting here content type.
+Is there content length I'm expecting.
+Then what you can do the content length you need to specify here instead of content type.
+So this will verify this key is a part of header or not.
+If it is there then it will pass or else it will fail.
+Suppose I want to verify the value of the header value of the header.
+For example, let's say content type is there.
+So what is the value of the content type here.
+Application slash JSON.
+So this is the value of content type.
+So how we can verify that you can simply write.
+First we need to capture the response.
+So just look at this 1 p.m. dot response headers from the headers.
+Get what is get here.
+Get off content type in HashMap.
+We have this method.
+Actually in the HashMap there is a key and a value right?
+How we can extract the value by passing the key.
+So when you pass a key in the get method that will return the value.
+Same thing.
+It is used here, so get off key.
+This is a key actually.
+So what this internal part will return.
+It will return actual value of the particular key.
+Remember this.
+So PM dot response headers dot get.
+So this is one single part.
+So what this will return.
+This will return the value of content type so that we are comparing with our expected value.
+Comparing how we can compare these this to by using pm dot expect assertion.
+So what is the value you're expecting application slash JSON.
+Sometimes you can.
+It will also show you care set.
+So if it is also part of this care set that is also you need to specify or else not required.
+Okay this is the one way we can do that.
+I'll show you these first two.
+Then we will go with the next one.
+So how we can verify the headers.
+Now go back.
+So now I want to verify the content type is exist or not.
+So for that what you can do I can add one more validation here.
+And can you see the font everyone.
+Or do you want to maximize it right.
+I just maximize can you see the font.
+Yes.
+So now I'm just going to add one more test to verify the content type is there or not.
+So how we can verify the content type is present or not.
+Simply we can add one more assertion here pm dot test Content-Type header is present or not.
+I want to verify so arrow function pm dot response to have header content type.
+It should be exactly.
+We need to specify because this is the case sensitive.
+Okay.
+Now this will verify the content type is present inside the keys or not okay.
+Now I also want to verify the content length.
+So then what you can do you can add one more method here.
+One more statement here.
+Because most of the times we don't add two verifications in single method that is not recommended.
+This is not an error but that is not recommended.
+So what I will do?
+What is the problem if I add another one here?
+Can you tell me what is the problem?
+Suppose if I add like this.
+Here also I will put content hyphen length.
+So do you have any problem in this?
+So do we have any problem when you add these 2 in 1 single method?
+So syntactically there is no problem.
+But the problem is suppose when you run the test or when you run the request, suppose the first one
+is got passed.
+Second one is failed.
+Then what happened?
+The whole method will fail.
+Similarly, the first one is got failed.
+Second one is passed.
+In that case also the whole method is got failed.
+So we cannot validate these two separately.
+That is the reason.
+So we can include another one.
+So what I will do is I will try to create one more method right.
+So inside this I will put content length I just try to remove this.
+And here I will put content type in one method content length in another method okay.
+This is content type.
+So in the second I am verifying content length.
+Content length I am verifying content length header is present or not I am I'm verifying here and content
+type is present or not.
+I'm verifying here two verification points and once we execute it then we will see how to verify the
+value.
+Now I'm sending this request.
+Now I can go back and see test results.
+So content type header is present.
+Content length header is also present perfectly fine.
+Now I want to verify the data.
+Also content type along with the data.
+Also I want to verify.
+In that case we need to add one more method.
+This is the one.
+So PM response headers get the content type.
+So this will actually return the value.
+And that we are comparing with application slash equal method.
+We have to use two dot equals method we have to use.
+So let me add this method.
+This is for what value check.
+Value check I'm just added this.
+So PM dot test content type header is application slash JSON.
+This is the value I'm expecting.
+So in arrow function what I have done here pm dot expect.
+PM dot response dot headers dot get content type.
+This has to be equal to what I try to reduce the font.
+Yeah.
+So do we have this care set UTF eight in the headers.
+No right.
+We don't have that.
+Only application slash JSON is there.
+So let us try to remove this rest of the part.
+If it is a part of it you should add.
+Otherwise you can just remove it.
+So this is the validation point.
+So first we are extracting the value of that particular key.
+Then we are comparing with the application slash JSON okay.
+Now you can see that.
+So UTF eight UTF is nothing.
+But it will basically representing the character set.
+Character set.
+Every response is having some character set.
+So especially when you send the request in the internet, web applications or web APIs, you will also
+get the care set along with the content type, it will also representing the care set equal to UTF eight.
+So normally we have a different type of care set like UTF eight, UTF 16, UTF 24.
+Different type of care sets are there.
+So that is basically representation of the text.
+Okay.
+So in but in the desktop application you don't see this character set.
+But in the internet application especially web applications, sometimes in the response along with application
+slash JSON, you can also see this which is also part of the content type.
+So in that case we can include this.
+Otherwise you can ignore it.
+Right.
+So now I have just added application slash JSON content type is application or slash JSON is correct
+or not.
+So execute this.
+Send the request again go to test results.
+Now you can see Content-Type header is application slash JSON perfectly correct.
+Suppose I'm expecting applications slash text.
+But what is the actual value of the content type is JSON.
+But what I'm expecting here text.
+So when I send this, definitely it will fail.
+So we are expecting text but it is returning JSON.
+So which is got failed.
+So this is the way we can verify the value of the key which is a part of headers.
+Now there is one more test method we can add for headers.
+What it is.
+Suppose let's say in the value there is a big value is there.
+Suppose if I look at this application slash JSON and even care set equal to UTF eight is there.
+Sometimes it may be UTF 16, sometimes it may be UTF 24.
+You are not expecting that.
+You cannot expect that dynamically you are getting that UTF value or cassette value.
+So then what we can do we can use this include method.
+So when I use equal method the value should be exactly same.
+Same value we are expecting.
+Exact accurate value we need to specify.
+Specific value we need to add.
+But when you say include, rest of the part is same.
+PM dot expert pm dot response dot headers.
+Get content type to include.
+If it is equal, you need to specify the exact value, but if it is a include, you can specify some
+portion of the value.
+You don't need to write the complete value.
+Even you can simply specify application.
+That is fine, just specify JSON.
+That is also fine.
+Okay, so you can no need to pass the complete value.
+You can just pass some part.
+That's it include.
+So this is also additional method you can add along with the existing methods.
+Right.
+So these are the three test methods which are available to validate headers.
+Header is nothing.
+But what in which format headers will be created.
+Key and value pairs.
+Key and value pairs.
+So is this clear?
+Everyone please confirm in the chat box.
+So far we have seen two things.
+One is verifying the status codes verifying the headers.
+Now the third part.
+Verifying the cookies.
+How we can verify the cookies, especially when you run your APIs in internet.
+So currently we are accessing the local API.
+But when you are trying to access the API which comes from the internet, then cookies will be generated
+automatically.
+Cookies will be generated automatically.
+So those cookies we need to validate.
+So normally how exactly cookies.
+What is cookie means.
+Anybody is having any idea what is cookie cookies.
+Remember the information or it will remember some details whenever you browse some URL, whenever you
+some send some request.
+And whatever the response we are getting, it will remember the response is a temporary file.
+It will be created the temporary data.
+It will internally maintain that that's called cookies basically.
+So the cookie values are dynamic in nature.
+Most of the times you won't get the static data.
+Most of the times you will get the dynamic data in the cookies.
+So what are the validations we can do on the cookies?
+So for example we can do multiple ways.
+For example, let's say just like a header header is present or not we can verify.
+We can verify the value of the header.
+Similarly we can verify cookies present or not.
+Also we can verify the value of the cookie.
+We can verify the value of the cookie.
+So first of all let us verify whether the cookie is present or not.
+So then what we can do we can add this method PM dot test.
+And let's say there is a cookie got created called language.
+And cookie is also created in the key and value pairs just like a headers key and value pairs right.
+Similarly, cookies also will be created in the form of key and value pairs.
+So here we need to specify this is just a test method.
+So I'm just verifying the language cookie is exist or not.
+The cookie name itself is a language so PM dot expect.
+PM dot cookies has language.
+So what this will do.
+This will actually return the cookie which is having name called language.
+And that should be true.
+We are expecting true means what this cookie is present or not.
+We are verifying, but in the second one what we are verifying.
+We are verifying the value of the cookie.
+So expect PM dot cookies from all the cookies.
+We are getting the exact cookie value.
+That should be equal to this one.
+So in the first test method we are verifying the cookie present or not.
+And the second method we are verifying the value of the cookie.
+So here the language is a cookie name Ian.
+And hyphen GB is a language or the value of the cookie which is created, which is part of the response.
+So these are the two methods which we can use to verify the cookie.
+So as of now for our API.
+There are no cookies are created.
+So even if you add these two test methods, definitely they will fail.
+But still, let us try to add because in the coming sessions I will show you so many real time APIs,
+so then it will be useful for you.
+So this is a verify.
+This will verify the cookie.
+The name is language I have given which is exist or not.
+And the second test method will verify the language value is in hyphen GB or not.
+Okay.
+So let me run these two also along with other assertions.
+So definitely we are expecting these two should be failed because there are no cookies are created as
+part of the response.
+So let me send this.
+Now you can see test results.
+See.
+Now we can see these two are got failed because the language there is no cookies or got created.
+But if the cookies are created here then these two will be passed.
+Okay, so this is how we can verify the cookies.
+Only two metres cookie presence and the value of the cookie.
+Same thing for header also.
+Header presence or value of the header we can verify or the header value contains something.
+If you want to verify you can do that.
+Another method is there.
+So these are the test methods we can use to validate cookies.
+And the next one response time how we can verify the response time.
+So where we can see the response time in the request.
+So where we can see the response time.
+So this is the response data where we can see the response time.
+Here you can see.
+So eight milliseconds it is showing right.
+So 7.47 milliseconds.
+So this is actually response time.
+Now I want to validate this.
+Can we uh can we expect the exact value of the response time.
+Can we expect can we exact value of the response time.
+No we cannot expect.
+We cannot specify exact name of the response time, but we can specify the nearby value.
+So for example, whenever I send some request, I want to get the response within five milliseconds.
+Or I want I'm expecting the response within 10s so that we can expect okay, but exact time we cannot
+expect because it depends on number of factors, the speed of the internet, speed or size of the data.
+Also, if the size of the data is very huge, response time automatically reduced even if the internet
+speed is less.
+Automatically response time is reduced.
+So we cannot expect exact value of the response time, but we can expect some range.
+So for example, within 10s I should get the response.
+Then if I get the response within five seconds my test passed, or if I get the response within 10s
+then my test pass.
+So in that way we can put validation point.
+So to verify the response time of the response we can put like this.
+So I can say check response time is below the threshold.
+Suppose here 200.
+I mentioned okay so 200.
+I mentioned PM dot response dot response time to be below.
+Below is a method.
+So here you can specify maximum timeout.
+If the response is coming before this timeout then your test will pass or else it will fail.
+Okay so let us add this point validating response time.
+Let's go back to postman.
+Now currently it is giving eight milliseconds.
+Okay we'll try this.
+Okay.
+So before that what I'll try to do is let us try to run the request multiple times.
+So then we will take some average timeout.
+Sometimes it may take seven 8 or 10 something like this.
+So add this later.
+First of all I'll check the status how much time it is taken.
+So five five milliseconds it is taken this time.
+Now four milliseconds it is taken.
+Nine milliseconds.
+It is taken three milliseconds.
+See?
+It is all.
+Every time it is varying.
+So four milliseconds.
+But every time you are getting within ten milliseconds only.
+Right?
+Maximum.
+It is not exceeding ten milliseconds.
+So I will put maximum ten milliseconds.
+Let's say ten.
+But if it is a.
+Suppose if it is real APIs, when I hitting the request through internet, it will take more than 100
+seconds or take some time.
+So 10s maximum time I put here below 10s.
+If I get the response then my test is passed.
+So that's how I put.
+So 200 is milliseconds.
+Actually 200 milliseconds is nothing.
+But what two seconds?
+Right.
+So that means here how much I should specify here.
+Okay.
+Let us try to run this.
+sea.
+One has got failed, not failed.
+So response time is less than 200 milliseconds.
+So it is actually time ten milliseconds okay.
+So ten is representing a milliseconds.
+So you can see milliseconds five milliseconds.
+We got.
+So the request is successfully passed.
+The last one is passed again I'm running it.
+So now you can see this time it has got failed.
+Why it has got failed.
+Because the response time is taking more than 10s.
+Now it is taking 30 milliseconds, but we specified only ten milliseconds below ten milliseconds.
+So this time it has got failed.
+And one more time I will run.
+See?
+This time again it is passed.
+So we we got the response within four milliseconds, but we specified ten is sufficient.
+So we can specify the approximate number.
+But exact number you cannot specify because this is more dynamic okay.
+So this is how we can verify the response time even in the requirement.
+Also, you won't get the exact time, they will just specify the time within.
+This is a minimum time.
+This is a maximum time.
+So that's how they will tell you this is a part of the requirement.
+So that is the response time.
+So for whatever validations we have done these are all static validations means what whatever the postman
+is retrieving for example status code time and headers cookies.
+So these are all static data we are verifying.
+Now we will focus more on the body.
+So this we need to validate.
+This is the actual thing we need to validate right.
+So to verify the response body we have to know the JSON path okay.
+So there are multiple things we need to verify in the response body.
+So first thing we need to verify the whole the response is a JSON object or not that we can verify.
+And we can also verify the data type, for example id string or not.
+The location is also string or not.
+The courses value is array or not.
+We can verify that and apart from that we can verify the data.
+So name is John or not.
+Location is India or not.
+So multiple validations.
+The whole object JSON is not.
+We can verify the type of the data.
+We can verify the field values.
+Also we can verify by writing a JSON path.
+We can verify the data of the particular field location data name data courses data.
+Also we can verify.
+So let's see how we can verify the response body.
+So first thing to verify the response body.
+Let us say this is our sample response.
+So as of now when I send this request the same response I copied here.
+So this is the response we captured.
+Now what are the things we need to verify in this response.
+If I look at this.
+First of all, the first validation is I want to verify the data type of each and every field value
+type I want to verify.
+For example id is integer or string, name string or not location string or not.
+Phone number.
+String or not.
+Courses.
+Array or not.
+I want to verify the type of the field data type of the field.
+Okay, now if I look at the entire thing what is this actually object type.
+Right.
+This whole thing curly brace starting point curly brace ending point.
+So what it is called actually this is all one object.
+So I will first verify whatever response I captured here is object or not JSON object or not.
+So how we can verify that PM dot.
+First we need to capture the response.
+This is most important.
+So whatever response we capture, whatever response we got it from the API.
+We need to capture the response into a variable, we need to create one variable and the whole response
+we have to store in that variable.
+So for how to capture the response from the postman PM dot response dot JSON.
+Remember this is very very important method.
+So PM dot response dot JSON method will return the response and store that response in a variable.
+See this method will actually capture the response from the postman itself.
+Storing into the variable.
+In JavaScript, whenever you create a variable, that variable we can create using a var keyword, or
+we can use const keyword.
+So when I create a variable with a var keyword, the value we can always change the values is always
+varies.
+Suppose tomorrow.
+If you want to change the value of the variable, you can change.
+But if we create a variable with the const keyword.
+You cannot change the value of the variable in JavaScript especially.
+Okay, so pm dot response dot JSON will return the entire response body into JSON data variable.
+So this.
+This is just a variable name.
+You can put whatever name you want right now from the JSON data here.
+PM dot expect JSON data dot to be an object.
+What does it mean?
+Whatever JSON data we captured from the response should be an object JSON object that we are validating
+in the first part.
+Okay, now the second part.
+Suppose here what is the type of this name?
+What is the type of this name string.
+Right.
+This is basically string.
+Now I want to verify this name field is string type or not string type or not.
+Okay, now how we can extract this name from this entire JSON object?
+Let's say this is whole thing I have stored in JSON data variable.
+So the whole thing is a part of JSON data.
+Now I want to extract this name field.
+Then how we can do the JSON data dot name JSON path.
+JSON path.
+Last class we have seen right.
+So JSON path name.
+So what this will return.
+This will actually return the value of the name.
+But here we don't need a value.
+Just we need to verify the type.
+So PM dot expect JSON data dot name to be a string.
+We are expecting that name should be as a string.
+Similarly JSON data.id to be a number.
+If it is in double quotes then we will expect the string here.
+If it is not in double quotes then we are expecting just a number.
+Similarly, JSON data dot Courses.
+Courses.
+Dot.
+To be.
+What is the type of this courses area.
+So it should be area.
+So now we can verify the data type of each and every field.
+In the response.
+We can verify the data type of each and every field in the response.
+Okay.
+For example now I want to verify the data type.
+Okay.
+Java is a part of the courses.
+So courses is a array type.
+So the whole response should be an object type.
+The name should be a string type ID should be a number type courses should be an array type.
+So these are the validations I put in one single test method.
+So before doing all these validations what is the main thing we need to do.
+We need to capture the response body into a variable because we are going to validate the response body
+here.
+So before applying validations on the response body, we have to capture the response into a variable.
+Then we can refer that variable in every validation point.
+Okay.
+So this is data validation data type validation data type validation.
+Let us add this and see now.
+So data type validation.
+So let me add this validation point.
+Go to the postman.
+Now this is the response right.
+So as of now ID is also string here.
+So let's go to scripts.
+Now I'm adding this.
+See I'm capturing the data.
+So first I captured the PM dot response dot JSON into the variable itself.
+So this variable I'm trying to reuse in multiple validations.
+So I have not created as part of the method.
+Suppose I can also do inside the method if you want.
+This is also correct.
+But why I have not put this in inside the method?
+Because I want to use this JSON data for further validations.
+I'm trying to create another test methods in those test methods.
+Also, I'm trying to refer the same JSON data variable.
+So that's the reason I'm creating this.
+Outside of this method.
+You understood my point everyone.
+So why you have created this statement separately here?
+Because I want to make this as a common variable across multiple test methods.
+Because not only this, I want to verify multiple things in the response.
+Suppose if you put this statement inside this method then what will happen.
+This this variable we can access only within this method.
+And again if you want to write another test method again you have to capture the JSON response.
+So that is the reason to make this reusable.
+I'll put this as a separate variable like this okay.
+Now so same JSON data I'm trying to refer in every way, so the whole response should be an object.
+The name should be a string and ID should be a string.
+Courses should be a array.
+This is what I'm expecting.
+So the test data type of the response.
+Now execute this and see see.
+Anyway these three will fail because expected is 13 milliseconds.
+It is taken because we specify only ten.
+So definitely it will fail.
+Now the last one you can see test data type of the response is got passed.
+That means what every data type is correctly mentioned.
+For example here id I'm just mentioning as a number.
+But what is the type of the id here?
+String.
+But what is the type I mentioned here.
+Number.
+So when I execute again see the output.
+This time it is got failed.
+So expected one to be a number.
+We are expecting number actually.
+But it's actually is what string.
+So it is got failed.
+So this is how we can verify the data type of the response.
+This is a first validation.
+We can do type of the data.
+We can verify from the verify check the value types.
+Now we will actually check the data array properties.
+Also we can verify.
+Suppose there is a specific array type.
+Is there array field is there in your JSON response.
+For example this is my courses array and the courses contain some data.
+And I want to verify this data is correct or not.
+So the courses contains a Java or not.
+The courses contain selenium or not that I can verify because this is an array.
+Array means what array contains a multiple elements.
+So we can also add some validations on this elements.
+Multiple elements.
+So how we can verify the array specifically.
+First we need to capture the field.
+How to capture the field by using JSON path JSON data.
+Because JSON data.
+We already mentioned this here.
+So JSON data, dot courses JSON path.
+So what.
+This will return whatever the values are there in the courses, these two values will be returned.
+Now what I'm what I'm expecting here to include Java.
+How we can verify this.
+It will basically verify the Java is part of this array or not.
+The value Java is included in courses or not.
+If it is included, this verification will pass.
+If not included, verification fails.
+This is one method which we have another method.
+For example, if you want to verify multiple values, you may have 5 to 10 values here, but I want
+to verify a few number of values.
+Now the courses are having Java or selenium, Java and Selenium, both are having or not.
+Then you can write multiple values simply.
+You can extract the courses by writing JSON path dot to have members and whatever the data we have in
+array, we can specify the whole array name here.
+Array which contains all the elements.
+So this will exactly compare with the data which is there in the courses.
+If all the elements are there, all the members are there exist, then this verification point will
+pass, otherwise it will fail.
+So this is array specific validation array properties we can validate.
+Okay.
+So let me add this array element.
+Specifically we can verify PM dot test.
+And here JSON data dot courses include Java.
+And again multiple values are included or not.
+If you want to verify you can use this assertion two dot have Dot members.
+Let me try to execute this.
+So now the last one is passed.
+Test array properties are got passed okay.
+For example here I say Python.
+Python is there or not.
+It's not there.
+Definitely.
+That should fail.
+Now you can see it has got failed.
+Okay, so that's how we can verify the properties of the array.
+So what are the properties?
+Are values are present in the array or not.
+We can have a single value.
+We can verify or multiple values.
+Also we can verify.
+So this is a test method we can add to verify the values in a array in the response.
+So finally data validation.
+This is very important.
+Data validation.
+So for example in the response here we got some ID is equal to one name equal to John.
+Location India.
+We got some data.
+So we need to verify the data is correct.
+Also correct or not that also we can verify.
+So how we can verify.
+Again we need to capture the value of the particular field by writing JSON path.
+So how we can write is if I look at this again I have taken PM dot response dot JSON.
+Actually we already written somewhere here PM dot response dot JSON.
+But again I have written here this is not needed within the method, right?
+So we capture the JSON response in this variable.
+Now let us see the validation points.
+That is the most important.
+So how we can verify the data here.
+So to verify the data we need to write a JSON path.
+If I look at this properly uh we captured the data in the JSON data.
+Now we are referring here pm dot expect JSON data.id.
+Suppose you may have a complex JSON response.
+In that case, you need to write the complete path of your JSON complete JSON path.
+You need to include.
+Okay, so JSON data id two equal to what one we are expecting.
+If it is a string, we need to put in the double quotes.
+Now JSON data dot name two equal John JSON data dot location to equal India JSON data dot form to equal
+this number.
+JSON data dot courses of zero.
+The first value we are extracting.
+Second value we are extracting here.
+First value should equal to Java.
+Second value should be equal to selenium.
+So the data also we can verify individual data fields.
+Also we can verify.
+So let's add this validation point there.
+So how we can verify the exact data data fields.
+So let me add this validation point in the postman.
+Let me clear this.
+Go to scripts again.
+So here I'm adding it.
+So do we really.
+Uh okay this is okay.
+So PM dot test value of the fields in the response.
+So here I haven't put this var JSON data pm dot response.
+Because we already kept this statement as a global.
+In the previous validation we already captured the data in the JSON data.
+Same JSON data variable.
+I am referring here.
+So JSON data id equal to one.
+Name equal to John.
+Location India and other stuff.
+I am validating.
+So this is a validation point.
+Values of fields in a response.
+Okay now let me send this.
+Yes.
+Let's go back to head results and see the last one.
+Values of fields in the response is perfectly correct.
+Suppose let me just change the, uh, data.
+Let's say instead of Java I say Python execute.
+And now it is got failed.
+We are expecting Python got the response.
+We have a Java mismatch is there.
+So we can also verify the data in the JSON response.
+So this is the basic stuff we are trying to understand.
+On the basic response.
+We are trying to understand how we can put different validation points okay.
+In the coming sessions, I will show you the complex response complex.
+Sometimes you may not have the response in this simple way, so you will have a complex response, complex
+data you can have.
+But still we can write a validations.
+But first of all, we are trying to understand what kind of validation we can add, what kind of test
+methods we can add.
+So once you understand this we can apply them.
+Same thing for the complex response okay.
+So the fields also we can validate as part of the response.
+So what are the things we have verified as part of the response body.
+First thing we verified the type of the field data types we verified.
+Second thing is what a specific validations.
+Also we can add if there is an error in the response we can add.
+We can also verify the elements in the array are correct or not.
+Third thing is what the data validation each and every field data we can verify by adding the validation
+points.
+Okay.
+This is all response body related validation response body.
+And finally there is one more important validation we need to do.
+Actually we need to do that first.
+But we are doing it the last which is schema validation.
+Schema validation.
+Interview prospective.
+This is most important.
+What is schema and what is schema validation.
+What you will do.
+What type of validation you will do as part of schema validation.
+Anybody know what is schema?
+What is schema means?
+Normally when you learn databases SQL you may hear this term schema table schema something like that.
+Schema is.
+Schema is also called as a metadata.
+The data about the data or data of data is called metadata, which is also called as a schema in the
+database language.
+Similarly, even in the JSON, also we have a JSON schema, even XML.
+Also we have XML schema.
+So in every type of data we have a schema okay.
+So first let us try to understand what exactly the schema means.
+Because if you have a schema based on that the data will be generated.
+Data can be created.
+If we do not have schema we cannot create any JSON or anything.
+Okay.
+So in the previous example we are validating more than one field.
+But whatever field got failed, it has written yes.
+Suppose if one field has got failed, the entire test method will fail.
+Okay, so if one single field has got failed here, the whole test method will fail.
+If you want to separately write in multiple test methods for each and every field, you can write it,
+but especially when you are validating the data.
+We don't split into multiple test methods because these are all related to single response same data.
+We are all the data we are expecting, right?
+So even if one single field is not correct, the whole test should fail.
+Actually, that's the reason we included everything in one test method.
+But for response time is different, status code is different.
+These are different components.
+So that's the reason we put different test methods for them.
+But when you come to the response this is all part of the one single response body.
+So we are expecting all the data should be accurate.
+All the data should be correct.
+So that is the reason we put all the validations in one single test method.
+Okay.
+So even if one data is not match, the whole test method will failed, right?
+So now let us see.
+Let us try to understand what is schema and how we can validate schema.
+So I'll make you understand very simple right.
+So let's try to understand this in the database perspective.
+Then we will try to apply same thing for JSON schema okay.
+So let us say I have a simple table like this in the database table.
+Stable.
+Right.
+So I have a three columns employee ID, employee name, employee salary, ID name and salary.
+This is the data actually.
+So what it is it is a table.
+So the table table contains the data okay.
+Now what is the schema of the table.
+What is the schema means data about the data means what.
+If you look at the column names what are the column names here?
+Employee ID or field names.
+Column names or field names.
+What are the field names here?
+Employee ID name.
+Salary.
+These are the field names.
+So what is schema here means what?
+Employee ID is what integer name is what string.
+Salary is what number or integer.
+Right.
+So this is a schema More of this particular table.
+So now we understood what is the data.
+What is a schema.
+So what is a schema is representing.
+The schema is actually representing the data type of each and every field in the table.
+That's called schema okay.
+Now let us apply the same thing for JSON.
+So what is a JSON schema means.
+So let's say this is my data ID name location phone courses.
+These are the data.
+These are the fields.
+Now what is the type of the ID number.
+What is the type of the name sorry string.
+And what is the type of the location again string.
+What is the type of the phone.
+Again this is an array type right.
+So this is called schema of the response.
+So now what we need to validate our response is generated according to the schema or not.
+Our schema is generated according to the schema or Not that we need to verify.
+That's called schema validation.
+JSON schema validation.
+Okay, but what is a prerequisite here?
+How we can verify this is followed exactly.
+Schema or not.
+This response is coming according to the schema or not.
+How we will know that.
+What is the prerequisite?
+What is a prerequisite?
+So if you want to verify this is following exact JSON schema or not according to schema or not.
+So what we have to know first before comparing.
+Before checking, we need to know the schema of the JSON, which is very important, not a swagger schema.
+We have to know so which schema it is following on based on which schema this data has got generated.
+So we need to know JSON schema.
+We need to have this JSON schema with us.
+Then we can check this data is created according to the JSON schema or not so JSON schema we should
+have.
+That is a prerequisite.
+So if we have this JSON schema then we can check this data is generated according to the JSON schema
+or not.
+That is a point.
+But how we will know JSON schema actually in the real time.
+The developer will also provide the schemas okay.
+Accordingly, whatever response you capture so schemas they will provide.
+But here how we will know the schema.
+Suppose you already have some JSON data response you have.
+But how.
+We will know the schema so we can generate it.
+But manual generation is very toughest thing.
+There are some tools are available internet in online.
+So by using those tools we will generate the schema of the response based on the response.
+So suppose this is my response.
+Now I want to know the schema of this response JSON schema of the response.
+So how we will know that.
+Let's go to the Google.
+And there are so many websites out there, you can just search for JSON to JSON schema.
+Okay, just search for JSON to JSON schema.
+So there are so many tools out there.
+You can take this one JSON to JSON schema converter.
+Okay.
+So here you can simply paste your JSON data whatever you have.
+So this is the JSON response data.
+Now capture it and paste it over here.
+Okay.
+Paste it over here.
+And then simply generate a schema.
+Click on this button.
+Now you can see the schema has got generated.
+Schema has got generated.
+Now you can see the schema.
+You can easily understand what is the the what is the type of this whole object.
+This whole thing is JSON object right.
+So the type is equal to object.
+And this object.
+What are the properties are there in this object ID is one property name is another property location,
+phone calls.
+These are all called properties or attributes.
+So it is saying properties are what ID is.
+One property name is property, phone is not property, courses is property.
+These are all properties.
+And if for every property there is a type.
+So what is a type of data we have here that also mentioned here okay.
+So this is exactly JSON schema.
+So now what we need to do.
+We need to verify the response is exactly matching with JSON schema or not.
+That is a validation we have to do okay.
+So there are so many tools are there.
+This is a tool I recommend.
+And you guys I just put in the chat box also you can use this later.
+So whatever the JSON response you have in the postman you can copy here and generate the schema.
+It will generate the schema like this.
+Even sometimes developer may not provide you.
+So you can use this tool to generate the JSON A schema.
+Okay.
+So now let us see how we can validate JSON schema.
+So to validate JSON schema we have to use something third party package or library.
+So first thing this is our response.
+This is the current response which we have.
+Now also we have a JSON schema right.
+This is a JSON schema.
+Currently we have.
+Then how we can validate.
+So this is the test method.
+Schema validation function.
+Arrow function.
+You can write whatever you want pm dot expect.
+So there is a package called TV4.
+TV4 is a one of the package which is supported by postman itself.
+So we have to use this TV4 package to verify the schema.
+So TV4 dot validate and whatever the JSON data we have captured from the response, we need to pass
+that as a first parameter and whatever schema.
+So this is schema we have to without the whole schema we have to store in one other variable.
+So the JSON response we have to store in one variable.
+The whole schema we have to specify in another variable.
+Now we need to pass these two variables inside the validate method.
+So JSON data.
+Corresponding schema.
+And to be true then what means what is the meaning of this.
+Whatever JSON data we followed that is generated based on the schema.
+If it is generated based on the schema, we are expecting what true we are expecting.
+So if the data is not exactly following the schema, then this test method will fail.
+Okay, this is simple.
+One method we have to add.
+So let me show you how we can add this schema validation.
+Now come here schema validation.
+If you want to write a comment in JavaScript use slash slash okay so schema validation.
+How to add schema validation.
+So we already added the JSON data point.
+Right.
+So here you can see this is already added.
+So we don't need to add this JSON data we already have.
+So what is the next thing we need to have is schema.
+So I'll create one more variable called var.
+Okay I say schema equal to.
+So we need to add the schema equal to in the curly braces.
+So whatever schema we generated here online.
+So we need to just copy the whole schema.
+I'm just copying this.
+Okay.
+Now go back to the postman.
+So just copy the whole schema.
+Go back to the postman and then add the schema into this schema variable.
+So just add it here.
+So schema var schema equal to.
+So this is schema whatever I have generated through online.
+Just add it here.
+So now once we added the schema now we need to actually add the method test method.
+So this is the actual schema validation method.
+So TV4.
+I think this is a deprecated.
+TV4 is deprecated.
+Okay.
+Use require a j v.
+Okay.
+Let me use this a j v.
+Okay.
+So TV4 is a old package guys.
+So I think now it is got deprecated in the latest versions of postman.
+So instead of TV4 you can just use Ajv a J V is another package.
+So dot validate JSON data we have to pass and schema.
+Also we need to pass JSON data we already captured into variable earlier.
+This contains the response and the schema.
+We just created a variable where we copied all the schema which we generated through online.
+So now let us try to execute.
+This schema is valid or not send.
+Now go back to the test results.
+Now you can see that the last one is got failed.
+Ajv is not defined.
+Okay, probably we need to import some package for Ajv.
+Let's put here.
+Okay.
+Because this is a new package where we are using newly I think we need to import some package for this.
+Ajv.
+Just a moment.
+So let's see what is ajv in postman validate JSON schema.
+So you can see how they have exactly used in Ajv to verify the schema validation.
+Okay.
+So I think this is how they have used.
+Okay.
+So I think this is a package which we need to import.
+So before using I'm just using this.
+Uh ajv.
+We keep in the single.
+This is the way we need to import package in, uh JavaScript.
+So required.
+Normally in the Java we use something called import.
+Right.
+So similarly JavaScript, whenever you are trying to validate some third party library you have to import
+it.
+So this AGV I'm trying to use it here okay.
+So let's try to execute this now.
+Okay.
+Now you can see the test results.
+Okay.
+So validate AGV dot validate is not a function I think validate is not coming here.
+Let me check.
+Another method is there.
+So we don't have that method.
+Let us see.
+Is there any other method is available.
+But I could not see validate method.
+Uh agv dot validate expect a schema.
+Yeah.
+To be true I think this is the method they have used.
+Let me try this.
+Expect.
+Okay so a GB dot validate expect schema.
+Expect schema in the sense this is a schema you have to pass and JSON data we have to pass here.
+Okay let us try this syntax if it works or not.
+PM dot expect a G is basically a third party package.
+Validate schema.
+Whatever schema we have captured that we are passing data to be true.
+So let's execute now.
+So still it is failing.
+Schema is valid type error a g v dot validate is not a function.
+Okay so maybe some changes are there.
+I'll check it later.
+So let's keep the comment here.
+Let's go with the TV5 for now.
+So later I will do the research on it and let you know.
+So this is a new change in the latest postman tool, but earlier this is the worst TV for dot validate
+JSON data.
+We can pass schema to be true.
+Okay, now let me just try to execute this and rest of the two I have just commented.
+Later we will explore this.
+Click on the send method.
+Now we can see schema is valid means schema validation is successfully done.
+Okay, so this is how we can also verify the schema validation in postman tool.
+Right so understood everyone.
+So these are the different type of validations we can do on the response.
+So it can be any type of API.
+So we have to use same kind of assertions in all kinds of APIs and all kinds of request.
+Okay.
+Understood.
+Everyone clear so far.
+Please confirm in the chat box so you don't need to remember anything.
+Guys I will share this document anyway.
+So suppose if you if you are trying to test any other APIs, you can just have these methods with you.
+Suppose you want to verify the status code.
+Just copy this method and there is official documentation is already there in the postman actually.
+So I, I created this document from the document itself official document and just go to postman postman
+scripts.
+You can just search for postman scripts.
+Okay so this is the link.
+Actually write a test.
+So in this you can find all the different.
+You can see status code validation and body validation all kinds of validations.
+You can see here scripts scripts example.
+So go to scripts example.
+Here you can find.
+So these this is based on this I have created the document actually.
+So you can see our status code text validation and content type validation cookies validation test cookies
+cookies validation response times validation okay.
+So even JSON data.
+We captured schema validation, expected data validation.
+So all the things are there here in the documentation they provided.
+So based on this documentation I prepared this all the common validations which are required for almost
+every API.
+So that is how we have done so actually we have used this method for validation.
+So it is still valid actually.
+So you can see if you want to verify the schema validation.
+So postman documentation also they mentioned the same thing.
+I think they have not still updated the document even though they have deprecated but still they have
+not updated the document.
+So later we will see how we can use that.
+Okay.
+So you can refer this.
+So this is all about validations.
+We can put all different values.
+You can try by adding other validations.
+So you can add same kind of validation for other request.
+We have get all students create a new student update student delete student.
+So for these requests also I already added some validations.
+If I go back all College students.
+So I have added some validations here and create a new student.
+Also have added some validation status.
+Code is 201 content type okay and content values everything I have added update student, delete student
+so you can add scripts in the script section.
+Post response.
+Here you can add all the validations and verify the response.
+Okay, so they won't exactly ask the coding part in interview and what they will ask.
+They will just ask generic way.
+So what are the things you will test as part of the response?
+So you need to tell all the things like we will verify the status code, status code, text.
+We will validate status code, response time, content headers cookies, response body schema.
+So all these things we will validate.
+So in the high level they will ask like this.
+What are the components you will validate as part of the response so that you need to tell.
+And there are few.
+There are only very less number of things are they justify to between 5 to 10 methods are there.
+But if you already know JavaScript it is very easy to remember.
+Okay.
+But you have to remember this few, at least a few methods.
+Suppose randomly they have asked some question how to validate the status code.
+So at least you have to know the method.
+You should able to write that like PM dot response to have status equal to 200.
+So at least you need to remember like this okay.
+So you do practice continuously.
+Then you will able to remember few things.
+This is all comes from Chai assertion library.
+By default postman is using this library okay.
+So going forward I'll show you so many other things.
+So because we have taken simple API response and we have applied all different type of validations,
+but actually in the real APIs you won't see this much of simple response.
+Most of the times you will see complex response.
+There are repeated fields.
+Are there duplicate fields also there.
+Okay.
+In the coming sessions, I will show you how we can validate responses if it is very complex.
+But we will understand.
+We understood today what are the different things we can verify and how we can verify by adding different
+test methods.
+So that is the most important thing you need to focus.
+Okay.
+So I will share this document today.
+You guys can go through each and everything.
+And also I will upload this uh collection.
+And you can import in your postman directly.
+And you can see all the request I'll show you how to import.
+And export is very simple.
+So you can just click on the three dots here and you can see one option called export.
+So when I say export it will select the collection 2.2 latest version.
+And I just click on the export here and you can save the file.
+And the file name extension is dot JSON itself okay.
+So we can export like suppose how we can import this.
+Suppose you already have this file.
+So then what you can do how you can import this.
+You have import button here click on import.
+And here you can drag and drop directly.
+And as soon as you drag and drop here it will import the collection.
+So I will share the collection.
+Also today you guys can import and go through each and every request add required validations.
+So that is your task today.
+All right.
+So in the next class I will discuss more about this Pre-request scripts.
+There are two kinds of scripts in postman post response scripts.
+They are all basically validations Pre-request script that are that are basically dealing with the pre-request
+scripts means what?
+Before sending the response we have to execute certain scripts.
+So those type of scripts we can include in the pre-request.
+So in the next classes I will discuss about this okay.
+So that's all for today's session I will stop here.
+We'll continue in the next class.

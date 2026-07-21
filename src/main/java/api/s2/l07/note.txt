@@ -1,0 +1,1464 @@
+So today we'll learn a few important concepts in postman.
+So first thing we will see how we can execute a API request in whichever order you want in the collection.
+So for example, in the collection I have created 5 to 10 different type of request.
+So I want to execute all the request in proper order right.
+So by default, in whichever order we created in the same order, all the request will be executed.
+Suppose if you want to configure or if you want to customize the order of the request, you can do that.
+So we will see that part.
+And after that we will discuss about data variables means what how we can take the variables from the
+external file and how we can achieve data driven testing in postman.
+Okay.
+So to demonstrate these topics I'm taking one API.
+This is also a public live API which is called books API.
+So what is exactly this book's API will do and we will see what are the URLs we have to send, what
+type of request we can send, what type of response body we have to send.
+Also we will see different type of validations and everything.
+So first let us try to explore this API, what exactly it is and how it is going to work.
+So to access this books API so we need to create a token.
+Okay.
+This API is also required a bearer token so that we need to create.
+So to create this API token so simply they already given a URL.
+So if you want to access this API and you can just go to Google it.
+And you can simply say simple books API documentation.
+So you can just search for it.
+And you will find this simple books API.
+This is already maintained by postman itself.
+So if I go back to this simple books API and here not this one Documentation.
+You can see more information about this API.
+So already there.
+Yeah.
+So here they are demonstrating book API documentation.
+So API status list of books and list of books with invalid limit.
+Get single book order book that doesn't have stock.
+So there are different type of request they have provided here.
+So I just simplified this documentation.
+And I just made my own documentation by taking few types of request which we can use it for our data
+driven testing also.
+So first thing we need to create a barrier token to access all kinds of request from this books API.
+So how we can create this.
+So we need to send one post request.
+So by taking this URL.
+So we need to send one Post request.
+And when I say post request definitely there should be a response.
+Body is made right.
+So how are we going to know which API read needs what type of authentication.
+That is a part of the documentation you don't know.
+So only the input is documentation.
+So the documentation will say whether authentication is required or not.
+Even in the simple books API, not every request is needed a bearer token.
+So few requests we can directly send without token.
+But some request we need a token.
+So that is also mentioned in the API documentation.
+So that already mentioned in this document I'll show you that okay.
+So first first thing to create a bearer token.
+Again the creation of the token the process will be different.
+It is not the same process for every type of API.
+So in the last class I have shown you go rest API right?
+So for go rest API we have created token in the different way.
+So by logging with the G, GitHub or Gmail we created our own token.
+But here to access to create bearer token for books API is totally different.
+So we no need to log in or we no need to sign up any site.
+Simply we have to send one post request along with this request body.
+Okay, there is a api API client.
+So this is the post URL we need to send along with the client name and client email.
+So this data we need to pass.
+And once we send this post request it will give you token.
+So this will automatically generate a token with this client name and email address.
+And again if you want to create another token with the same client name email, you cannot do that.
+So with the same awesome one client name one client email, you can create only one token.
+If you want to create another token, you need to change the client name and client email.
+Okay, these two things are required.
+So when I send this post request with this URL along with this post request body, client name and client
+email.
+So this will generate token.
+So which is a bearer token which we are to use for sending different type of request okay.
+So here this is a document.
+You can consider this as a requirement also.
+So client name and client email we should pass.
+Then only we will able to get the token.
+Even the token is also valid only for seven days.
+After seven days you can create another token with the same details or by changing another details.
+Okay, suppose uh, with this client ID, client name, client email, you already created one token,
+but again you are trying to create another token, right?
+So then you will get this error status code 409 API client already registered.
+So we'll get this error.
+If you are trying to create another token with the same client name and same client email.
+So this is a simple documentation is given to create bearer token.
+So once it is created the token we can use the token for other request.
+Now let us go and see what are other type of request we can send to this API.
+Now check API status.
+So this is the first thing uh what this API status will do.
+This will basically retrieve the current status of the books API.
+So whether it is ready to access the data or not, so that information will be returned when I send
+this Get request.
+So we no need to pass anything.
+Simply we send the Get request.
+This will return the current status of the books API.
+Now the second one is list of books.
+Suppose what are the books are available in the database.
+If you want to list out all the books information then you can send another Get request with this URL.
+And again we can pass two query parameters.
+They are optional.
+Suppose if I send this request which will return all the books which are available in the database.
+Okay.
+Suppose if you want to filter the data, suppose I want to get only fiction books or fiction related
+books or non fiction related books.
+I can add a query parameter like type equal to fiction or type equal to non fiction.
+You can add that query parameter.
+So the data will be filtered.
+So it will print only fiction related books.
+And similarly suppose when I send this request let's say I have 100 books in my database.
+I don't want to print all 100 books.
+I don't want to get a hundred books in the response.
+I just I want to get some limited number of books.
+Then I can also add another query parameter called limit.
+And here I can specify one to max 20 number.
+So these two are the query parameters which we can pass along with this get request.
+Again these are all optional parameters.
+If you want you can pass it or else you can capture all the books as part of response.
+Now the next one is get a single book.
+So the third request will return all the books.
+But here this will return a specific book information single book.
+So for example, uh, we need to pass a book ID, so every book is having some ID.
+So when I pass the book ID so let's say one, two, three, four.
+Something like this.
+Uh, that will return the details of that particular book.
+So that is get single book request.
+This is also get request and now submit an order.
+Suppose there are some books in my database.
+Now I want to order a book.
+So then you can send a Post request.
+So I need to submit an order so we can send this post request along with the request body.
+So whenever you send a Post request there should be a request body and which book you are going to order
+that you need to specify.
+So book ID you need to pass and also customer name.
+Also you need to pass means your name whoever is submitting the order.
+So his name should be mentioned in this request payload.
+So we need to send this post request along with this request body.
+This will go and create a new order for this particular book.
+So once you send this post request along with the book ID customer name, what is the response you will
+get?
+You will get the order ID as part of response.
+So this is the main important request we are going to send.
+So this will create a new order.
+And once it is created an order it will return order ID.
+Later we will use this order ID for other request.
+Also we will try to achieve the chaining process here.
+And first three APIs to check the API status or listing all the books or listing a specific book.
+These three requests we don't need any token, so we can directly send the request and we can capture
+the books related data.
+But for submitting the order means creating the new order right and deleting the order or updating the
+order details.
+We need bearer token authentication.
+So whatever token we created by using the first request, we use the token to create an order to update
+the order and also to delete the order.
+So submit an order is nothing but a simple A, creating a new order by specifying book id and customer
+name.
+So these two are mandatorily required.
+And what is the response you will get?
+Order ID you will get.
+So once you get an order ID, we will save this order ID in the variable collection variable or environment
+variable wherever you want, so that we can refer the same order ID we will use in further request.
+Now another request get all orders.
+So to get all orders along with order which we already created earlier.
+So this is a Get request we can send.
+So this will return all the orders whatever orders I created just now and also previous orders all the
+orders will be displayed.
+Suppose if we want to get specific order, let's say I have created ten orders earlier and I want to
+get a specific order information.
+Then we need to pass order ID here.
+So here we need to pass order ID which we already captured earlier.
+Right.
+So that order ID we already stored in variables.
+So we will refer that order ID here.
+So this get request URL will send the order details.
+So this is also get request.
+Now I want to update the order.
+So for example what I can update in the order.
+We cannot update the order ID book ID and everything.
+Only customer information I can update.
+So I can pass customer name as a parameter or as a request body.
+To this patch request you can send patch request or put request.
+Anything is okay.
+Patch request is allowed.
+Put request is also allowed.
+So we will see patch request also.
+So patch is put as almost same as I already told you in the previous classes.
+What is the main difference between put and patch?
+Put is nothing but what we can update the entire record or entire resource.
+Patch is nothing but what we can update a partial information about the resource.
+So here we are just updating only customer name.
+We can simply send patch request along with the order id as a parameter.
+So this will go and update the order and then delete order simple.
+So we can select the send the delete request along with the order id as a parameter.
+So this will go and delete the order.
+So this is how the books API works.
+So I captured all different type of request parameters are required.
+What is the response you will get.
+So everything you will get it from this document.
+So now we will try to do practically step by step.
+And also we will see how we can what are the different prerequisite schemes.
+We can add and post response scripts.
+Also we will try to add for every request we will see step by step.
+So multiple things I will show you by taking help of this API.
+Okay.
+First let us create a collection and let us create all different type of request.
+And then I'll go through one by one.
+So let's go to postman.
+So here I already created books API collection, so I'll take another copy of it.
+So we can create another copy of this.
+Simply click on three dots and take another one duplicate.
+So we can find one option called duplicate here.
+So then it is created a new copy.
+So I'll try to rename this.
+Let's say today is what day six day six underscore books API okay so now I'm trying to use this day
+six underscore books API.
+See here.
+So I have already created so many API's.
+So total nine number of requests are there.
+So all lines are already created here.
+So let me go through one by one.
+So how we have created what I have created.
+And also I will try to execute one by one.
+So what is the first request is creating token.
+First we need to create a token with this API authentication.
+So what is a Post request we need to send.
+This is a URL.
+We need to send API client along with the client name and client email address.
+Okay, suppose if you want to create multiple tokens later whenever you send a request, then you want
+to create a new token.
+So every time you have to send a different email address name is fine, but custom email address every
+time you need to send a different email address randomly, you can create and you can pass.
+Okay, so let us try to create this request and see whether how it is going to generate the token.
+And one more thing I will do here.
+As soon as it is created the token.
+That same token is required for other request.
+So I will store the token ID in a variable so that I can also refer the token variable in another request.
+So the chaining concept is also implemented in build.
+So first go to the first request.
+Create a token and see how we have implemented this request.
+This is basically a Post request and this is the URL.
+And if I look at here we don't need any authorization for this.
+As I said this is a first request through which we will create a token.
+So we don't need any authorization.
+Simply send this Post request.
+And what is a body.
+We have to specify client name and client email is required.
+And again I told you suppose if you send this request multiple times you need to send different email
+IDs.
+So you cannot send the same email ID which is already registered earlier.
+So what I'm doing here I go to scripts here and the Pre-request scripts.
+I'm just creating a random email ID because the Pre-request script will execute before sending the request,
+right?
+So here I'm just creating a random text, and with this text I have added gmail.com.
+This is generated email and that generated email I am storing into email variable okay I'm setting one
+new variable called email.
+And this particular email I'm referring into this body here I think last class also we have seen this.
+I think I don't need to explain again.
+So in the scripts go to Pre-request script.
+So when the pre-request script will execute before sending the request.
+So variables also we will create before sending the request.
+So we need to keep that code inside the Pre-request.
+Inside the Pre-request I just generated the random text.
+With that I generated one email id and I created one variable.
+The name is email, and in that variable I'm storing this randomly generated email and the same email
+id I am referring inside the body.
+Instead of hard coding this email address, I'm just randomly generating it and passing it to the client
+email.
+Okay, so whenever you send this request, you no need to worry about email ID so that it will generate
+email ID randomly.
+It will create a access token.
+Okay.
+There's a this is Pre-request script, so don't we need a different.
+Uh, no.
+Client name is.
+You can have the same client name, so this is not needed.
+So even if you duplicate this, no problem.
+But email address should be different.
+Okay.
+And again, if you want to change the client name you can change it.
+You can just go to the script.
+You already created some text right.
+You can pass this text as part of this body here directly.
+You can pass the text because there's a simple variable only right.
+So you can pass it.
+But here according to this requirement client name can be duplicated.
+But client email should be different okay.
+So now a body are created here.
+And in the script I created some variable to generate the random email ID.
+And also I'll do one more important thing because this token ID is required for other requests later.
+Right.
+For submitting order.
+Getting the order details, deleting updating so the token is required.
+So whatever token is generated with this Post request, I'm going to create another variable in which
+I will store the.
+I will save the token.
+So where I have to write that script, where I have to write it in the post response.
+So now go to post response here.
+Here I have done it.
+So I'm just capturing the JSON response.
+Okay.
+Let me send this request once I'll show you.
+So when I send this request just observe.
+See access token is got generated.
+So from this particular response from the JSON data I created one collection variable called access
+token.
+And this value I'm accessing how I'm accessing this value from the JSON data dot access token.
+Access token is a field okay.
+And with this access token I'm creating one variable called access token.
+Okay.
+Now you tell me once the request is successful.
+How many variables we created total?
+How many variables we created for this request?
+Two variables we created in the Pre-request script.
+We created email address and the post response.
+We created another variable which will store access token.
+So let us see whether it is created or not.
+If I go back and see the variables here under collection, you can see there are two variables.
+Email is got created.
+Access token is also got created.
+So these two variables I will refer.
+Email is not needed to refer but access token.
+We have to refer in further request okay fine.
+So I will explain this later.
+For now I just comment this.
+I'll come to this.
+Okay.
+So everybody's understood about the first request how to generate the access token.
+Simple.
+We need to send a Post request with this URL by specifying the client name and client email.
+And that will generate the token.
+So currently this token has got generated which is already saved inside the access token.
+Variable collection variable.
+Okay, done.
+Now let us move on to the next request.
+I just save it.
+Now let's go back to the next one.
+So what is the next request?
+Here is once you created access token check API status.
+So whether it is ready to access or not simple one get request we can send.
+So I just created here status of books API second one.
+So I'm just simply sending the status of this.
+And I don't need any authorization.
+Nothing.
+And go to the scripts and go in the scripts.
+I have added something here but I don't need this for now, I just comment.
+I'll come to this part later.
+So there are no scripts are required here.
+I'm simply sending this request and it will simply say okay, okay means we are ready to access.
+We can access books API okay.
+So simple status returning Okay, so I don't have any validations for this.
+A simple, straightforward status.
+Getting the status from the API.
+We can send the Get request.
+So we don't need to do anything with this now.
+List of books.
+So what are the books are available in the database.
+So we can simply send this Get request.
+So this will actually return all the books available in the database.
+Now go back to the list of books.
+This is another request.
+List of books okay.
+Now let me tell you what exactly it is.
+So when I send this get request directly, just observe what happens here when I send this.
+So now you can see how many books are listed with this client ID.
+So almost six books are there.
+So six books ID name type and available.
+So this is the data we have.
+And there are two optional query parameters we can pass.
+Suppose I currently it is displaying five but I don't want 1 to 6.
+I need only two is enough.
+So I can add this query parameter called limit.
+And how many I need?
+Only two I need.
+I can just simply say and if you want to write some description here, you can write.
+I just written something called optional.
+Okay.
+So how it is authorized the Get request in the post we just got the token, but where we mentioned to
+use it for other request.
+So as I said beginning first three requests doesn't need authentication.
+See for the books related stuff.
+So second, third and fourth these three API requests doesn't need authentication.
+So whatever token we created earlier which we are going to use in the submit order, all the orders
+single order update order.
+So order related information if you want to work on order related information we use authentication
+token.
+But books related information we can directly capture without having token.
+So token is not required.
+This particular API.
+So for list of books token is not needed for get single book.
+Also not not needed only for submit order requires bearer token authentication and also for getting
+all the orders.
+Also requires bearer token authentication for getting single order.
+Also requires bearer token authentication.
+Okay, so I already covered this part.
+Only three APIs are required.
+Authentication.
+First three does not required.
+Okay, now go back to the postman.
+So here let us see about query parameters.
+So when I send this box by default it is returning six books.
+But I want to apply some query parameters.
+And two parameters are supported.
+One is limit, another one is type.
+Again these parameters are also predefined according to the documentation.
+If I go back and see uh list of the books.
+So type is one parameter, limit is another parameter okay.
+And what can what is the type.
+Type can be a fiction or non-fiction.
+Limit can be between 1 to 22 is a maximum limit we can pass.
+So according to the requirement.
+So I can add query parameters under the parameters tab here.
+But currently I have added this okay.
+But earlier by default you don't see anything here.
+You will see under query parameters just empty table.
+You can see and even in the URL.
+Also can you see any query parameters how we can recognize query parameters in the URL?
+How you will know whether the query URL is having query parameters or not?
+Yes.
+If you see question mark after question mark, whatever is there.
+That is called query parameters, which will basically filter the record or filter the response.
+Currently we don't have any query parameters.
+Now I am adding one query parameters here.
+Go to the params under query parameters.
+I'm just adding a limit.
+So as soon as I added here by default it is selected.
+So 1 to 20 you can give anything.
+Currently we have only six records.
+I'm just saying two only.
+Okay, now we can send this request.
+Just observe what will happen when I send this request.
+See, you will get only two.
+And also you notice one thing.
+As soon as you have added query parameter here URL is automatically added this here.
+So when I update this table automatically, this query URL also automatically updated.
+Okay, suppose I already added this query parameter, but I don't want to use this query parameter.
+Simply you can uncheck this box and it has got disappear.
+And then you will get everything now.
+Okay this is how we can use this params tab.
+Now I also have another parameter called type.
+So what type of book you want.
+So fiction non-fiction.
+So there are different type of books are there.
+I want only fiction.
+So I can put this value called fiction.
+And now you can send this.
+So all fiction related books are displayed and currently limit I just uncheck it.
+Now I am also checking this.
+Now you can see only two records are there.
+According to the query parameters.
+Limit is to two, records are displayed and type is equal to fiction.
+So type equal to fiction.
+So if you if you don't want to use this query parameters again uncheck and simply send it.
+Now again everything you will get.
+So this is how we can work with the query parameters.
+In the description.
+You can write whichever description you want because these parameters are optional.
+I'm just writing something called optional.
+You can mention the description if you want, and if you need this parameter you can just simply select
+this checkboxes and this will apply okay.
+So when I send this you will get all the records.
+Now if I go back here.
+So do we need to save anything here under scripts I have added something here.
+So I'll just comment this for now and save the request okay.
+Now so this is listing of all the books which are available in the A database.
+So this is a list of the books.
+So this is one API request and we don't need authentication for this for checking API status list of
+books and get single book.
+Also don't need authentication.
+Now if you want to capture specific book then we need to pass path parameter book ID.
+We need to pass along with the URL specific book information.
+Let's say currently we have 126 books 123456.
+We can pass any number as part of book ID.
+Now I'm closing this and go back to the single book.
+This is another request.
+And here I'm passing one as a parameter.
+This is path parameter not query parameter.
+Only one book will be printed and no authentication required.
+No body is required.
+Simply send the request and now it is returning the book information.
+So what is a book ID we have given is just one, so the limit is also mentioned in the document.
+What will happen if we request more than 200?
+It will throw an error it will throw an error.
+So that is a part of the requirement.
+Okay.
+So we will not get the response even if you put more than 20.
+Also whatever records are there it will display even two ways.
+Maybe it will throw an error.
+Sometimes it will give you the existing records, all existing records below the 20.
+Because suppose you have only ten records, you have given 20.
+That means what?
+All ten records will be displayed and rest of them are not available, so it will not display.
+So that's how it will work.
+Sometimes based on the design, API may throw an error.
+If they have written some validation on the limit, they can throw an error some other code.
+Okay.
+Or suppose if you say only ten records are available in a database and you say limit is 20, then existing
+ten records will be displayed and rest of another ten records are not available.
+So you won't get the data.
+So that's how exactly APIs will work.
+Okay.
+now go to the single book.
+So here I provided only one ID so it is giving one.
+Similarly I say two here and it will print second book.
+So this is the book information name, author type, price, current stock and available.
+So these are the details currently we have for the book related information.
+Okay.
+And I have not added any validations or nothing for now because I want to show you some other topic
+here.
+So validations are optional.
+If you want to add validations you can add it later.
+So this is the response I have given.
+So what is this API will do.
+It will simply return single book information.
+And for that we need to pass a book number book ID we have to pass.
+So I already added some script here post response.
+So for now I just comment this.
+I don't have anything.
+So this is a single book.
+Now for the first three request status of book API.
+List of book single book these three APIs doesn't need token, so we already created the token with
+the first Post request.
+I think we already have the token under collection variable, right?
+If I go back to the where it is all variables.
+Okay, now we need to select the collection here.
+So if I go back to the collection you can see access token is already created.
+So now submitting order getting all the order information single order information update delete.
+For these request we need to use this token okay.
+All right.
+So now let us go back to the submit order.
+So this is the very important.
+So we need to create a new order.
+So we need to send a Post request.
+So this is a request URL.
+And in the body we have to pass two properties.
+One is book ID we have to pass book ID in the sense we already know the data.
+Right before sending the submit order, just list out all the books so that you will know the ID.
+So one, two, six are available in the database.
+So I just provided book ID one and I can pass some customer name is equal to John.
+You can pass any name.
+And this is the request body I will send along with this post request.
+And what is the response you will get in the response you will see order ID you will get another details.
+Also book related details, but order ID will be dynamically generated so that order ID we have to save
+in some other variable.
+So let us see how we can send this submit order.
+Also, I will show you how we can specify the bearer token authentication.
+Go back here and submit order.
+This is the Post request which is created and this is the URL authorization is required right.
+So let's go to authorization.
+Now.
+Do you have any parameters required here.
+No parameters are there.
+So authorization now here I have selected bearer token authentication.
+Right.
+And when I select bearer token authentication here, you need to provide the token.
+And from where I'm accessing this token I already created one variable here right.
+Access token.
+So this variable I'm trying to access here.
+And if you try to directly hardcode this token you can hardcode it.
+But that is not the best practice because the same token is used in multiple requests.
+In that case, you can create this variable at the beginning and use the same access token in multiple
+request.
+So what is an advantage of this?
+So suppose tomorrow if you create some other token and you can go and change in only one place and on
+all other request it will automatically reflected.
+So here we need to wait.
+I mean this is the way we can access the variable.
+So I already have the syntax right.
+Curly braces double curly braces variable name and double curly braces.
+Closed curly braces.
+This is the syntax we need to follow everywhere, even in the request.
+Also if you want access the variable.
+Same syntax and here also same syntax even in the body.
+Also in the first request.
+We already seen for getting in the body.
+Also if you want to access the variable.
+Curly braces okay.
+So now go back to the submit order once again.
+So authorization I mentioned bearer token.
+Access token.
+What else we need to specify body in the body I mentioned book ID and also customer name is John.
+Now go to the script.
+So what exactly we need to do after sending the post request.
+This will generate order ID.
+So we need to save that order id in some variable so that I can use same order ID in rest of the request.
+So for that, where we need to add the script, where we have to add that script, taking the order
+ID from the response post request script or pre request script.
+Post request script okay.
+Now go to the scripts here.
+Go back to the prerequisite.
+I don't have anything in the prerequisite.
+Now go to post response.
+Here I'm doing it.
+So I'm capturing the response in the JSON data and creating order ID by taking order ID from the response.
+So do we have order ID in the collection variable so far?
+No.
+Only access token we have.
+So let me run this request.
+Once you send this request now we can see here order is got created.
+And here this is the order ID we are capturing.
+And now we can see the variable has got created.
+See order ID has got created.
+Now we use this order ID in another request.
+So for that what I have done we captured the JSON data from the response and PM dot collection variable
+dot set order id is a variable name and from the JSON data by taking order id JSON path I have written
+order id.
+So this will actually create a new variable which contains the order ID.
+Okay, this is for the next request.
+I comment this for now.
+So this is the only script I have added for this.
+Now save it.
+So this will basically will create new order.
+So based on the information which we passed here.
+So we have order book number one with this customer name.
+So it has got created and generated the order ID.
+So that is maintained in a different variable.
+Right now submit order is successfully done.
+So what is the next order is.
+Suppose I want to get all the books and specific books.
+There are two different requests are there.
+So to get all orders not books, all orders.
+Because just now we have ordered a book.
+So this is a Get request we can send and all order related request required bearer token authentication.
+So when I send this get request to get all orders, bearer token is required.
+So how?
+We will get all other orders.
+Get all orders.
+And this is a Get request.
+And this is the URL.
+Authorization is required.
+So go to authorization tab.
+Again I'm taking bearer token and accessing the token variable which is already there here.
+Access token we already created.
+So same token I specified here.
+And do we need to add any body.
+No need because it's a Get request.
+Now go to the scripts.
+So here I have added some script here pre-request.
+We don't need anything but post response.
+I have added something.
+I just comment this for now.
+Save this.
+Okay, now this is get all orders.
+Let us try to execute this request and see what is the output you will get.
+As of now we don't need any parameters, just it will display all the orders.
+Send this request.
+Do we need any order ID here?
+No, because we want to display all the all orders.
+Existing orders simply send.
+Now we can see.
+Currently we have done only one order with the access token.
+With the client ID we have done only one single order so far.
+Right?
+There are N number of books are already available, but how many orders are available so far with this
+ID?
+Whatever the access token we created with the token, we just created only one order, so it is displaying
+only one order.
+Here book ID we have done so.
+This is the order ID customer name is John.
+We have given quantity is one.
+So this is the data we got.
+So just now we created this order.
+Suppose if you want to have another orders again one more time go to submit order okay.
+Now you can say book ID two I am giving and say send instead of John.
+You can give some other name.
+Kennedy okay, now I can send this.
+This book is not in the stock.
+Try again later.
+So I think the customer name should be different.
+Let me give a same name again.
+Book ID is not available.
+It is saying let me try to run this again.
+Yeah, book ID two is not there.
+So let's say book ID three.
+Yeah, it is created.
+So book ID three is there.
+So now again go back one.
+Save this request.
+Okay.
+Now how many orders we are expecting now.
+When I send this request how many orders we are expecting now.
+Two orders.
+Right.
+So when I send this request one more time.
+See?
+Now we got it.
+Two orders.
+So this is my first order, and this is my second order.
+So both the customer names are same.
+John.
+Okay, so here we just pass only authorization information bearer token.
+And we don't need to pass anything.
+Okay.
+So this is getting all orders.
+Now I want to get single order specific order.
+So when I send this request, submit order.
+The order information is also saved.
+Here you can see this is the order.
+So as soon as you created the new order the order ID has got changed.
+So this order is referring to the first one or second one, first book or second book.
+This is referring to the second book actually.
+Okay.
+This is referring to the second book.
+So this order ID will take here as a parameter because we are getting the single order id.
+So this order id whatever is there that is taking here authorization.
+Again same bearer token is required and which order we are expecting here first one or second one second
+order.
+So when I send this single order we are expecting this one.
+So book ID three we have ordered.
+So this we are expecting okay perfectly done.
+Now we need to update the order.
+So to update the order I have created one more request patch request I sent.
+So patch and order ID, whatever order we mentioned here, the same order ID passed here, and when
+a patch request or pull request, we have to send body also what we need to update.
+So go to the body now customer name is Carter.
+So with this order ID currently what is the name we have customer name we have with this order ID John.
+Now I'm trying to update the customer name as Carter.
+Authorization is required.
+Bearer token, same body and scripts in the scripts.
+I just comment this for now.
+I don't have anything now I'm sending this request.
+Then what will happen?
+It will go and update existing order details with the customer name is Scott.
+Now just observe.
+I'm sending this request.
+Now it is updated.
+Actually it is saying simply saying no content.
+What is saying no content?
+Let's go back and see all orders once again.
+All orders?
+Yeah.
+Now we can see it is updated.
+Actually it is saying no content means it is already updated.
+See the second one is got Scott successfully updated.
+Okay, now update order is done.
+So in the body we just specify only customer name.
+Nothing else even is a no.
+Content is saying green color red.
+Green is representing successful request is successful.
+Okay now let's go back to the last one.
+Delete order.
+So whatever order ID we have said with this order id with the order id we can delete the order also.
+So I can pass order ID again authorization is also required.
+Same thing.
+And under scripts I have created something here.
+Comment the first one and why I have created these two.
+What these two statements will do because in the previous request we have created the order ID, we
+have captured it also access token.
+Also we have saved in a variable.
+So after set after sending all the requests.
+Do we really need order ID, access token?
+We don't need it.
+So I'm unsetting those two variables.
+I'm removing those variables because we don't need to do anything with this because we already sent
+all the request.
+Now when I send this by default, it will delete it.
+Now if I go back and see here still access token is available.
+So why it is available.
+Because it is a capital letter.
+You can see the email uh access token A is a capital letter.
+So we need to specify the capital letter here how we have created here.
+Let's go back and check once again uh under scripts we have given capital letter.
+Right.
+So here also we need to specify the capital letter.
+Okay.
+Now we can send this no order with ID.
+So I think it is got deleted.
+Now nothing is there?
+Okay.
+So still email address is there.
+Uh, if you want to delete this email, also, you can simply delete this.
+You can add another 1 p.m. dot collection variable onset email.
+We created this email in the first request.
+Do you guys remember at the time of creating the token we need email address.
+Random email address.
+Under scripts we created here Pre-request script.
+Here we created.
+So that is also get deleted from here.
+Okay done.
+So because we already deleted them.
+So it is giving invalid breakpoint.
+Okay perfectly fine.
+Okay so now you understood everyone.
+So how we are going to create different type of request based on the API documentation.
+So we need to just go through the documentation step by step.
+And accordingly we created different type of request.
+Okay.
+Now so I want to run all this request in one single shot.
+So how many requests?
+Currently we have.
+3456789.
+Almost 123.
+Along with the create token.
+How many requests we have?
+123456789.
+Requests are there.
+Now I want to run all the requests in one shot.
+How we can run it.
+We can run the collection directly.
+Okay.
+Now, when I run the collection normally, what happens?
+Let me run the collection and show you.
+So I'm just clicking on three dots, and I'm simply running collection.
+And you can see all the requests will be shown.
+And if you want to run all the request, you can select everything.
+Suppose if you don't want to run specific request, you can unselect like this.
+Okay so all the requests are shown.
+So select all deselect reset.
+All options are available.
+Now select this run manually option for now and here iterations we will use for data driven testing.
+Okay.
+And delay time.
+You can specify.
+Suppose I send one request and after sending one request it will take some time to get response.
+And then I will go and execute another request.
+If you want to put some time between each and every request, you can add some time here one second,
+2 seconds or 3 seconds.
+Sometimes if the if the response is getting delayed because of that request may be failed sometime.
+So in that case you can add some delay time here.
+So I'll explain these options in the next example.
+So simply I'm running this book's API collection I'm simply run this.
+Now you can see it is executing everything one by one.
+It is listing out all the stuff.
+So I can say create token status books API.
+It is still not run actually you just See it isn't or not, it is simply saying zero.
+Okay, perfect.
+It is done actually.
+But why?
+It is saying all test to zero because we have not added any validations guys.
+Did we add any validations?
+Any assertions?
+No.
+So that's the reason all tests are zero.
+Suppose if you added any validations, if they are passed or failed then here it will show you green
+or red color.
+As of now we don't have any validations so it is executed, but there are no results.
+Even if you click on the view results here it is simply say only executed, but there are no tests found
+for every request.
+There are no tests found, but they are successfully executed.
+Okay, suppose I want to execute the in which order they have executed, in which order they have executed.
+If I look at here first create token status books of API.
+List of books.
+Single books.
+Submit order.
+Get all orders.
+Single order.
+So in whichever order we be created under the collection in the same order they have executed.
+So we don't have any problem.
+But in the older versions of postman it was not like that actually.
+So the request will be executed based on the alphabetical order.
+Okay, so in the newer versions of postman, by default it is taking same order in whichever order we
+created in the same order.
+But still, if you want to customize the order, suppose I want to execute first token, and after that
+I want to execute submit order.
+After that I want to execute delete order.
+Okay.
+So then how we can do that.
+So we can specify the order.
+Okay.
+So for example my requirement is first I want to create my token okay.
+And after creation of the token I directly want to execute my submit order because these three requests
+don't need any authentication.
+Also I just ignoring them.
+Okay, first I will create my token and after that directly I will execute submit order.
+And after that I will try to execute update order and delete order.
+So how we can control this.
+For example, if you want to control this you can just go and run the collection.
+Here you can select.
+Suppose you can unselect whatever you don't want.
+So create token I need submit order.
+Get all orders.
+Get single order.
+Update order like this.
+So I just removed this by default in whichever request I have selected.
+By default they will go as per the order.
+Perfect.
+This is the one way to execute.
+Okay, suppose even though I have this request.
+But still I want to execute a specific request based on the order.
+First I want to execute my create token.
+Then directly I will execute my submit order.
+Then I will execute my get single order.
+Then I will execute my delete order.
+So how we can control this order.
+So to control this order, we have a method available.
+Postman method is available.
+Okay.
+So how we can do that.
+First what is a method I want to execute.
+So first of all we need to decide the order okay.
+Accordingly we can specify that.
+So let me define the order in which order you want to execute.
+So first I want to execute my create token okay.
+Create token is my first request.
+Next what is the next one.
+After that I will directly go to submit order.
+So submit order I will execute and after that I will go to get single order directly get single order.
+And after that I will directly go to update order.
+Fourth one update order I will execute And after that delete order.
+So delete order.
+So this is how we need to first customize order and whatever request you want.
+So what is the first approach.
+As I already told you first approach is if I go back to three dots and run collection, you can run
+only those collection.
+Whichever you want to run according to your requirement.
+You can select whatever request you want to run and unselect rest of them, so only selected request
+will be executed, so no problem.
+But in the older versions of postman it was not possible like that.
+So we need to specify the order also.
+Okay, just try to remember how we can define the order.
+So this concept is there.
+So to define this order first which request we have to send create token.
+Go to create token okay.
+Here after create token what is the next request we have to execute.
+What is the next one.
+Submit order right now after execution of this post.
+request.
+After getting the response, go to post response here I enable this set.
+Next request.
+What is the next request I want to execute?
+Here you can specify that.
+So what is the method pm dot execution dot set next request.
+Here we need to specify the name of the request.
+So after sending this request, once you get a response post the response will execute right.
+So in the post response what you are mentioning, we are specifying the what is the next request we
+are going to execute.
+Okay PM dot execution dot set next request.
+What is the name of the next request?
+Submit order that I can specify here.
+Here I'll say submit order name should be exactly same okay.
+Submit order now save it.
+So now after in the where we need to write this inside the create token because after execution of create
+token post response, this script will execute.
+So it will go to submit order.
+Now go to submit order now.
+Okay.
+After submit order, what is the next request?
+We have to execute single order right now.
+Go to scripts go to Post response and here same statement again PM dot execution dot set next request.
+So what is the next request I want to execute here.
+Single order.
+Get the single order I say get the space single space order okay so now after execution of this post
+request where it will go it will go get the single order request now.
+Save it now.
+After submitting an order it will go to single order.
+Now go to single order.
+Now get single order.
+So here.
+So in the single order after single order, which one?
+We have to execute update order.
+Now again go to scripts post response.
+Here I enable this PM dot execution dot set next request update order okay now update resolved already
+already done.
+So now go to update order update order.
+So in the update order what is the next request.
+We have to execute delete order.
+So go to the scripts here under post response.
+Enable this PM dot execution dot set.
+Next request is what delete order okay.
+So after deletion order do we have any other request.
+Next request after delete order.
+No we don't have any more request.
+So then how we can stop it.
+Go to delete order and go to scripts here and here.
+We need to say null.
+Null is nothing, but there is no next request because this is the last request pm dot execution dot
+next set next request null.
+So whichever request we are sending, we are sending.
+At the last we specify null because we don't have the next request.
+Okay.
+So now save this.
+So this is how we can customize the execution order.
+Now let me clear this and I'll try to execute and some other request.
+Also I have added the Pre-request scripts.
+Let me check and delete them.
+So go to the scripts.
+You can see I just disable this.
+I already added but I disabled this for list of books.
+Also add it but disable this for single book.
+Also I have added but disable this okay for get all orders disable get single order is enabled.
+Update order is also enabled.
+Delete order is also enabled.
+Perfect.
+So now let us execute the collection and we will see whether we are able to execute the proper collections
+in proper order or not.
+So go to here run collection.
+So now do we need to uncheck here other collections.
+Do we need to uncheck.
+No we don't need to uncheck right.
+We don't need to uncheck.
+So even if you run this I'm just running all the collections.
+Simple run basics books API.
+Now we can see only five requests are got successfully executed.
+So why it is happening?
+Because we customized the order we customized.
+We explicitly told after creation of token execute submit order.
+After that execute get single order after that, execute update order.
+After that, finally execute delete order.
+We explicitly specify in each and every request.
+So that is the reason, even though it is selected all the collections by default, but it is executed
+only five collections or five request, whichever is having customized.
+So now you understood everyone's how we can customize the order order of request.
+But in the earlier versions of postman this is magnetically required.
+But in the latest versions of postman, not mandatory.
+Why?
+Because by default all collections will execute in whichever order we have created.
+Also, we have an option to select whichever collections we want to execute, and we have options here
+which are collections we don't want to execute.
+We can simply specify that okay.
+So everybody's understood the concept so far.
+Please confirm in the chat box.
+So what will happen if you don't set next request as null at last?
+Nothing will happen.
+It will stop there itself.
+Nothing will happen by default.
+It will stop because after that we don't have any request, but still explicitly why we have written.
+Can anyone guess?
+Guys, even if you're not written, even if you comment this still it will stop here.
+But again, even it is stopped by default.
+Still, I have written the statement why it is needed.
+Why it is needed.
+Anyone can guess it.
+Very good question.
+Why?
+I have specified this by default.
+It will stop because delete order is the last one anyway, right?
+So it will stop by default.
+But why?
+Again, I specified this explicitly.
+For example, let's say if you have any other request after delete order.
+Suppose in the same collection, suppose.
+Let's say after delete order, you have.
+Suppose you have one more request here.
+Then what will happen if I don't specify this?
+The next request?
+Whatever is there that will automatically will execute if you are not, if you are not specifying the
+what is the next request you want to execute by default, which will execute the next request will go
+and execute.
+You understood my point everyone.
+So if I don't specify this request, then after this request, whatever is request is available.
+By default it will go and execute.
+But currently we don't have any other request after this, so there is no problem.
+But suppose if you have any other request created here, then you have to specify that.
+Then it will stop at the delete order itself.
+Okay.
+Perfect.
+So now we have understood books API how we can create different type of request, how we have created
+the token and saved it and also submit order order ID we have saved.
+And also we use same order ID to get all order, single order, update order, delete order.
+And also we have run all the request at one shot collection we have executed.
+Everything is perfectly working well now.
+Next level I will.
+I will execute this submit order with a different sets of data.
+For example, let's say when I say submit order normally what is happening here in the body?
+We just specify only one book ID one customer name.
+So when I send this request, how many orders will be created?
+How many orders will be created?
+Only one order will be created.
+But suppose I want to create multiple orders with the same request.
+I don't want to run the same request multiple times.
+I will run this request only one time, but I want to create multiple orders with different sets of
+data with different sets of data.
+So then we need data variables.
+We need to apply data driven testing okay.
+So now what I will do is I will try to achieve the data driven testing so far that I'm going to take
+a few collections here.
+First one submit order I will take okay and then single order and delete order.
+So few request I will take and then I will do data driven testing.
+So I will create multiple orders.
+And also I will capture the uh orders.
+And then I will delete the orders.
+So I will execute the request with multiple sets of data.
+So for that what I will do is I already have one books API data driven.
+So let me take another copy of it duplicate and I will try to rename this.
+This is also D6 underscore books API data driven.
+So this is a name new name I have given to my collection okay D6 books API data driven.
+Now I have taken only three requests guys submit order and whatever order we submitted we will get that
+order by using get single order request and then delete order only three I'm taking.
+So this is a delete order okay.
+So submit order get single order and then delete order.
+So three request.
+And if I go back and see the do we need token here for these three requests.
+This is a totally different collection.
+So do we have any variables in the collection.
+We will see.
+So we don't have any variables in the collection.
+So do we need token for these three request.
+Yes we need token also.
+Right.
+We need token.
+So for that what we will do is we will try to create a token manually.
+And same token I will add in these three request okay.
+So we in the previous collection we already have it create token request right.
+So I will run this request once.
+So it will create a token and give it us.
+So let me run this request once right.
+So token is got created.
+So now I'm using this token, uh, in the next collection.
+Okay, so here, for these three requests, I will use the same token.
+So now what I will do is where I can specify the token.
+Because I have only three requests in the request level, I will add the token.
+Okay.
+If you want to add in the collection level also you can add you can create a separate variable manually.
+You can do that or collection request level I will do it.
+Go to submit order and then go to submit order.
+Go to Authorization Bearer token.
+So here I will add the token.
+Here I will add and then save it okay.
+And the body we need to pass right.
+So go to body.
+And here book ID customer name.
+So this is the response.
+This is the request body.
+But when you want to create a new order we need to pass book ID customer name.
+Right.
+But this time I will take these two details from the external file.
+It can be CSV file or it can be JSON file.
+So three two types of files are supported.
+So these are the two parameters.
+This time I will call them as a data parameters.
+So what are the data parameters.
+In the last classes I have told you how many types of parameters we can create, how many types of variables,
+how many types of variables.
+So global uh sorry environment variables, collection variables, request variables and data variables.
+Right.
+So now I will create data variables later.
+So I'm just taking the data here.
+So this is the body.
+Now when I go to the scripts here I just added a few validations.
+So I'm just verifying the status code 201 or not.
+And also order id variable I will create because this request will create an order ID.
+So I'm saving that order id so that the same order id I will use in get single order.
+Here I will use order id also for delete order.
+Also I will use the same order ID okay.
+These are submit order, same thing.
+Whatever we have done in the previous collection books API.
+Same thing we are doing okay, but something is different.
+What is that?
+In the submit order we are taking the data from the external file.
+So I have not created book ID customer name variables.
+Have you seen anything here under Pre-request script?
+I don't have no variables are created but still I am passing book id customer name so I will get this
+data from the external files.
+Okay, so this is something.
+Order get single order.
+We already know.
+So this is up URL.
+I'm just passing order ID authorization again here.
+Bearer token is just now we generated same bearer token I'm adding.
+And under scripts again I added one validation point.
+Also I'm verifying the order ID is same or not, because whatever order ID we created in the previous
+request, same order with the same order ID, I'm printing the order details, so order ID is exactly
+same or not.
+I'm validating from the JSON data id I'm capturing from the response comparing with the order id which
+is created as a variable.
+So this is validation point order id validation.
+This is status code validation.
+This time I'm also adding the validations in the submit order.
+Also go to the scripts post response I have added a validation status code validation.
+I'm also capturing the order id.
+Remember this.
+Now go to the last one delete order.
+So again here we need to pass order ID authorization.
+Here token is required hard coding the token and go to steps.
+And again one more validation.
+So 204 is the status code I'm expecting for deletion request.
+After that order ID I'm just deleting the variable because after deleting the order order id is not
+needed.
+So I'm just unsetting the variable.
+So same three requests earlier.
+Whatever we done.
+Same thing I'm doing.
+Submit order get single order.
+Delete order.
+So now the new thing is in the submit order under the scripts or body this data we should get it from
+the external file.
+So that is the one thing.
+Second thing is we want to run the these three requests multiple times with multiple sets of data.
+Repetition is there.
+Okay.
+So now let me show you the data.
+So we need to prepare the data before uh achieving this data driven testing.
+So I will show you the data how we have prepared.
+So here in automation automation files uh JSON files here API test data.
+So here I have a two different files CSV file and JSON file.
+Uh let me open the CSV file first.
+So here I have some data.
+Okay, so here I have taken different book IDs and customer name.
+So different customer names.
+Now how many records we have in this.
+How many records.
+12345 records are there.
+So we need to run the collection five times.
+The entire collection.
+Collection in the sense again, the three requests are part of the same collection.
+So how many times we have to run this collection?
+Five times.
+Because five different type of inputs we have.
+Okay.
+So this is my CSV file.
+So let it be there.
+Let me close this right.
+Okay.
+So this is my CSV file.
+Currently I have save your changes in the files okay.
+So CSV file already kept here.
+Now how we can get the data into this collection.
+So we already mentioned the parameters name.
+So this name is exactly matching with the column id in the CSV file.
+Remember this okay.
+This book ID customer name names should be exactly match, because whatever column is there in the CSV
+file, that column name is treating as a variable name here.
+So the column name should be exactly same.
+So if I go back and see once again.
+So you can see book ID is exactly same.
+And then customer name is also exactly same book ID customer name.
+Two columns you can have n number of columns no matter.
+Okay.
+So how we can execute this collection with the data which we prepared in the CSV file.
+Simple.
+Go to three dots just how you would execute the collection.
+Same process.
+Go to run collection.
+And also remember one thing guys, we have not written any JavaScript to read the data from the CSV
+file or JSON file.
+Have you written any script here in the submit order in the skips.
+Did we written any script here?
+Nothing.
+There is no script is required.
+Additional script is required to capture the data from the CSV file or JSON file.
+No need because postman supported everything.
+So let me go to collection.
+Now I run the collection so all three request I want to execute for all sets of data.
+Now select this run manual option.
+And here these two fields are most important.
+Now configuration is most important.
+So currently how many records we have in the CSP file five records are there.
+So how many times we have to repeat this collection now five times.
+So that number we can specify five times.
+Suppose I have only five records in my CSV file.
+But I want to take only two records.
+I want to take only two records.
+Then I can limit the records here.
+I want to take only three records.
+Then you can say three here.
+Okay, I want to take all five records.
+Then I can say five here.
+So that is called iterations field.
+So how much data you have in the CSV file.
+So those many number you need to specify exactly here how many times this collection should be executed
+that you can configure here.
+And delay time.
+So when you do data driven testing same request we are trying to execute multiple times repetitively.
+Right.
+So in those cases definitely there should be delay.
+Time is required immediately when you send the request again and again.
+Sometimes you may get some response issues delay issues.
+So to avoid that safe side you can add some delay one second or two seconds.
+You can simply put I say two seconds or one second is enough.
+Sometimes if the performance is very slow then you can add 2 seconds or 3 seconds.
+So what is this delay?
+Delay is a time between each and every request.
+So first it will submit order.
+After that it will wait for one second.
+Then it will send get a single order.
+Then again it will wait for one second, then go to delete order.
+So this time is seconds between each and every request.
+Now here we need to get the file.
+So we have a CSV file and JSON file.
+Now we need to select the file.
+So click on select file and select the file.
+Wherever you have CSV file I am selecting.
+You can name it any name no problem and say open.
+So now I have browse this file.
+How many records are there in this file.
+Five records here.
+Iterations also five.
+Now what is the format of the file?
+By default it is given here text slash CSV.
+Both are same.
+So currently what is the format of the file.
+CSV so it is automatically given.
+If not you can select from here.
+And when you click on the preview it will show you the data.
+So book ID auto detected customer name is also detected and the iterations also given by default.
+First iteration this data will be taken in the second iteration.
+This will be taken.
+Third iteration.
+This will be taken.
+Okay.
+Suppose if the CSV file is having some issues or the content is not properly aligned.
+Here you won't see the preview.
+If you are not able to see the preview, that means your CSV file is corrupted.
+You need to correct the data in the CSV file.
+The alignment format is not correct.
+If everything is perfectly correct, then only you will see the preview data.
+Okay, so we provided iterations delay time.
+We selected the file file format and no need to select any option.
+Simply run the A6 books API.
+So this is the name of the API.
+Simply run it and see what is the magic.
+So this data will be taken only in the first request, but all request will be executed five times because
+as soon as you created one order immediately I want to get the order immediately.
+I want to delete the order also.
+Okay, so this is the data driven testing in the data driven testing how many records we are using?
+Five records we are using, how many requests we are repeating.
+How many requests we are repeating.
+Three requests we are repeating.
+That means submit order will execute five times.
+Get single order also execute five times.
+Delete order also will be executed five times.
+Okay, now run the collection.
+Observe.
+See?
+It is executing and we added validations.
+Also validations.
+So it is now it is giving green color and number of tests passed or failed.
+Also it is given here.
+Now we can clearly see that we have run three request and submit order.
+How many times it is executed?
+Five times executed.
+And if you go back and see the submit order, I go back and see the submit order.
+Go to the scripts and post response.
+How many validations we have added here, validations in the submit order.
+How many validations?
+We have added only one validation status code we have added.
+So in the submit order five times it is executed means what five assertions are executed.
+In every iteration, one test is got executed.
+So how many are showing here?
+Five is showing five tests are executed okay in five iterations is given green color.
+So all five iterations are passed.
+Now come to the get request.
+In the Get request how many tests?
+We have added a single order.
+If I go back to single order, go to the scripts.
+How many tests we have added two tests.
+We have added two tests in the single order.
+So if I go to single order five into two total, how many tests are executed?
+Ten are executed in five iterations.
+Now in the delete order.
+How many tests we have added, only one test we have added.
+So five iterations five times each test.
+So five are got executed and there are no failures.
+So it is simply giving zero.
+All five iterations everything is successfully executed.
+Now if I just expand this and it will show you the result of the test, again, it will show results.
+Two validations.
+We have added results and delete.
+Also only one validation is added.
+Okay so this is the detailed uh execution status.
+Now if I just click on view results here there is a link called View Results.
+Click on it.
+It will show you more detailed.
+So here this is a URL we have sent past get request passes to past and delete request is passed.
+Post request is passed.
+So total how many are there three into 515 request.
+You can see here 15 including all the test.
+Totally 20 tests are got executed and five iterations.
+First iteration is the first iteration.
+Second iteration, third fourth five iterations.
+Okay.
+So this is how we can achieve the data driven test.
+So later if you want to export these results you can export here click on export results even JSON format.
+You can export the results later.
+We will discuss about reporting and exporting and everything okay.
+So if you want to run this again one more time there is option is there again.
+Run again.
+So again you can use same every time.
+You no need to go here and select Run collection.
+So in the collection window run collection window itself you can see this run again button.
+So any number of times you can execute by clicking on run again okay.
+Now go to console here.
+And I'm clearing the console.
+And I will just rerun the collection one more time and see in the console window also we can clearly
+see the results.
+Click on this run again.
+Now just observe it is again running the request.
+Now you can see here Total three into 515 requests are got executed so you can see post get deleted
+again, post get, delete again, post get delete, post get delete, post, get, delete five times.
+And again.
+If you expand this you will see all the request response request body, what we have sent and what is
+the response body?
+What is the response we got?
+Everything it will show you in the console window.
+Okay, so this is how we can achieve the data driven testing using data variables.
+We can repeat the collection multiple times.
+Now we will see by using JSON format.
+So I already have a file with the JSON.
+So let me open this same data but is in JSON format.
+It is JSON format.
+This is one record.
+This is next record, third record, fourth record and next record.
+So if you have a CSV file you can convert it into JSON.
+Similarly, if you have a JSON file, you can convert it into CSV also.
+So there are so many online tools are available.
+So just you can type convert JSON to CSV and you will find so many tools, you can say JSON to CSV converter
+and you can just provide JSON file.
+It will convert into CSV.
+Similarly you have different tools are available CSV to JSON.
+You can easily convert.
+You can you can explore this.
+So with the same CSV I converted to JSON file.
+Now let us see how we can do the JSON file request.
+Let me close this now.
+Same collection.
+You don't need to change anything because same data.
+We have same book ID.
+Customer name comes from the JSON file.
+So what you need to do again click on three dots run collection.
+And we selected all the collections and iterations five iterations let makes three iterations or two.
+Whatever number you want.
+Maximum.
+How many are there?
+Five.
+A given delay time is one.
+Now select the file JSON JSON file I've selected open.
+Now just observe.
+So you can see by default it is taking this type.
+This is called Mime type.
+For JSON we have application slash.
+JSON is a Mime type.
+So when I click on the preview this is the save side option.
+No need to click preview every time okay.
+But if your JSON file is properly created it doesn't have any issues or not.
+If you want to simply check, click on the preview so you can see the data here.
+And if the JSON is having some issues, you won't see the preview.
+Okay, simple.
+Run it again.
+So this time the data is taken from where CSV file.
+Sorry JSON file.
+Again everything is got successfully executed.
+So totally 20 tests are there in all iterations and successfully executed.
+And if you go and view summary.
+So this is the view summary.
+You can see submit order five times executed five tests are passed.
+Single order ten times are five times executed ten tests are passed five times executed five tests are
+passed.
+So this is how we can simply take the data from either CSV or JSON.
+So everybody's understood how we can do data driven testing.
+So just how we will receive the data from the normal variables.
+Same way we will receive the data from the CSV file.
+But at the runtime we are receiving, we are not writing any code to get the data from the CSV file.
+So that file we are attaching at the runtime before running the collection.
+So the dynamically data is taken from CSV or JSON file.
+Now our collection is running multiple times.
+So this is how we can achieve the data driven testing.
+So I'll share this.
+Another document.
+So first we have submitted the order with this request body.
+And after that we have added one validation point and captured the order ID.
+This is a script pre post response validation.
+And after that get single order.
+We have taken order ID and validations and remove the order.
+And finally these are three requests we have in the collection.
+When you run this we selected three collections.
+Selected run manually specify the iteration delete time, select the file and make sure data file type
+is correctly given or not, and simply run the collection.
+So this is the process.
+I will share these two documents today.
+Books API okay, then do practice it.
+All right.
+So we'll stop here for today's session and do practice 1 or 2 rounds of practice.
+And rest of the things we will discuss in the next class.
+All right.
+Yeah.

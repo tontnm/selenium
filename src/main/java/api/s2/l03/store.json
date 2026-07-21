@@ -1,0 +1,25 @@
+{
+  "store": {
+    "book": [
+      {
+        "title": "a1",
+        "author": "a2",
+        "price": 3,
+        "categories": ["c1","c2"]
+      },
+      {
+        "title": "b1",
+        "author": "b2",
+        "price": 4,
+        "categories": ["c1","c2"]
+      }
+    ],
+    "bicycle": {
+      "type": "mountain",
+      "price": 499.99
+    }
+  }
+}
+
+$.store.bicycle.type
+$.store.book[1].title
